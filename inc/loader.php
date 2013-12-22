@@ -12,3 +12,8 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
  * Include Main Menu file.
  */
 require_once( KBSO_PATH . 'inc/menu.php' );
+
+/*
+ * Include Helper Functions file.
+ */
+require_once( KBSO_PATH . 'inc/helpers.php' );
