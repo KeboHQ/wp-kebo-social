@@ -9,6 +9,11 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
 }
 
 /*
+ * Include Options file.
+ */
+require_once( KBSO_PATH . 'inc/options.php' );
+
+/*
  * Include Main Menu file.
  */
 require_once( KBSO_PATH . 'inc/menu.php' );
