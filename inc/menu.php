@@ -15,7 +15,7 @@ function kbso_plugin_menu() {
             __('Kebo Social', 'kbso'), // Menu Title
             'edit_others_posts', // Capability ** Let Editors See It **
             'kbso-dashboard', // Menu Slug
-            'kbso_dashboard_page', // Render Function
+            'kbso_dashboard_page_render', // Render Function
             null, // Icon URL
             '99.00018384' // Menu Position (use decimals to ensure no conflicts
     );
@@ -29,13 +29,28 @@ function kbso_plugin_menu() {
             __('Dashboard', 'kbso'), // Label in Menu
             'manage_options', // Capability Required
             'kbso-dashboard', // Menu Slug, used to uniquely identify the page
-            'kbso_dashboard_page' // Function that renders the options page
+            'kbso_dashboard_page_render' // Function that renders the options page
+    );
+    
+    /*
+     * Plugin Settings Page
+     */
+    add_submenu_page(
+            'kbso-dashboard', // Parent Page Slug
+            __('Settings', 'kbso'), // Name of Page
+            __('Settings', 'kbso'), // Label in Menu
+            'manage_options', // Capability Required
+            'kbso-settings', // Menu Slug, used to uniquely identify the page
+            'kbso_settings_page_render' // Function that renders the options page
     );
     
 }
 add_action( 'admin_menu', 'kbso_plugin_menu' );
 
-function kbso_dashboard_page() {
+/*
+ * Render the Dashboard Page
+ */
+function kbso_dashboard_page_render() {
 
     if ( ! current_user_can( 'manage_options' ) ) {
         wp_die( __('You do not have sufficient permissions to access this page.') );
@@ -313,3 +328,33 @@ function kbso_dashboard_page_scripts() {
     
 }
 add_action( 'admin_print_footer_scripts', 'kbso_dashboard_page_scripts' );
+
+/*
+ * Render the Settings Page
+ */
+function kbso_settings_page_render() {
+    
+    if ( ! current_user_can( 'manage_options' ) ) {
+        wp_die( __('You do not have sufficient permissions to access this page.') );
+    }
+    
+    ?>
+
+    <div class="wrap">
+        
+        <h2><?php _e( 'Kebo Social - Settings', 'kbso' ); ?></h2>
+        <?php settings_errors('kbso-settings'); ?>
+
+        <form method="post" action="options.php">
+            <?php
+            settings_fields( 'kbso_options' );
+            do_settings_sections( 'kbso-settings' );
+            submit_button();
+            ?>
+        </form>
+            
+    </div>
+
+    <?php
+    
+}
