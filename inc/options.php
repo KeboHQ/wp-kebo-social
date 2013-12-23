@@ -17,34 +17,34 @@ function kbso_plugin_options_init() {
     $options = kbso_get_plugin_options();
     
     register_setting(
-            'kbso_options', // Options group
-            'kbso_plugin_options', // Database option
-            'kbso_plugin_options_validate' // The sanitization callback,
+        'kbso_options', // Options group
+        'kbso_plugin_options', // Database option
+        'kbso_plugin_options_validate' // The sanitization callback,
     );
-
+    
     /**
      * Section - Share Links
      */
     add_settings_section(
-            'kbso_share_links_general', // Unique identifier for the settings section
-            __('General Options', 'kbso'), // Section title
-            '__return_false', // Section callback (we don't want anything)
-            'kbso-sharing' // Menu slug
+        'kbso_core_feature_control', // Unique identifier for the settings section
+        __('Feature Control', 'kbso'), // Section title
+        '__return_false', // Section callback (we don't want anything)
+        'kbso-settings' // Menu slug
     );
     
     /**
      * Field - Activate Feature
      */
     add_settings_field(
-            'share_links_activate_feature', // Unique identifier for the field for this section
-            __('Activate Feature', 'kbso'), // Setting field label
-            'kbso_options_render_switch', // Function that renders the settings field
-            'kbso-sharing', // Menu slug
-            'kbso_share_links_general', // Settings section.
-            array( // Args to pass to render function
-                'name' => 'share_links_activate_feature',
-                'help_text' => __('Turns the feature on or off.', 'kbso')
-            ) 
+        'feature_control_social_sharing', // Unique identifier for the field for this section
+        __('Social Sharing', 'kbso'), // Setting field label
+        'kbso_options_render_switch', // Function that renders the settings field
+        'kbso-settings', // Menu slug
+        'kbso_core_feature_control', // Settings section.
+        array( // Args to pass to render function
+            'name' => 'feature_control_social_sharing',
+            'help_text' => __('Turns the feature on or off.', 'kbso')
+        ) 
     );
 
 }
@@ -68,6 +68,10 @@ function kbso_get_plugin_options() {
     $saved = (array) get_option( 'kbso_plugin_options' );
     
     $defaults = array(
+        
+        // Section - Core
+        'feature_control_social_sharing' => 'no',
+        
         // Section - Share Links - General
         'share_links_activate_feature' => 'no',
         'share_links_intro_text' => null,
@@ -86,6 +90,61 @@ function kbso_get_plugin_options() {
     $options = array_intersect_key( $options, $defaults );
 
     return $options;
+    
+}
+
+/**
+ * Returns an array of radio options for Yes/No.
+ * Used by switches
+ */
+function kbso_options_radio_buttons() {
+    
+    $radio_buttons = array(
+        'yes' => array(
+            'value' => 'yes',
+            'label' => __('On', 'kbso')
+        ),
+        'no' => array(
+            'value' => 'no',
+            'label' => __('Off', 'kbso')
+        ),
+    );
+
+    return apply_filters( 'kbso_options_radio_buttons', $radio_buttons );
+    
+}
+
+/**
+ * Renders (Foundation 4 Style) Switch Form Input
+ * @param type $args
+ */
+function kbso_options_render_switch( $args ) {
+    
+    $options = kbso_get_plugin_options();
+    
+    $name = esc_attr( $args['name'] );
+    
+    $help_text = ( $args['help_text'] ) ? esc_html( $args['help_text'] ) : null;
+    
+    ?>
+    <div class="switch options">
+    <?php
+    foreach ( kbso_options_radio_buttons() as $button ) {
+    $counter++;
+    ?>
+        <input id="x<?php echo $counter; ?>" type="radio" name="kbso_plugin_options[<?php echo $name; ?>]" value="<?php echo esc_attr( $button['value'] ); ?>" <?php checked( $options[ $name ], $button['value'] ); ?> />
+        <label for="x<?php echo $counter; ?>"><?php echo $button['label']; ?></label>
+    <?php
+    }
+    ?>
+    <span></span>
+    </div>
+    <?php if ( $help_text ) { ?>
+        <span class="howto"><?php echo esc_html( $help_text ); ?></span>
+    <?php } ?>
+    <?php
+    
+    unset( $options );
     
 }
 
