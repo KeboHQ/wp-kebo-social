@@ -14,6 +14,20 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
 require_once( KBSO_PATH . 'inc/options.php' );
 
 /*
+ * Include Classes
+ */
+function kbso_class_autoloader( $class ) {
+    
+    if ( file_exists ( KBSO_PATH . 'inc/classes/' . $class . '.php' ) ) {
+        
+        require_once KBSO_PATH . 'inc/classes/kebo_view.php';
+        
+    }
+    
+}
+spl_autoload_register( 'kbso_class_autoloader' );
+
+/*
  * Include Main Menu file.
  */
 require_once( KBSO_PATH . 'inc/menu.php' );
@@ -22,3 +36,18 @@ require_once( KBSO_PATH . 'inc/menu.php' );
  * Include Helper Functions file.
  */
 require_once( KBSO_PATH . 'inc/helpers.php' );
+
+// Get Plugin Options
+$options = kbso_get_plugin_options();
+
+/*
+ * Include activated features file.
+ */
+if ( 'yes' == $options['feature_control_social_sharing'] ) {
+    
+    require_once( KBSO_PATH . 'inc/modules/social-sharing/init.php' );
+    
+}
+
+// Unset Plugin Options
+unset( $options );
