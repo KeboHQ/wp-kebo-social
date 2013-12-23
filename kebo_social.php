@@ -114,7 +114,7 @@ add_action( 'wp_enqueue_scripts', 'kbso_enqueue_frontend' );
  * Enqueue backend plugin scripts and styles.
  */
 function kbso_enqueue_backend( $hook_suffix ) {
-        
+    
     // Enqueue on all pages
     wp_enqueue_style( 'kbso-admin-css' );
         
