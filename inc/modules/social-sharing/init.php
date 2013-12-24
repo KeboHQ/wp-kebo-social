@@ -28,6 +28,11 @@ require_once( KBSO_PATH . 'inc/modules/social-sharing/update-counts.php' );
  */
 require_once( KBSO_PATH . 'inc/modules/social-sharing/ajax.php' );
 
+/*
+ * Include Helper Functions file.
+ */
+require_once( KBSO_PATH . 'inc/modules/social-sharing/helpers.php' );
+
 /**
  * If the Share Links feature has been activated it, hook the feature in.
  */
