@@ -95,6 +95,7 @@ function kbso_register_files() {
     // Register Scripts
     wp_register_script( 'kbso-admin-js', KBSO_URL . 'assets/js/admin.js', array(), KBSO_VERSION, true );
     wp_register_script( 'responsive-slides', KBSO_URL . 'assets/js/vendor/responsiveslides.min.js', array( 'jquery' ), KBSO_VERSION, false );
+    wp_register_script( 'jquery-ui-touch-punch', KBSO_URL . 'assets/js/vendor/touchpunch/jquery.ui.touch-punch.min.js', array( 'jquery-ui' ), KBSO_VERSION, false );
         
 }
 add_action( 'wp_enqueue_scripts', 'kbso_register_files' );
@@ -114,14 +115,28 @@ add_action( 'wp_enqueue_scripts', 'kbso_enqueue_frontend' );
  * Enqueue backend plugin scripts and styles.
  */
 function kbso_enqueue_backend( $hook_suffix ) {
-    
-    // Enqueue on all pages
-    wp_enqueue_style( 'kbso-admin-css' );
         
+    // Enqueue files for dashboard page
+    if ( 'toplevel_page_kbso-dashboard' == $hook_suffix ) {
+            
+        wp_enqueue_style( 'kbso-admin-css' );
+            
+    }
+        
+    // Enqueue files for settings page
+    if ( 'kebo-social_page_kbso-settings' == $hook_suffix ) {
+        
+        wp_enqueue_style( 'kbso-admin-css' );
+            
+    }
+    
     // Enqueue files for sharing page
     if ( 'kebo-social_page_kbso-sharing' == $hook_suffix ) {
-            
+        
+        wp_enqueue_style( 'kbso-admin-css' );
+        
         wp_enqueue_script( 'jquery-ui-sortable' );
+        wp_enqueue_script( 'jquery-ui-touch-punch' );
             
     }
         
