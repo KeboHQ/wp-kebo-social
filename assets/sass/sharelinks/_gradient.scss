@@ -1,0 +1,110 @@
+/**
+ * Share Links - Gradient Theme
+ */
+.ksharelinks.gradient {
+        
+}
+.ksharelinks.gradient .kintro {
+        float: left;
+        margin: 0 0.5em 0 0;
+}
+.ksharelinks.gradient ul {
+        margin: 0;
+        padding: 0;
+}
+.ksharelinks.gradient ul li {
+        float: left;
+}
+.ksharelinks.gradient ul li:last-of-type {
+        margin: 0;
+}
+.ksharelinks.gradient ul li .klink {
+        padding: 0 0 1px 0;
+        color: #fff;
+        float: left;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgba(0, 0, 0, 0.1);
+        border-bottom-color: rgba(0, 0, 0, 0.4);
+        border-radius: 3px;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
+        font-size: 0.9em;
+}
+.ksharelinks.gradient ul li .klink i {
+        color: #fff;
+        text-align: center;
+        font-size: 1.1em;
+        line-height: 1em;
+        margin: 0.2em 0 0 0;
+        display: block;
+}
+.ksharelinks.gradient ul li .kicon {
+        padding-left: 0.4em;
+}
+.ksharelinks.gradient ul li .kname {
+        padding: 0 0.4em;
+}
+.ksharelinks.gradient ul li .kcount {
+        padding: 0 0.4em;
+}
+
+.ksharelinks.gradient ul li .klink.facebook {
+        @include gradient-single( $facebook );
+}
+.ksharelinks.gradient ul li .klink.facebook:hover {
+        @include gradient-single( darken($facebook, 10%) );
+}
+.ksharelinks.gradient ul li .klink.twitter {
+        @include gradient-single( $twitter );
+}
+.ksharelinks.gradient ul li .klink.twitter:hover {
+        @include gradient-single( darken($twitter, 10%) );
+}
+.ksharelinks.gradient ul li .klink.linkedin {
+        @include gradient-single( $linkedin );
+}
+.ksharelinks.gradient ul li .klink.linkedin:hover {
+        @include gradient-single( darken($linkedin, 10%) );
+}
+.ksharelinks.gradient ul li .klink.googleplus {
+        @include gradient-single( $googleplus );
+}
+.ksharelinks.gradient ul li .klink.googleplus:hover {
+        @include gradient-single( darken($googleplus, 10%) );
+}
+.ksharelinks.gradient ul li .klink.pinterest {
+        @include gradient-single( $pinterest );
+}
+.ksharelinks.gradient ul li .klink.pinterest:hover {
+        @include gradient-single( darken($pinterest, 10%) );
+}
+.ksharelinks.gradient ul li .klink.tumblr {
+        @include gradient-single( $tumblr );
+}
+.ksharelinks.gradient ul li .klink.tumblr:hover {
+        @include gradient-single( darken($tumblr, 10%) );
+}
+.ksharelinks.gradient ul li .klink.reddit {
+        @include gradient-single( $reddit );
+}
+.ksharelinks.gradient ul li .klink.reddit:hover {
+        @include gradient-single( darken($reddit, 10%) );
+}
+.ksharelinks.gradient ul li .klink.stumbleupon {
+        @include gradient-single( $stumbleupon );
+}
+.ksharelinks.gradient ul li .klink.stumbleupon:hover {
+        @include gradient-single( darken($stumbleupon, 10%) );
+}
+.ksharelinks.gradient ul li .klink.digg {
+        @include gradient-single( $digg );
+}
+.ksharelinks.gradient ul li .klink.digg:hover {
+        @include gradient-single( darken($digg, 10%) );
+}
+.ksharelinks.gradient ul li .klink.delicious {
+        @include gradient-single( $delicious );
+}
+.ksharelinks.gradient ul li .klink.delicious:hover {
+        @include gradient-single( darken($delicious, 10%) );
+}

@@ -1,0 +1,279 @@
+/*
+ * Twitter Widget
+ */
+
+/*
+ * General (Twitter)
+ */
+.kcontainer {
+        margin: 0 0 1.6em 0;
+        padding: 0;
+}
+
+/*
+ * Tweets (Twitter)
+ */
+html body .ktweets {
+        overflow: hidden;
+        width: auto;
+        margin: 0 !important; // only way to override themes which use #IDs for widget areas
+        padding: 0;
+        list-style: none;
+        border: none;
+        outline: none;
+        background-image: none;
+}
+html body .ktweets .ktweet {
+        margin: 0 0 1.4em 0;
+        padding: 0;
+        list-style: none;
+        border: none;
+        outline: none;
+        background-image: none;
+}
+.ktweets .ktweet:before {
+        content: none !important;
+}
+.ktweets .ktweet .kheader {
+        overflow: hidden;
+}
+.ktweets .ktweet .kheader .kname {
+        float: left;
+        margin: 0 1em 0 0;
+}
+.ktweets .ktweet .kheader .kdate {
+        float: right;
+        margin: 0 0 0 1em;
+}
+.ktweets .ktweet .kheader .kscreen {
+        float: left;
+}
+.ktweets .ktweet .ktext {
+        margin: 5px 0 2px 0;
+        padding: 0;
+        min-height: 4em;
+        text-align: left;
+        clear: both;
+}
+.ktweets .ktweet .ktext a {
+        display: inline;
+        padding: 0;
+}
+.ktweets .ktweet .kavatar {
+        float: left;
+        margin: 7px 7px 0 0;
+        border-radius: 0px;
+        width: 41px;
+        height: 41px;
+        padding: 0;
+        border: none;
+}
+.ktweets .ktweet .kfooter {
+        text-align: right;
+        padding: 0;
+        opacity: 0.5;
+        overflow: hidden;
+}
+.ktweets .ktweet .kfooter a {
+        background: url('../imgs/twitter_feed_icons_sprite.png') top left no-repeat;
+        width: 20px;
+        height: 14px;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        border: none;
+        float: none;
+}
+.ktweets .ktweet .kfooter a:hover {
+        opacity: 0.7;
+}
+.ktweets .ktweet .kfooter a.kreply {
+        background-position: 0px 0px;
+}
+.ktweets .ktweet .kfooter a.kretweet {
+        background-position: -27px 0px;
+}
+.ktweets .ktweet .kfooter a.kfavorite {
+        background-position: -54px 0px;
+}
+.ktweets .ktweet .kfooter a.ktogglemedia {
+        float: left;
+        width: auto;
+        height: auto;
+        background: none;
+        font-size: 12px;
+        padding: 0;
+        opacity: 1;
+        overflow: hidden;
+        line-height: 1em;
+        margin-top: 8px;
+}
+.ktweets .ktweet .kfooter a.ktogglemedia:hover {
+        text-decoration: underline;
+}
+.ktweets .ktweet .kfooter a.ktogglemedia .kshow {
+        display: none;
+}
+.ktweets .ktweet .kfooter a.ktogglemedia .khide {
+        display: inline-block;
+        float: left;
+}
+.ktweets .ktweet .kfooter a.ktogglemedia.kclosed .kshow {
+        display: inline-block;
+        float: left;
+}
+.ktweets .ktweet .kfooter a.ktogglemedia.kclosed .khide {
+        display: none;
+}
+.ktweets .ktweet .kmedia {
+        height: auto;
+        overflow: hidden;
+        margin-top: 5px;
+}
+.ktweets .ktweet .kmedia.kclosed {
+        height: 0px;
+}
+.ktweets .ktweet .kmedia img {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        height: auto;
+        margin: 0 0 5px 0;
+        padding: 0;
+}
+.kebo-tweets .kfollow {
+        margin: 10px 0 0 0;
+        padding: 0;
+}
+
+/* Tweets - RTL Support */
+.ktweets.rtl .ktweet .kheader {
+        overflow: hidden;
+}
+.ktweets.rtl .ktweet .kheader .kname {
+        float: right;
+        margin: 0 0 0 1em;
+}
+.ktweets.rtl .ktweet .kheader .kdate {
+        float: left;
+        margin: 0 1em 0 0;
+}
+.ktweets.rtl .ktweet .kheader .kscreen {
+        float: right;
+}
+.ktweets.rtl .ktweet .kheader .kname,
+.ktweets.rtl .ktweet .kheader .kdate,
+.ktweets.rtl .ktweet .kheader .kscreen {
+        text-align: right;
+        direction: rtl;
+        unicode-bidi: bidi-override;
+}
+.ktweets.rtl .ktext {
+        text-align: right;
+        direction: rtl;
+        unicode-bidi: bidi-override;
+}
+.ktweets.rtl .ktweet .kavatar {
+        float: right;
+        margin: 7px 0 0 7px;
+}
+.ktweets.rtl .kfooter a {
+        float: left;
+        direction: rtl;
+        unicode-bidi: bidi-override;
+}
+.ktweets.rtl .ktweet .kfooter a.ktogglemedia {
+        float: right;
+        margin-top: 2px;
+}
+.ktweets.rtl .ktweet .kfooter a.ktogglemedia span {
+        direction: rtl;
+        unicode-bidi: bidi-override;
+}
+
+/*
+ * Followers (Twitter)
+ */
+html body .kfollowers {
+        overflow: hidden;
+        text-align: center;
+}
+html body .kfollower {
+        margin: 0 0 6px 0;
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        vertical-align: middle;
+}
+.kfollower a {
+        background: #000;
+        float: left;
+}
+.kfollower img {
+        width: 48px;
+        height: 48px;
+        transition: opacity 300ms;
+        box-shadow: #000 0em 0em 0em; // fix for FF size changes on hover
+}
+.kfollower:hover img {
+        opacity: 0.7;
+}
+
+@media ( min-width: 768px ) {
+    
+    html body .kfollower,
+    .kfollower img {
+        width: 40px;
+        height: 40px;
+    }
+    
+}
+
+/* Followers - RTL Support */
+html body .kfollowers.rtl {
+        direction: rtl;
+        unicode-bidi: bidi-override;
+}
+
+/*
+ * Friends (Twitter)
+ */
+html body .kfriends {
+        overflow: hidden;
+        text-align: center;  
+}
+html body .kfriend {
+        margin: 0 0 6px 0;
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        vertical-align: middle;
+}
+.kfriend a {
+        background: #000;
+        float: left;
+}
+.kfriend img {
+        width: 48px;
+        height: 48px;
+        transition: opacity 300ms;
+        box-shadow: #000 0em 0em 0em; // fix for FF size changes on hover
+}
+.kfriend:hover img {
+        opacity: 0.7;
+}
+@media ( min-width: 768px ) {
+    
+    html body .kfriend,
+    .kfriend img {
+        width: 40px;
+        height: 40px;
+    }
+    
+}
+
+/* Friends - RTL Support */
+html body .kfriends.rtl {
+        direction: rtl;
+        unicode-bidi: bidi-override;
+}

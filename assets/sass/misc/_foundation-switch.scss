@@ -1,0 +1,120 @@
+/**
+ * Foundation 4 - Switch Styles
+ */
+
+.switch {
+        background: #FFFFFF;
+        border: 1px solid #ccc;
+        display: block;
+        height: 36px;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        width: 100%;
+        -webkit-box-sizing: border-box; 
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+.switch.options {
+        width: 120px;
+        height: auto;
+}
+.switch label {
+        float: left;
+        font-weight: bold;
+        height: 100%;
+        left: 0;
+        margin: 0;
+        position: relative;
+        text-align: left;
+        transition: all 0.1s ease-out 0s;
+        width: 50%;
+        z-index: 2;
+        -webkit-box-sizing: border-box; 
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+.switch input {
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 3;
+        -webkit-box-sizing: border-box; 
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+.switch input:hover, .switch input:focus {
+        cursor: pointer;
+}
+.switch > span {
+        border-style: solid;
+        border-width: 1px;
+        display: block;
+        left: -1px;
+        padding: 0;
+        position: absolute;
+        top: -1px;
+        transition: all 0.1s ease-out 0s;
+        z-index: 1;
+}
+.switch input:not(:checked) + label {
+        opacity: 0;
+}
+.switch input:checked {
+        display: none !important;
+}
+.switch input {
+        display: block !important;
+        left: 0;
+}
+.switch input:first-of-type + label, .switch input:first-of-type + span + label {
+        left: -50%;
+}
+.switch input:first-of-type:checked + label, .switch input:first-of-type:checked + span + label {
+        left: 0;
+}
+.switch input:last-of-type + label, .switch input:last-of-type + span + label {
+        left: auto;
+        right: -50%;
+        text-align: right;
+}
+.switch input:last-of-type:checked + label, .switch input:last-of-type:checked + span + label {
+        left: auto;
+        right: 0;
+}
+.switch span.custom {
+        display: none !important;
+}
+.switch label {
+        font-size: 0.875em;
+        line-height: 2.3em;
+        padding: 0 0.375em;
+}
+.switch input:first-of-type:checked ~ span {
+        left: 100%;
+        margin-left: -2.1875em;
+}
+.switch > span {
+        height: 2.25em;
+        width: 2.25em;
+}
+.switch > span {
+        background-color: #fff;
+        background-image: -moz-linear-gradient(#fff, #f2f2f2);
+        background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f2f2f2));
+        background-image: -webkit-linear-gradient(#fff, #f2f2f2);
+        background-image: -o-linear-gradient(#fff, #f2f2f2);
+        background: -ms-linear-gradient(top, #fff, #f2f2f2 100%);
+        background: linear-gradient(top, #fff, #f2f2f2 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#FFFFFF', endColorstr='#F2F2F2');
+        border-color: #B3B3B3;
+        box-shadow: 2px 0 10px 0 rgba(0, 0, 0, 0.07), 1000px 0 0 980px #D5D5D5, -2px 0 10px 0 rgba(0, 0, 0, 0.07), -1000px 0 0 1000px #F5F5F5;
+}
+.switch:hover > span, .switch:focus > span {
+        background: linear-gradient(to bottom, #FFFFFF 0%, #E6E6E6 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#FFFFFF', endColorstr='#E6E6E6');
+}
+.switch:active {
+        background: none;
+}

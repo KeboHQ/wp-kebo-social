@@ -1,0 +1,116 @@
+/*
+ * Facebook Widget
+ */
+
+/*
+ * General (Facebook)
+ */
+
+.kcontainer {
+        margin: 0 0 1.6em 0;
+        padding: 0;
+}
+
+/*
+ * Statuses (Facebook)
+ */
+html body .kstatuses {
+        overflow: hidden;
+        width: auto;
+        margin: 0 !important; // only way to override themes which use #IDs for widget areas
+        padding: 0;
+        list-style: none;
+        border: none;
+        outline: none;
+        background-image: none;
+}
+html body .kstatuses .kstatus {
+        margin: 1.4em 0;
+        padding: 0;
+        list-style: none;
+        border: none;
+        outline: none;
+        background-image: none;
+}
+.kstatuses .kstatus:before {
+        content: none !important; // prevent fancy styling of list items
+}
+.kstatuses .kstatus:first-child,
+.kstatuses .kstatus:last-child {
+        margin: 0;
+}
+.kstatuses .kstatus .kheader {
+        overflow: hidden;
+}
+.kstatuses .kstatus .kheader .kavatar {
+        float: left;
+        margin: 5px 10px 0 0;
+        border-radius: 0px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border: none;
+}
+.kstatuses .kstatus .kheader .kname {
+        display: block;
+}
+.kstatuses .kstatus .kheader .kdate {
+        display: block;
+        color: #777;
+        font-size: 0.9em;
+}
+.kstatuses .kstatus .ktext {
+        margin: 5px 0;
+        padding: 0;
+}
+.kstatuses .kstatus .kfooter {
+        font-size: 0.9em;
+}
+.kstatuses .kstatus .kfooter a {
+        margin: 0 1em 0 0;
+}
+
+/* Statuses - RTL Support */
+
+/*
+ * Friends (Facebook)
+ */
+html body .kfriends {
+        overflow: hidden;
+        text-align: center;  
+}
+html body .kfriend {
+        margin: 0 0 6px 0;
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        vertical-align: middle;
+}
+.kfriend a {
+        background: #000;
+        float: left;
+}
+.kfriend img {
+        width: 48px;
+        height: 48px;
+        transition: opacity 300ms;
+        box-shadow: #000 0em 0em 0em; // fix for FF size changes on hover
+}
+.kfriend:hover img {
+        opacity: 0.7;
+}
+@media ( min-width: 768px ) {
+    
+    html body .kfriend,
+    .kfriend img {
+        width: 40px;
+        height: 40px;
+    }
+    
+}
+
+/* Friends - RTL Support */
+html body .kfriends.rtl {
+        direction: rtl;
+        unicode-bidi: bidi-override;
+}

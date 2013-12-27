@@ -1,0 +1,584 @@
+/*
+ * Kebo Social - Admin Styles
+ */
+
+/*
+ * Import Modules
+ */
+@import "fonts/zocial";
+@import "fonts/fontawesome";
+@import "misc/mixins";
+
+
+/*
+ * Social Colors
+ */
+@import "misc/social-colors";
+
+/*
+ * Admin Menu Icon
+ */
+//@import "misc/admin-icon"; // uses php script to avoid adding this file to every page
+
+/*
+ * General Admin Styling
+ */
+.kebo *,
+.kebo *:before,
+.kebo *:after {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+
+.row {
+        max-width: 1200px;
+        margin: 0;
+        width: 100%;
+        overflow: hidden;
+}
+.large-12 {
+        position: relative;
+        width: 100%;
+        margin: 0;
+}
+.large-6 {
+        position: relative;
+        width: 48%;
+        margin: 0 1%;
+}
+.large-3 {
+        position: relative;
+        width: 25%;
+}
+@media all and (max-width: 795px) {
+    
+    .small-12 {
+        position: relative;
+        width: 100%;
+    }
+    .small-6 {
+            position: relative;
+            width: 50%;
+    }
+    
+}
+.column, .columns {
+        float: left;
+        position: relative;
+        padding-bottom: 40px;
+}
+.panel {
+        padding: 1.6em;
+        background: #ececec;
+        border: 1px solid #e5e5e5;
+        margin-bottom: 1.6em;
+        border-radius: 3px;
+        overflow: hidden;
+}
+h3.title {
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
+        font-size: 1.17em;
+        font-weight: bold;
+        line-height: 1.6;
+        margin: 1em 0;
+        padding: 0;
+}
+.kebo a {
+        text-decoration: none;
+}
+
+/*
+ * Dashboard Panels
+ */
+
+.kebo-dash .sortable-placeholder {
+        margin: 0;
+        margin-bottom: 16px;
+}
+.dashboard-box {
+        margin-bottom: 16px;
+        overflow: hidden;
+}
+.dashboard-box.closed {
+        height: 36px;
+}
+.js .dash-header {
+        cursor: pointer;
+}
+.dash-header {
+        background: #eee;
+        border: 1px solid #dfdfdf;
+}
+.dash-header h3 {
+        font-size: 15px;
+        font-weight: normal;
+        padding: 8px 10px;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+}
+.dash-header .toggle {
+        position: relative;
+        float: right;
+        height: 34px;
+        width: 34px;
+}
+.dash-header .toggle .arrow {
+        position: absolute;
+        top: 12px;
+        left: 13px;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 0 4px 8px 4px;
+        border-color: transparent transparent #bbb transparent;
+}
+.dashboard-box.closed .arrow {
+        top: 13px;
+        border-style: solid;
+        border-width: 8px 4px 0 4px;
+        border-color: #bbb transparent transparent  transparent;
+}
+.dash-content {
+        background: #fcfcfc;
+        border: 1px solid #dfdfdf;
+        border-top: none;
+        padding: 10px;
+}
+.dashboard-box.closed .dash-content,
+.dashboard-box.ui-sortable-helper .dash-content {
+        height: 0px;
+        width: 100%;
+        padding: 0;
+        border: none;
+}
+
+/*
+ * Dashboard Page
+ */
+
+// Graphs
+.kebo-graph {
+        width: 100%;
+        height: 240px;
+}
+
+/*
+ * Connections Page
+ */
+
+// Connections
+.social-connections {
+        margin-bottom: -16px;
+}
+.connection-info {
+        
+}
+.kconnection {
+        overflow: hidden;
+        font-size: 14px;
+        margin-bottom: 16px;
+}
+.kconnection a {
+        color: #fff;
+}
+.kconnection a:hover {
+        color: #fff;
+        opacity: 0.75;
+}
+.kconnection.facebook {
+        background: $facebook;
+}
+.kconnection.twitter {
+        background: $twitter;
+}
+.kconnection.google {
+        background: $googleplus;
+}
+.kconnection.linkedin {
+        background: $linkedin;
+}
+
+.kservice,
+.kshare,
+.kdisconnect {
+        padding: 0.6em 0.8em;
+}
+.kconnection .kservice {
+        float: left;
+        min-width: 60%;
+        color: rgba(255, 255, 255, 0.7);
+}
+.kconnection .kservice i {
+        margin-right: 0.4em;
+        color: #fff;
+}
+.kconnection .kshare,
+.kconnection .kdisconnect {
+        float: right;
+}
+.kconnection .kshare {
+        background: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 1);
+        opacity: 1;
+        transition: all 400ms;
+}
+.kconnection .kshare.enabled {
+        background: rgba(0, 0, 0, 0.5);
+        color: rgba(255, 255, 255, 1);
+        opacity: 1;
+}
+.kconnection .kshare.test1 {
+        //box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.30) inset;
+        opacity: 1;
+        background: none;
+        @include gradient($linkedin, darken($linkedin, 10%));
+}
+.kconnection .kshare.test2 {
+        opacity: 0.50;
+        background: #fff;
+        color: #000;
+}
+.kconnection .kshare:hover {
+        opacity: 0.40;
+}
+.kconnection .kshare.enabled:hover {
+        box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.40) inset;
+        opacity: 1;
+}
+.kconnection .kdisconnect {
+        font-weight: bold;
+        font-size: 21px;
+        padding: 0 0.4em;
+        line-height: 1.6em;
+        color: #000;
+        opacity: 0.3;
+}
+.kconnection .kdisconnect:hover {
+        color: #000;
+        opacity: 0.5;
+}
+
+// Social Links
+.services-list {
+        margin-bottom: -10px;
+}
+.social-link {
+        background: #ccc;
+        color: #fff;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: normal;
+        padding: 8px 16px 8px 14px;
+        margin: 0 10px 10px 0;
+}
+.social-link.twitter {
+        background: $twitter;
+}
+.social-link.twitter:active,
+.social-link.twitter:focus,
+.social-link.twitter:hover {
+        background: darken($twitter, 10%);
+}
+.social-link.facebook {
+        background: $facebook;
+}
+.social-link.facebook:active,
+.social-link.facebook:focus,
+.social-link.facebook:hover {
+        background: darken($facebook, 10%);
+}
+.social-link.linkedin {
+        background: $linkedin;
+}
+.social-link.linkedin:active,
+.social-link.linkedin:focus,
+.social-link.linkedin:hover {
+        background: darken($linkedin, 10%);
+}
+.social-link.googleplus {
+        background: $googleplus;
+}
+.social-link.googleplus:active,
+.social-link.googleplus:focus,
+.social-link.googleplus:hover {
+        background: darken($googleplus, 10%);
+}
+.social-link.pinterest {
+        background: $pinterest;
+}
+.social-link.pinterest:active,
+.social-link.pinterest:focus,
+.social-link.pinterest:hover {
+        background: darken($pinterest, 10%);
+}
+.social-link.tumblr {
+        background: $tumblr;
+}
+.social-link.tumblr:active,
+.social-link.tumblr:focus,
+.social-link.tumblr:hover {
+        background: darken($tumblr, 10%);
+}
+.social-link.instagram {
+        background: $instagram;
+}
+.social-link.instagram:active,
+.social-link.instagram:focus,
+.social-link.instagram:hover {
+        background: darken($instagram, 10%);
+}
+.social-link.flickr {
+        background: $flickr;
+}
+.social-link.flickr:active,
+.social-link.flickr:focus,
+.social-link.flickr:hover {
+        background: darken($flickr, 10%);
+}
+.social-link.digg {
+        background: $digg;
+}
+.social-link.digg:active,
+.social-link.digg:focus,
+.social-link.digg:hover {
+        background: darken($digg, 10%);
+}
+.social-link.stumbleupon {
+        background: $stumbleupon;
+}
+.social-link.stumbleupon:active,
+.social-link.stumbleupon:focus,
+.social-link.stumbleupon:hover {
+        background: darken($stumbleupon, 10%);
+}
+.social-link.delicious {
+        background: $delicious;
+}
+.social-link.delicious:active,
+.social-link.delicious:focus,
+.social-link.delicious:hover {
+        background: darken($delicious, 10%);
+}
+.social-link.reddit {
+        background: $reddit;
+}
+.social-link.reddit:active,
+.social-link.reddit:focus,
+.social-link.reddit:hover {
+        background: darken($reddit, 10%);
+}
+
+/*
+ * Sharing Page
+ */
+
+// Sortable Boxes
+#share-links,
+#share-links-selected {
+        margin: 0;
+}
+#share-links.Sortable,
+#share-links-selected .Sortable {
+        min-height: 50px;
+}
+#share-links .sortable,
+#share-links-selected .sortable {
+        float: left;
+        margin: 0 10px 10px 0;
+}
+#share-links-selected .sortable-placeholder,
+#share-links .sortable-placeholder {
+        border: 1px dashed #aaa;
+        min-width: 60px;
+        height: 33px;
+        display: inline-block;
+        float: left;
+        margin: 0 10px 0 0;
+}
+#sort-container .social-link {
+        color: #fff;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: normal;
+        padding: 4px 11px 4px 11px;
+        min-width: 70px;
+        margin: 0;
+}
+
+// new share admin
+.share-links-container {
+        background: #fff;
+}
+.share-panel {
+        border-bottom: 1px solid #eee;
+}
+.share-panel:last-of-type {
+        border-bottom: none;
+}
+.share-panel .description {
+        width: 30%;
+        padding: 20px 0 20px 20px;
+        float: left;
+}
+.share-panel .description h3 {
+        margin-top: 0;
+}
+.share-panel .links {
+        width: 70%;
+        float: right;
+        padding: 20px;
+}
+.share-panel .links .link-container {
+        min-height: 100px;
+}
+.share-panel .links.selected .link-container {
+        //border: 1px dashed #bbb;
+}
+.clearfix {
+        clear: both;
+}
+
+// admin share links
+.kebo.wrap li.share-link {
+        padding: 0.8em;
+        color: #fff;
+        font-size: 16px;
+        float: left;
+        margin: 0 10px 10px 0;
+        cursor: move;
+}
+.kebo.wrap li.sortable-placeholder {
+        float: left;
+        margin: 0 10px 10px 0;
+}
+.kebo.wrap li.share-link a {
+        color: #fff;
+}
+.kebo.wrap li.share-link i {
+        color: #fff;
+        margin-right: 0.5em;
+}
+.kebo.wrap li.share-link.twitter {
+        background: $twitter;
+}
+.kebo.wrap li.share-link.twitter:hover {
+        background: darken( $twitter, 10% );
+}
+.kebo.wrap li.share-link.facebook {
+        background: $facebook;
+}
+.kebo.wrap li.share-link.facebook:hover {
+        background: darken( $facebook, 10% );
+}
+.kebo.wrap li.share-link.linkedin {
+        background: $linkedin;
+}
+.kebo.wrap li.share-link.linkedin:hover {
+        background: darken( $linkedin, 10% );
+}
+.kebo.wrap li.share-link.googleplus {
+        background: $googleplus;
+}
+.kebo.wrap li.share-link.googleplus:hover {
+        background: darken( $googleplus, 10% );
+}
+.kebo.wrap li.share-link.pinterest {
+        background: $pinterest;
+}
+.kebo.wrap li.share-link.pinterest:hover {
+        background: darken( $pinterest, 10% );
+}
+.kebo.wrap li.share-link.tumblr {
+        background: $tumblr;
+}
+.kebo.wrap li.share-link.tumblr:hover {
+        background: darken( $tumblr, 10% );
+}
+.kebo.wrap li.share-link.digg {
+        background: $digg;
+}
+.kebo.wrap li.share-link.digg:hover {
+        background: darken( $digg, 10% );
+}
+.kebo.wrap li.share-link.reddit {
+        background: $reddit;
+}
+.kebo.wrap li.share-link.reddit:hover {
+        background: darken( $reddit, 10% );
+}
+.kebo.wrap li.share-link.stumbleupon {
+        background: $stumbleupon;
+}
+.kebo.wrap li.share-link.stumbleupon:hover {
+        background: darken( $stumbleupon, 10% );
+}
+.kebo.wrap li.share-link.delicious {
+        background: $delicious;
+}
+.kebo.wrap li.share-link.delicious:hover {
+        background: darken( $delicious, 10% );
+}
+
+
+/*
+ * Admin - General
+ */
+
+// Foundation 4 - Switch
+@import "misc/foundation-switch";
+
+/*
+ * Admin - Widgets Page
+ */
+
+// Twitter Widget
+.widget .kwidgetcontainer.twitter .display,
+.widget .kwidgetcontainer.twitter .style,
+.widget .kwidgetcontainer.twitter .background,
+.widget .kwidgetcontainer.twitter .conversations,
+.widget .kwidgetcontainer.twitter .avatar,
+.widget .kwidgetcontainer.twitter .media {
+        display: none;
+}
+// Twitter Widget - Tweets
+.widget .kwidgetcontainer.twitter.tweets .display,
+.widget .kwidgetcontainer.twitter.tweets .style,
+.widget .kwidgetcontainer.twitter.tweets .background,
+.widget .kwidgetcontainer.twitter.tweets .conversations,
+.widget .kwidgetcontainer.twitter.tweets .avatar,
+.widget .kwidgetcontainer.twitter.tweets.list .media {
+        display: block;
+}
+
+/*
+ * Admin - Share Links Page
+ */
+.koptions input[type="text"] {
+        min-width: 260px;
+}
+.koptions label[for^="share_links_post_types"] {
+        display: block;
+        clear: both;
+        float: left;
+}
+.koptions label[for^="share_links_post_types"] input {
+        margin-right: 6px;
+}
+
+.koptions select[name="kbso_plugin_options[share_links_theme]"] {
+        min-width: 160px;
+}
+.koptions label[for^="share_links_link_content"] {
+        display: block;
+        clear: both;
+        float: left;
+}
+.koptions label[for^="share_links_link_content"] input {
+        margin-right: 6px;
+}
+.koptions .howto {
+        clear: both;
+}

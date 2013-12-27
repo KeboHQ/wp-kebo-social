@@ -1,0 +1,61 @@
+/*
+ * Custom Mixins
+ */
+
+@mixin gradient($from, $to) {
+    
+    /* fallback/image non-cover color */
+    background-color: $from;
+    
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient($from, $to);
+    
+    /* Safari 4+, Chrome 1+ */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+    
+    /* Safari 5.1+, Chrome 10+ */
+    background-image: -webkit-linear-gradient($from, $to);
+    
+    /* Opera 11.10+ */
+    background-image: -o-linear-gradient($from, $to);
+    
+    /* IE10+ */
+    background: -ms-linear-gradient(top, $from, $to 100%);
+    
+    /* W3C */
+    background: linear-gradient(top, $from, $to 100%);
+    
+    /* IE 6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}');
+    
+}
+
+@mixin gradient-single($from: #fff) {
+    
+    /* fallback/image non-cover color */
+    background-color: $from;
+    
+    $to: darken($from, 10%);
+    
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient($from, $to);
+    
+    /* Safari 4+, Chrome 1+ */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+    
+    /* Safari 5.1+, Chrome 10+ */
+    background-image: -webkit-linear-gradient($from, $to);
+    
+    /* Opera 11.10+ */
+    background: -o-linear-gradient($from, $to);
+    
+    /* IE10+ */
+    background: -ms-linear-gradient(top, $from, $to 100%);
+    
+    /* W3C */
+    background: linear-gradient(top, $from, $to 100%);
+    
+    /* IE 6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}');
+    
+}

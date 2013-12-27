@@ -1,0 +1,105 @@
+/**
+ * Share Links - Flat Theme
+ */
+.ksharelinks.flat {
+        
+}
+.ksharelinks.flat .kintro {
+        float: left;
+        margin: 0 0.5em 0 0;
+}
+.ksharelinks.flat ul {
+        margin: 0;
+        padding: 0;
+}
+.ksharelinks.flat ul li {
+        float: left;
+}
+.ksharelinks.flat ul li:last-of-type {
+        margin: 0;
+}
+.ksharelinks.flat ul li .klink {
+        padding: 0;
+        color: #fff;
+        float: left;
+}
+.ksharelinks.flat ul li .klink i {
+        height: 1.2em;
+        color: #fff;
+        text-align: center;
+        line-height: 1.2em;
+        margin: 0 0.2em 0 0;
+}
+.ksharelinks.flat ul li .kicon {
+        padding-left: 0.4em;
+}
+.ksharelinks.flat ul li .kname {
+        padding-right: 0.4em;
+}
+.ksharelinks.flat ul li .kcount {
+        padding: 0 0.4em;
+        border-left: 1px solid rgba(255, 255, 255, 0.4);
+        color: rgba(255, 255, 255, 0.7);
+}
+
+
+.ksharelinks.flat ul li .klink.facebook {
+        background: $facebook;
+}
+.ksharelinks.flat ul li .klink.facebook:hover {
+        background: darken($facebook, 10%);
+}
+.ksharelinks.flat ul li .klink.twitter {
+        background: $twitter;
+}
+.ksharelinks.flat ul li .klink.twitter:hover {
+        background: darken($twitter, 10%);
+}
+.ksharelinks.flat ul li .klink.linkedin {
+        background: $linkedin;
+}
+.ksharelinks.flat ul li .klink.linkedin:hover {
+        background: darken($linkedin, 10%);
+}
+.ksharelinks.flat ul li .klink.googleplus {
+        background: $googleplus;
+}
+.ksharelinks.flat ul li .klink.googleplus:hover {
+        background: darken($googleplus, 10%);
+}
+.ksharelinks.flat ul li .klink.pinterest {
+        background: $pinterest;
+}
+.ksharelinks.flat ul li .klink.pinterest:hover {
+        background: darken($pinterest, 10%);
+}
+.ksharelinks.flat ul li .klink.tumblr {
+        background: $tumblr;
+}
+.ksharelinks.flat ul li .klink.tumblr:hover {
+        background: darken($tumblr, 10%);
+}
+.ksharelinks.flat ul li .klink.reddit {
+        background: $reddit;
+}
+.ksharelinks.flat ul li .klink.reddit:hover {
+        background: darken($reddit, 10%);
+}
+.ksharelinks.flat ul li .klink.stumbleupon {
+        background: $stumbleupon;
+}
+.ksharelinks.flat ul li .klink.stumbleupon:hover {
+        background: darken($stumbleupon, 10%);
+}
+.ksharelinks.flat ul li .klink.digg {
+        background: $digg;
+}
+.ksharelinks.flat ul li .klink.digg:hover {
+        background: darken($digg, 10%);
+}
+.ksharelinks.flat ul li .klink.delicious {
+        background: $delicious;
+}
+.ksharelinks.flat ul li .klink.delicious:hover {
+        background: darken($delicious, 10%);
+}

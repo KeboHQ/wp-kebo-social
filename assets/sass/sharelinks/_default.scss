@@ -1,0 +1,66 @@
+/**
+ * Share Links - Default Theme
+ */
+.ksharelinks.default {
+        
+}
+.ksharelinks.default .kintro {
+        float: left;
+        margin: 0 0.5em 0 0;
+}
+.ksharelinks.default ul {
+        margin: 0;
+        padding: 0;
+}
+.ksharelinks.default ul li {
+        float: left;
+}
+.ksharelinks.default ul li:last-of-type {
+        margin: 0;
+}
+.ksharelinks.default ul li .klink {
+        padding: 0 2px;
+        border: 1px solid #aaa;
+        border-radius: 3px;
+        color: #444;
+        float: left;
+}
+.ksharelinks.default ul li .klink i {
+        width: 1.2em;
+        height: 1.2em;
+        color: #fff;
+        border-radius: 2px;
+        text-align: center;
+        line-height: 1.2em;
+}
+// Social Colors
+.ksharelinks.default ul li .klink.facebook i {
+        background: $facebook;
+}
+.ksharelinks.default ul li .klink.twitter i {
+        background: $twitter;
+}
+.ksharelinks.default ul li .klink.linkedin i {
+        background: $linkedin;
+}
+.ksharelinks.default ul li .klink.googleplus i {
+        background: $googleplus;
+}
+.ksharelinks.default ul li .klink.pinterest i {
+        background: $pinterest;
+}
+.ksharelinks.default ul li .klink.tumblr i {
+        background: $tumblr;
+}
+.ksharelinks.default ul li .klink.reddit i {
+        background: $reddit;
+}
+.ksharelinks.default ul li .klink.stumbleupon i {
+        background: $stumbleupon;
+}
+.ksharelinks.default ul li .klink.digg i {
+        background: $digg;
+}
+.ksharelinks.default ul li .klink.delicious i {
+        background: $delicious;
+}
