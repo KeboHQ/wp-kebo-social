@@ -14,6 +14,11 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
 require_once( KBSO_PATH . 'inc/modules/social-sharing/menu.php' );
 
 /*
+ * Include Options file.
+ */
+require_once( KBSO_PATH . 'inc/modules/social-sharing/options.php' );
+
+/*
  * Include Links Function file.
  */
 require_once( KBSO_PATH . 'inc/modules/social-sharing/links.php' );
