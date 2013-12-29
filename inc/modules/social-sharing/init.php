@@ -20,6 +20,11 @@ if ( 'yes' == $options['share_links_activate_feature'] ) {
 }
 
 /*
+ * Include General file.
+ */
+require_once( KBSO_PATH . 'inc/modules/social-sharing/social-sharing.php' );
+
+/*
  * Include Sharing Menu file.
  */
 require_once( KBSO_PATH . 'inc/modules/social-sharing/menu.php' );
@@ -48,9 +53,4 @@ require_once( KBSO_PATH . 'inc/modules/social-sharing/ajax.php' );
  * Include Helper Functions file.
  */
 require_once( KBSO_PATH . 'inc/modules/social-sharing/helpers.php' );
-
-/*
- * Include Admin file.
- */
-require_once( KBSO_PATH . 'inc/modules/social-sharing/admin.php' );
 
