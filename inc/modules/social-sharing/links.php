@@ -35,6 +35,21 @@ function kbso_render_share_buttons() {
 
     $theme = $options['social_sharing_theme'];
     
+    /*
+     * All basic themes use the same view files.
+     */
+    $basic_themes = array( 'default', 'flat', 'gradient' );
+    
+    if ( in_array( $theme, $basic_themes ) ) {
+        
+        $theme_view = 'default';
+        
+    } else {
+        
+        $theme_view = $theme;
+        
+    }
+    
     /**
      * Setup an instance of the View class.
      * Allow customization using a filter.
@@ -42,7 +57,7 @@ function kbso_render_share_buttons() {
     $view = new Kebo_View(
         apply_filters(
             'kbso_social_sharing_view_dir',
-            KBSO_PATH . 'inc/modules/social-sharing/views/' . $theme,
+            KBSO_PATH . 'inc/modules/social-sharing/views/' . $theme_view,
             $theme
         )
     );
@@ -94,6 +109,8 @@ function kbso_render_share_buttons() {
         ->set( 'counts', $counts )
         ->set( 'view', $view )
         ->retrieve();
+    
+    unset( $view );
     
     return $links;
     
