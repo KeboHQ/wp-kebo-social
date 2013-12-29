@@ -85,6 +85,7 @@ function kbso_render_share_buttons() {
         ->set_view( 'links' )
         ->set( 'classes', $classes )
         ->set( 'label', $options['social_sharing_label'] )
+        ->set( 'link_content', $options['social_sharing_link_content'] )
         ->set( 'post_type', $post->post_type )
         ->set( 'options', $options )
         ->set( 'permalink', get_permalink() )
