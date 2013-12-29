@@ -49,3 +49,8 @@ require_once( KBSO_PATH . 'inc/modules/social-sharing/ajax.php' );
  */
 require_once( KBSO_PATH . 'inc/modules/social-sharing/helpers.php' );
 
+/*
+ * Include Admin file.
+ */
+require_once( KBSO_PATH . 'inc/modules/social-sharing/admin.php' );
+
