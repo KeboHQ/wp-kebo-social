@@ -38,7 +38,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'KBSO_VERSION', '0.1.0' );
 define( 'KBSO_URL', plugin_dir_url(__FILE__) );
 define( 'KBSO_PATH', plugin_dir_path(__FILE__) );
-define( 'KBSO_API_URL', 'http://auth.kebopowered.com/request/request.php' );
 
 /*
  * Load textdomain early, as we need it for the PHP version check.
@@ -88,9 +87,9 @@ add_action( 'plugins_loaded', 'kbso_plugin_setup', 15 );
 function kbso_register_files() {
 
     // Register Styles
-    wp_register_style( 'kbso-admin-css', KBSO_URL . 'assets/css/admin.css', array(), KBSO_VERSION, 'all' );
-    wp_register_style( 'kbso-widgets-css', KBSO_URL . 'assets/css/widgets.css', array(), KBSO_VERSION, 'all' );
-    wp_register_style( 'kbso-sharelinks-css', KBSO_URL . 'assets/css/sharelinks.css', array(), KBSO_VERSION, 'all' );
+    wp_register_style( 'kbso-admin', KBSO_URL . 'assets/css/admin.css', array(), KBSO_VERSION, 'all' );
+    wp_register_style( 'kbso-widgets', KBSO_URL . 'assets/css/widgets.css', array(), KBSO_VERSION, 'all' );
+    wp_register_style( 'kbso-sharelinks', KBSO_URL . 'assets/css/sharelinks.css', array(), KBSO_VERSION, 'all' );
         
     // Register Scripts
     wp_register_script( 'kbso-admin-js', KBSO_URL . 'assets/js/admin.js', array(), KBSO_VERSION, true );
@@ -106,7 +105,7 @@ add_action( 'admin_enqueue_scripts', 'kbso_register_files' );
  */
 function kbso_enqueue_frontend() {
 
-    
+    wp_enqueue_style( 'kbso-sharelinks' );
         
 }
 add_action( 'wp_enqueue_scripts', 'kbso_enqueue_frontend' );
@@ -119,21 +118,22 @@ function kbso_enqueue_backend( $hook_suffix ) {
     // Enqueue files for dashboard page
     if ( 'toplevel_page_kbso-dashboard' == $hook_suffix ) {
             
-        wp_enqueue_style( 'kbso-admin-css' );
+        wp_enqueue_style( 'kbso-admin' );
             
     }
         
     // Enqueue files for settings page
     if ( 'kebo-social_page_kbso-settings' == $hook_suffix ) {
         
-        wp_enqueue_style( 'kbso-admin-css' );
+        wp_enqueue_style( 'kbso-admin' );
             
     }
     
     // Enqueue files for sharing page
     if ( 'kebo-social_page_kbso-sharing' == $hook_suffix ) {
         
-        wp_enqueue_style( 'kbso-admin-css' );
+        wp_enqueue_style( 'kbso-admin' );
+        wp_enqueue_style( 'kbso-sharelinks' );
         
         wp_enqueue_script( 'jquery-ui-sortable' );
         wp_enqueue_script( 'jquery-ui-touch-punch' );
@@ -153,4 +153,65 @@ function kbso_plugin_settings_link( $links ) {
     return $links;
     
 }
-add_filter( 'plugin_action_links_kebo-social/kebo-social.php', 'kbso_plugin_settings_link' ); 
+add_filter( 'plugin_action_links_kebo-social/kebo-social.php', 'kbso_plugin_settings_link' );
+
+/**
+ * Prints the Admin Menu Icon CSS in the Footer
+ * Added fallback image for pre 3.8 installs
+ */
+function kbso_admin_menu_styles_print() {
+    
+    // Begin Output Buffering
+    ob_start();
+    
+    ?>
+    <style type="text/css">
+        
+        #adminmenu .toplevel_page_kbso-dashboard div.wp-menu-image:before {
+                font-family: "dashicons";
+                content: "\f319";
+        }
+        .branch-3-7 .toplevel_page_kbso-dashboard div.wp-menu-image,
+        .branch-3-6 .toplevel_page_kbso-dashboard div.wp-menu-image,
+        .branch-3-5 .toplevel_page_kbso-dashboard div.wp-menu-image,
+        .branch-3-4 .toplevel_page_kbso-dashboard div.wp-menu-image,
+        .branch-3-3 .toplevel_page_kbso-dashboard div.wp-menu-image,
+        .branch-3-2 .toplevel_page_kbso-dashboard div.wp-menu-image {
+                background: url('../images/icons/admin_menu_icon.png') 0 -32px no-repeat;
+        }
+        .branch-3-7 .toplevel_page_kbso-dashboard div.wp-menu-image:before,
+        .branch-3-6 .toplevel_page_kbso-dashboard div.wp-menu-image:before,
+        .branch-3-5 .toplevel_page_kbso-dashboard div.wp-menu-image:before,
+        .branch-3-4 .toplevel_page_kbso-dashboard div.wp-menu-image:before,
+        .branch-3-3 .toplevel_page_kbso-dashboard div.wp-menu-image:before,
+        .branch-3-2 .toplevel_page_kbso-dashboard div.wp-menu-image:before {
+                content: "";
+        }
+        .branch-3-7 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image,
+        .branch-3-6 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image,
+        .branch-3-5 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image,
+        .branch-3-4 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image,
+        .branch-3-3 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image,
+        .branch-3-2 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image {
+                background-position: 0 0;
+        }
+        .branch-3-7 .toplevel_page_kbso-dashboard:hover div.wp-menu-image,
+        .branch-3-6 .toplevel_page_kbso-dashboard:hover div.wp-menu-image,
+        .branch-3-5 .toplevel_page_kbso-dashboard:hover div.wp-menu-image,
+        .branch-3-4 .toplevel_page_kbso-dashboard:hover div.wp-menu-image,
+        .branch-3-3 .toplevel_page_kbso-dashboard:hover div.wp-menu-image,
+        .branch-3-2 .toplevel_page_kbso-dashboard:hover div.wp-menu-image {
+                background-position: 0 0;
+        }
+        
+    </style>
+    <?php
+    
+    // End Output Buffering and Clear Buffer
+    $output = ob_get_contents();
+    ob_end_clean();
+        
+    echo $output;
+    
+}
+add_action( 'in_admin_footer', 'kbso_admin_menu_styles_print' );
