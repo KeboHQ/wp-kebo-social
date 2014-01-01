@@ -10,11 +10,15 @@
     
     <a class="<?php echo esc_attr( 'klink ' . $name ); ?>" href="<?php echo esc_url( $href ); ?>" title="<?php echo esc_attr( sprintf( 'Share on %s', $label ) ); ?>" target="_blank">
         
-        <span class="kicon"><i class="<?php echo esc_attr( 'zocial ' . $name ); ?>"></i></span>
+        <?php if ( in_array( 'icon', $link_content ) ) : ?>
+            <span class="kicon"><i class="<?php echo esc_attr( 'zocial ' . $name ); ?>"></i></span>
+        <?php endif; ?>
         
-        <span class="kname"><?php echo esc_html( $label ); ?></span>
+        <?php if ( in_array( 'name', $link_content ) ) : ?>
+            <span class="kname"><?php echo esc_html( $label ); ?></span>
+        <?php endif; ?>
         
-        <?php if ( isset( $count ) && 0 != $count ) : ?>
+        <?php if ( in_array( 'count', $link_content ) || ( isset( $count ) && 0 != $count ) ) : ?>
             <span class="kcount"><?php echo esc_html( $count ); ?></span>
         <?php endif; ?>
             
