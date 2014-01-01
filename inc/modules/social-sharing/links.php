@@ -84,6 +84,7 @@ function kbso_render_share_buttons() {
      */
     $classes[] = 'ksharelinks';
     $classes[] = $options['social_sharing_theme'];
+    $classes[] = $options['social_sharing_link_size'];
     if ( is_rtl() ) {
         $classes[] = 'rtl';
     }
