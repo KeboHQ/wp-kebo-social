@@ -18,7 +18,7 @@
             <span class="kname"><?php echo esc_html( $label ); ?></span>
         <?php endif; ?>
         
-        <?php if ( in_array( 'count', $link_content ) || ( isset( $count ) && 0 != $count ) ) : ?>
+        <?php if ( in_array( 'count', $link_content ) && ( isset( $count ) && 0 != $count ) ) : ?>
             <span class="kcount"><?php echo esc_html( $count ); ?></span>
         <?php endif; ?>
             
