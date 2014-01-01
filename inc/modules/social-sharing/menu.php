@@ -106,6 +106,8 @@ function kbso_sharing_page_render() {
                 
                 <div class="links selected">
                     
+                    <?php echo kbso_share_button_preview(); ?>
+                    
                 </div>
                 
                 <div class="clearfix"></div>
