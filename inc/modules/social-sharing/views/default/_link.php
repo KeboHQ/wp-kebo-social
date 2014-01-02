@@ -17,12 +17,12 @@
         <?php if ( in_array( 'name', $link_content ) ) : ?>
             <span class="kname"><?php echo esc_html( $label ); ?></span>
         <?php endif; ?>
-        
-        <?php if ( in_array( 'count', $link_content ) && ( isset( $count ) && 0 != $count ) ) : ?>
-            <span class="kcount"><?php echo esc_html( $count ); ?></span>
-        <?php endif; ?>
             
     </a>
+    
+    <?php if ( in_array( 'count', $link_content ) && ( isset( $count ) && 0 != $count ) ) : ?>
+        <span class="kcount"><?php echo esc_html( kbso_social_share_count_display( $count ) ); ?></span>
+    <?php endif; ?>
     
     <?php do_action( 'kbso_after_sharelinks_link', $name, $label, $href, $post_type ); ?>
 
