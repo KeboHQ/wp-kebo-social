@@ -16,7 +16,23 @@ function kbso_add_social_sharing_buttons( $content ) {
 
     if ( is_singular() && is_main_query() && in_array( $post->post_type, $options['share_links_post_types'] ) ) {
         
-        $content = $content . kbso_render_share_buttons();
+        if ( in_array( 'top', $options['social_sharing_position'] ) ) {
+            
+            $content = kbso_render_share_buttons() . $content;
+            
+        }
+        
+        if ( in_array( 'bottom', $options['social_sharing_position'] ) ) {
+            
+            $content = $content . kbso_render_share_buttons();
+            
+        }
+        
+        if ( in_array( 'floating', $options['social_sharing_position'] ) ) {
+            
+            $content = $content . '<div class="kfloating kcontainer">' . kbso_render_share_buttons() . '</div>';
+            
+        }
         
     }
     
