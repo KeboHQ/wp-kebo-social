@@ -23,3 +23,37 @@ function kbso_social_share_services( $type = 'selected' ) {
     }
     
 }
+
+/*
+ * Process Social Count for Display
+ */
+function kbso_social_share_count_display( $count, $thousand = 'K', $million = 'M' ) {
+
+    if ( ! is_numeric( $count ) ) {
+        $result = 0;
+    }
+    
+    /*
+     * If greater than 1000 divide by 1000 and add k.
+     */
+    if ( $count > 1000000 ) {
+        
+        $result = (int) ( $count / 1000000 );
+        
+        $result .= $million;
+        
+    } elseif ( $count > 1000 ) {
+        
+        $result = (int) ( $count / 1000 );
+        
+        $result .= $thousand;
+        
+    } else {
+        
+        $result = $count;
+        
+    }
+    
+    return apply_filters( 'kbso_social_sharing_count_display', $result, $count );
+    
+}
