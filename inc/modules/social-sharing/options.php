@@ -43,7 +43,7 @@ function kbso_social_sharing_options_init() {
      */
     add_settings_field(
         'social_sharing_theme', // Unique identifier for the field for this section
-        __('Button Theme', 'kbso'), // Setting field label
+        __('Theme', 'kbso'), // Setting field label
         'kbso_options_render_theme_dropdown', // Function that renders the settings field
         'kbso-sharing', // Menu slug
         'kbso_social_sharing', // Settings section.
@@ -65,6 +65,36 @@ function kbso_social_sharing_options_init() {
         array( // Args to pass to render function
             'name' => 'social_sharing_link_content',
             'help_text' => __('Controls the content inside the Sharing buttons.', 'kbso')
+        ) 
+    );
+    
+    /**
+     * Field - Share Links Content
+     */
+    add_settings_field(
+        'social_sharing_link_size', // Unique identifier for the field for this section
+        __('Button Size', 'kbso'), // Setting field label
+        'kbso_options_render_link_size', // Function that renders the settings field
+        'kbso-sharing', // Menu slug
+        'kbso_social_sharing', // Settings section.
+        array( // Args to pass to render function
+            'name' => 'social_sharing_link_size',
+            'help_text' => __('Controls the size of the Sharing buttons.', 'kbso')
+        ) 
+    );
+    
+    /**
+     * Field - Social Sharing Position
+     */
+    add_settings_field(
+        'social_sharing_position', // Unique identifier for the field for this section
+        __('Position', 'kbso'), // Setting field label
+        'kbso_options_render_position_checkboxes', // Function that renders the settings field
+        'kbso-sharing', // Menu slug
+        'kbso_social_sharing', // Settings section.
+        array( // Args to pass to render function
+            'name' => 'social_sharing_position',
+            'help_text' => __('Choose where on the page to show the Share Buttons.', 'kbso')
         ) 
     );
     
@@ -96,7 +126,9 @@ function kbso_social_sharing_option_defaults( $defaults ) {
     $sharing = array(
         'social_sharing_label' => '',
         'social_sharing_theme' => 'default',
+        'social_sharing_position' => array( 'bottom' ),
         'social_sharing_link_content' => array( 'icon', 'name', 'count' ),
+        'social_sharing_link_size' => 'medium',
         'social_sharing_post_types' => array( 'post' ),
     );
     
@@ -159,6 +191,59 @@ function kbso_options_render_theme_dropdown( $args ) {
 }
 
 /**
+ * Returns an array of select inputs for the Theme dropdown.
+ */
+function kbso_options_position_dropdown() {
+    
+    $dropdown = array(
+        'top' => array(
+            'value' => 'top',
+            'label' => __('Top', 'kbso')
+        ),
+        'bottom' => array(
+            'value' => 'bottom',
+            'label' => __('Bottom', 'kbso')
+        ),
+        'floating' => array(
+            'value' => 'floating',
+            'label' => __('Floating Bar', 'kbso')
+        ),
+    );
+
+    return apply_filters( 'kbso_social_sharing_position', $dropdown );
+    
+}
+
+/**
+ * Renders the Post Type checkboxes.
+ */
+function kbso_options_render_position_checkboxes( $args ) {
+    
+    $options = kbso_get_plugin_options();
+    
+    $name = esc_attr( $args['name'] );
+    
+    $help_text = ( $args['help_text'] ) ? esc_html( $args['help_text'] ) : null;
+    
+    foreach ( kbso_options_position_dropdown() as $position ) {
+        
+        ?>
+        <label for="<?php echo $name; ?>[<?php echo $position['value']; ?>]">
+        <input type="checkbox" id="<?php echo $name; ?>[<?php echo $position['value']; ?>]" name="kbso_plugin_options[<?php echo $name; ?>][]" value="<?php echo $position['value']; ?>" <?php checked( true, in_array( $position['value'], $options[ $name ] ) ); ?> />
+        <?php echo esc_html( $position['label'] ); ?>
+        </label>
+        <br>
+        <?php
+        
+    }
+    
+    if ( $help_text ) { ?>
+        <span class="howto"><?php echo esc_html( $help_text ); ?></span>
+    <?php }
+        
+}
+
+/**
  * Returns an array of radio options for Yes/No.
  */
 function kbso_options_link_content_options() {
@@ -207,6 +292,57 @@ function kbso_options_render_link_content( $args ) {
     if ( $help_text ) { ?>
         <span class="howto"><?php echo esc_html( $help_text ); ?></span>
     <?php }
+    
+}
+
+/**
+ * Returns an array of select inputs for the Theme dropdown.
+ */
+function kbso_options_link_size_options() {
+    
+    $dropdown = array(
+        'small' => array(
+            'value' => 'small',
+            'label' => __('Small', 'kbso')
+        ),
+        'medium' => array(
+            'value' => 'medium',
+            'label' => __('Medium', 'kbso')
+        ),
+        'large' => array(
+            'value' => 'large',
+            'label' => __('Large', 'kbso')
+        ),
+    );
+
+    return apply_filters( 'kbso_social_sharing_button_size', $dropdown );
+    
+}
+
+/**
+ * Renders the radio options setting field.
+ */
+function kbso_options_render_link_size( $args ) {
+    
+    $options = kbso_get_plugin_options();
+    
+    $name = esc_attr( $args['name'] );
+    
+    ?>
+    <select id="<?php echo $name; ?>" name="kbso_plugin_options[<?php echo $name; ?>]">
+    <?php
+    foreach ( kbso_options_link_size_options() as $dropdown ) {
+        
+        ?>
+        <option value="<?php echo esc_attr( $dropdown['value'] ); ?>" <?php selected( $dropdown['value'], $options[ $name ] ); ?>>
+            <?php echo esc_html( $dropdown['label'] ); ?>
+        </option>
+        <?php
+        
+    }
+    ?>
+    </select>    
+    <?php
     
 }
 
