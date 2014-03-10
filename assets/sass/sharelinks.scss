@@ -14,48 +14,102 @@
 @import "misc/social-colors";
 
 /*
- * Share Links
+ * Size Variables
+ */
+$xsmall: 10px;
+$small: 12px;
+$medium: 14px;
+$large: 16px;
+$xlarge: 18px;
+
+/*
+ * Add Common Styles
  */
 
 /*
- * General Styles
+ * General
  */
 .ksharelinks {
-        clear: both;
-        margin: 0;
-        padding: 1em 0;
         overflow: hidden;
 }
-.ksharelinks .kintro {
-        float: left;
-        margin: 0 0.5em 0 0;
-        line-height: 1.6em;
+
+/*
+ * Sizes
+ */
+.ksharelinks.xsmall {
+        font-size: $xsmall;
 }
-.ksharelinks ul {
-        list-style: none;
-        margin: 0;
+.ksharelinks.xsmall .klink .kicon {
+        font-size: $xsmall + 1px;
+}
+.ksharelinks.small {
+        font-size: $small;
+}
+.ksharelinks.small .klink .kicon {
+        font-size: $small + 1px;
+}
+.ksharelinks.medium {
+        font-size: $medium;
+}
+.ksharelinks.medium .klink .kicon {
+        font-size: $medium + 2px;
+}
+.ksharelinks.large {
+        font-size: $large;
+}
+.ksharelinks.large .klink .kicon {
+        font-size: $large + 2px;
+}
+.ksharelinks.xlarge {
+        font-size: $xlarge;
+}
+.ksharelinks.xlarge .klink .kicon {
+        font-size: $xlarge + 2px;
+}
+
+/*
+ * Floating Bar
+ */
+.entry-content {
+        position: relative;
+}
+.kfloating {
+        position: fixed;
+        top: 20%;
+        left: 0;
+}
+.kfloating .ksharelinks {
         padding: 0;
 }
-.ksharelinks ul li {
-        float: left;
-        margin: 0 0.5em 0.5em 0;
+.kfloating .kintro {
+        display: none;
 }
-.ksharelinks ul li:last-of-type {
+.kfloating.kcontainer .ksharelinks ul li {
+        clear: both;
         margin: 0;
 }
-.ksharelinks ul li .klink {
-        display: block;
+.kfloating.kcontainer .ksharelinks ul li:last-of-type {
+        margin: 0;
 }
-.ksharelinks ul li .klink i {
-        color: #fff;
+.kfloating.kcontainer .ksharelinks .klink {
+        
 }
-.ksharelinks ul li .kicon,
-.ksharelinks ul li .kname,
-.ksharelinks ul li .kcount {
-        display: block;
-        float: left;
-        padding: 0 0.2em;
+.kfloating.kcontainer .ksharelinks .klink .kname {
+        display: none;
 }
+.kfloating.kcontainer .ksharelinks .kcount {
+        margin: 0.6em 0 0 0;
+        clear: both;
+}
+
+/*
+ * Include all Themes
+ */
+
+/*
+ * Import Plain Theme
+ */
+@import "sharelinks/plain";
 
 /*
  * Import Default Theme
