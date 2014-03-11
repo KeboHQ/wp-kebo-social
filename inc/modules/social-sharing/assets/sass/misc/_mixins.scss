@@ -1,0 +1,69 @@
+/*
+ * Custom Mixins
+ */
+
+/*
+ * Long Shadows
+ */
+@function makelongshadow($color) {
+    $val: 0px 0px $color;
+    @for $i from 1 through 200 {
+        $val: #{$val}, #{$i}px #{$i}px #{$color};
+    }
+    @return $val;
+}
+
+@mixin longshadow($color) {
+    text-shadow: makelongshadow($color);
+}
+
+@mixin button-count( $color, $background, $border ) {
+    
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $color;
+      background-color: darken( $background, 10% );
+          border-color: darken( $border, 12% );
+    }
+
+    &:active,
+    &.active {
+      background-image: none;
+    }
+    
+}
+
+@mixin button-variant( $color, $background, $border ) {
+    
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $color;
+      background-color: darken( $background, 10% );
+          border-color: darken( $border, 12% );
+    }
+
+    &:active,
+    &.active {
+      background-image: none;
+    }
+    
+}
+
+@mixin button-size( $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius ) {
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+}

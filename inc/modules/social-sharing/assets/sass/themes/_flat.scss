@@ -1,0 +1,287 @@
+/**
+ * Share Links - Flat Theme
+ */
+.ksharelinks.flat {
+        
+}
+.ksharelinks.flat .kintro {
+        float: left;
+        margin: 0 1em 0 0;
+        line-height: 2.4em;
+}
+.ksharelinks.flat ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+}
+.ksharelinks.flat ul li {
+        float: left;
+        margin: 0 1em 0.6em 0;
+}
+.ksharelinks.flat ul li:last-of-type {
+        margin: 0;
+}
+.ksharelinks.flat .klink {
+        padding: 0.3em 0.6em;
+        @include border-radius( 3px );
+        color: #444;
+        float: left;
+        text-decoration: none;
+}
+.ksharelinks.flatflat .klink .kicon {
+        display: inline-block;
+        line-height: 1.2em;
+        width: 1.4em;
+        height: 1.4em;
+        text-align: center;
+        vertical-align: bottom;
+}
+.ksharelinks.flat .klink .kicon i {
+        
+}
+.ksharelinks.flat .klink .kname {
+        line-height: 1.6em;
+        margin-left: 0.4em;
+        color: #fff;
+}
+.ksharelinks.flat .klink .kname:first-of-type {
+        margin-left: none;
+}
+
+// Social Colors
+.ksharelinks.flat ul li .klink.facebook {
+        background: $facebook;
+}
+.ksharelinks.flat ul li .klink.facebook:focus,
+.ksharelinks.flat ul li .klink.facebook:hover,
+.ksharelinks.flat ul li .klink.facebook:active {
+        background: darken( $facebook, 5% );
+}
+.ksharelinks.flat ul li .klink.twitter {
+        background: $twitter;
+}
+.ksharelinks.flat ul li .klink.twitter:focus,
+.ksharelinks.flat ul li .klink.twitter:hover,
+.ksharelinks.flat ul li .klink.twitter:active {
+        background: darken( $twitter, 5% );
+}
+.ksharelinks.flat ul li .klink.linkedin {
+        background: $linkedin;
+}
+.ksharelinks.flat ul li .klink.linkedin:focus,
+.ksharelinks.flatflat ul li .klink.linkedin:hover,
+.ksharelinks.flat ul li .klink.linkedin:active {
+        background: darken( $linkedin, 5% );
+}
+.ksharelinks.flat ul li .klink.googleplus {
+        background: $googleplus;
+}
+.ksharelinks.flat ul li .klink.googleplus:focus,
+.ksharelinks.flat ul li .klink.googleplus:hover,
+.ksharelinks.flat ul li .klink.googleplus:active {
+        background: darken( $googleplus, 5% );
+}
+.ksharelinks.flat ul li .klink.pinterest {
+        background: $pinterest;
+}
+.ksharelinks.flat ul li .klink.pinterest:focus,
+.ksharelinks.flat ul li .klink.pinterest:hover,
+.ksharelinks.flat ul li .klink.pinterest:active {
+        background: darken( $pinterest, 5% );
+}
+.ksharelinks.flat ul li .klink.tumblr {
+        background: $tumblr;
+}
+.ksharelinks.flat ul li .klink.tumblr:focus,
+.ksharelinks.flat ul li .klink.tumblr:hover,
+.ksharelinks.flat ul li .klink.tumblr:active {
+        background: darken( $tumblr, 5% );
+}
+.ksharelinks.flat ul li .klink.reddit {
+        background: $reddit;
+}
+.ksharelinks.flat ul li .klink.reddit:focus,
+.ksharelinks.flat ul li .klink.reddit:hover,
+.ksharelinks.flat ul li .klink.reddit:active {
+        background: darken( $reddit, 5% );
+}
+.ksharelinks.flat ul li .klink.stumbleupon {
+        background: $stumbleupon;
+}
+.ksharelinks.flat ul li .klink.stumbleupon:focus,
+.ksharelinks.flat ul li .klink.stumbleupon:hover,
+.ksharelinks.flat ul li .klink.stumbleupon:active {
+        background: darken( $stumbleupon, 5% );
+}
+.ksharelinks.flat ul li .klink.digg {
+        background: $digg;
+}
+.ksharelinks.flat ul li .klink.digg:focus,
+.ksharelinks.flat ul li .klink.digg:hover,
+.ksharelinks.flat ul li .klink.digg:active {
+        background: darken( $digg, 5% );
+}
+.ksharelinks.flat ul li .klink.delicious {
+        background: $delicious;
+}
+.ksharelinks.flat ul li .klink.delicious:focus,
+.ksharelinks.flat ul li .klink.delicious:hover,
+.ksharelinks.flat ul li .klink.delicious:active {
+        background: darken( $delicious, 5% );
+}
+
+/**
+ * Social Count
+ */
+.ksharelinks.flat .kcount {
+        margin-left: 0.8em;
+        padding: emCalc(3, 12) emCalc(7, 12);
+        border: 1px solid #bbb;
+        @include border-radius( 3px );
+        line-height: 1.6em;
+        position: relative;
+        background: #fff;
+        float: left;
+}
+.ksharelinks.flat .kcount:before {
+        border-color: rgba(0, 0, 0, 0) #ffffff rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+        border-image: none;
+        border-style: inset solid inset inset;
+        border-width: 6px;
+        //bottom: 7px;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        left: -12px;
+        width: 0;
+        z-index: 99;
+}
+.ksharelinks.flat .kcount:after {
+        border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+        border-image: none;
+        border-style: inset solid inset inset;
+        border-width: 7px;
+        //bottom: 6px;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        left: -14px;
+        width: 0;
+        z-index: 98;
+}
+
+/*
+ * Floating Bar
+ */
+.kfloating {
+        border: 1px solid #ddd;
+        padding: 0.4em;
+        background: #fff;
+        @include border-radius( 3px );
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+}
+.kfloating.kcontainer .ksharelinks.flat ul li {
+        width: 100%;
+        margin-bottom: 1em;
+}
+.kfloating.kcontainer .ksharelinks.flat ul li:last-of-type {
+        margin-bottom: 0;
+}
+.kfloating .ksharelinks.flat .klink {
+        display: block;
+        float: none;
+        text-align: center;
+}
+.kfloating .ksharelinks.flat .kcount {
+        display: block;
+        float: none;
+        text-align: center;
+        margin-top: 0.8em;
+}
+.kfloating .ksharelinks.flat .kcount:before {
+        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #ffffff rgba(0, 0, 0, 0);
+        border-style: inset inset solid inset;
+        top: -12px;
+}
+.kfloating .ksharelinks.flat .kcount:after {
+        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0);
+        border-style: inset inset solid inset;
+        top: -14px;
+}
+
+/*
+ * Size Adjustments
+ */
+
+// Extra Small
+.ksharelinks.flat.xsmall .kcount:before {
+        bottom: 5px;
+}
+.ksharelinks.flat.xsmall .kcount:after {
+        bottom: 4px;
+}
+.kfloating .ksharelinks.flat.xsmall .kcount:before {
+        left: 11px;
+}
+.kfloating .ksharelinks.flat.xsmall .kcount:after {
+        left: 10px;
+}
+
+// Small
+.ksharelinks.flat.small .kcount:before {
+        bottom: 7px;
+}
+.ksharelinks.flat.small .kcount:after {
+        bottom: 6px;
+}
+.kfloating .ksharelinks.flat.small .kcount:before {
+        left: 15px;
+}
+.kfloating .ksharelinks.flat.small .kcount:after {
+        left: 14px;
+}
+
+// Medium
+.ksharelinks.flat.medium .kcount:before {
+        bottom: 9px;
+}
+.ksharelinks.flat.medium .kcount:after {
+        bottom: 8px;
+}
+.kfloating .ksharelinks.flat.medium .kcount:before {
+        left: 18px;
+}
+.kfloating .ksharelinks.flat.medium .kcount:after {
+        left: 17px;
+}
+
+// Large
+.ksharelinks.flat.large .kcount:before {
+        bottom: 11px;
+}
+.ksharelinks.flat.large .kcount:after {
+        bottom: 10px;
+}
+.kfloating .ksharelinks.flat.large .kcount:before {
+        left: 22px;
+}
+.kfloating .ksharelinks.flat.large .kcount:after {
+        left: 21px;
+}
+
+// Extra Large
+.ksharelinks.flat.xlarge .kcount:before {
+        bottom: 13px;
+}
+.ksharelinks.flat.xlarge .kcount:after {
+        bottom: 12px;
+}
+.kfloating .ksharelinks.flat.xlarge .kcount:before {
+        left: 25px;
+}
+.kfloating .ksharelinks.flat.xlarge .kcount:after {
+        left: 24px;
+}

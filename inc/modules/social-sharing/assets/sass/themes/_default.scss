@@ -1,0 +1,254 @@
+/**
+ * Share Links - Plain Theme
+ */
+.ksharelinks.default {
+        
+}
+.ksharelinks.default .kintro {
+        float: left;
+        margin: 0 1em 0 0;
+        line-height: 2.4em;
+}
+.ksharelinks.default ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+}
+.ksharelinks.default ul li {
+        float: left;
+        margin: 0 1em 0.6em 0;
+}
+.ksharelinks.default ul li:last-of-type {
+        margin: 0;
+}
+.ksharelinks.default .klink {
+        padding: 0.3em 0.6em;
+        border: 1px solid #ccc;
+        @include border-radius( 3px );
+        color: #444;
+        float: left;
+        @include gradient( #ffffff, #e6e6e6 );
+        text-decoration: none;
+}
+.ksharelinks.default .klink:focus,
+.ksharelinks.default .klink:hover {
+        @include gradient( #f4f4f4, #e1e1e1 );
+        text-decoration: none;
+}
+.ksharelinks.default .klink:active {
+        box-shadow: 0 4px 8px rgba( 0, 0, 0, 0.15 ) inset, 0 1px 2px rgba( 0, 0, 0, 0.05 );
+}
+.ksharelinks.default .klink .kicon {
+        display: inline-block;
+        line-height: 1.3em;
+        width: 1.4em;
+        height: 1.4em;
+        text-align: center;
+        vertical-align: bottom;
+}
+.ksharelinks.default .klink .kicon i {
+        
+}
+.ksharelinks.default .klink .kname {
+        line-height: 1.6em;
+        margin-left: 0.4em;
+}
+.ksharelinks.default .klink .kname:first-of-type {
+        margin-left: none;
+}
+
+// Social Colors
+.ksharelinks.default ul li .klink.facebook .kicon {
+        background: $facebook;
+        border: 1px solid darken( $facebook, 5% );
+}
+.ksharelinks.default ul li .klink.twitter .kicon {
+        background: $twitter;
+        border: 1px solid darken( $twitter, 5% );
+}
+.ksharelinks.default ul li .klink.linkedin .kicon {
+        background: $linkedin;
+        border: 1px solid darken( $linkedin, 5% );
+}
+.ksharelinks.default ul li .klink.googleplus .kicon {
+        background: $googleplus;
+        border: 1px solid darken( $googleplus, 5% );
+}
+.ksharelinks.default ul li .klink.pinterest .kicon {
+        background: $pinterest;
+        border: 1px solid darken( $pinterest, 5% );
+}
+.ksharelinks.default ul li .klink.tumblr .kicon {
+        background: $tumblr;
+        border: 1px solid darken( $tumblr, 5% );
+}
+.ksharelinks.default ul li .klink.reddit .kicon {
+        background: $reddit;
+        border: 1px solid darken( $reddit, 5% );
+}
+.ksharelinks.default ul li .klink.stumbleupon .kicon {
+        background: $stumbleupon;
+        border: 1px solid darken( $stumbleupon, 5% );
+}
+.ksharelinks.default ul li .klink.digg .kicon {
+        background: $digg;
+        border: 1px solid darken( $digg, 5% );
+}
+.ksharelinks.default ul li .klink.delicious .kicon {
+        background: $delicious;
+        border: 1px solid darken( $delicious, 5% );
+}
+
+/**
+ * Social Count
+ */
+.ksharelinks.default .kcount {
+        margin-left: 0.8em;
+        padding: 0.35em 0.6em;
+        border: 1px solid #bbb;
+        @include border-radius( 3px );
+        line-height: 1.6em;
+        position: relative;
+        background: #fff;
+        float: left;
+}
+.ksharelinks.default .kcount:before {
+        border-color: rgba(0, 0, 0, 0) #ffffff rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+        border-image: none;
+        border-style: inset solid inset inset;
+        border-width: 6px;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        left: -12px;
+        width: 0;
+        z-index: 99;
+}
+.ksharelinks.default .kcount:after {
+        border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+        border-image: none;
+        border-style: inset solid inset inset;
+        border-width: 7px;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        left: -14px;
+        width: 0;
+        z-index: 98;
+}
+
+/*
+ * Floating Bar
+ */
+.kfloating {
+        border: 1px solid #ddd;
+        padding: 0.4em;
+        background: #fff;
+        @include border-radius( 3px );
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+}
+.kfloating.kcontainer .ksharelinks.default ul li {
+        width: 100%;
+        margin-bottom: 1em;
+}
+.kfloating.kcontainer .ksharelinks.default ul li:last-of-type {
+        margin-bottom: 0;
+}
+.kfloating .ksharelinks.default .klink {
+        display: block;
+        float: none;
+        text-align: center;
+}
+.kfloating .ksharelinks.default .kcount {
+        display: block;
+        float: none;
+        text-align: center;
+        margin-top: 0.8em;
+}
+.kfloating .ksharelinks.default .kcount:before {
+        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #ffffff rgba(0, 0, 0, 0);
+        border-style: inset inset solid inset;
+        top: -12px;
+}
+.kfloating .ksharelinks.default .kcount:after {
+        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0);
+        border-style: inset inset solid inset;
+        top: -14px;
+}
+
+/*
+ * Size Adjustments
+ */
+
+// Extra Small
+.ksharelinks.default.xsmall .kcount:before {
+        bottom: 5px;
+}
+.ksharelinks.default.xsmall .kcount:after {
+        bottom: 4px;
+}
+.kfloating .ksharelinks.default.xsmall .kcount:before {
+        left: 11px;
+}
+.kfloating .ksharelinks.default.xsmall .kcount:after {
+        left: 10px;
+}
+
+// Small
+.ksharelinks.default.small .kcount:before {
+        bottom: 7px;
+}
+.ksharelinks.default.small .kcount:after {
+        bottom: 6px;
+}
+.kfloating .ksharelinks.default.small .kcount:before {
+        left: 15px;
+}
+.kfloating .ksharelinks.default.small .kcount:after {
+        left: 14px;
+}
+
+// Medium
+.ksharelinks.default.medium .kcount:before {
+        bottom: 9px;
+}
+.ksharelinks.default.medium .kcount:after {
+        bottom: 8px;
+}
+.kfloating .ksharelinks.default.medium .kcount:before {
+        left: 18px;
+}
+.kfloating .ksharelinks.default.medium .kcount:after {
+        left: 17px;
+}
+
+// Large
+.ksharelinks.default.large .kcount:before {
+        bottom: 11px;
+}
+.ksharelinks.default.large .kcount:after {
+        bottom: 10px;
+}
+.kfloating .ksharelinks.default.large .kcount:before {
+        left: 22px;
+}
+.kfloating .ksharelinks.default.large .kcount:after {
+        left: 21px;
+}
+
+// Extra Large
+.ksharelinks.default.xlarge .kcount:before {
+        bottom: 13px;
+}
+.ksharelinks.default.xlarge .kcount:after {
+        bottom: 12px;
+}
+.kfloating .ksharelinks.default.xlarge .kcount:before {
+        left: 25px;
+}
+.kfloating .ksharelinks.default.xlarge .kcount:after {
+        left: 24px;
+}

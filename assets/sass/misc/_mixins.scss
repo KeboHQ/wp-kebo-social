@@ -2,6 +2,38 @@
  * Custom Mixins
  */
 
+/*
+ * Basic Functions
+ */
+@function emCalc($target, $context:16) {
+    @return $target / $context * 1em;
+}
+
+/*
+ * Box Sizing Border Box
+ */
+@mixin box-sizing() {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+ * Border Radius
+ */
+@mixin border-radius( $radius ) {
+    
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+          
+}
+
+/*
+ * Gradient
+ */
 @mixin gradient( $from, $to ) {
     
     /* fallback/image non-cover color */
@@ -30,6 +62,9 @@
     
 }
 
+/*
+ * Gradient - Single Color
+ */
 @mixin gradient-single( $from: #fff ) {
     
     /* fallback/image non-cover color */
@@ -58,14 +93,4 @@
     /* IE 6-9 */
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}');
     
-}
-
-@mixin border-radius( $radius ) {
-    
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-       -o-border-radius: $radius;
-          border-radius: $radius;
-          
 }

@@ -1,0 +1,136 @@
+/**
+ * Share Links - Plain Theme
+ */
+.ksharelinks.plain {
+        
+}
+.ksharelinks.plain .kintro {
+        float: left;
+        margin: 0 1em 0 0;
+        line-height: 2em;
+}
+.ksharelinks.plain ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+}
+.ksharelinks.plain ul li {
+        float: left;
+        margin: 0 1em 0.6em 0;
+}
+.ksharelinks.plain ul li:last-of-type {
+        margin: 0;
+}
+
+// Base styles
+// --------------------------------------------------
+
+.ksharelinks.plain .klink {
+    
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    font-weight: $btn-font-weight;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+    white-space: nowrap;
+    text-decoration: none;
+    @include button-size( $padding-medium-vertical, $padding-medium-horizontal, $font-size-base, $line-height-base, $border-radius-base );
+
+    .kicon {
+        font-size: 1em;
+    }
+    
+    &,
+    &:active,
+    &.active {
+      &:focus {
+        // Use themes focus
+      }
+    }
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &:active,
+    &.active {
+      outline: 0;
+      background-image: none;
+      box-shadow: inset 0 3px 5px rgba( 0, 0, 0, 0.125 );
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+      cursor: not-allowed;
+      pointer-events: none; // Future-proof disabling of clicks
+      opacity: 0.65;
+      box-shadow: none;
+    }
+    
+}
+
+// Buttons Variations
+// --------------------------------------------------
+
+.ksharelinks.plain .facebook {
+    @include button-variant( #fff, $facebook, darken( $facebook, 5% ) );
+}
+.ksharelinks.plain .twitter {
+    @include button-variant( #fff, $twitter, darken( $twitter, 5% ) );
+}
+.ksharelinks.plain .linkedin {
+    @include button-variant( #fff, $linkedin, darken( $linkedin, 5% ) );
+}
+.ksharelinks.plain .pinterest {
+    @include button-variant( #fff, $pinterest, darken( $pinterest, 5% ) );
+}
+.ksharelinks.plain .googleplus {
+    @include button-variant( #fff, $googleplus, darken( $googleplus, 5% ) );
+}
+
+// Button Sizes
+// --------------------------------------------------
+
+.ksharelinks.plain.xsmall li .klink {
+    @include button-size( $padding-xs-vertical, $padding-xs-horizontal, $font-size-xs, $line-height-xs, $border-radius-small );
+    min-width: 3em;
+}
+.ksharelinks.plain.small li .klink {
+    @include button-size( $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small );
+    min-width: 3em;
+}
+.ksharelinks.plain.medium li .klink {
+    @include button-size( $padding-medium-vertical, $padding-medium-horizontal, $font-size-base, $line-height-base, $border-radius-base );
+    min-width: 3em;
+    
+    .kicon {
+        font-size: 13px;
+    }
+    
+}
+.ksharelinks.plain.large li .klink {
+    @include button-size( $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large );
+    min-width: 3.4em;
+}
+.ksharelinks.plain.xlarge li .klink {
+    @include button-size( $padding-xl-vertical, $padding-xl-horizontal, $font-size-xl, $line-height-large, $border-radius-large );
+    min-width: 3.4em;
+}
+
+// Button Details
+// --------------------------------------------------
+
+.ksharelinks.plain .klink i {
+        font-family: zocial;
+        background: none;
+}
+
+.ksharelinks.plain .klink .kname {
+        margin-left: 0.6em;
+}

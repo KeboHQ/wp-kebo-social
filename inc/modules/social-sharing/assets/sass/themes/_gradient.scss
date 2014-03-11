@@ -1,0 +1,202 @@
+/**
+ * Share Links - Gradient Theme
+ */
+.ksharelinks.gradient {
+        
+}
+.ksharelinks.gradient .kintro {
+        float: left;
+        margin: 0 1em 0 0;
+        font-size: 14px;
+        padding: 3px 0px;
+}
+.ksharelinks.gradient.small .kintro {
+        font-size: 14px;
+        padding: 3px 0px;
+}
+.ksharelinks.gradient.medium .kintro {
+        font-size: 16px;
+        padding: 2px 0px;
+}
+.ksharelinks.gradient.large .kintro {
+        font-size: 18px;
+        padding: 1px 0px;
+}
+.ksharelinks.gradient ul {
+        margin: 0;
+        padding: 0;
+}
+.ksharelinks.gradient ul li {
+        float: left;
+}
+.ksharelinks.gradient ul li:last-of-type {
+        margin: 0;
+}
+.ksharelinks.gradient .klink {
+        padding: 4px 12px;
+        color: #fff;
+        float: left;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgba(0, 0, 0, 0.1);
+        border-bottom-color: rgba(0, 0, 0, 0.4);
+        @include border-radius( 3px );
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+        line-height: 1.5em;
+        font-size: 12px;
+}
+.ksharelinks.gradient .klink:focus,
+.ksharelinks.gradient .klink:hover {
+        text-decoration: none;
+}
+.ksharelinks.gradient .klink:active {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.ksharelinks.gradient .klink i {
+        color: #fff;
+        font-size: 15px;
+        text-align: center;
+        display: block;
+}
+.ksharelinks.gradient .klink span:first-of-type {
+        margin-left: 0;
+}
+.ksharelinks.gradient .kicon {
+        margin-left: 8px;
+        padding: 0;
+}
+.ksharelinks.gradient .kname {
+        margin-left: 8px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
+.ksharelinks.gradient .kcount {
+        margin-left: 8px;
+}
+
+.ksharelinks.gradient .klink.facebook {
+        @include gradient-single( $facebook );
+}
+.ksharelinks.gradient .klink.facebook:hover {
+        @include gradient-single( darken($facebook, 10%) );
+}
+.ksharelinks.gradient .klink.twitter {
+        @include gradient-single( $twitter );
+}
+.ksharelinks.gradient .klink.twitter:hover {
+        @include gradient-single( darken($twitter, 10%) );
+}
+.ksharelinks.gradient .klink.linkedin {
+        @include gradient-single( $linkedin );
+}
+.ksharelinks.gradient .klink.linkedin:hover {
+        @include gradient-single( darken($linkedin, 10%) );
+}
+.ksharelinks.gradient .klink.googleplus {
+        @include gradient-single( $googleplus );
+}
+.ksharelinks.gradient .klink.googleplus:hover {
+        @include gradient-single( darken($googleplus, 10%) );
+}
+.ksharelinks.gradient .klink.pinterest {
+        @include gradient-single( $pinterest );
+}
+.ksharelinks.gradient .klink.pinterest:hover {
+        @include gradient-single( darken($pinterest, 10%) );
+}
+.ksharelinks.gradient .klink.tumblr {
+        @include gradient-single( $tumblr );
+}
+.ksharelinks.gradient .klink.tumblr:hover {
+        @include gradient-single( darken($tumblr, 10%) );
+}
+.ksharelinks.gradient .klink.reddit {
+        @include gradient-single( $reddit );
+}
+.ksharelinks.gradient .klink.reddit:hover {
+        @include gradient-single( darken($reddit, 10%) );
+}
+.ksharelinks.gradient .klink.stumbleupon {
+        @include gradient-single( $stumbleupon );
+}
+.ksharelinks.gradient .klink.stumbleupon:hover {
+        @include gradient-single( darken($stumbleupon, 10%) );
+}
+.ksharelinks.gradient .klink.digg {
+        @include gradient-single( $digg );
+}
+.ksharelinks.gradient .klink.digg:hover {
+        @include gradient-single( darken($digg, 10%) );
+}
+.ksharelinks.gradient .klink.delicious {
+        @include gradient-single( $delicious );
+}
+.ksharelinks.gradient .klink.delicious:hover {
+        @include gradient-single( darken($delicious, 10%) );
+}
+
+// Count
+.ksharelinks.gradient .kcount {
+        margin-left: 8px;
+        padding: 4px 8px;
+        border: 1px solid #bbb;
+        border-radius: 3px;
+        line-height: 1.5em;
+        position: relative;
+        background: #fff;
+}
+.ksharelinks.gradient .kcount:before {
+        border-color: rgba(0, 0, 0, 0) #ffffff rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+        border-image: none;
+        border-style: inset solid inset inset;
+        border-width: 6px;
+        bottom: 7px;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        left: -12px;
+        width: 0;
+        z-index: 99;
+}
+.ksharelinks.gradient .kcount:after {
+        border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+        border-image: none;
+        border-style: inset solid inset inset;
+        border-width: 7px;
+        bottom: 6px;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        left: -14px;
+        width: 0;
+        z-index: 98;
+}
+
+.ksharelinks.gradient.small li {
+        font-size: 12px;
+}
+.ksharelinks.gradient.small .kcount:before {
+        bottom: 7px;
+}
+.ksharelinks.gradient.small .kcount:after {
+        bottom: 6px;
+}
+.ksharelinks.gradient.medium li {
+        font-size: 14px;
+}
+.ksharelinks.gradient.medium .kcount:before {
+        bottom: 8px;
+}
+.ksharelinks.gradient.medium .kcount:after {
+        bottom: 7px;
+}
+.ksharelinks.gradient.large li {
+        font-size: 16px;
+}
+.ksharelinks.gradient.large .kcount:before {
+        bottom: 9px;
+}
+.ksharelinks.gradient.large .kcount:after {
+        bottom: 8px;
+}
