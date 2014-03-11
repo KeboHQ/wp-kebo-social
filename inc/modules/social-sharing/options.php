@@ -145,6 +145,10 @@ add_filter( 'kbso_get_plugin_options', 'kbso_social_sharing_option_defaults' );
 function kbso_options_theme_select_dropdown() {
     
     $dropdown = array(
+        'plain' => array(
+            'value' => 'plain',
+            'label' => __('Plain', 'kbso')
+        ),
         'default' => array(
             'value' => 'default',
             'label' => __('Default', 'kbso')
@@ -301,6 +305,10 @@ function kbso_options_render_link_content( $args ) {
 function kbso_options_link_size_options() {
     
     $dropdown = array(
+        'xsmall' => array(
+            'value' => 'xsmall',
+            'label' => __('Extra Small', 'kbso')
+        ),
         'small' => array(
             'value' => 'small',
             'label' => __('Small', 'kbso')
@@ -312,6 +320,10 @@ function kbso_options_link_size_options() {
         'large' => array(
             'value' => 'large',
             'label' => __('Large', 'kbso')
+        ),
+        'xlarge' => array(
+            'value' => 'xlarge',
+            'label' => __('Extra Large', 'kbso')
         ),
     );
 
