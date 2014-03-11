@@ -164,7 +164,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['watch', 'jshint', 'concat', 'uglify', 'sass', 'cssmin']);
 
-    grunt.registerTask('build', ['default', 'clean', 'copy', 'compress']);
+    grunt.registerTask('build', ['clean', 'copy', 'compress']);
 
     grunt.util.linefeed = '\n';
 };
