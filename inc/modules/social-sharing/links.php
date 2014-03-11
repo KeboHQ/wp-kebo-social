@@ -12,6 +12,8 @@ function kbso_add_social_sharing_buttons( $content ) {
 
     $options = kbso_get_plugin_options();
     
+    wp_enqueue_style( 'kbso-sharelinks-min' );
+    
     add_action( 'wp_footer', 'kbso_share_links_js_print' );
 
     if ( is_singular() && is_main_query() && in_array( $post->post_type, $options['share_links_post_types'] ) ) {
@@ -28,7 +30,7 @@ function kbso_add_social_sharing_buttons( $content ) {
             
         }
         
-        if ( in_array( 'floating', $options['social_sharing_position'] ) ) {
+        if ( in_array( 'floating', $options['social_sharing_position'] ) && ! wp_is_mobile() ) {
             
             $content = $content . '<div class="kfloating kcontainer">' . kbso_render_share_buttons() . '</div>';
             
