@@ -66,33 +66,33 @@ module.exports = function(grunt) {
             all: {
                 files: {
                     'assets/css/admin.css': 'assets/sass/admin.scss',
-                    'assets/css/sharelinks.css': 'assets/sass/sharelinks.scss',
-                    'assets/css/widgets.css': 'assets/sass/widgets.scss'
+                    'assets/css/widgets.css': 'assets/sass/widgets.scss',
+                    'inc/modules/social-sharing/assets/css/sharelinks.css': 'inc/modules/social-sharing/assets/sass/sharelinks.scss',
                 }
             }
         },
         cssmin: {
-            options: {
-                banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
+            add_banner: {
+                options: {
+                    banner: '/* <%= pkg.title %> - v<%= pkg.version %>\n' +
                         ' * <%= pkg.homepage %>\n' +
                         ' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
                         ' * Licensed GPLv2+' +
-                        ' */\n'
-            },
-            minify: {
-                expand: true,
-                cwd: 'assets/css/',
-                src: [
-                    'sharelinks.css',
-                    'widgets.css',
-                ],
-                dest: 'assets/css/',
-                ext: '.min.css'
+                        '\n */\n'
+                },
+                files: {
+                    'assets/css/widgets.min.css': ['assets/css/widgets.css'],
+                    'assets/css/admin.min.css': ['assets/css/admin.css'],
+                    'inc/modules/social-sharing/assets/css/sharelinks.min.css': ['inc/modules/social-sharing/assets/css/sharelinks.css']
+                }
             }
         },
         watch: {
             sass: {
-                files: ['assets/sass/**/*.scss'],
+                files: [
+                    'assets/sass/**/*.scss',
+                    'inc/modules/**/assets/sass/**/*.scss'
+                ],
                 tasks: ['sass', 'cssmin'],
                 options: {
                     debounceDelay: 500
@@ -100,7 +100,8 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: [
-                    'assets/js/src/**/*.js'
+                    'assets/js/src/**/*.js',
+                    'inc/modules/**/assets/js/src/**/*.js'
                 ],
                 tasks: ['jshint', 'concat', 'uglify'],
                 options: {
