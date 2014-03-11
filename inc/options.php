@@ -23,7 +23,7 @@ function kbso_plugin_options_init() {
     );
     
     /**
-     * Section - Share Links
+     * Section - Feature Control
      */
     add_settings_section(
         'kbso_core_feature_control', // Unique identifier for the settings section
@@ -75,10 +75,12 @@ function kbso_get_plugin_options() {
         // Section - Share Links - General
         'share_links_activate_feature' => 'no',
         'share_links_intro_text' => null,
+        
         // Section - Share Links - Visual
         'share_links_link_content' => array( 'icon', 'name', 'count' ),
         'share_links_theme' => 'default',
         'share_links_post_types' => array( 'post' ),
+        
     );
 
     /*
@@ -112,6 +114,28 @@ function kbso_options_radio_buttons() {
 
     return apply_filters( 'kbso_options_radio_buttons', $radio_buttons );
     
+}
+
+/**
+ * Renders the text input setting field.
+ */
+function kbso_options_render_text_input( $args ) {
+    
+    $options = kbso_get_plugin_options();
+    
+    $name = esc_attr( $args['name'] );
+    
+    $help_text = ( $args['help_text'] ) ? esc_html( $args['help_text'] ) : null;
+        
+    ?>
+    <label class="description" for="<?php echo $name; ?>">
+    <input type="text" name="kbso_plugin_options[<?php echo $name; ?>]" id="<?php echo $name; ?>" value="<?php echo esc_attr( $options[ $name ] ); ?>" />
+    </label>
+    <?php if ( $help_text ) { ?>
+        <span class="howto"><?php echo esc_html( $help_text ); ?></span>
+    <?php } ?>
+    <?php
+        
 }
 
 /**
