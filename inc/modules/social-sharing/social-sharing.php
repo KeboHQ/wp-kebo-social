@@ -12,8 +12,8 @@ function kbso_social_sharing_register_files() {
     wp_register_style( 'kbso-sharelinks-min', KBSO_URL . 'inc/modules/social-sharing/assets/css/sharelinks.min.css', array(), KBSO_VERSION, 'all' );
         
 }
-add_action( 'wp_enqueue_scripts', 'kbso_register_files' );
-add_action( 'admin_enqueue_scripts', 'kbso_register_files' );
+add_action( 'wp_enqueue_scripts', 'kbso_social_sharing_register_files' );
+add_action( 'admin_enqueue_scripts', 'kbso_social_sharing_register_files' );
 
 /**
  * Enqueue backend plugin scripts and styles.
@@ -23,12 +23,12 @@ function kbso_social_sharing_enqueue_backend( $hook_suffix ) {
     // Enqueue files for sharing page
     if ( 'kebo-social_page_kbso-sharing' == $hook_suffix ) {
         
-        wp_enqueue_style( 'kbso-sharelinks' );
+        wp_enqueue_style( 'kbso-sharelinks-min' );
             
     }
         
 }
-add_action( 'admin_enqueue_scripts', 'kbso_enqueue_backend' );
+add_action( 'admin_enqueue_scripts', 'kbso_social_sharing_enqueue_backend' );
 
 /*
  * Social Sharing Admin Button Preview
