@@ -89,7 +89,6 @@ function kbso_register_files() {
     // Register Styles
     wp_register_style( 'kbso-admin', KBSO_URL . 'assets/css/admin.css', array(), KBSO_VERSION, 'all' );
     wp_register_style( 'kbso-widgets', KBSO_URL . 'assets/css/widgets.css', array(), KBSO_VERSION, 'all' );
-    wp_register_style( 'kbso-sharelinks', KBSO_URL . 'assets/css/sharelinks.css', array(), KBSO_VERSION, 'all' );
         
     // Register Scripts
     wp_register_script( 'kbso-admin-js', KBSO_URL . 'assets/js/admin.js', array(), KBSO_VERSION, true );
