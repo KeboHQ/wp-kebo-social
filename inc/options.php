@@ -150,6 +150,8 @@ function kbso_options_render_switch( $args ) {
     
     $help_text = ( $args['help_text'] ) ? esc_html( $args['help_text'] ) : null;
     
+    global $counter;
+    
     ?>
     <div class="switch options">
     <?php
