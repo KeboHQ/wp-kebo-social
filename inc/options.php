@@ -185,41 +185,6 @@ function kbso_plugin_options_validate( $input ) {
         $output['share_links_activate_feature'] = $input['share_links_activate_feature'];
     }
     
-    if ( isset( $input['share_links_intro_text'] ) && ! empty( $input['share_links_intro_text'] ) ) {
-	$output['share_links_intro_text'] = sanitize_title( $input['share_links_intro_text'] );
-    }
-    
-    if ( isset( $input['share_links_link_content'] ) && ! empty( $input['share_links_link_content'] ) ) {
-        
-        if ( in_array( 'icon', $input['share_links_link_content'] ) || in_array( 'name', $input['share_links_link_content'] ) ) {
-            
-            $output['share_links_link_content'] = $input['share_links_link_content'];
-            
-        } else {
-            
-            $input['share_links_link_content'][] = 'icon';
-            
-            $output['share_links_link_content'] = $input['share_links_link_content'];
-            
-            add_settings_error(
-                'kbso-options-sharelinks',
-                esc_attr( 'settings_updated' ),
-                __('Link Content - You must select at least one from icon and name.', 'kbso'),
-                'error'
-            );
-            
-        }
-        
-    }
-    
-    if ( isset( $input['share_links_post_types'] ) ) {
-        $output['share_links_post_types'] = esc_html( $input['share_links_post_types'] );
-    }
-    
-    if ( isset( $input['share_links_theme'] ) && array_key_exists( $input['share_links_theme'], kbso_options_theme_select_dropdown() ) ) {
-        $output['share_links_theme'] = $input['share_links_theme'];
-    }
-    
     /*
      * Allow modules to add their own validate functions
      */
