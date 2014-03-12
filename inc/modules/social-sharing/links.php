@@ -241,12 +241,20 @@ function kbso_share_links_order( $type = 'selected' ) {
         
     } else {
         
-        foreach ( $all_links as $link ) {
+        if ( empty( $selected ) ) {
+        
+            return $all_links;
+        
+        } else {
             
-            if ( ! in_array( $link, $selected ) ) {
-                
-                $remaining[] = $link; 
-                
+            foreach ( $all_links as $link ) {
+
+                if ( ! in_array( $link, $selected ) ) {
+
+                    $remaining[] = $link; 
+
+                }
+
             }
             
         }
