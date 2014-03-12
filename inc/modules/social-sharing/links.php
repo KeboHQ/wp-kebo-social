@@ -12,11 +12,11 @@ function kbso_add_social_sharing_buttons( $content ) {
 
     $options = kbso_get_plugin_options();
 
-    if ( is_singular() && is_main_query() && in_array( $post->post_type, $options['share_links_post_types'] ) ) {
+    if ( is_singular() && is_main_query() && in_array( $post->post_type, $options['social_sharing_post_types'] ) ) {
         
         // Go ahead and add share links
         wp_enqueue_style( 'kbso-sharelinks-min' );
-        add_action( 'wp_footer', 'kbso_share_links_js_print' );
+        add_action( 'wp_footer', 'kbso_social_sharing_js_print' );
         
         if ( in_array( 'top', $options['social_sharing_position'] ) ) {
             
@@ -270,7 +270,7 @@ function kbso_share_links_order( $type = 'selected' ) {
 /**
  * Outputs Share Links Javascript
  */
-function kbso_share_links_js_print() {
+function kbso_social_sharing_js_print() {
     
     ?>
     <script type="text/javascript">
