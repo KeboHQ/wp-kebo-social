@@ -20,10 +20,15 @@ add_action( 'admin_enqueue_scripts', 'kbso_social_sharing_register_files' );
  */
 function kbso_social_sharing_enqueue_backend( $hook_suffix ) {
     
+    
     // Enqueue files for sharing page
     if ( 'kebo-social_page_kbso-sharing' == $hook_suffix ) {
         
+        wp_enqueue_style( 'kbso-admin' );
         wp_enqueue_style( 'kbso-sharelinks-min' );
+        
+        //wp_enqueue_script( 'jquery-ui-sortable' ); // included by touchpunch
+        wp_enqueue_script( 'jquery-ui-touchpunch' ); // depends on jquery-ui-sortable
             
     }
         
