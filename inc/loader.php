@@ -20,7 +20,7 @@ function kbso_class_autoloader( $class ) {
     
     if ( file_exists ( KBSO_PATH . 'inc/classes/' . $class . '.php' ) ) {
         
-        require_once KBSO_PATH . 'inc/classes/Kebo_View.php';
+        require_once KBSO_PATH . 'inc/classes/' . $class . '.php';
         
     }
     
