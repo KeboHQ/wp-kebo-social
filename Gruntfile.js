@@ -137,12 +137,12 @@ module.exports = function(grunt) {
             main: {
                 options: {
                     mode: 'zip',
-                    archive: './release/kebo_social.<%= pkg.version %>.zip'
+                    archive: './release/kebo-social.<%= pkg.version %>.zip'
                 },
                 expand: true,
-                cwd: 'release/<%= pkg.version %>/',
+                cwd: 'release/kebo-social.<%= pkg.version %>/',
                 src: ['**/*'],
-                dest: 'kebo_social/'
+                dest: 'kebo-social/'
             }
         }
     });
