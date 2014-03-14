@@ -3,7 +3,10 @@
  * Class to handle updating cached data in the background.
  */
 
-if ( ! defined( 'KBSO_VERSION' ) ) {
+/**
+ * Check WordPress is running.
+ */
+if ( ! defined( 'ABSPATH' ) ) {
     header( 'HTTP/1.0 403 Forbidden' );
     die;
 }
