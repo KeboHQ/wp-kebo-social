@@ -50,10 +50,10 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
             if ( isset( $_POST['_kebo_cache'] ) && isset( $_POST['_kebo_lock'] )) {
                 
                 /**
-                 * Validate for Alphanumeric characters e.g. A-Z,a-z,0-9,_,-.
+                 * Validate for Lowercase Alphanumeric characters e.g. a-z,0-9,_,-.
                  */
-                $this->cache = sanitize_html_class( $_POST['_kebo_cache'], false );
-                $this->lock = sanitize_html_class( $_POST['_kebo_lock'], false );
+                $this->cache = sanitize_key( $_POST['_kebo_cache'], false );
+                $this->lock = sanitize_key( $_POST['_kebo_lock'], false );
                 
                 /**
                  * Allow plugins/themes to hook into this and perform their own cache updates.
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
         public function set_cache( $cache ) {
             
             // Ensure it is Alphanumeric
-            $this->cache = sanitize_html_class( $cache );
+            $this->cache = sanitize_key( $cache );
             
         }
         
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
         public function set_lock( $lock ) {
             
             // Ensure it is Alphanumeric
-            $this->lock = sanitize_html_class( $lock );
+            $this->lock = sanitize_key( $lock );
             
         }
         
