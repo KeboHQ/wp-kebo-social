@@ -4,29 +4,93 @@
  */
 
 /**
- * Updates the Share Link Counts after the page has been rendered.
+ * Ensure the Kebo Caching class is running to detect requests
  */
-function kbso_share_links_update_counts() {
+function kbso_kebo_caching_init() {
     
-    global $post;
+    Kebo_Caching::get_instance();
+    
+}
+add_action( 'plugins_loaded', 'kbso_kebo_caching_init' );
+
+/**
+ * Should we refresh the Social Counts?
+ */
+function kbso_maybe_refresh_counts( $post_id ) {
     
     $options = kbso_get_plugin_options();
     
-    $permalink = get_permalink();
+    /*
+     * If displaying share counts is turned on, we should update
+     * This can be disabled by setting KBSO_UPDATE_COUNTS to false.
+     */
+    if ( 'true' == KBSO_UPDATE_COUNTS ) {
+        
+        $caching = Kebo_Caching::get_instance();
     
-    $counts = get_post_meta( $post->ID, '_kbso_share_counts', true );
+        $caching->set_cache( 'kbso_social_sharing' );
+
+        $caching->set_lock( $post_id );
+
+        $caching->spawn_process();
+        
+    }
     
-    if ( ! isset( $counts['expiry'] ) || ( isset( $counts['expiry'] ) && $counts['expiry'] < time() ) ) {
+}
+
+/**
+ * If we detect a cache refresh request, run the refresh function
+ */
+function kbso_social_sharing_refresh_detect( $cache, $lock ) {
+    
+    if ( 'social_sharing' == $cache ) {
+        
+        $post_id = absint( $lock );
+        
+        kbso_social_sharing_update_counts( $post_id );
+        
+    }
+    
+}
+add_action( 'kebo_caching_capture_request', 'kbso_social_sharing_refresh_detect' );
+
+/**
+ * Updates the Share Link Counts after the page has been rendered.
+ */
+function kbso_social_sharing_update_counts( $post_id ) {
+    
+    $options = kbso_get_plugin_options();
+    
+    $permalink = get_permalink( $post_id );
+    
+    //$permalink = 'http://telegraph.co.uk/';
+    
+    $counts = get_post_meta( $post_id, '_kbso_share_counts', true );
+    
+    if ( empty ( $counts ) ) {
+        
+        $counts = array();
+        
+    }
+    
+    $counts['total'] = 0;
+    
+    if ( 'yes' == 'yes' ) {
     
         /*
          * Update Twitter Share Count
          */
         $twitter = kbso_update_twitter_count( $permalink );
+        
+        if ( is_int( $twitter ) ) {
 
-        if ( isset( $twitter->count ) ) {
+            $counts['twitter'] = kbso_update_count( $counts['twitter'], $twitter );
+            $counts['total'] = kbso_update_count_total( $counts['total'], $twitter );
 
-            $counts['twitter'] = $twitter->count;
-
+        } else {
+             
+            $counts['total'] = kbso_update_count_total( $counts['total'], $counts['twitter'] );
+            
         }
 
         /*
@@ -34,21 +98,31 @@ function kbso_share_links_update_counts() {
          */
         $facebook = kbso_update_facebook_count( $permalink );
 
-        if ( isset( $facebook[0]->total_count ) ) {
+        if ( is_int( $facebook ) ) {
 
-            $counts['facebook'] = $facebook[0]->total_count;
+            $counts['facebook'] = kbso_update_count( $counts['facebook'], $facebook );
+            $counts['total'] = kbso_update_count_total( $counts['total'], $facebook );
 
+        } else {
+            
+            $counts['total'] = kbso_update_count_total( $counts['total'], $counts['facebook'] );
+            
         }
         
         /*
          * Update Google+ Share Count
          */
         $googleplus = kbso_update_googleplus_count( $permalink );
+        
+        if ( is_int( $googleplus ) ) {
 
-        if ( $googleplus ) {
+            $counts['googleplus'] = kbso_update_count( $counts['googleplus'], $googleplus );
+            $counts['total'] = kbso_update_count_total( $counts['total'], $googleplus );
 
-            $counts['googleplus'] = $googleplus;
-
+        } else {
+            
+            $counts['total'] = kbso_update_count_total( $counts['total'], $counts['googleplus'] );
+            
         }
         
         /*
@@ -56,21 +130,31 @@ function kbso_share_links_update_counts() {
          */
         $linkedin = kbso_update_linkedin_count( $permalink );
 
-        if ( $linkedin->count ) {
+        if ( is_int( $linkedin ) ) {
 
-            $counts['linkedin'] = $linkedin->count;
+            $counts['linkedin'] = kbso_update_count( $counts['linkedin'], $linkedin );
+            $counts['total'] = kbso_update_count_total( $counts['total'], $linkedin );
 
+        } else {
+            
+            $counts['total'] = kbso_update_count_total( $counts['total'], $counts['linkedin'] );
+            
         }
         
         /*
          * Update Pinterest Share Count
          */
         $pinterest = kbso_update_pinterest_count( $permalink );
+        
+        if ( is_int( $pinterest ) ) {
 
-        if ( $pinterest ) {
+            $counts['pinterest'] = kbso_update_count( $counts['pinterest'], $pinterest );
+            $counts['total'] = kbso_update_count_total( $counts['total'], $pinterest );
 
-            $counts['pinterest'] = $pinterest;
-
+        } else {
+            
+            $counts['total'] = kbso_update_count_total( $counts['total'], $counts['pinterest'] );
+            
         }
         
         /*
@@ -78,10 +162,15 @@ function kbso_share_links_update_counts() {
          */
         $stumbleupon = kbso_update_stumbleupon_count( $permalink );
         
-        if ( $stumbleupon ) {
+        if ( is_int( $stumbleupon ) ) {
 
-            $counts['stumbleupon'] = $stumbleupon;
+            $counts['stumbleupon'] = kbso_update_count( $counts['stumbleupon'], $stumbleupon );
+            $counts['total'] = kbso_update_count_total( $counts['total'], $stumbleupon );
 
+        } else {
+            
+            $counts['total'] = kbso_update_count_total( $counts['total'], $counts['stumbleupon'] );
+            
         }
         
         /*
@@ -89,10 +178,15 @@ function kbso_share_links_update_counts() {
          */
         $delicious = kbso_update_delicious_count( $permalink );
         
-        if ( $delicious ) {
+        if ( is_int( $delicious ) ) {
 
-            $counts['delicious'] = $delicious;
+            $counts['delicious'] = kbso_update_count( $counts['delicious'], $delicious );
+            $counts['total'] = kbso_update_count_total( $counts['total'], $delicious );
 
+        } else {
+            
+            $counts['total'] = kbso_update_count_total( $counts['total'], $counts['delicious'] );
+            
         }
 
         /*
@@ -101,9 +195,9 @@ function kbso_share_links_update_counts() {
         $counts['expiry'] = time() + ( 5 * MINUTE_IN_SECONDS );
         $counts['expiry'] = time();
 
-        if ( ! update_post_meta( $post->ID, '_kbso_share_counts', $counts ) ) {
+        if ( ! update_post_meta( $post_id, '_kbso_share_counts', $counts ) ) {
 
-            add_post_meta( $post->ID, '_kbso_share_counts', $counts, true );
+            add_post_meta( $post_id, '_kbso_share_counts', $counts, true );
 
         }
     
@@ -159,7 +253,7 @@ function kbso_update_twitter_count( $permalink ) {
     
     if ( $response ) {
         
-        return json_decode( $response );
+        return $response['count'];
         
     } else {
         
@@ -180,13 +274,11 @@ function kbso_update_facebook_count( $permalink ) {
     // Allow Override
     $url = apply_filters( 'kbso_facebook_share_count_url', $service_url, $permalink );
     
-    $request = kbso_share_count_request( $url );
+    $response = kbso_share_count_request( $url );
     
-    if ( $request ) {
+    if ( $response ) {
         
-        $response = json_decode( $request );
-        
-        return $response;
+        return $response[0]['share_count'];
         
     } else {
         
@@ -207,13 +299,11 @@ function kbso_update_linkedin_count( $permalink ) {
     // Allow Override
     $url = apply_filters( 'kbso_linkedin_share_count_url', $service_url, $permalink );
     
-    $request = kbso_share_count_request( $url );
+    $response = kbso_share_count_request( $url );
     
-    if ( $request ) {
+    if ( $response ) {
         
-        $response = json_decode( $request, true );
-        
-        return $response;
+        return $response['count'];
         
     } else {
         
@@ -234,19 +324,19 @@ function kbso_update_pinterest_count( $permalink ) {
     // Allow Override
     $url = apply_filters( 'kbso_pinterest_share_count_url', $service_url, $permalink );
     
-    $request = kbso_share_count_request( $url );
+    $response = kbso_share_count_request( $url );
     
-    if ( $request ) {
+    if ( $response ) {
         
-        $filtered = preg_replace( '/.+?({.+}).+/','$1', $request );
-
-        $response = json_decode( $filtered );
-
-        return ( $json->count !== '-' ) ? $json->count : false;
-    
-    } else {
-        
-        return false;
+        if ( ! empty( $response['count'] ) ) {
+            
+            return $response['count'];
+            
+        } else {
+            
+            return false;
+            
+        }
     
     }
     
@@ -257,8 +347,6 @@ function kbso_update_pinterest_count( $permalink ) {
  * requires a POST request to fetch social counts.
  */
 function kbso_update_googleplus_count( $permalink ) {
-        
-    $permalink = 'https://www.khanacademy.org/';
     
     $url = 'https://clients6.google.com/rpc';
 
@@ -271,25 +359,17 @@ function kbso_update_googleplus_count( $permalink ) {
     );
     
     $request = wp_remote_request( esc_url_raw( $url ), $args );
+    
+    $response = json_decode( $request['body'], true );
 
-    if ( is_wp_error( $request ) || '400' <= $request['response']['code'] ) {
-        
-        return false;
+    if ( isset( $response[0]['result']['metadata']['globalCounts']['count'] ) ) {
+            
+        return $response[0]['result']['metadata']['globalCounts']['count'];
         
     } else {
-        
-        $response = json_decode( $request['body'], true );
-
-        if ( isset( $response[0]['result']['metadata']['globalCounts']['count'] ) ) {
             
-            return $response[0]['result']['metadata']['globalCounts']['count'];
-        
-        } else {
+        return false;
             
-            return false;
-            
-        }
-        
     }
     
 }
@@ -305,11 +385,9 @@ function kbso_update_stumbleupon_count( $permalink ) {
     // Allow Override
     $url = apply_filters( 'kbso_stumbleupon_share_count_url', $service_url, $permalink );
     
-    $request = kbso_share_count_request( $url );
+    $response = kbso_share_count_request( $url );
     
-    if ( $request ) {
-        
-        $response = json_decode( $request, true );
+    if ( $response ) {
         
         // Service specific check
         if ( isset( $response['result']['views'] ) ) {
@@ -341,11 +419,9 @@ function kbso_update_delicious_count( $permalink ) {
     // Allow Override
     $url = apply_filters( 'kbso_delicious_share_count_url', $service_url, $permalink );
     
-    $request = kbso_share_count_request( $url );
+    $response = kbso_share_count_request( $url );
     
-    if ( $request ) {
-        
-        $response = json_decode( $request, true );
+    if ( $response ) {
         
         // Service specific check
         if ( isset( $response[0]['total_posts'] ) ) {
