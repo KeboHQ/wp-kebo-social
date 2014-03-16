@@ -8,12 +8,14 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
     die;
 }
 
+define( 'KBSO_UPDATE_COUNTS', 'true' );
+
 /**
  * If the Share Links feature has been activated it, hook the feature in.
  */
 $options = kbso_get_plugin_options();
 
-if ( 'yes' == $options['share_links_activate_feature'] ) {
+if ( 'yes' == $options['feature_control_social_sharing'] ) {
     
     add_filter( 'the_content', 'kbso_add_social_sharing_buttons', 95 );
     
