@@ -424,6 +424,10 @@ function kbso_social_sharing_options_validate( $input ) {
         
     }
     
+    if ( isset( $input['social_sharing_position'] ) ) {
+        $output['social_sharing_position'] = esc_html( $input['social_sharing_position'] );
+    }
+    
     if ( isset( $input['social_sharing_post_types'] ) ) {
         $output['social_sharing_post_types'] = esc_html( $input['social_sharing_post_types'] );
     }
