@@ -3,7 +3,49 @@
  * Helper Functions
  */
 
-/*
+/**
+ * Update the count using a new number.
+ */
+function kbso_update_count( $current, $new ) {
+    
+    /*
+     * If we have no values yet, set it to 0 as a default
+     */
+    if ( ! isset( $current ) ) {
+        
+        $current = 0;
+        
+    }
+    
+    /*
+     * If we have a valid new value, use it.
+     */
+    if ( isset( $new ) && is_int( $new ) && ( 0 < $new ) ) {
+        
+        $current = $new;
+        
+    }
+    
+    return $current;
+    
+}
+
+/**
+ * Update the total count using a new number.
+ */
+function kbso_update_count_total( $total, $new ) {
+    
+    if ( ! empty( $new ) && is_int( absint( $new ) ) && ( 0 < $new ) ) {
+        
+        $total = $total + $new;
+        
+    }
+    
+    return $total;
+    
+}
+
+/**
  * Output Selected Share Services
  */
 function kbso_social_share_services( $type = 'selected' ) {
@@ -24,7 +66,7 @@ function kbso_social_share_services( $type = 'selected' ) {
     
 }
 
-/*
+/**
  * Process Social Count for Display
  */
 function kbso_social_share_count_display( $count, $thousand = 'K', $million = 'M' ) {
