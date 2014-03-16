@@ -24,28 +24,53 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
          *
          * @var string
          */
-        private $cache;
+        public static $cache;
 
         /**
          * The cache lock ID.
          *
          * @var string
          */
-        private $lock;
+        public static $lock;
+
+        /**
+         * Refers to a single instance of this class.
+         *
+         * @var string
+         */
+        private static $instance = null;
+
+        /**
+         * Creates or returns an instance of this class.
+         */
+        public static function get_instance() {
+
+            if ( null == self::$instance ) {
+                
+                self::$instance = new self;
+                
+            }
+
+            return self::$instance;
+
+        } // end get_instance
         
         /**
          * Init
          */
         public function __construct() {
             
-            add_action( 'init', array( $this, 'init' ), 9999 );
+            // Watch for incomming cache refresh requests.
+            add_action( 'init', array( $this, 'watcher' ), 9999 );
             
-        }
+            kbso_social_sharing_update_counts( '1241' );
+            
+        } // end __construct
         
         /**
          * Check for Kebo Caching requests
          */
-        public function init() {
+        public function watcher() {
             
             if ( isset( $_POST['_kebo_cache'] ) && isset( $_POST['_kebo_lock'] )) {
                 
@@ -65,7 +90,7 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
             
             }
             
-        }
+        } // end watcher
         
         /**
          * Set the name of the Cache
@@ -73,7 +98,7 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
         public function set_cache( $cache ) {
             
             // Ensure it is Alphanumeric
-            $this->cache = sanitize_key( $cache );
+            Kebo_caching::$cache = sanitize_key( $cache );
             
         }
         
@@ -93,7 +118,7 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
         public function set_lock( $lock ) {
             
             // Ensure it is Alphanumeric
-            $this->lock = sanitize_key( $lock );
+            Kebo_caching::$lock = sanitize_key( $lock );
             
         }
         
@@ -116,8 +141,8 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
             
             $args = array( 
                 'body' => array( 
-                    '_kebo_cache' => $this->cache,
-                    '_kebo_lock' => $this->lock
+                    '_kebo_cache' => Kebo_caching::$cache,
+                    '_kebo_lock' => Kebo_caching::$lock
                 ),
                 'timeout' => 0.01,
                 'blocking' => false,
@@ -126,7 +151,7 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
             
             wp_remote_post( $server_url, $args );
             
-        }
+        } // end spawn_process
         
     }
     
