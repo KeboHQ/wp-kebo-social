@@ -11,7 +11,7 @@ function kbso_update_count( $current, $new ) {
     /*
      * If we have no values yet, set it to 0 as a default
      */
-    if ( ! isset( $current ) ) {
+    if ( empty( $current ) ) {
         
         $current = 0;
         
