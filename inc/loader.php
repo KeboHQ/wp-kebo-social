@@ -33,6 +33,11 @@ spl_autoload_register( 'kbso_class_autoloader' );
 require_once( KBSO_PATH . 'inc/menu.php' );
 
 /*
+ * Include Dashboard Widgets file.
+ */
+require_once( KBSO_PATH . 'inc/dashboard-widgets.php' );
+
+/*
  * Include Helper Functions file.
  */
 require_once( KBSO_PATH . 'inc/helpers.php' );
