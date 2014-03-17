@@ -11,7 +11,7 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
 /**
  * Render Dashboard Widgets
  */
-function kbso_dashboard_widget_render($title, $content, $sortable = false) {
+function kbso_dashboard_widget_render( $title, $content, $sortable = false ) {
     
     ?>
     <div id="unique-id" class="postbox">
