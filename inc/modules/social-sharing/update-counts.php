@@ -4,16 +4,6 @@
  */
 
 /**
- * Ensure the Kebo Caching class is running to detect requests
- */
-function kbso_kebo_caching_init() {
-    
-    Kebo_Caching::get_instance();
-    
-}
-add_action( 'plugins_loaded', 'kbso_kebo_caching_init' );
-
-/**
  * Should we refresh the Social Counts?
  */
 function kbso_maybe_refresh_counts( $post_id ) {
@@ -52,7 +42,7 @@ function kbso_social_sharing_refresh_detect( $cache, $lock ) {
     }
     
 }
-add_action( 'kebo_caching_capture_request', 'kbso_social_sharing_refresh_detect' );
+add_action( 'kebo_caching_capture_request', 'kbso_social_sharing_refresh_detect', 5, 2 );
 
 /**
  * Updates the Share Link Counts after the page has been rendered.
@@ -63,7 +53,9 @@ function kbso_social_sharing_update_counts( $post_id ) {
     
     $permalink = get_permalink( $post_id );
     
-    //$permalink = 'http://telegraph.co.uk/';
+    $permalink = 'http://wordpress.com/';
+
+    // TODO- check we have a valid ID/Permalink before proceeding
     
     $counts = get_post_meta( $post_id, '_kbso_share_counts', true );
     
@@ -75,7 +67,7 @@ function kbso_social_sharing_update_counts( $post_id ) {
     
     $counts['total'] = 0;
     
-    if ( 'yes' == 'yes' ) {
+    if ( ! isset( $counts['expiry'] ) || time() > $counts['expiry'] ) {
     
         /*
          * Update Twitter Share Count
@@ -193,7 +185,6 @@ function kbso_social_sharing_update_counts( $post_id ) {
          * Update Expiry Time
          */
         $counts['expiry'] = time() + ( 5 * MINUTE_IN_SECONDS );
-        $counts['expiry'] = time();
 
         if ( ! update_post_meta( $post_id, '_kbso_share_counts', $counts ) ) {
 
