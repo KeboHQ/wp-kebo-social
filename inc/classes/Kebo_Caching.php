@@ -61,29 +61,32 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
         public function __construct() {
             
             // Watch for incomming cache refresh requests.
-            add_action( 'init', array( $this, 'watcher' ), 9999 );
-            
-            kbso_social_sharing_update_counts( '1241' );
+            add_action( 'init', array( $this, 'watcher' ) );
             
         } // end __construct
         
         /**
          * Check for Kebo Caching requests
          */
-        public function watcher() {
+        public static function watcher() {
             
-            if ( isset( $_POST['_kebo_cache'] ) && isset( $_POST['_kebo_lock'] )) {
+            /**
+             * Validate for Lowercase Alphanumeric characters e.g. a-z,0-9,_,-.
+             */
+            self::$cache = sanitize_key( $_POST['_kebo_cache'], false );
+            self::$lock = sanitize_key( $_POST['_kebo_lock'], false );
+            
+            /**
+             * Allow plugins/themes to hook into this and perform their own cache updates.
+             */
+            do_action( 'kebo_caching_capture_request', self::$cache, self::$lock );
+            
+            /*
+             * Test Refresh Script
+             */
+            if ( isset( $_POST['_kebo_cache'] ) ) {
                 
-                /**
-                 * Validate for Lowercase Alphanumeric characters e.g. a-z,0-9,_,-.
-                 */
-                $this->cache = sanitize_key( $_POST['_kebo_cache'], false );
-                $this->lock = sanitize_key( $_POST['_kebo_lock'], false );
-                
-                /**
-                 * Allow plugins/themes to hook into this and perform their own cache updates.
-                 */
-                do_action( 'kebo_caching_capture_request', $this->cache, $this->lock );
+                kbso_social_sharing_update_counts( self::$lock );
                 
                 // Incase functions using the hook forget to exit.
                 exit();
@@ -98,7 +101,7 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
         public function set_cache( $cache ) {
             
             // Ensure it is Alphanumeric
-            Kebo_caching::$cache = sanitize_key( $cache );
+            self::$cache = sanitize_key( $cache );
             
         }
         
@@ -108,7 +111,7 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
         public function get_cache() {
             
             // Return cache or false if not set
-            return ( ! empty( $this->cache ) ) ? $this->cache : false ;
+            return ( ! empty( self::$cache ) ) ? self::$cache : false ;
             
         }
         
@@ -118,7 +121,7 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
         public function set_lock( $lock ) {
             
             // Ensure it is Alphanumeric
-            Kebo_caching::$lock = sanitize_key( $lock );
+            self::$lock = sanitize_key( $lock );
             
         }
         
@@ -128,7 +131,7 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
         public function get_lock() {
             
             // Return lock or false if not set
-            return ( ! empty( $this->lock ) ) ? $this->lock : false ;
+            return ( ! empty( self::$lock ) ) ? self::$lock : false ;
             
         }
         
@@ -141,8 +144,8 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
             
             $args = array( 
                 'body' => array( 
-                    '_kebo_cache' => Kebo_caching::$cache,
-                    '_kebo_lock' => Kebo_caching::$lock
+                    '_kebo_cache' => self::$cache,
+                    '_kebo_lock' => self::$lock
                 ),
                 'timeout' => 0.01,
                 'blocking' => false,
