@@ -18,23 +18,36 @@ function kbso_add_social_sharing_buttons( $content ) {
         wp_enqueue_style( 'kbso-sharelinks-min' );
         add_action( 'wp_footer', 'kbso_social_sharing_js_print' );
         
+        /**
+         * Add to top of content
+         */
         if ( in_array( 'top', $options['social_sharing_position'] ) ) {
             
             $content = kbso_render_share_buttons() . $content;
             
         }
         
+        /**
+         * Add to bottom of post content
+         */
         if ( in_array( 'bottom', $options['social_sharing_position'] ) ) {
             
             $content = $content . kbso_render_share_buttons();
             
         }
         
+        /**
+         * Add to bottom of post content
+         * perhaps this should be in the footer?
+         */
         if ( in_array( 'floating', $options['social_sharing_position'] ) && ! wp_is_mobile() ) {
             
-            $content = $content . '<div class="kfloating kcontainer">' . kbso_render_share_buttons() . '</div>';
+            $content = $content . '<div class="kfloating">' . kbso_render_share_buttons() . '</div>';
             
         }
+        
+        // Decide if we need to refresh counts
+        kbso_maybe_refresh_counts( $post->ID );
         
     }
     
@@ -98,6 +111,43 @@ function kbso_render_share_buttons() {
     }
     
     /**
+     * Check for Featured Image
+     */
+    if ( ! has_post_thumbnail( $post->ID ) && isset( $selected_links['pinterest'] ) ) {
+        
+        unset( $selected_links['pinterest'] );
+        
+    } elseif ( has_post_thumbnail( $post->ID ) && isset( $selected_links['pinterest'] ) ) {
+        
+        $featured_image_id = get_post_thumbnail_id( $post->ID );
+        
+        $featured_image_attrs = wp_get_attachment_image_src( $featured_image_id, 'full' );
+        
+        /**
+         * We have a Featured Image
+         * Now check it meets the requirements 80x80
+         */
+        if ( $featured_image_attrs ) {
+            
+            // Check height
+            if ( 80 > $featured_image_attrs[1] ) {
+                
+                unset( $selected_links['pinterest'] );
+                
+            } 
+            
+            // Check width
+            if ( 80 > $featured_image_attrs[2] ) {
+                
+                unset( $selected_links['pinterest'] );
+                
+            }
+            
+        }
+        
+    }
+    
+    /**
      * Prepare the HTML classes
      */
     $classes[] = 'ksharelinks';
@@ -153,7 +203,7 @@ function kbso_get_social_share_links() {
     $permalink = urlencode( get_permalink() );
     $summary = urlencode( wp_trim_words( strip_tags( get_the_content( $post->ID ) ), 50) );
     $site_name = urlencode( get_bloginfo( 'name' ) );
-    $post_thumnail_url = urlencode( wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ) );
+    $post_thumnail_url = wp_get_attachment_image( get_post_thumbnail_id( $post->ID ) );
 
     // Allow Override
     do_action( 'kbso_before_share_link_defaults' );
