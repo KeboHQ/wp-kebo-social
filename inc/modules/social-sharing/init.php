@@ -8,7 +8,15 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
     die;
 }
 
-define( 'KBSO_UPDATE_COUNTS', 'true' );
+if ( ! defined( KBSO_UPDATE_COUNTS ) ) {
+    define( 'KBSO_UPDATE_COUNTS', 'true' );
+}
+
+/**
+ * Ensure the Kebo Caching class is running to detect requests
+ * Uses Singleton Pattern to ensure only one instance is used.
+ */
+Kebo_Caching::get_instance();
 
 /**
  * If the Share Links feature has been activated it, hook the feature in.
