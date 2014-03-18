@@ -13,7 +13,7 @@ To get going with Kebo Social you can:
 
 ## Documentation
 
-You can view the Kebo Social [support documentation](http://downloads.wordpress.org/plugin/kebo-social.zip).
+You can view the Kebo Social [support documentation](https://kebopowered.com/docs/kebo-social/).
 
 Kebo Social uses [Grunt](http://gruntjs.com/) and [SASS](http://sass-lang.com/) as development aids.
 
