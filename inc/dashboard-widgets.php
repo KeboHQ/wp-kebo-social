@@ -3,6 +3,12 @@
  * Plugin Dashboard and WP Admin Dashboard Widgets
  */
 
+/**
+ * TODO:
+ * 1) Look at how we have used translation functions. Should the text be so fragmented into many functions?
+ * 2) Should the text be inside paragraph tags?
+ */
+
 
 /**
  * Output 'Welcome' Widget
@@ -119,9 +125,9 @@ add_action( 'kbso_dashboard_column_four', 'kbso_dashboard_widget_about_kebo' );
 /**
  * Output 'Planned Features' Widget
  */
-function kbso_dashboard_widget_planned_features() {
+function kbso_dashboard_widget_coming_soon() {
     
-    $title = __( 'Planned Features', 'kbso' );
+    $title = __( 'Coming Soon', 'kbso' );
     
     $content = __( 'In the coming months we will be adding many more features. You can see what to expect next below:' , 'kbso' );
     
@@ -153,7 +159,7 @@ function kbso_dashboard_widget_planned_features() {
     kbso_dashboard_widget_render( $title, $content, $sortable = false );
     
 }
-add_action( 'kbso_dashboard_column_two', 'kbso_dashboard_widget_planned_features' );
+add_action( 'kbso_dashboard_column_two', 'kbso_dashboard_widget_coming_soon' );
 
 /**
  * Output 'Support' Widget
@@ -163,6 +169,10 @@ function kbso_dashboard_widget_support() {
     $title = __( 'Support', 'kbso' );
     
     $content = sprintf( __( 'We are actively supporting the plugin and the easiest way to reach us is on the plugins <a href="%s" target="%s">support forum</a>.', 'kbso' ), 'http://wordpress.org/support/plugin/kebo-social/', '_blank' );
+    
+    $content .= '&nbsp;';
+    
+    $content .= __( 'There may be bugs, especially early on, but if you let us know we will deal with them straight away.', 'kbso' );
     
     $content .= '<br><br>';
     
