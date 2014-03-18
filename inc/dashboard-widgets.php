@@ -172,7 +172,7 @@ function kbso_dashboard_widget_support() {
     
     $content .= '&nbsp;';
     
-    $content .= __( 'There may be bugs, especially early on, but if you let us know we will deal with them straight away.', 'kbso' );
+    $content .= __( 'You may run into bugs but if you let us know we will deal with them straight away.', 'kbso' );
     
     $content .= '<br><br>';
     
