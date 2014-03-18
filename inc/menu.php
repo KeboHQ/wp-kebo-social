@@ -57,7 +57,6 @@ function kbso_dashboard_page_render() {
     }
     
     global $current_user;
-    get_currentuserinfo();
     ?>
 
     <div class="wrap">
@@ -72,38 +71,11 @@ function kbso_dashboard_page_render() {
                     
                     <div id="normal-sortables" class="meta-box-sortables ui-sortable">
                         
-                        <!-- Begin Dashboard Items -->
+                        <!-- Begin Dashboard Items - Column One -->
                         
-                        <div id="unique-id" class="postbox">
-                            
-                            <!--
-                            <div class="handlediv" title="<?php _e('Click to toggle'); ?>">
-                                
-                                <br>
-                                
-                            </div>
-                            -->
-                            
-                            <h3 class="hndle">
-                                
-                                <span><?php _e('Welcome'); ?></span>
-                                
-                            </h3>
-                            
-                            <div class="inside">
-                                
-                                <div class="main">
-                                    
-                                    <!-- Content -->
-                                    <p><?php echo sprintf( __('Hi %s, welcome to your Kebo Social dashboard.'), $current_user->display_name ); ?></p>
-                                    
-                                </div>
-                                
-                            </div>
-                            
-                        </div><!-- .postbox -->
+                        <?php do_action( 'kbso_dashboard_column_one' ); ?>
                         
-                        <!-- End Dashboard Items -->
+                        <!-- End Dashboard Items - Column One -->
                         
                     </div><!-- .meta-box-sortables .ui-sortable -->
                     
@@ -113,38 +85,11 @@ function kbso_dashboard_page_render() {
                     
                     <div id="normal-sortables" class="meta-box-sortables ui-sortable">
                         
-                        <!-- Begin Dashboard Items -->
+                        <!-- Begin Dashboard Items - Column Two -->
                         
-                        <div id="unique-id" class="postbox">
-                            
-                            <!--
-                            <div class="handlediv" title="<?php _e('Click to toggle'); ?>">
-                                
-                                <br>
-                                
-                            </div>
-                            -->
-                            
-                            <h3 class="hndle">
-                                
-                                <span><?php _e('Getting Started'); ?></span>
-                                
-                            </h3>
-                            
-                            <div class="inside">
-                                
-                                <div class="main">
-                                    
-                                    <!-- Content -->
-                                    <p>Kebo Social is just beginning its life as a WordPress plugin and will be under active development constantly. You can currently add Social Share Links to your posts from <a href="<?php echo esc_url( admin_url( '/admin.php?page=kbso-sharing' ) ); ?>">here</a>. These are specially designed to look beautiful, be responsive and include no tracking scripts.</p>
-                                    
-                                </div>
-                                
-                            </div>
-                            
-                        </div><!-- .postbox -->
+                        <?php do_action( 'kbso_dashboard_column_two' ); ?>
                         
-                        <!-- End Dashboard Items -->
+                        <!-- End Dashboard Items - Column Two -->
                         
                     </div>
                     
@@ -154,46 +99,11 @@ function kbso_dashboard_page_render() {
                     
                     <div id="normal-sortables" class="meta-box-sortables ui-sortable">
                         
-                        <!-- Begin Dashboard Items -->
+                        <!-- Begin Dashboard Items - Column Three -->
                         
-                        <div id="unique-id" class="postbox">
-                            
-                            <!--
-                            <div class="handlediv" title="<?php _e('Click to toggle'); ?>">
-                                
-                                <br>
-                                
-                            </div>
-                            -->
-                            
-                            <h3 class="hndle">
-                                
-                                <span><?php _e('Planned Features'); ?></span>
-                                
-                            </h3>
-                            
-                            <div class="inside">
-                                
-                                <div class="main">
-                                    
-                                    <!-- Content -->
-                                    <p>We have many features planned which are in various stages of completion:</p>
-                                    
-                                    <ul>
-                                        <li><h4>Social Feed Widgets</h4></li>
-                                        <li><h4>Post to Social Services</h4></li>
-                                        <li><h4>Social Stats (Premium)</h4></li>
-                                    </ul>
-                                    
-                                    <p>You can read more about the planned features here.</p>
-                                    
-                                </div>
-                                
-                            </div>
-                            
-                        </div><!-- .postbox -->
+                        <?php do_action( 'kbso_dashboard_column_three' ); ?>
                         
-                        <!-- End Dashboard Items -->
+                        <!-- End Dashboard Items - Column Three -->
                         
                     </div>
                     
@@ -203,93 +113,11 @@ function kbso_dashboard_page_render() {
                     
                     <div id="normal-sortables" class="meta-box-sortables ui-sortable">
                         
-                        <!-- Begin Dashboard Items -->
+                        <!-- Begin Dashboard Items - Column Four -->
                         
-                        <div id="unique-id" class="postbox">
-                            
-                            <!--
-                            <div class="handlediv" title="<?php _e('Click to toggle'); ?>">
-                                
-                                <br>
-                                
-                            </div>
-                            -->
-                            
-                            <h3 class="hndle">
-                                
-                                <span><?php _e('Kebo Social Pro'); ?></span>
-                                
-                            </h3>
-                            
-                            <div class="inside">
-                                
-                                <div class="main">
-                                    
-                                    <!-- Content -->
-                                    <p>Coming Soon - Kebo Social Pro tracks the Social Service activity for all your posts, recording historical data. This allows you to view valuable information about how your content is consumed and spread on Social Networks.</p>
-                                    
-                                </div>
-                                
-                            </div>
-                            
-                        </div><!-- .postbox -->
+                        <?php do_action( 'kbso_dashboard_column_four' ); ?>
                         
-                        <div id="unique-id" class="postbox">
-                            
-                            <!--
-                            <div class="handlediv" title="<?php _e('Click to toggle'); ?>">
-                                
-                                <br>
-                                
-                            </div>
-                            -->
-                            
-                            <h3 class="hndle">
-                                
-                                <span><?php _e('More from Kebo'); ?></span>
-                                
-                            </h3>
-                            
-                            <div class="inside">
-                                
-                                <div class="main">
-                                    
-                                    <!-- Content -->
-                                    
-                                    <div style="width: 50%; float: left;">
-                                        
-                                        <h4><?php _e('Other Plugins', 'kbso'); ?></h4>
-                                    
-                                        <ul>
-                                            <li><a href="http://wordpress.org/plugins/kebo-twitter-feed/" target="_blank">Kebo Twitter Feed</a></li>
-                                            <li><a href="http://wordpress.org/plugins/kebo-testimonials/" target="_blank">Kebo Testimonials</a></li>
-                                        </ul>
-                                        
-                                    </div>
-                                    
-                                    <div style="width: 50%; float: left;">
-                                    
-                                        <h4><?php _e('Follow Us', 'kbso'); ?></h4>
-
-                                        <ul>
-                                            <li><a href="http://kebopowered.com/" target="_blank">Website</a></li>
-                                            <li><a href="https://twitter.com/kebopowered/" target="_blank">Twitter</a></li>
-                                            <li><a href="https://www.facebook.com/kebopowered/" target="_blank">Facebook</a></li>
-                                            <li><a href="https://www.linkedin.com/company/2894278/" target="_blank">LinkedIn</a></li>
-                                            <li><a href="https://github.com/kebopowered/" target="_blank">Github</a></li>
-                                        </ul>
-                                    
-                                    </div>
-                                    
-                                    <div style="clear: both;"></div>
-                                    
-                                </div>
-                                
-                            </div>
-                            
-                        </div><!-- .postbox -->
-                        
-                        <!-- End Dashboard Items -->
+                        <!-- End Dashboard Items - Column Four -->
                         
                     </div>
                     
@@ -311,8 +139,8 @@ function kbso_dashboard_page_scripts() {
     ?>
     <script type="text/javascript">
         
-        //jQuery( '.handlediv' ).on( 'click', function() {
-            //jQuery(this).parent( '.postbox' ).toggleClass( 'closed' );
+        //jQuery( '.handlediv' ).on( 'click', function($) {
+            //$(this).parent( '.postbox' ).toggleClass( 'closed' );
         //});
         
     </script>
