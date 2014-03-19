@@ -124,9 +124,9 @@ add_action( 'admin_init', 'kbso_social_sharing_options_init' );
 function kbso_social_sharing_option_defaults( $defaults ) {
     
     $sharing = array(
-        'social_sharing_label' => '',
+        'social_sharing_label' => 'Share this:',
         'social_sharing_theme' => 'default',
-        'social_sharing_position' => array( 'bottom' ),
+        'social_sharing_position' => array( 'top', 'bottom' ),
         'social_sharing_link_content' => array( 'icon', 'name', 'count' ),
         'social_sharing_link_size' => 'medium',
         'social_sharing_post_types' => array( 'post' ),
