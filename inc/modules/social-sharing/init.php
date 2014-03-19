@@ -25,7 +25,7 @@ $options = kbso_get_plugin_options();
 
 if ( 'yes' == $options['feature_control_social_sharing'] ) {
     
-    add_filter( 'the_content', 'kbso_add_social_sharing_buttons', 95 );
+    add_filter( 'the_content', 'kbso_social_sharing_content_insert', 95 );
     
 }
 
