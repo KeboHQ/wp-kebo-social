@@ -3,6 +3,11 @@
  * Uninstall - Removed Options and Transients.
  */
 
+/**
+ * TODO:
+ * 1) Move module uninstall actions to their own files, create own action hook?bonus, 
+ */
+
 // Check for Un-Install constant.
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
     exit();
@@ -33,6 +38,13 @@ if ( is_multisite() ) {
         // Delete the Options we registered.
         delete_option( 'kbso_plugin_options' );
         
+        delete_option( 'kbso_social_sharing_order' );
+        
+        /*
+         * Allow Modules to Uninstall
+         */
+        do_action( 'kbso_plugin_uninstall_multisite' );
+        
     }
 
     // Go back to Network Site
@@ -42,5 +54,10 @@ if ( is_multisite() ) {
 
     // Delete the Options we registered.
     delete_option( 'kbso_plugin_options' );
+    
+    /*
+     * Allow Modules to Uninstall
+     */
+    do_action( 'kbso_plugin_uninstall' );
     
 }
