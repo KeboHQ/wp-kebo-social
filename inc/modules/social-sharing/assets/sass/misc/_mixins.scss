@@ -17,26 +17,81 @@
     text-shadow: makelongshadow($color);
 }
 
-@mixin button-count( $color, $background, $border ) {
+@mixin left-box-arrow( $color, $size, $top-offset, $left-offset ) {
     
+    position: relative;
+    
+    &:before {
+        border-color: rgba(0, 0, 0, 0) #ffffff rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+        border-image: none;
+        border-style: inset solid inset inset;
+        border-width: $size - 1px;
+        top: $top-offset;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        left: $left-offset + 2px;
+        width: 0;
+        z-index: 99;
+    }
+    
+    &:after {
+        border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+        border-image: none;
+        border-style: inset solid inset inset;
+        border-width: $size;
+        top: $top-offset - 1px;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        left: $left-offset;
+        width: 0;
+        z-index: 98;
+    }
+}
+
+@mixin top-box-arrow( $color, $size, $left-offset, $top-offset ) {
+    
+    position: relative;
+    
+    &:before {
+        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #ffffff rgba(0, 0, 0, 0);
+        border-image: none;
+        border-style: inset inset solid inset;
+        border-width: $size - 1px;
+        left: $left-offset;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        top: $top-offset + 2px;
+        width: 0;
+        z-index: 99;
+    }
+    
+    &:after {
+        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0);
+        border-image: none;
+        border-style: inset inset solid inset;
+        border-width: $size;
+        left: $left-offset - 1px;
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        top: $top-offset;
+        width: 0;
+        z-index: 98;
+    }
+}
+
+@mixin button-count( $color, $background, $border ) {
     color: $color;
     background-color: $background;
     border-color: $border;
-
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      color: $color;
-      background-color: darken( $background, 10% );
-          border-color: darken( $border, 12% );
-    }
-
-    &:active,
-    &.active {
-      background-image: none;
-    }
-    
+    min-width: none;
 }
 
 @mixin button-variant( $color, $background, $border ) {

@@ -7,7 +7,6 @@
 .ksharelinks.plain .kintro {
         float: left;
         margin: 0 1em 0 0;
-        line-height: 2em;
 }
 .ksharelinks.plain ul {
         margin: 0;
@@ -93,34 +92,127 @@
 .ksharelinks.plain .googleplus {
     @include button-variant( #fff, $googleplus, darken( $googleplus, 5% ) );
 }
+.ksharelinks.plain .digg {
+    @include button-variant( #fff, $digg, darken( $digg, 5% ) );
+}
+.ksharelinks.plain .tumblr {
+    @include button-variant( #fff, $tumblr, darken( $tumblr, 5% ) );
+}
+.ksharelinks.plain .reddit {
+    @include button-variant( #fff, $reddit, darken( $reddit, 5% ) );
+}
+.ksharelinks.plain .stumbleupon {
+    @include button-variant( #fff, $stumbleupon, darken( $stumbleupon, 5% ) );
+}
+.ksharelinks.plain .delicious {
+    @include button-variant( #fff, $delicious, darken( $delicious, 5% ) );
+}
 
 // Button Sizes
 // --------------------------------------------------
 
-.ksharelinks.plain.xsmall li .klink {
-    @include button-size( $padding-xs-vertical, $padding-xs-horizontal, $font-size-xs, $line-height-xs, $border-radius-small );
-    min-width: 3em;
-}
-.ksharelinks.plain.small li .klink {
-    @include button-size( $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small );
-    min-width: 3em;
-}
-.ksharelinks.plain.medium li .klink {
-    @include button-size( $padding-medium-vertical, $padding-medium-horizontal, $font-size-base, $line-height-base, $border-radius-base );
-    min-width: 3em;
-    
-    .kicon {
-        font-size: 13px;
+// Extra Small
+.ksharelinks.plain.xsmall {
+    .kintro {
+        padding: $padding-xs-vertical 0;
+        line-height: $line-height-xs;
     }
-    
+    .klink,
+    .kcount {
+        @include button-size( $padding-xs-vertical, $padding-xs-horizontal, $font-size-xs, $line-height-xs, $border-radius-small );
+        min-width: 3em;
+    }
+    .kcount {
+        @include left-box-arrow( #bbb, 5px, 6px, -10px );
+        min-width: 0;
+    }
 }
-.ksharelinks.plain.large li .klink {
-    @include button-size( $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large );
-    min-width: 3.4em;
+.kfloating .ksharelinks.plain.xsmall li .kcount {
+    @include top-box-arrow( #bbb, 5px, 16px, -10px );
 }
-.ksharelinks.plain.xlarge li .klink {
-    @include button-size( $padding-xl-vertical, $padding-xl-horizontal, $font-size-xl, $line-height-large, $border-radius-large );
-    min-width: 3.4em;
+
+// Small
+.ksharelinks.plain.small {
+    .kintro {
+        padding: $padding-small-vertical 0;
+        line-height: $line-height-small;
+    }
+    .klink,
+    .kcount {
+        @include button-size( $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small );
+        min-width: 3em;
+    }
+    .kcount {
+        @include left-box-arrow( #bbb, 6px, 9px, -12px );
+        min-width: 0;
+    }
+}
+.kfloating .ksharelinks.plain.small li .kcount {
+    @include top-box-arrow( #bbb, 6px, 22px, -12px );
+    width: 5em;
+}
+
+// Medium
+.ksharelinks.plain.medium {
+    .kintro {
+        padding: $padding-medium-vertical 0;
+        line-height: $line-height-base;
+    }
+    .klink,
+    .kcount {
+        @include button-size( $padding-medium-vertical, $padding-medium-horizontal, $font-size-base, $line-height-base, $border-radius-base );
+        min-width: 3em;
+        .kicon {
+            font-size: 13px;
+        }
+    }
+    .kcount {
+        @include left-box-arrow( #bbb, 7px, 10px, -14px );
+        min-width: 0;
+    }
+}
+.kfloating .ksharelinks.plain.medium li .kcount {
+    @include top-box-arrow( #bbb, 7px, 30px, -14px );
+}
+
+// Large
+.ksharelinks.plain.large {
+    .kintro {
+        padding: $padding-large-vertical 0;
+        line-height: $line-height-large;
+    }
+    .klink,
+    .kcount {
+        @include button-size( $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large );
+        min-width: 3.4em;
+    }
+    .kcount {
+        @include left-box-arrow( #bbb, 8px, 14px, -16px );
+        min-width: 0;
+    }
+}
+.kfloating .ksharelinks.plain.large li .kcount {
+    @include top-box-arrow( #bbb, 8px, 36px, -16px );
+}
+
+// Extra Large
+.ksharelinks.plain.xlarge {
+    .kintro {
+        padding: $padding-xl-vertical $padding-xl-horizontal;
+        line-height: $line-height-large;
+    }
+    .klink,
+    .kcount {
+        @include button-size( $padding-xl-vertical, $padding-xl-horizontal, $font-size-xl, $line-height-large, $border-radius-large );
+        min-width: 3.4em;
+    }
+    .kcount {
+        @include left-box-arrow( #bbb, 9px, 14px, -18px );
+        min-width: 0;
+    }
+}
+.kfloating .ksharelinks.plain.xlarge .kcount {
+    @include top-box-arrow( #bbb, 9px, 38px, -18px );
 }
 
 // Button Details
@@ -133,4 +225,32 @@
 
 .ksharelinks.plain .klink .kname {
         margin-left: 0.6em;
+}
+.ksharelinks.plain .kcount {
+        display: inline-block;
+        font-weight: $btn-font-weight;
+        text-align: center;
+        vertical-align: middle;
+        background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+        border: 1px solid transparent;
+        white-space: nowrap;
+        text-decoration: none;
+        @include button-count( #777, #fff, #cccccc );
+        margin: 0 0 0 0.4em;
+}
+
+// Floating Bar
+// --------------------------------------------------
+
+.kfloating {
+}
+.kfloating .ksharelinks.plain li {
+        margin: 0 0 1em 0;
+}
+.kfloating .ksharelinks.plain .klink {
+        display: block;
+}
+.kfloating .ksharelinks.plain .kcount {
+        display: block;
+        margin: 0.7em 0 0 0;
 }

@@ -50,6 +50,7 @@ $line-height-xs: 1.8 !default;
 $line-height-small: 1.5 !default;
 $line-height-base: 1.428571429 !default;
 $line-height-large: 1.33 !default;
+$line-height-xl: 1.2 !default;
 
 
 $border-radius-base: 4px !default;
@@ -124,6 +125,7 @@ $xlarge: 18px;
         position: fixed;
         top: 20%;
         left: 0;
+        padding: 0.6em;
 }
 .kfloating .ksharelinks {
         padding: 0;
@@ -131,22 +133,12 @@ $xlarge: 18px;
 .kfloating .kintro {
         display: none;
 }
-.kfloating.kcontainer .ksharelinks ul li {
+.kfloating .ksharelinks ul li {
         clear: both;
-        margin: 0;
+        width: 100%;
 }
-.kfloating.kcontainer .ksharelinks ul li:last-of-type {
-        margin: 0;
-}
-.kfloating.kcontainer .ksharelinks .klink {
-        
-}
-.kfloating.kcontainer .ksharelinks .klink .kname {
+.kfloating .ksharelinks .kname {
         display: none;
-}
-.kfloating.kcontainer .ksharelinks .kcount {
-        margin: 0.6em 0 0 0;
-        clear: both;
 }
 
 /*
