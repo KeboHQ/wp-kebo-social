@@ -23,11 +23,23 @@ Kebo_Caching::get_instance();
  */
 $options = kbso_get_plugin_options();
 
-if ( 'yes' == $options['feature_control_social_sharing'] ) {
+/**
+ * Activate the Feature on relevant content
+ */
+function kbso_social_sharing_activate() {
     
-    add_filter( 'the_content', 'kbso_social_sharing_content_insert', 95 );
+    global $post;
+
+    $options = kbso_get_plugin_options();
+    
+    if ( 'yes' == $options['feature_control_social_sharing'] && is_singular() && in_array( $post->post_type, $options['social_sharing_post_types'] ) ) {
+    
+        add_filter( 'the_content', 'kbso_social_sharing_content_insert', 95 );
+    
+    }
     
 }
+add_action( 'wp', 'kbso_social_sharing_activate' );
 
 /*
  * Include General file.
