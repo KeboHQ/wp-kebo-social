@@ -36,6 +36,472 @@ function kbso_social_sharing_enqueue_backend( $hook_suffix ) {
 add_action( 'admin_enqueue_scripts', 'kbso_social_sharing_enqueue_backend' );
 
 /*
+ * Get Social Sharing Services
+ */
+function kbso_get_social_sharing_services() {
+    
+    $services = array(
+        'delicious' => array(
+            'name' => 'delicious',
+            'label' => 'Delicious',
+            'href' => '#'
+        ),
+        'digg' => array(
+            'name' => 'digg',
+            'label' => 'Digg',
+            'href' => '#'
+        ),
+        'facebook' => array(
+            'name' => 'facebook',
+            'label' => 'Facebook',
+            'href' => '#'
+        ),
+        'googleplus' => array(
+            'name' => 'googleplus',
+            'label' => 'Google+',
+            'href' => '#'
+        ),
+        'linkedin' => array(
+            'name' => 'linkedin',
+            'label' => 'LinkedIn',
+            'href' => '#'
+        ),
+        'pinterest' => array(
+            'name' => 'pinterest',
+            'label' => 'Pinterest',
+            'href' => '#'
+        ),
+        'reddit' => array(
+            'name' => 'reddit',
+            'label' => 'Reddit',
+            'href' => '#'
+        ),
+        'stumbleupon' => array(
+            'name' => 'stumbleupon',
+            'label' => 'Stumbleupon',
+            'href' => '#'
+        ),
+        'tumblr' => array(
+            'name' => 'tumblr',
+            'label' => 'Tumblr',
+            'href' => '#'
+        ),
+        'twitter' => array(
+            'name' => 'twitter',
+            'label' => 'Twitter',
+            'href' => '#'
+        ),
+    );
+    
+    /**
+     * Use this filter to add more services.
+     */
+    return apply_filters( 'kbso_social_sharing_services', $services );
+    
+}
+
+/**
+ * Prepare Social Sharing Links
+ */
+function kbso_social_sharing_filter_services( $type = 'selected' ) {
+    
+    /*
+     * Get Social Services
+     */
+    $all_services = kbso_get_social_sharing_services();
+    
+    /*
+     * Get the user selected services
+     */
+    $user_selected = get_option( 'kbso_social_sharing_order' );
+    
+    /*
+     * Prepare array for selected services
+     */
+    $selected = array();
+    
+    /*
+     * Return services the user Selected
+     */
+    if ( 'selected' == $type ) {
+        
+        if ( is_array( $user_selected ) ) {
+
+            /*
+             * Loop services and return selected.
+             */
+            foreach ( $user_selected as $selection ) {
+
+                if ( isset( $all_services[ $selection ] ) ) {
+
+                    $selected[ $selection ] = $all_services[ $selection ]; 
+
+                }
+
+            }
+        
+        } else {
+            
+            return array();
+            
+        }
+        
+        return $selected;
+        
+    }
+    
+    /*
+     * Return services not selected by user
+     */
+    else {
+        
+        if ( empty( $user_selected ) ) {
+        
+            return $all_services;
+        
+        } else {
+            
+            /*
+             * Loop services and return those not selected.
+             */
+            foreach ( $all_services as $service ) {
+
+                if ( ! in_array( $service['name'], $user_selected ) ) {
+
+                    $remaining[] = $service; 
+
+                }
+
+            }
+            
+        }
+        
+        return $remaining;
+        
+    }
+    
+}
+
+/*
+ * Prepare Social Sharing Links
+ */
+function kbso_social_sharing_prepare_links() {
+    
+    global $post;
+    
+    /*
+     * If we somehow don't have a Post Object, then return
+     * Unless we are in admin, then this is probably a preview
+     */
+    if ( ! $post instanceof WP_Post && ! is_admin() ) {
+        return false;
+    }
+    
+    /*
+     * Get the selected services
+     */
+    $services = kbso_social_sharing_filter_services( 'selected' );
+    
+    /*
+     * Check we have an array as expected
+     */
+    if ( empty( $services ) || ! is_array( $services ) ) {
+        
+        return false;
+        
+    }
+    
+    /*
+     * If we are in the admin, its just a preview. No need for proper HREFs.
+     * Else pass through the filter so HREFs can be added.
+     */
+    return ( is_admin() ) ? $services : apply_filters( 'kbso_social_sharing_prepare_link', $services ) ;
+    
+}
+
+/*
+ * Social Sharing Delicious Link Setup
+ */
+function kbso_social_sharing_delicious_href( $services ) {
+    
+    global $post;
+    
+    if ( isset( $services['delicious'] ) ) {
+            
+        $services['delicious']['href'] = esc_url( 'https://delicious.com/save?v=5&noui&jump=close&url=' . get_permalink() . '&title=' . get_the_title() . '' );
+            
+    }
+    
+    return $services;
+    
+}
+add_filter( 'kbso_social_sharing_prepare_link', 'kbso_social_sharing_delicious_href' );
+
+/*
+ * Social Sharing Digg Link Setup
+ */
+function kbso_social_sharing_digg_href( $services ) {
+    
+    global $post;
+    
+    if ( isset( $services['digg'] ) ) {
+            
+        $services['digg']['href'] = esc_url( 'http://digg.com/submit?url=' . get_permalink() . '&title=' . get_the_title() . '' );
+            
+    }
+    
+    return $services;
+    
+}
+add_filter( 'kbso_social_sharing_prepare_link', 'kbso_social_sharing_digg_href' );
+
+/*
+ * Social Sharing Facebook Link Setup
+ */
+function kbso_social_sharing_facebook_href( $services ) {
+    
+    global $post;
+    
+    if ( isset( $services['facebook'] ) ) {
+            
+        $services['facebook']['href'] = esc_url( 'http://www.facebook.com/sharer.php?u=' . get_permalink() . '&t=' . get_the_title() . '' );
+            
+    }
+    
+    return $services;
+    
+}
+add_filter( 'kbso_social_sharing_prepare_link', 'kbso_social_sharing_facebook_href' );
+
+/*
+ * Social Sharing Google+ Link Setup
+ */
+function kbso_social_sharing_googleplus_href( $services ) {
+    
+    global $post;
+    
+    if ( isset( $services['googleplus'] ) ) {
+            
+        $services['googleplus']['href'] = esc_url( 'https://plus.google.com/share?url=' . get_permalink() . '' );
+            
+    }
+    
+    return $services;
+    
+}
+add_filter( 'kbso_social_sharing_prepare_link', 'kbso_social_sharing_googleplus_href' );
+
+/*
+ * Social Sharing LinkedIn Link Setup
+ */
+function kbso_social_sharing_linkedin_href( $services ) {
+    
+    global $post;
+    
+    $summary = wp_trim_words( strip_tags( get_the_content( $post->ID ) ), 50);
+    
+    if ( isset( $services['linkedin'] ) ) {
+            
+        $services['linkedin']['href'] = esc_url( 'http://www.linkedin.com/shareArticle?mini=true&url=' . get_permalink() . '&title=' . get_the_title() . '&summary=' . $summary . '&source=' . get_bloginfo( 'name' ) . '' );
+            
+    }
+    
+    return $services;
+    
+}
+add_filter( 'kbso_social_sharing_prepare_link', 'kbso_social_sharing_linkedin_href' );
+
+/*
+ * Social Sharing Pinterest Link Setup
+ */
+function kbso_social_sharing_pinterest_href( $services ) {
+    
+    global $post;
+    
+    if ( isset( $services['pinterest'] ) ) {
+        
+        /*
+         * Pinterest requires an image so check we have one, else remove the service.
+         * TODO: Add video support.
+         */
+        if ( has_post_thumbnail( $post->ID ) ) {
+            
+            $post_thumnail_url = wp_get_attachment_image( get_post_thumbnail_id( $post->ID ) );
+            
+            $services['pinterest']['href'] = esc_url( 'http://pinterest.com/pin/create/button/?url=' . get_permalink() . '&media=' . $post_thumnail_url . '&description=' . get_the_title() . '&is_video=false' );
+            
+        } else {
+            
+            unset( $services['pinterest'] );
+            
+        }
+        
+    }
+    
+    return $services;
+    
+}
+add_filter( 'kbso_social_sharing_prepare_link', 'kbso_social_sharing_pinterest_href' );
+
+/*
+ * Social Sharing Reddit Link Setup
+ */
+function kbso_social_sharing_reddit_href( $services ) {
+    
+    global $post;
+    
+    if ( isset( $services['reddit'] ) ) {
+            
+        $services['reddit']['href'] = esc_url( 'http://www.reddit.com/submit?title=' . get_the_title() . '&url=' . get_permalink() . '' );
+            
+    }
+    
+    return $services;
+    
+}
+add_filter( 'kbso_social_sharing_prepare_link', 'kbso_social_sharing_reddit_href' );
+
+/*
+ * Social Sharing Stumbleupon Link Setup
+ */
+function kbso_social_sharing_stumbleupon_href( $services ) {
+    
+    global $post;
+    
+    if ( isset( $services['stumbleupon'] ) ) {
+            
+        $services['stumbleupon']['href'] = esc_url( 'http://www.stumbleupon.com/submit?url=' . get_permalink() . '&title=' . get_the_title() . '' );
+            
+    }
+    
+    return $services;
+    
+}
+add_filter( 'kbso_social_sharing_prepare_link', 'kbso_social_sharing_stumbleupon_href' );
+
+/*
+ * Social Sharing Tumblr Link Setup
+ */
+function kbso_social_sharing_tumblr_href( $services ) {
+    
+    global $post;
+    
+    $summary = wp_trim_words( strip_tags( get_the_content( $post->ID ) ), 50);
+    
+    if ( isset( $services['tumblr'] ) ) {
+            
+        $services['tumblr']['href'] = esc_url( 'https://www.tumblr.com/share/link?url=' . get_permalink() . '&name=' . get_the_title() . '&description=' . $summary . '' );
+            
+    }
+    
+    return $services;
+    
+}
+add_filter( 'kbso_social_sharing_prepare_link', 'kbso_social_sharing_tumblr_href' );
+
+/*
+ * Social Sharing Twitter Link Setup
+ */
+function kbso_social_sharing_twitter_href( $services ) {
+    
+    global $post;
+    
+    if ( isset( $services['twitter'] ) ) {
+            
+        $services['twitter']['href'] = esc_url( 'http://twitter.com/share?text=' . get_the_title() . '&url=' . get_permalink() . '' );
+            
+    }
+    
+    return $services;
+    
+}
+add_filter( 'kbso_social_sharing_prepare_link', 'kbso_social_sharing_twitter_href' );
+
+/**
+ * Renders the Social Share Buttons.
+ */
+function kbso_social_sharing_services_render() {
+    
+    global $post;
+
+    $options = kbso_get_plugin_options();
+
+    $theme = $options['social_sharing_theme'];
+    
+    $theme_view = apply_filters( 'kbso_social_sharing_view_dir', 'default', $theme );
+    
+    /**
+     * Setup an instance of the View class.
+     * Allow customization using a filter.
+     */
+    $view = new Kebo_View(
+        apply_filters(
+            'kbso_social_sharing_view_dir',
+            KBSO_PATH . 'inc/modules/social-sharing/views/' . $theme_view,
+            $theme
+        )
+    );
+    
+    /*
+     * Get the services selected by the user.
+     */
+    $selected = kbso_social_sharing_prepare_links();
+    
+    /**
+     * Prepare the HTML classes
+     */
+    $classes[] = 'ksharelinks';
+    $classes[] = $options['social_sharing_theme'];
+    $classes[] = $options['social_sharing_link_size'];
+    if ( is_rtl() ) {
+        $classes[] = 'rtl';
+    }
+    
+    /*
+     * Get Share Counts
+     */
+    $counts = get_post_meta( $post->ID, '_kbso_share_counts', true );
+    
+    /*
+     * Build HTML output
+     */
+    $links = $view
+        ->set_view( 'links' )
+        ->set( 'classes', $classes )
+        ->set( 'label', $options['social_sharing_label'] )
+        ->set( 'link_content', $options['social_sharing_link_content'] )
+        ->set( 'post_type', $post->post_type )
+        ->set( 'options', $options )
+        ->set( 'permalink', get_permalink() )
+        ->set( 'title', get_the_title() )
+        ->set( 'links', $selected )
+        ->set( 'counts', $counts )
+        ->set( 'view', $view )
+        ->retrieve();
+    
+    unset( $view );
+    
+    return $links;
+    
+}
+
+/*
+ * Filters Social Sharing view dirctory
+ */
+function kbso_social_sharing_standard_view_dir( $theme_view, $theme ) {
+    
+    if ( 'custom_theme' == $theme ) {
+        
+        $theme_view = 'custom_view';
+        
+    }
+    
+    return $theme_view;
+    
+}
+add_filter( 'kbso_social_sharing_view_dir', 'kbso_social_sharing_standard_view_dir', 10, 2 );
+
+/*
  * Social Sharing Admin Button Preview
  */
 function kbso_share_button_preview() {
