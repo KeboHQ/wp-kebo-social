@@ -60,7 +60,7 @@ function kbso_sharing_page_render() {
                     
                     <ul id="share-links-available" class="link-container connectedSortable">
                         
-                        <?php kbso_social_share_services( 'remaining' ); ?>
+                        <?php kbso_social_sharing_services_admin( 'remaining' ); ?>
                         
                     </ul>
                     
@@ -84,7 +84,7 @@ function kbso_sharing_page_render() {
                     
                     <ul id="share-links-selected" class="link-container connectedSortable">
                         
-                        <?php kbso_social_share_services( 'selected' ); ?>
+                        <?php kbso_social_sharing_services_admin( 'selected' ); ?>
                         
                     </ul>
                     
