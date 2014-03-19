@@ -39,7 +39,7 @@ function kbso_save_sharelink_order() {
     }
     
     // Save Dashboard Positions
-    update_option( 'kbso_sharelink_order', $data );
+    update_option( 'kbso_social_sharing_order', $data );
     
     // Send successful response
     $response = array(
