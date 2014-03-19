@@ -45,11 +45,6 @@ require_once( KBSO_PATH . 'inc/modules/social-sharing/menu.php' );
 require_once( KBSO_PATH . 'inc/modules/social-sharing/options.php' );
 
 /*
- * Include Links Function file.
- */
-require_once( KBSO_PATH . 'inc/modules/social-sharing/links.php' );
-
-/*
  * Include Social Count Update file.
  */
 require_once( KBSO_PATH . 'inc/modules/social-sharing/update-counts.php' );
