@@ -9,6 +9,7 @@
 function kbso_social_sharing_register_files() {
 
     // Register Styles
+    wp_register_style( 'kbso-sharelinks', KBSO_URL . 'inc/modules/social-sharing/assets/css/sharelinks.css', array(), KBSO_VERSION, 'all' );
     wp_register_style( 'kbso-sharelinks-min', KBSO_URL . 'inc/modules/social-sharing/assets/css/sharelinks.min.css', array(), KBSO_VERSION, 'all' );
         
 }
@@ -20,20 +21,83 @@ add_action( 'admin_enqueue_scripts', 'kbso_social_sharing_register_files' );
  */
 function kbso_social_sharing_enqueue_backend( $hook_suffix ) {
     
-    
     // Enqueue files for sharing page
     if ( 'kebo-social_page_kbso-sharing' == $hook_suffix ) {
         
-        wp_enqueue_style( 'kbso-admin' );
-        wp_enqueue_style( 'kbso-sharelinks-min' );
+        /*
+         * Use minified files where available, unless SCRIPT_DEBUG is true
+         */
+        if ( 'false' == SCRIPT_DEBUG ) {
+            
+            wp_enqueue_style( 'kbso-admin-min' );
+            wp_enqueue_style( 'kbso-sharelinks-min' );
+            
+        } else {
+            
+            wp_enqueue_style( 'kbso-admin' );
+            wp_enqueue_style( 'kbso-sharelinks' );
+            
+        }
         
-        //wp_enqueue_script( 'jquery-ui-sortable' ); // included by touchpunch
         wp_enqueue_script( 'jquery-ui-touchpunch' ); // depends on jquery-ui-sortable
             
     }
         
 }
 add_action( 'admin_enqueue_scripts', 'kbso_social_sharing_enqueue_backend' );
+
+/**
+ * Include Social Sharing Links on Frontend
+ */
+function kbso_social_sharing_content_insert( $content ) {
+    
+    global $post;
+
+    $options = kbso_get_plugin_options();
+
+    if ( is_singular() && is_main_query() && in_array( $post->post_type, $options['social_sharing_post_types'] ) ) {
+        
+        // Go ahead and add share links
+        // TODO: Add proper file enqueuing
+        wp_enqueue_style( 'kbso-sharelinks-min' );
+        add_action( 'wp_footer', 'kbso_social_sharing_frontend_js_print' );
+        
+        /**
+         * Add to top of content
+         */
+        if ( in_array( 'top', $options['social_sharing_position'] ) ) {
+            
+            $content = kbso_social_sharing_services_render() . $content;
+            
+        }
+        
+        /**
+         * Add to bottom of post content
+         */
+        if ( in_array( 'bottom', $options['social_sharing_position'] ) ) {
+            
+            $content = $content . kbso_social_sharing_services_render();
+            
+        }
+        
+        /**
+         * Add to bottom of post content
+         * perhaps this should be in the footer?
+         */
+        if ( in_array( 'floating', $options['social_sharing_position'] ) ) {
+            
+            $content = $content . '<div class="kfloating">' . kbso_social_sharing_services_render() . '</div>';
+            
+        }
+        
+        // Decide if we need to refresh counts
+        kbso_maybe_refresh_counts( $post->ID );
+        
+    }
+    
+    return $content;
+    
+}
 
 /*
  * Get Social Sharing Services
@@ -616,29 +680,30 @@ function kbso_sharing_page_print_js() {
     ?>
     <script type="text/javascript">
 
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function($) {
 
-            jQuery("#share-links-available, #share-links-selected").sortable({
+            $("#share-links-available, #share-links-selected").sortable({
+                
                 connectWith: ".connectedSortable",
                 placeholder: "sortable-placeholder",
                 dropOnEmpty: true,
-                start: function(event, ui) {
+                start: function( event, ui ) {
 
                     ui.placeholder.height(ui.helper.outerHeight() - 2);
                     ui.placeholder.width(ui.helper.outerWidth() - 2);
 
                 },
-                update: function(event, ui) {
+                update: function( event, ui ) {
 
                     // do AJAX config save
                     var korder = new Array;
 
-                    jQuery('#share-links-selected .sortable').delay(500).each(function(index) {
+                    $( '#share-links-selected .sortable' ).delay( 500 ).each( function( index ) {
 
-                        var kservice = jQuery(this).data('service');
+                        var kservice = $(this).data( 'service' );
 
                         // Add data to array
-                        korder.push(kservice);
+                        korder.push( kservice );
 
                     });
 
@@ -649,12 +714,12 @@ function kbso_sharing_page_print_js() {
                     };
 
                     // do AJAX update
-                    jQuery.post(ajaxurl, data, function(response) {
+                    $.post( ajaxurl, data, function( response ) {
 
-                        response = jQuery.parseJSON(response);
+                        response = $.parseJSON( response );
 
-                        if ('true' === response.success && 'save' === response.action && window.console) {
-                            console.log('Kebo Social - Share Link order successfully saved.');
+                        if ( 'true' === response.success && 'save' === response.action && window.console ) {
+                            console.log( 'Kebo Social - Social Sharing order successfully saved.' );
                         }
 
                     });
@@ -662,10 +727,53 @@ function kbso_sharing_page_print_js() {
                 }
 
             }).disableSelection();
+            
+            $( '.ksharelinks ul li a' ).click( function( e ) {
+
+                // Prevent Click from Reloading page
+                e.preventDefault();
+
+            });
 
         });
 
     </script>
     <?php
+    
+}
+
+/**
+ * Outputs Social Sharing Frontend Javascript
+ */
+function kbso_social_sharing_frontend_js_print() {
+    
+    // Begin Output Buffering
+    ob_start();
+    
+    ?>
+    <script type="text/javascript">
+        
+        jQuery(document).ready( function($) {
+            
+            $( '.ksharelinks ul li a' ).click( function( e ) {
+
+                // Prevent Click from Reloading page
+                e.preventDefault();
+
+                var khref = $(this).attr('href');
+                window.open( khref, 'window', 'width=600, height=400, top=0, left=0');
+
+            });
+            
+        });
+        
+    </script>
+    <?php
+    
+    // End Output Buffering and Clear Buffer
+    $output = ob_get_contents();
+    ob_end_clean();
+    
+    echo apply_filters( 'kbso_social_sharing_frontend_js', $output );
     
 }
