@@ -126,19 +126,7 @@ function kbso_social_share_content_width_compat() {
     @media ( max-width: 1000px ) {
         
         body .kfloating {
-            position: fixed;
-            top: auto;
-            bottom: 0;
-            width: 100%;
-            height: 80px;
-            z-index: 150;
-        }
-        .kfloating .ksharelinks ul li {
-            clear: none;
-            width: auto;
-        }
-        body .kfloating .ksharelinks ul li .kcount {
-            display: none;
+            
         }
         
     }
@@ -147,4 +135,4 @@ function kbso_social_share_content_width_compat() {
     <?php
     
 }
-add_action( 'wp_footer', 'kbso_social_share_content_width_compat' );
+//add_action( 'wp_footer', 'kbso_social_share_content_width_compat' );
