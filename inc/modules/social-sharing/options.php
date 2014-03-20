@@ -145,14 +145,11 @@ add_filter( 'kbso_get_plugin_options', 'kbso_social_sharing_option_defaults' );
 function kbso_options_theme_select_dropdown() {
     
     $dropdown = array(
-        'plain' => array(
-            'value' => 'plain',
-            'label' => __('Plain', 'kbso')
-        ),
         'default' => array(
             'value' => 'default',
             'label' => __('Default', 'kbso')
         ),
+        /*
         'flat' => array(
             'value' => 'flat',
             'label' => __('Flat', 'kbso')
@@ -161,6 +158,8 @@ function kbso_options_theme_select_dropdown() {
             'value' => 'gradient',
             'label' => __('Gradient', 'kbso')
         ),
+         * 
+         */
     );
 
     return apply_filters( 'kbso_social_sharing_theme', $dropdown );
