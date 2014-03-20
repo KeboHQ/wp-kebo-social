@@ -1,9 +1,9 @@
 === Kebo Social ===
 Contributors:      peterbooker
 Tags:              social, share, sharing, share links, twitter, facebook, google, linkedin, pinterest
-Requires at least: 3.2
+Requires at least: 3.5
 Tested up to:      3.8.1
-Stable tag:        0.3.0
+Stable tag:        0.3.5
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,6 +74,11 @@ On top of this all the features share resources where appropriate, so that it sh
 
 
 == Changelog ==
+
+= 0.3.5 =
+* Bug Fix: Encodes the href attributes on Social Share links. This fixes titles appearing with no spaces and other odd behavior.
+* Bug Fix: Chooses the largest image possible for the Pinterest button.
+* Bug Fix: No longer displays the Social Sharing container if no services would be added.
 
 = 0.3.0 =
 * Important: This is the first public beta release.
