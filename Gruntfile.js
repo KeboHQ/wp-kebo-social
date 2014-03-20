@@ -110,7 +110,7 @@ module.exports = function(grunt) {
             }
         },
         clean: {
-            main: ['release/<%= pkg.version %>']
+            main: ['release/<%= pkg.name %>.<%= pkg.version %>']
         },
         copy: {
             // Copy the plugin to a versioned release directory
@@ -130,19 +130,19 @@ module.exports = function(grunt) {
                     '!.gitignore',
                     '!.gitmodules'
                 ],
-                dest: 'release/<%= pkg.version %>/'
+                dest: 'release/<%= pkg.name %>.<%= pkg.version %>/'
             }
         },
         compress: {
             main: {
                 options: {
                     mode: 'zip',
-                    archive: './release/kebo-social.<%= pkg.version %>.zip'
+                    archive: './release/<%= pkg.name %>.<%= pkg.version %>.zip'
                 },
                 expand: true,
-                cwd: 'release/kebo-social.<%= pkg.version %>/',
+                cwd: 'release/<%= pkg.name %>.<%= pkg.version %>/',
                 src: ['**/*'],
-                dest: 'kebo-social/'
+                dest: '<%= pkg.name %>/'
             }
         }
     });
