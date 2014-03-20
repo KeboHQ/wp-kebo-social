@@ -81,12 +81,11 @@ function kbso_social_sharing_content_insert( $content ) {
         }
         
         /**
-         * Add to bottom of post content
-         * perhaps this should be in the footer?
+         * Add to the footer
          */
         if ( in_array( 'floating', $options['social_sharing_position'] ) ) {
             
-            $content = $content . '<div class="kfloating">' . kbso_social_sharing_services_render() . '</div>';
+            add_action( 'wp_footer', 'kbso_social_sharing_floating_bar_render' );
             
         }
         
@@ -96,6 +95,15 @@ function kbso_social_sharing_content_insert( $content ) {
     }
     
     return $content;
+    
+}
+
+/*
+ * Render the Floating Bar in the Footer
+ */
+function kbso_social_sharing_floating_bar_render() {
+    
+    echo '<div class="kfloating">' . kbso_social_sharing_services_render() . '</div>';
     
 }
 
