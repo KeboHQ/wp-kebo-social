@@ -2,8 +2,8 @@
 Contributors:      peterbooker
 Tags:              social, share, sharing, share links, twitter, facebook, google, linkedin, pinterest
 Requires at least: 3.2
-Tested up to:      3.8
-Stable tag:        0.1.0
+Tested up to:      3.8.1
+Stable tag:        0.3.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,10 +75,10 @@ On top of this all the features share resources where appropriate, so that it sh
 
 == Changelog ==
 
-= 0.1.0 =
-* First release
+= 0.3.0 =
+* Important: This is the first public beta release.
 
 == Upgrade Notice ==
 
-= 0.1.0 =
-First Release
+= 0.3.0 =
+* Important: This is the first public beta release.

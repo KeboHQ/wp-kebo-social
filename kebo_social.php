@@ -3,7 +3,7 @@
  * Plugin Name: Kebo Social
  * Plugin URI:  https://kebopowered.com/plugins/kebo-social/
  * Description: Social integration done right. The best WordPress plugin to integrate Social Services into your website.
- * Version:     0.1.0
+ * Version:     0.3.0
  * Author:      Kebo
  * Author URI:  https://kebopowered.com/
  * License:     GPLv2+
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Useful global constants
-define( 'KBSO_VERSION', '0.1.0' );
+define( 'KBSO_VERSION', '0.3.0' );
 define( 'KBSO_URL', plugin_dir_url(__FILE__) );
 define( 'KBSO_PATH', plugin_dir_path(__FILE__) );
 
@@ -88,7 +88,9 @@ function kbso_register_files() {
 
     // Register Styles
     wp_register_style( 'kbso-admin', KBSO_URL . 'assets/css/admin.css', array(), KBSO_VERSION, 'all' );
-    wp_register_style( 'kbso-widgets', KBSO_URL . 'assets/css/widgets.css', array(), KBSO_VERSION, 'all' );
+    wp_register_style( 'kbso-admin-min', KBSO_URL . 'assets/css/admin.min.css', array(), KBSO_VERSION, 'all' );
+    //wp_register_style( 'kbso-widgets', KBSO_URL . 'assets/css/widgets.css', array(), KBSO_VERSION, 'all' );
+    //wp_register_style( 'kbso-widgets-min', KBSO_URL . 'assets/css/widgets.min.css', array(), KBSO_VERSION, 'all' );
         
     // Register Scripts
     wp_register_script( 'kbso-admin-js', KBSO_URL . 'assets/js/admin.js', array(), KBSO_VERSION, true );
@@ -104,7 +106,7 @@ add_action( 'admin_enqueue_scripts', 'kbso_register_files' );
  */
 function kbso_enqueue_frontend() {
 
-    wp_enqueue_style( 'kbso-sharelinks' );
+    
         
 }
 add_action( 'wp_enqueue_scripts', 'kbso_enqueue_frontend' );
