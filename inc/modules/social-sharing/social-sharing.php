@@ -405,9 +405,15 @@ function kbso_social_sharing_pinterest_href( $services ) {
          */
         if ( has_post_thumbnail( $post->ID ) ) {
             
-            $post_thumnail_url = wp_get_attachment_image( get_post_thumbnail_id( $post->ID ) );
+            $featured_image = wp_prepare_attachment_for_js( get_post_thumbnail_id( $post->ID ) );
             
-            $services['pinterest']['href'] = esc_url( 'http://pinterest.com/pin/create/button/?url=' . get_permalink() . '&media=' . $post_thumnail_url . '&description=' . get_the_title() . '&is_video=false' );
+            $featured_src = $featured_image['url'];
+            
+            $summary = wp_trim_words( strip_tags( get_the_content( $post->ID ) ), 50);
+            
+            $description = ( ! empty( $summary ) ) ? $summary : $featured_image['alt'] ;
+            
+            $services['pinterest']['href'] = esc_url( 'http://pinterest.com/pin/create/button/?url=' . get_permalink() . '&media=' . $featured_src . '&description=' . $description . '&is_video=false' );
             
         } else {
             
