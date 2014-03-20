@@ -343,7 +343,7 @@ function kbso_social_sharing_facebook_href( $services ) {
     
     if ( isset( $services['facebook'] ) ) {
             
-        $services['facebook']['href'] = esc_url( 'http://www.facebook.com/sharer.php?u=' . get_permalink() . '&t=' . get_the_title() . '' );
+        $services['facebook']['href'] = esc_url( 'http://www.facebook.com/sharer.php?u=' . urlencode( get_permalink() ) . '&t=' . urlencode( get_the_title() ) . '' );
             
     }
     
@@ -361,7 +361,7 @@ function kbso_social_sharing_googleplus_href( $services ) {
     
     if ( isset( $services['googleplus'] ) ) {
             
-        $services['googleplus']['href'] = esc_url( 'https://plus.google.com/share?url=' . get_permalink() . '' );
+        $services['googleplus']['href'] = esc_url( 'https://plus.google.com/share?url=' . urlencode( get_permalink() ) . '' );
             
     }
     
@@ -381,7 +381,7 @@ function kbso_social_sharing_linkedin_href( $services ) {
     
     if ( isset( $services['linkedin'] ) ) {
             
-        $services['linkedin']['href'] = esc_url( 'http://www.linkedin.com/shareArticle?mini=true&url=' . get_permalink() . '&title=' . get_the_title() . '&summary=' . $summary . '&source=' . get_bloginfo( 'name' ) . '' );
+        $services['linkedin']['href'] = esc_url( 'http://www.linkedin.com/shareArticle?mini=true&url=' . urlencode( get_permalink() ) . '&title=' . urlencode( get_the_title() ) . '&summary=' . urlencode( $summary ) . '&source=' . urlencode( get_bloginfo( 'name' ) ) . '' );
             
     }
     
@@ -432,11 +432,12 @@ function kbso_social_sharing_pinterest_href( $services ) {
             
                 $featured_src = $featured_image['sizes']['large']['url'];
 
+                // Pinterest allows upto 500 characters for the description parameter.
                 $summary = wp_trim_words( get_the_content( $post->ID ), 50);
 
                 $description = ( ! empty( $summary ) ) ? $summary : $featured_image['alt'] ;
 
-                $services['pinterest']['href'] = esc_url( 'http://pinterest.com/pin/create/button/?url=' . get_permalink() . '&media=' . $featured_src . '&description=' . $description . '&is_video=false' );
+                $services['pinterest']['href'] = esc_url( 'http://pinterest.com/pin/create/button/?url=' . urlencode( get_permalink() ) . '&media=' . urlencode( $featured_src ) . '&description=' . urlencode( $description ) . '&is_video=false' );
             
             } else {
                 
@@ -466,7 +467,7 @@ function kbso_social_sharing_reddit_href( $services ) {
     
     if ( isset( $services['reddit'] ) ) {
             
-        $services['reddit']['href'] = esc_url( 'http://www.reddit.com/submit?title=' . get_the_title() . '&url=' . get_permalink() . '' );
+        $services['reddit']['href'] = esc_url( 'http://www.reddit.com/submit?title=' . urlencode( get_the_title() ) . '&url=' . urlencode( get_permalink() ) . '' );
             
     }
     
@@ -484,7 +485,7 @@ function kbso_social_sharing_stumbleupon_href( $services ) {
     
     if ( isset( $services['stumbleupon'] ) ) {
             
-        $services['stumbleupon']['href'] = esc_url( 'http://www.stumbleupon.com/submit?url=' . get_permalink() . '&title=' . get_the_title() . '' );
+        $services['stumbleupon']['href'] = esc_url( 'http://www.stumbleupon.com/submit?url=' . urlencode( get_permalink() ) . '&title=' . urlencode( get_the_title() ) . '' );
             
     }
     
@@ -504,7 +505,7 @@ function kbso_social_sharing_tumblr_href( $services ) {
     
     if ( isset( $services['tumblr'] ) ) {
             
-        $services['tumblr']['href'] = esc_url( 'https://www.tumblr.com/share/link?url=' . get_permalink() . '&name=' . get_the_title() . '&description=' . $summary . '' );
+        $services['tumblr']['href'] = esc_url( 'https://www.tumblr.com/share/link?url=' . urlencode( get_permalink() ) . '&name=' . urlencode( get_the_title() ) . '&description=' . urlencode( $summary ) . '' );
             
     }
     
@@ -522,7 +523,7 @@ function kbso_social_sharing_twitter_href( $services ) {
     
     if ( isset( $services['twitter'] ) ) {
             
-        $services['twitter']['href'] = esc_url( 'http://twitter.com/share?text=' . get_the_title() . '&url=' . get_permalink() . '' );
+        $services['twitter']['href'] = esc_url( 'http://twitter.com/share?text=' . urlencode( get_the_title() ) . '&url=' . urlencode( get_permalink() ) . '' );
             
     }
     
