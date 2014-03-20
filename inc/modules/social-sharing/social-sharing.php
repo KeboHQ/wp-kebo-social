@@ -407,13 +407,42 @@ function kbso_social_sharing_pinterest_href( $services ) {
             
             $featured_image = wp_prepare_attachment_for_js( get_post_thumbnail_id( $post->ID ) );
             
-            $featured_src = $featured_image['url'];
+            /*
+             * Get the largest image we can
+             */
+            if ( isset( $featured_image['sizes']['large'] ) ) {
+                
+                $featured_size = $featured_image['sizes']['large'];
+                
+            } elseif ( $featured_image['sizes']['medium'] ) {
+                
+                $featured_size = $featured_image['sizes']['medium'];
+                
+            } else {
+                
+                $featured_size = $featured_image['sizes']['thumbnail'];
+                
+            }
             
-            $summary = wp_trim_words( strip_tags( get_the_content( $post->ID ) ), 50);
+            /*
+             * Check we have an image with the required dimensions for Pinterest
+             * Currently 80 x 80
+             */
+            if ( 80 < $featured_size['width'] || 80 < $featured_size['height'] ) {
             
-            $description = ( ! empty( $summary ) ) ? $summary : $featured_image['alt'] ;
+                $featured_src = $featured_image['sizes']['large']['url'];
+
+                $summary = wp_trim_words( get_the_content( $post->ID ), 50);
+
+                $description = ( ! empty( $summary ) ) ? $summary : $featured_image['alt'] ;
+
+                $services['pinterest']['href'] = esc_url( 'http://pinterest.com/pin/create/button/?url=' . get_permalink() . '&media=' . $featured_src . '&description=' . $description . '&is_video=false' );
             
-            $services['pinterest']['href'] = esc_url( 'http://pinterest.com/pin/create/button/?url=' . get_permalink() . '&media=' . $featured_src . '&description=' . $description . '&is_video=false' );
+            } else {
+                
+                unset( $services['pinterest'] );
+                
+            }
             
         } else {
             
@@ -531,6 +560,13 @@ function kbso_social_sharing_services_render() {
      * Get the services selected by the user.
      */
     $selected = kbso_social_sharing_prepare_links();
+    
+    /*
+     * If we have no services, don't display.
+     */
+    if ( empty( $selected ) ) {
+        return;
+    }
     
     /**
      * Prepare the HTML classes
