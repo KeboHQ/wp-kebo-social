@@ -103,7 +103,14 @@ function kbso_social_sharing_content_insert( $content ) {
  */
 function kbso_social_sharing_floating_bar_render() {
     
-    echo '<div class="kfloating">' . kbso_social_sharing_services_render() . '</div>';
+    $options = kbso_get_plugin_options();
+    
+    $classes = array(
+        'kfloating',
+        $options['social_sharing_theme'],
+    );
+    
+    echo '<div class="' . implode( ' ', $classes ) . '">' . kbso_social_sharing_services_render() . '</div>';
     
 }
 
