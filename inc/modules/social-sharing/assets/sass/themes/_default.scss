@@ -242,15 +242,53 @@
 // Floating Bar
 // --------------------------------------------------
 
-.kfloating {
+.kfloating.default {
+        background: #fff;
+        border-top: 1px solid #ddd;
 }
-.kfloating .ksharelinks.default li {
-        margin: 0 0 1em 0;
+.kfloating.default .ksharelinks.default li {
+        margin: 0.6em 1em 0.6em 0;
+        float: none;
 }
-.kfloating .ksharelinks.default .klink {
+.kfloating.default .ksharelinks.default li:last-of-type {
+        margin-right: 0;
+}
+.kfloating.default .ksharelinks.default .klink {
         display: block;
 }
-.kfloating .ksharelinks.default .kcount {
+.kfloating.default .ksharelinks.default .kcount {
+        display: none;
+        margin: 0.7em 0 0 0;
+}
+
+@media ( min-width: 1000px ) {
+        
+    .kfloating.default {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-left: none;
+        top: 20%;
+        bottom: auto;
+        width: auto;
+        padding: 0.6em;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+    .kfloating.default .ksharelinks.default li {
+        clear: both;
+        float: left;
+        margin: 0 0 0.6em 0;
+        width: 100%;
+    }
+    .kfloating.default .ksharelinks.default li:last-of-type {
+        margin: 0;
+    }
+    .kfloating.default .ksharelinks.default .klink {
+        display: block;
+    }
+    .kfloating.default .ksharelinks.default .kcount {
         display: block;
         margin: 0.7em 0 0 0;
+    }
+        
 }
