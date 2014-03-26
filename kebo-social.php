@@ -137,16 +137,9 @@ function kbso_enqueue_backend( $hook_suffix ) {
             
     }
     
-    // Enqueue files for dashboard page
-    if ( 'toplevel_page_kbso-dashboard' == $hook_suffix ) {
+    // Enqueue files for Kebo Social pages
+    if ( 'settings_page_kebo-social' == $hook_suffix ) {
             
-        wp_enqueue_style( 'kbso-admin' );
-            
-    }
-        
-    // Enqueue files for settings page
-    if ( 'kebo-social_page_kbso-settings' == $hook_suffix ) {
-        
         wp_enqueue_style( 'kbso-admin' );
             
     }
