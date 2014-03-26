@@ -10,38 +10,18 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
 
 function kbso_plugin_menu() {
 
-    add_menu_page(
-            __('Dashboard', 'kbso'), // Page Title
-            __('Kebo Social', 'kbso'), // Menu Title
-            'edit_others_posts', // Capability ** Let Editors See It **
-            'kbso-dashboard', // Menu Slug
-            'kbso_dashboard_page_render', // Render Function
-            null, // Icon URL
-            '99.00018384' // Menu Position (use decimals to ensure no conflicts
-    );
-
     /*
-     * Plugin Dashboard Page
+     * Plugin Page - Under Settings Menu
+     * 
+     * Uses Internal Tabs
      */
     add_submenu_page(
-            'kbso-dashboard', // Parent Page Slug
-            __('Dashboard', 'kbso'), // Name of Page
-            __('Dashboard', 'kbso'), // Label in Menu
-            'manage_options', // Capability Required
-            'kbso-dashboard', // Menu Slug, used to uniquely identify the page
-            'kbso_dashboard_page_render' // Function that renders the options page
-    );
-    
-    /*
-     * Plugin Settings Page
-     */
-    add_submenu_page(
-            'kbso-dashboard', // Parent Page Slug
-            __('Settings', 'kbso'), // Name of Page
-            __('Settings', 'kbso'), // Label in Menu
-            'manage_options', // Capability Required
-            'kbso-settings', // Menu Slug, used to uniquely identify the page
-            'kbso_settings_page_render' // Function that renders the options page
+        'options-general.php', // Parent
+        __('Kebo Social', 'kbso'), // Page Title
+        __('Kebo Social', 'kbso'), // Menu Title
+        'manage_options', // Capability
+        'kebo-social', // Menu Slug
+        'kebo_social_menu_render' // Render Function
     );
     
 }
@@ -51,19 +31,11 @@ add_action( 'admin_menu', 'kbso_plugin_menu' );
  * Render the Dashboard Page
  */
 function kbso_dashboard_page_render() {
-
-    if ( ! current_user_can( 'manage_options' ) ) {
-        wp_die( __('You do not have sufficient permissions to access this page.') );
-    }
-    
-    global $current_user;
     ?>
 
-    <div class="wrap">
-        <h2><?php _e('Kebo Social - Dashboard', 'kbso'); ?></h2>
-        <?php settings_errors(); ?>
+        <?php settings_errors('kbso-dashboard'); ?>
 
-        <div id="dashboard-widgets-wrap">
+        <div id="dashboard-widgets-wrap" class="kebo">
             
             <div id="dashboard-widgets" class="metabox-holder">
                 
@@ -127,52 +99,27 @@ function kbso_dashboard_page_render() {
             
         </div>
 
-    </div><!-- .wrap -->
-    <?php
-}
+        <style type="text/css">
+        
+            .js .postbox .hndle {
+                cursor: auto;
+            }
+        
+        </style>
 
-/*
- * Render Dashboard Javascript
- */
-function kbso_dashboard_page_scripts() {
-    
-    ?>
-    <script type="text/javascript">
-        
-        //jQuery( '.handlediv' ).on( 'click', function($) {
-            //$(this).parent( '.postbox' ).toggleClass( 'closed' );
-        //});
-        
-    </script>
-    
-    <style type="text/css">
-        
-        .js .postbox .hndle {
-            cursor: auto;
-        }
-        
-    </style>
     <?php
-    
 }
-add_action( 'admin_print_footer_scripts', 'kbso_dashboard_page_scripts' );
+add_action( 'kbso_tab_page_dashboard', 'kbso_dashboard_page_render' );
 
 /*
  * Render the Settings Page
  */
 function kbso_settings_page_render() {
     
-    if ( ! current_user_can( 'manage_options' ) ) {
-        wp_die( __('You do not have sufficient permissions to access this page.') );
-    }
-    
     ?>
 
-    <div class="wrap">
-        
-        <h2><?php _e( 'Kebo Social - Settings', 'kbso' ); ?></h2>
         <?php settings_errors('kbso-settings'); ?>
-
+        
         <form method="post" action="options.php">
             <?php
             settings_fields( 'kbso_options' );
@@ -180,8 +127,34 @@ function kbso_settings_page_render() {
             submit_button();
             ?>
         </form>
-            
-    </div>
+
+    <?php
+    
+}
+add_action( 'kbso_tab_page_settings', 'kbso_settings_page_render' );
+
+/**
+ * Renders the Twitter Feed Options page.
+ */
+function kebo_social_menu_render() {
+    
+    if ( ! current_user_can( 'manage_options' ) ) {
+        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+    }
+    
+    ?>
+    <div class="wrap">
+        
+        <h2><?php _e('Kebo Social', 'kbso'); ?></h2>
+        
+        <?php
+        /**
+         * Render Page
+         */
+        kbso_tab_page_render();
+        ?>
+        
+    </div><!-- .wrap -->
 
     <?php
     
