@@ -167,67 +167,6 @@ function kbso_plugin_settings_link( $links ) {
 add_filter( 'plugin_action_links_kebo-social/kebo-social.php', 'kbso_plugin_settings_link' );
 
 /**
- * Prints the Admin Menu Icon CSS in the Footer
- * Added fallback image for pre 3.8 installs
- */
-function kbso_admin_menu_styles_print() {
-    
-    // Begin Output Buffering
-    ob_start();
-    
-    ?>
-    <style type="text/css">
-        
-        #adminmenu .toplevel_page_kbso-dashboard div.wp-menu-image:before {
-                font-family: "dashicons";
-                content: "\f319";
-        }
-        .branch-3-7 .toplevel_page_kbso-dashboard div.wp-menu-image,
-        .branch-3-6 .toplevel_page_kbso-dashboard div.wp-menu-image,
-        .branch-3-5 .toplevel_page_kbso-dashboard div.wp-menu-image,
-        .branch-3-4 .toplevel_page_kbso-dashboard div.wp-menu-image,
-        .branch-3-3 .toplevel_page_kbso-dashboard div.wp-menu-image,
-        .branch-3-2 .toplevel_page_kbso-dashboard div.wp-menu-image {
-                background: url('../images/icons/admin_menu_icon.png') 0 -32px no-repeat;
-        }
-        .branch-3-7 .toplevel_page_kbso-dashboard div.wp-menu-image:before,
-        .branch-3-6 .toplevel_page_kbso-dashboard div.wp-menu-image:before,
-        .branch-3-5 .toplevel_page_kbso-dashboard div.wp-menu-image:before,
-        .branch-3-4 .toplevel_page_kbso-dashboard div.wp-menu-image:before,
-        .branch-3-3 .toplevel_page_kbso-dashboard div.wp-menu-image:before,
-        .branch-3-2 .toplevel_page_kbso-dashboard div.wp-menu-image:before {
-                content: "";
-        }
-        .branch-3-7 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image,
-        .branch-3-6 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image,
-        .branch-3-5 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image,
-        .branch-3-4 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image,
-        .branch-3-3 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image,
-        .branch-3-2 .toplevel_page_kbso-dashboard .wp-menu-open div.wp-menu-image {
-                background-position: 0 0;
-        }
-        .branch-3-7 .toplevel_page_kbso-dashboard:hover div.wp-menu-image,
-        .branch-3-6 .toplevel_page_kbso-dashboard:hover div.wp-menu-image,
-        .branch-3-5 .toplevel_page_kbso-dashboard:hover div.wp-menu-image,
-        .branch-3-4 .toplevel_page_kbso-dashboard:hover div.wp-menu-image,
-        .branch-3-3 .toplevel_page_kbso-dashboard:hover div.wp-menu-image,
-        .branch-3-2 .toplevel_page_kbso-dashboard:hover div.wp-menu-image {
-                background-position: 0 0;
-        }
-        
-    </style>
-    <?php
-    
-    // End Output Buffering and Clear Buffer
-    $output = ob_get_contents();
-    ob_end_clean();
-        
-    echo $output;
-    
-}
-add_action( 'in_admin_footer', 'kbso_admin_menu_styles_print' );
-
-/**
  * Add a widget to the dashboard.
  *
  * This function is hooked into the 'wp_dashboard_setup' action below.
