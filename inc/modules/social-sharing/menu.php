@@ -8,22 +8,20 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
     die;
 }
 
-function kbso_plugin_menu_social_sharing() {
+/**
+ * Adds Modules Page(s) to the Tabs
+ */
+function kbso_sharing_tab_page_add( $pages ) {
     
-    /*
-     * Plugin Settings Page
-     */
-    add_submenu_page(
-            'kbso-dashboard', // Parent Page Slug
-            __('Sharing', 'kbso'), // Name of Page
-            __('Sharing', 'kbso'), // Label in Menu
-            'manage_options', // Capability Required
-            'kbso-sharing', // Menu Slug, used to uniquely identify the page
-            'kbso_sharing_page_render' // Function that renders the options page
+    $pages[] = array(
+        'slug' => 'sharing',
+        'label' => __( 'Sharing', 'kbso' )
     );
     
+    return $pages;
+    
 }
-add_action( 'admin_menu', 'kbso_plugin_menu_social_sharing' );
+add_filter( 'kbso_tab_pages', 'kbso_sharing_tab_page_add' );
 
 /*
  * Render the Sharing Page
