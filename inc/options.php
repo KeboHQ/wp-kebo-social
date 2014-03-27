@@ -177,8 +177,8 @@ function kbso_plugin_options_validate( $input ) {
     
     $output = array();
     
-    if ( isset( $input['feature_control_social_sharing'] ) && array_key_exists( $input['feature_control_social_sharing'], kbso_options_radio_buttons() ) ) {
-        $output['feature_control_social_sharing'] = $input['feature_control_social_sharing'];
+    if ( isset( $input['feature_control_sharing'] ) && array_key_exists( $input['feature_control_sharing'], kbso_options_radio_buttons() ) ) {
+        $output['feature_control_sharing'] = $input['feature_control_sharing'];
     }
     
     /*
