@@ -30,15 +30,7 @@ add_action( 'admin_menu', 'kbso_plugin_menu_social_sharing' );
  */
 function kbso_sharing_page_render() {
     
-    if ( ! current_user_can( 'manage_options' ) ) {
-        wp_die( __('You do not have sufficient permissions to access this page.') );
-    }
-    
     ?>
-
-    <div class="wrap kebo">
-        
-        <h2><?php esc_html_e( 'Kebo Social - Sharing', 'kbso' ); ?></h2>
         <?php settings_errors('kbso-sharing'); ?>
         
         <h3><?php esc_html_e('Share Links','kbso'); ?></h3>
@@ -123,8 +115,6 @@ function kbso_sharing_page_render() {
             submit_button();
             ?>
         </form>
-            
-    </div>
 
     <?php
     
@@ -134,3 +124,4 @@ function kbso_sharing_page_render() {
     kbso_sharing_page_print_js();
     
 }
+add_action( 'kbso_tab_page_sharing', 'kbso_sharing_page_render' );
