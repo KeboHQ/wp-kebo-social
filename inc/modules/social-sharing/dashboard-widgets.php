@@ -63,9 +63,6 @@ function kbso_social_sharing_status_widget_render() {
         set_transient( 'kbso_social_sharing_status_widget' . get_current_blog_id(), $counts, 5 * MINUTE_IN_SECONDS );
         
     }
-    delete_transient( 'kbso_social_sharing_status_widget' . get_current_blog_id() );
-    
-    unset( $counts );
     
     /**
      * Check we have valid Data before output.
