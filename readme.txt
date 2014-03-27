@@ -3,7 +3,7 @@ Contributors:      peterbooker
 Tags:              social, share, sharing, share links, twitter, facebook, google, linkedin, pinterest
 Requires at least: 3.5
 Tested up to:      3.8.1
-Stable tag:        0.3.5
+Stable tag:        0.4.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,6 +74,14 @@ On top of this all the features share resources where appropriate, so that it sh
 
 
 == Changelog ==
+
+= 0.4.0 =
+* Important: This is the first public release. There may still be some rough edges but these will be polished soon.
+* New Feature: Added a main Dashboard Widget showing the Status of your share counts.
+* Bug Fix: Share Links preview now correctly update on the page.
+* Bug Fix: Now correctly encodes your post URL so there are spaces in the title when shared (props Clorith).
+* Note: Moved from a top level admin menu to a sub-menu under Settings, with internal tabs, to avoid cluttering user sites.
+* Note: Moved the feature activation from a page to a dashboard Widget, reducing the page count and making the dashboard more useful. Features now activate and de-activate live on the page.
 
 = 0.3.5 =
 * Bug Fix: Encodes the href attributes on Social Share links. This fixes titles appearing with no spaces and other odd behavior.
