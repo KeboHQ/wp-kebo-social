@@ -31,9 +31,7 @@ function kbso_dashboard_widget_welcome() {
     
     <p>
         <?php
-        echo sprintf( __( 'Kebo Social was inspired by the success of the <a href="%s" target="%s">Kebo Twitter Feed</a> plugin.', 'kbso' ), 'http://wordpress.org/plugins/kebo-twitter-feed/', '_blank' );
-        echo '&nbsp;';
-        echo __( 'We are now dedicated to providing the most hassle-free way to integrate your website with Social Services.', 'kbso' );
+        echo __( 'Kebo Social aims to be the leading Social plugin for WordPress. Combining hassle-free interfaces and beautiful designs with features which benefit you.', 'kbso' );
         ?>
     </p>
 
@@ -102,7 +100,7 @@ function kbso_dashboard_widget_getting_started() {
         <?php
         echo __( 'Kebo Social is just beginning its life as a WordPress plugin and will be under active development constantly.' , 'kbso' );
         echo '&nbsp;';
-        echo sprintf( __( 'You can add Social Share Links to your posts from <a href="%s">here</a>.', 'kbso' ), admin_url( 'admin.php?page=kbso-sharing' ) );
+        echo sprintf( __( 'You can add Social Share Links to your posts from <a href="%s">here</a>.', 'kbso' ), admin_url( 'options-general.php?page=kebo-social&tab=sharing' ) );
         ?>
     </p>
     
@@ -198,7 +196,7 @@ function kbso_dashboard_widget_coming_soon() {
     
     <p>
         <?php
-        echo __( 'In the coming months we will be adding many more features. You can see what to expect next below:' , 'kbso' );
+        echo __( 'In the coming weeks we will be adding many more features. You can see what to expect next below:' , 'kbso' );
         ?>
     </p>
     
@@ -209,7 +207,7 @@ function kbso_dashboard_widget_coming_soon() {
             <li>
                 <h4 style="font-weight: bold;"><?php _e( 'Feeds', 'kbso' ); ?></h4>
                 <p style="margin-top: 0;">
-                    <?php echo __( 'Display your Social Feeds on your website in minutes.', 'kbso' ); ?>
+                    <?php echo __( 'Display feeds from your Social accounts on your website.', 'kbso' ); ?>
                 </p>
             </li>
             
@@ -255,7 +253,7 @@ function kbso_dashboard_widget_support() {
     
     <p>
         <?php
-        echo sprintf( __( 'You can also find Support Documentation <a href="%s" target="%s">here</a>, and we have listed some of the most common below: ', 'kbso' ), 'https://kebopowered.com/docs/kebo-social/', '_blank' );
+        echo sprintf( __( 'You can also find Support Documentation <a href="%s" target="%s">here</a>, and we have listed some of the most common below:', 'kbso' ), 'https://kebopowered.com/docs/kebo-social/', '_blank' );
         ?>
     </p>
     
@@ -264,10 +262,6 @@ function kbso_dashboard_widget_support() {
         <ul>
             
             <li><?php echo sprintf( __( '<a href="%s" target="%s">Getting Started</a>', 'kbso' ), 'https://kebopowered.com/docs/kebo-social/', '_blank' ); ?></li>
-            
-            <li><?php echo sprintf( __( '<a href="%s" target="%s">Social Sharing - Add a Custom Theme</a>', 'kbso' ), 'https://kebopowered.com/docs/kebo-social/', '_blank' ); ?></li>
-            
-            <li><?php echo sprintf( __( '<a href="%s" target="%s">Social Sharing - Add Social Services</a>', 'kbso' ), 'https://kebopowered.com/docs/kebo-social/', '_blank' ); ?></li>
             
         </ul>
         
