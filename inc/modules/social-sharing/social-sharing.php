@@ -22,7 +22,7 @@ add_action( 'admin_enqueue_scripts', 'kbso_social_sharing_register_files' );
 function kbso_social_sharing_enqueue_backend( $hook_suffix ) {
     
     // Enqueue files for sharing page
-    if ( 'kebo-social_page_kbso-sharing' == $hook_suffix ) {
+    if ( 'settings_page_kebo-social' == $hook_suffix ) {
         
         /*
          * Use minified files where available, unless SCRIPT_DEBUG is true
