@@ -90,9 +90,87 @@ h3.title {
 }
 
 /*
- * Dashboard Panels
+ * Core Dashboard
  */
+#kbso_social_sharing_status .inside {
+        padding: 0;
+        margin: 0;
+}
+.kbso-status *,
+.kbso-status *:before,
+.kbso-status *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+.kbso-status {
 
+}
+.kbso-status .kfull,
+.kbso-status .khalf {
+        float: left;
+        padding: 10px;
+        border-top: 1px solid #eeeeee;
+        position: relative;
+}
+.kbso-status .kfull {
+        width: 100%;
+}
+.kbso-status .khalf {
+        width: 50%;
+}
+.kbso-status .kright {
+        float: right;
+        border-left: 1px solid #eeeeee;
+}
+.kbso-status .kcount,
+.kbso-status .klabel {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-left: 34px;
+}
+.kbso-status .kcount {
+        font-weight: bold;
+}
+.kbso-status .klabel {
+        font-size: 0.9em;
+        color: #777777;
+}
+.kbso-status .clear {
+        clear: both;
+}
+.kbso-status .kcount:before {
+        font-family: zocial;
+        font-size: 18px;
+        position: absolute;
+        top: 17px;
+        left: 10px;
+}
+.kbso-status .kcount.twitter:before {
+        color: $twitter;
+        content: "T";
+}
+.kbso-status .kcount.facebook:before {
+        color: $facebook;
+        content: "f";
+}
+.kbso-status .kcount.linkedin:before {
+        color: $linkedin;
+        content: "L";
+}
+.kbso-status .kcount.googleplus:before {
+        color: $googleplus;
+        content: "+";
+}
+
+
+/*
+ * Kebo Dashboard Panels
+ */
+#dashboard-widgets-wrap.kebo {
+         margin-top: 16px;
+}
 .kebo-dash .sortable-placeholder {
         margin: 0;
         margin-bottom: 16px;
@@ -153,6 +231,11 @@ h3.title {
         width: 100%;
         padding: 0;
         border: none;
+}
+
+// Fix for Feature Control Form Styling
+form.feature-control h3 {
+        display: none;
 }
 
 /*
@@ -554,30 +637,10 @@ h3.title {
 }
 
 /*
- * Admin - Share Links Page
+ * Admin - Social Sharing Page
  */
 .koptions input[type="text"] {
         min-width: 260px;
-}
-.koptions label[for^="share_links_post_types"] {
-        display: block;
-        clear: both;
-        float: left;
-}
-.koptions label[for^="share_links_post_types"] input {
-        margin-right: 6px;
-}
-
-.koptions select[name="kbso_plugin_options[share_links_theme]"] {
-        min-width: 160px;
-}
-.koptions label[for^="share_links_link_content"] {
-        display: block;
-        clear: both;
-        float: left;
-}
-.koptions label[for^="share_links_link_content"] input {
-        margin-right: 6px;
 }
 .koptions .howto {
         clear: both;
