@@ -7,25 +7,23 @@
  * Update the count using a new number.
  */
 function kbso_update_count( $current, $new ) {
-    
+
     /*
      * If we have no values yet, set it to 0 as a default
      */
     if ( empty( $current ) ) {
-        
+
         $current = 0;
-        
     }
-    
+
     /*
      * If we have a valid new value, use it.
      */
     if ( isset( $new ) && is_int( $new ) && ( 0 < $new ) ) {
-        
+
         $current = $new;
-        
     }
-    
+
     return $current;
     
 }
@@ -34,13 +32,12 @@ function kbso_update_count( $current, $new ) {
  * Update the total count using a new number.
  */
 function kbso_update_count_total( $total, $new ) {
-    
+
     if ( ! empty( $new ) && is_int( absint( $new ) ) && ( 0 < $new ) ) {
-        
+
         $total = $total + $new;
-        
     }
-    
+
     return $total;
     
 }
@@ -74,65 +71,77 @@ function kbso_social_share_count_display( $count, $thousand = 'K', $million = 'M
     if ( ! is_numeric( $count ) ) {
         $result = 0;
     }
-    
+
     /*
      * If greater than 1000 divide by 1000 and add k.
      */
     if ( $count > 1000000 ) {
-        
+
         $result = (int) ( $count / 1000000 );
-        
+
         $result .= $million;
         
     } elseif ( $count > 1000 ) {
-        
+
         $result = (int) ( $count / 1000 );
-        
+
         $result .= $thousand;
         
     } else {
-        
+
         $result = $count;
-        
     }
-    
-    return apply_filters( 'kbso_social_sharing_count_display', $result, $count );
+
+    return apply_filters('kbso_social_sharing_count_display', $result, $count);
     
 }
 
 /**
- * Theme Content Width Adjustment
- * Hide Floating Bar if screen width is less than the themes $content_width
+ * Prepare Social Count Totals
  */
-function kbso_social_share_content_width_compat() {
-    
-    global $content_width;
-    
-    /**
-     * If content width is set use it, if not use a default guestimate
+function kbso_social_sharing_prepare_count_totals( $results ) {
+
+    $counts = new stdClass();
+
+    /*
+     * Loop each post_meta and update total counts
      */
-    if ( ! empty( $content_width ) ) {
-        
-        $width = $content_width;
-        
-    } else {
-        
-        $width = 960;
-        
-    }
-    ?>
-    
-    <style type="text/css">
-    @media ( max-width: 1000px ) {
-        
-        body .kfloating {
+    foreach ( $results as $meta ) {
+
+        $post_counts = unserialize( $meta->meta_value );
+
+        if ( isset( $post_counts['total'] ) && is_int( $post_counts['total'] ) ) {
+
+            $counts->total = $counts->total + $post_counts['total'];
+            
+        }
+
+        if ( isset( $post_counts['twitter'] ) && is_int( $post_counts['twitter'] ) ) {
+
+            $counts->twitter = $counts->twitter + $post_counts['twitter'];
+            
+        }
+
+        if ( isset( $post_counts['facebook'] ) && is_int( $post_counts['facebook'] ) ) {
+
+            $counts->facebook = $counts->facebook + $post_counts['facebook'];
+            
+        }
+
+        if ( isset( $post_counts['linkedin'] ) && is_int( $post_counts['linkedin'] ) ) {
+
+            $counts->linkedin = $counts->linkedin + $post_counts['linkedin'];
+            
+        }
+
+        if ( isset( $post_counts['googleplus'] ) && is_int( $post_counts['googleplus'] ) ) {
+
+            $counts->googleplus = $counts->googleplus + $post_counts['googleplus'];
             
         }
         
     }
-    </style>
     
-    <?php
+    return $counts;
     
 }
-//add_action( 'wp_footer', 'kbso_social_share_content_width_compat' );
