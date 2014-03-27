@@ -3,6 +3,11 @@
  * Social Sharing AJAX
  */
 
+if ( ! defined( 'KBSO_VERSION' ) ) {
+    header( 'HTTP/1.0 403 Forbidden' );
+    die;
+}
+
 /*
  * AJAX Save Share Link Order
  */
