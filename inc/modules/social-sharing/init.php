@@ -48,9 +48,15 @@ if ( is_admin() ) {
      */
     require_once( KBSO_PATH . 'inc/modules/social-sharing/dashboard-widgets.php' );
     
-} else {
+    /*
+     * Include Sharing Menu file.
+     */
+    require_once( KBSO_PATH . 'inc/modules/social-sharing/menu.php' );
     
-    
+    /*
+     * Include Options file.
+     */
+    require_once( KBSO_PATH . 'inc/modules/social-sharing/options.php' );
     
 }
 
@@ -58,16 +64,6 @@ if ( is_admin() ) {
  * Include General file.
  */
 require_once( KBSO_PATH . 'inc/modules/social-sharing/social-sharing.php' );
-
-/*
- * Include Sharing Menu file.
- */
-require_once( KBSO_PATH . 'inc/modules/social-sharing/menu.php' );
-
-/*
- * Include Options file.
- */
-require_once( KBSO_PATH . 'inc/modules/social-sharing/options.php' );
 
 /*
  * Include Social Count Update file.
