@@ -36,13 +36,13 @@ function kbso_plugin_options_init() {
      * Field - Activate Feature
      */
     add_settings_field(
-        'feature_control_social_sharing', // Unique identifier for the field for this section
+        'feature_control_sharing', // Unique identifier for the field for this section
         __('Social Sharing', 'kbso'), // Setting field label
         'kbso_options_render_switch', // Function that renders the settings field
         'kbso-settings', // Menu slug
         'kbso_core_feature_control', // Settings section.
         array( // Args to pass to render function
-            'name' => 'feature_control_social_sharing',
+            'name' => 'feature_control_sharing',
             'id' => 'sharing', // used to identify the switch in JS (optional)
             'help_text' => __('Turns the feature on or off.', 'kbso')
         ) 
