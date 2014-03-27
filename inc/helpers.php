@@ -59,10 +59,15 @@ function kbso_get_tabs_pages() {
             'slug' => 'dashboard',
             'label' => __( 'Dashboard', 'kbso' )
         ),
+        /*
         array(
             'slug' => 'settings',
             'label' => __( 'Settings', 'kbso' )
         ),
+         * 
+         * Not Currently Used
+         * Might be later
+         */
     );
     
     return apply_filters( 'kbso_tab_pages', $pages );
