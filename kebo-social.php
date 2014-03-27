@@ -94,6 +94,9 @@ function kbso_register_files() {
         
     // Register Scripts
     wp_register_script( 'kbso-admin-js', KBSO_URL . 'assets/js/admin.js', array(), KBSO_VERSION, true );
+    
+    wp_register_script( 'kbso-feature-control', KBSO_URL . 'assets/js/feature-control.js', array( 'jquery' ), KBSO_VERSION, true );
+    
     wp_register_script( 'jquery-ui-touchpunch', KBSO_URL . 'assets/js/vendor/jquery.ui.touch-punch.min.js', array( 'jquery-ui-sortable' ), KBSO_VERSION, false );
     
     wp_register_script( 'flot', KBSO_URL . 'assets/js/vendor/flot/jquery.flot.js', array( 'jquery' ), KBSO_VERSION, false );
@@ -141,6 +144,8 @@ function kbso_enqueue_backend( $hook_suffix ) {
     if ( 'settings_page_kebo-social' == $hook_suffix ) {
             
         wp_enqueue_style( 'kbso-admin' );
+        
+        wp_enqueue_script( 'kbso-feature-control' );
             
     }
         
