@@ -63,10 +63,6 @@ function kbso_get_tabs_pages() {
             'slug' => 'settings',
             'label' => __( 'Settings', 'kbso' )
         ),
-        array(
-            'slug' => 'sharing',
-            'label' => __( 'Sharing', 'kbso' )
-        ),
     );
     
     return apply_filters( 'kbso_tab_pages', $pages );
@@ -106,7 +102,7 @@ function kbso_tabs_render() {
         foreach ( $pages as $page ) {
 
             ?>
-            <a class="nav-tab<?php echo kbso_is_active_tab( $page ); ?>" href="<?php echo admin_url( 'options-general.php?page=kebo-social&tab=' . esc_attr( $page['slug'] ) ); ?>"><?php echo esc_html( $page['label'] ); ?></a>
+            <a class="nav-tab<?php echo kbso_is_active_tab( $page ); ?>" data-slug="<?php echo esc_attr( $page['slug'] ); ?>" href="<?php echo admin_url( 'options-general.php?page=kebo-social&tab=' . esc_attr( $page['slug'] ) ); ?>"><?php echo esc_html( $page['label'] ); ?></a>
             <?php
         
         }
