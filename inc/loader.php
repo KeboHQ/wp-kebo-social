@@ -53,7 +53,7 @@ $options = kbso_get_plugin_options();
 /*
  * Include activated features file.
  */
-if ( 'yes' == $options['feature_control_social_sharing'] ) {
+if ( 'yes' == $options['feature_control_sharing'] ) {
     
     require_once( KBSO_PATH . 'inc/modules/social-sharing/init.php' );
     

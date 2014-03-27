@@ -71,16 +71,7 @@ function kbso_get_plugin_options() {
     $defaults = array(
         
         // Section - Core
-        'feature_control_social_sharing' => 'no',
-        
-        // Section - Share Links - General
-        'share_links_activate_feature' => 'no',
-        'share_links_intro_text' => null,
-        
-        // Section - Share Links - Visual
-        'share_links_link_content' => array( 'icon', 'name', 'count' ),
-        'share_links_theme' => 'default',
-        'share_links_post_types' => array( 'post' ),
+        'feature_control_sharing' => 'no',
         
     );
 
@@ -186,8 +177,8 @@ function kbso_plugin_options_validate( $input ) {
     
     $output = array();
     
-    if ( isset( $input['share_links_activate_feature'] ) && array_key_exists( $input['share_links_activate_feature'], kbso_options_radio_buttons() ) ) {
-        $output['share_links_activate_feature'] = $input['share_links_activate_feature'];
+    if ( isset( $input['feature_control_social_sharing'] ) && array_key_exists( $input['feature_control_social_sharing'], kbso_options_radio_buttons() ) ) {
+        $output['feature_control_social_sharing'] = $input['feature_control_social_sharing'];
     }
     
     /*
