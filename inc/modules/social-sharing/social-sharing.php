@@ -624,113 +624,6 @@ function kbso_social_sharing_standard_view_dir( $theme_view, $theme ) {
 add_filter( 'kbso_social_sharing_view_dir', 'kbso_social_sharing_standard_view_dir', 10, 2 );
 
 /*
- * Social Sharing Admin Button Preview
- */
-function kbso_share_button_preview() {
-    
-    $all_links = array(
-        'facebook' => array(
-            'name' => 'facebook',
-            'label' => 'Facebook',
-            'href' => '#'
-        ),
-        'twitter' => array(
-            'name' => 'twitter',
-            'label' => 'Twitter',
-            'href' => '#'
-        ),
-        'googleplus' => array(
-            'name' => 'googleplus',
-            'label' => 'Google+',
-            'href' => '#'
-        ),
-        'linkedin' => array(
-            'name' => 'linkedin',
-            'label' => 'LinkedIn',
-            'href' => '#'
-        ),
-        'pinterest' => array(
-            'label' => 'Pinterest',
-            'name' => 'pinterest',
-            'href' => '#'
-        ),
-    );
-    
-    $selected_links = array();
-    
-    /*
-     * Group the selected Social Links
-     */
-    foreach ( kbso_share_links_order('selected') as $link ) {
-            
-        if ( isset( $all_links[ $link ] ) ) {
-                
-            $selected_links[ $link ] = $all_links[ $link ];
-                
-        }
-            
-    }
-    
-    $options = kbso_get_plugin_options();
-
-    $theme = $options['social_sharing_theme'];
-    
-    /*
-     * All basic themes use the same view files.
-     */
-    $basic_themes = array( 'default', 'flat', 'gradient' );
-    
-    if ( in_array( $theme, $basic_themes ) ) {
-        
-        $theme_view = 'default';
-        
-    } else {
-        
-        $theme_view = $theme;
-        
-    }
-    
-    /**
-     * Setup an instance of the View class.
-     * Allow customization using a filter.
-     */
-    $view = new Kebo_View(
-        apply_filters(
-            'kbso_social_sharing_view_dir',
-            KBSO_PATH . 'inc/modules/social-sharing/views/' . $theme_view
-        )
-    );
-    
-    /**
-     * Prepare the HTML classes
-     */
-    $classes[] = 'ksharelinks';
-    $classes[] = $options['social_sharing_theme'];
-    $classes[] = $options['social_sharing_link_size'];
-    if ( is_rtl() ) {
-        $classes[] = 'rtl';
-    }
-    
-    /*
-     * Build HTML output
-     */
-    $preview_links = $view
-        ->set_view( 'links' )
-        ->set( 'classes', $classes )
-        ->set( 'label', $options['social_sharing_label'] )
-        ->set( 'link_content', $options['social_sharing_link_content'] )
-        ->set( 'options', $options )
-        ->set( 'links', $selected_links )
-        ->set( 'view', $view )
-        ->retrieve();
-    
-    unset( $view );
-    
-    return $preview_links;
-    
-}
-
-/*
  * Social Sharing Admin Page JS
  */
 function kbso_sharing_page_print_js() {
@@ -739,6 +632,13 @@ function kbso_sharing_page_print_js() {
     <script type="text/javascript">
 
         jQuery(document).ready(function($) {
+            
+            $( '.ksharelinks ul li a' ).click( function( e ) {
+
+                // Prevent Click from Reloading page
+                e.preventDefault();
+
+            });
 
             $("#share-links-available, #share-links-selected").sortable({
                 
@@ -778,6 +678,21 @@ function kbso_sharing_page_print_js() {
 
                         if ( 'true' === response.success && 'save' === response.action && window.console ) {
                             console.log( 'Kebo Social - Social Sharing order successfully saved.' );
+                            
+                            $( '.ksharelinks ul' ).empty();
+                            
+                            $( '#share-links-selected .sortable' ).delay( 500 ).each( function( index ) {
+
+                                var kservice = $(this).data( 'service' );
+                                
+                                var klabel = kservice.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+                                    return letter.toUpperCase();
+                                });
+
+                                $( '.ksharelinks ul' ).append( '<li><a class="klink ' + kservice + '" href="#"><span class="kicon"><i class="zocial ' + kservice + '"></i></span><span class="kname">' + klabel + '</span></a></li>' );
+
+                            });
+                            
                         }
 
                     });
@@ -785,13 +700,6 @@ function kbso_sharing_page_print_js() {
                 }
 
             }).disableSelection();
-            
-            $( '.ksharelinks ul li a' ).click( function( e ) {
-
-                // Prevent Click from Reloading page
-                e.preventDefault();
-
-            });
 
         });
 
