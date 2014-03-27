@@ -183,6 +183,8 @@ function kbso_plugin_options_validate( $input ) {
     
     /*
      * Allow modules to add their own validate functions
+     * 
+     * TODO: Is this needed? See filter on return.
      */
     do_action( 'kbso_plugin_options_validation', $input, $output );
     
