@@ -27,28 +27,44 @@ function kbso_feature_control_update() {
     /*
      * Check action
      */
-    if ( 'kbso_save_sharelink_order' !== $action ) {
+    if ( 'kbso_feature_control_update' !== $action ) {
         die();
     }
     
     /*
      * Check nonce
      */
-    if ( ! wp_verify_nonce( $nonce, 'kbso_sharelink_order' ) ) {
+    if ( ! wp_verify_nonce( $nonce, 'kbso_feature_control' ) ) {
         die();
     }
     
-    // Save Dashboard Positions
-    update_option( 'kbso_social_sharing_order', $data );
+    /**
+     * Update Feature Control Options
+     */
+    $option_name = 'feature_control_' . $data;
+    
+    $options = kbso_get_plugin_options();
+    
+    /*
+     * If active then de-active, if de-active then activate.
+     */
+    if ( isset( $options[ $option_name ] ) && 'yes' == $options[ $option_name ] ) {
+        
+        $options[ $option_name ] = 'no';
+        
+    } else {
+        
+        $options[ $option_name ] = 'yes';
+        
+    }
+    
+    update_option( 'kbso_plugin_options', $options );
     
     // Send successful response
     $response = array(
         'action' => 'save',
         'success' => 'true',
     );
-    
-    // Clear and previous output, like errors.
-    ob_clean();
     
     // Output response
     print_r( json_encode( $response ) );
