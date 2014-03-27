@@ -113,6 +113,28 @@ function kbso_sharing_page_render() {
             submit_button();
             ?>
         </form>
+        
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+
+                $( "select#social_sharing_theme" ).change(function() {
+                    
+                    var kclass = $(this).val();
+                    
+                    $( '.links.selected .ksharelinks' ).removeClass( 'default gradient plain' ).addClass( kclass );
+                    
+                });
+
+                $( "select#social_sharing_link_size" ).change(function() {
+                    
+                    var kclass = $(this).val();
+                    
+                    $( '.links.selected .ksharelinks' ).removeClass( 'xsmall small medium large xlarge' ).addClass( kclass );
+                    
+                });
+
+            });
+        </script>
 
     <?php
     
