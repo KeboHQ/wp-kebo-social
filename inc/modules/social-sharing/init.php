@@ -41,6 +41,19 @@ function kbso_social_sharing_activate() {
 }
 add_action( 'wp', 'kbso_social_sharing_activate' );
 
+if ( is_admin() ) {
+    
+    /*
+     * Include Uninstall file.
+     */
+    require_once( KBSO_PATH . 'inc/modules/social-sharing/dashboard-widgets.php' );
+    
+} else {
+    
+    
+    
+}
+
 /*
  * Include General file.
  */
