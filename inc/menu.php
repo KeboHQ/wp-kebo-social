@@ -143,7 +143,7 @@ function kebo_social_menu_render() {
     }
     
     ?>
-    <div class="wrap">
+    <div class="wrap kebo">
         
         <h2><?php _e('Kebo Social', 'kbso'); ?></h2>
         
