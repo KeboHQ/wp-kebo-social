@@ -65,8 +65,19 @@ function kbso_dashboard_widget_feature_control() {
         submit_button();
         ?>
     </form>
-
+    
     <?php
+    /*
+     * Add variable data to the page ready for use.
+     */
+    $data = array(
+        'url' => admin_url( 'options-general.php?page=kebo-social&tab=' ),
+        'action' => 'kbso_feature_control_update',
+        'nonce' => wp_create_nonce( 'kbso_feature_control' ),
+    );
+    
+    wp_localize_script( 'kbso-feature-control', 'keboFeatures', $data );
+    
     // End Output Buffering and Clear Buffer
     $content = ob_get_contents();
     ob_end_clean();
@@ -196,14 +207,14 @@ function kbso_dashboard_widget_coming_soon() {
         <ul>
             
             <li>
-                <h4 style="font-weight: bold;"><?php _e( 'Social Feeds', 'kbso' ); ?></h4>
+                <h4 style="font-weight: bold;"><?php _e( 'Feeds', 'kbso' ); ?></h4>
                 <p style="margin-top: 0;">
                     <?php echo __( 'Display your Social Feeds on your website in minutes.', 'kbso' ); ?>
                 </p>
             </li>
             
             <li>
-                <h4 style="font-weight: bold;"><?php _e( 'Social Posting', 'kbso' ); ?></h4>
+                <h4 style="font-weight: bold;"><?php _e( 'Posting to Networks', 'kbso' ); ?></h4>
                 <p style="margin-top: 0;">
                     <?php echo __( 'Share your new content across Social Services instantly.', 'kbso' ) ?>
                 </p>
@@ -312,32 +323,3 @@ function kbso_dashboard_widget_get_involved() {
     
 }
 add_action( 'kbso_dashboard_column_three', 'kbso_dashboard_widget_get_involved' );
-
-/**
- * Output 'Kebo Social Pro' Widget
- */
-/*
-function kbso_dashboard_widget_kebo_social_pro() {
-    
-    $title = __( 'Kebo Social Pro', 'kbso' );
-    
-    $content = __( 'We are aiming to release a paid extension to this plugin around summer. This will add a very specific feature, Social Statistics.' , 'kbso' );
-    
-    $content .= '&nbsp;';
-    
-    $content .= __( 'No other features included, or planned, will ever be restricted or put behind a pay wall.' , 'kbso' );
-    
-    $content .= '<br><br>';
-    
-    $content .= __( 'Kebo Social Pro will provide users with insight into how their content is being absorbed and spread on Social Media.' , 'kbso' );
-    
-    $content .= '&nbsp;';
-    
-    $content .= __( 'This will allow you to make more informed decisions about how you use Social Media and what content you create.' , 'kbso' );
-    
-    kbso_dashboard_widget_render( $title, $content, $sortable = false );
-    
-}
-add_action( 'kbso_dashboard_column_four', 'kbso_dashboard_widget_kebo_social_pro' );
- * 
- */
