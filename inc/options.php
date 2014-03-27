@@ -156,7 +156,7 @@ function kbso_options_render_switch( $args ) {
     global $counter;
     
     ?>
-    <div class="switch options"<?php if ( $slug ) { echo 'data-id="' . $id . '"'; } ?>>
+    <div class="switch options"<?php if ( $id ) { echo 'data-id="' . $id . '"'; } ?>>
     <?php
     foreach ( kbso_options_radio_buttons() as $button ) {
     $counter++;
