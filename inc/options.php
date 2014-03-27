@@ -43,6 +43,7 @@ function kbso_plugin_options_init() {
         'kbso_core_feature_control', // Settings section.
         array( // Args to pass to render function
             'name' => 'feature_control_social_sharing',
+            'id' => 'sharing', // used to identify the switch in JS (optional)
             'help_text' => __('Turns the feature on or off.', 'kbso')
         ) 
     );
@@ -148,12 +149,14 @@ function kbso_options_render_switch( $args ) {
     
     $name = esc_attr( $args['name'] );
     
+    $id = ( $args['id'] ) ? esc_html( $args['id'] ) : null;
+    
     $help_text = ( $args['help_text'] ) ? esc_html( $args['help_text'] ) : null;
     
     global $counter;
     
     ?>
-    <div class="switch options">
+    <div class="switch options"<?php if ( $slug ) { echo 'data-id="' . $id . '"'; } ?>>
     <?php
     foreach ( kbso_options_radio_buttons() as $button ) {
     $counter++;
