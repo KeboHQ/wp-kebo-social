@@ -131,7 +131,7 @@ function kbso_settings_page_render() {
     <?php
     
 }
-add_action( 'kbso_tab_page_settings', 'kbso_settings_page_render' );
+//add_action( 'kbso_tab_page_settings', 'kbso_settings_page_render' );
 
 /**
  * Renders the Twitter Feed Options page.
