@@ -42,6 +42,11 @@ require_once( KBSO_PATH . 'inc/dashboard-widgets.php' );
  */
 require_once( KBSO_PATH . 'inc/helpers.php' );
 
+/*
+ * Include AJAX file.
+ */
+require_once( KBSO_PATH . 'inc/ajax.php' );
+
 // Get Plugin Options
 $options = kbso_get_plugin_options();
 
