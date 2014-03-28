@@ -32,7 +32,7 @@ function kbso_social_sharing_activate() {
 
     $options = kbso_get_plugin_options();
     
-    if ( 'yes' == $options['feature_control_social_sharing'] && is_singular() && in_array( $post->post_type, $options['social_sharing_post_types'] ) ) {
+    if ( 'yes' == $options['feature_control_sharing'] && is_singular() && in_array( $post->post_type, $options['social_sharing_post_types'] ) ) {
     
         add_filter( 'the_content', 'kbso_social_sharing_content_insert', 95 );
     
