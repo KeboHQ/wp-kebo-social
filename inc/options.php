@@ -71,7 +71,7 @@ function kbso_get_plugin_options() {
     $defaults = array(
         
         // Section - Core
-        'feature_control_sharing' => 'no',
+        'feature_control_sharing' => 'yes',
         
     );
 
