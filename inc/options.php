@@ -183,10 +183,8 @@ function kbso_plugin_options_validate( $input ) {
     
     /*
      * Allow modules to add their own validate functions
-     * 
-     * TODO: Is this needed? See filter on return.
      */
-    do_action( 'kbso_plugin_options_validation', $input, $output );
+    $output = apply_filters( 'kbso_plugin_options_validation', $input, $output );
     
     // Combine Inputs with currently Saved data, for multiple option page compability
     $options = wp_parse_args( $input, $options );

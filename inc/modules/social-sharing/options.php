@@ -119,7 +119,7 @@ function kbso_social_sharing_options_init() {
 add_action( 'admin_init', 'kbso_social_sharing_options_init' );
 
 /*
- * 
+ * Add Module Default Options
  */
 function kbso_social_sharing_option_defaults( $defaults ) {
     
@@ -149,7 +149,6 @@ function kbso_options_theme_select_dropdown() {
             'value' => 'default',
             'label' => __('Default', 'kbso')
         ),
-        /*
         'flat' => array(
             'value' => 'flat',
             'label' => __('Flat', 'kbso')
@@ -158,8 +157,6 @@ function kbso_options_theme_select_dropdown() {
             'value' => 'gradient',
             'label' => __('Gradient', 'kbso')
         ),
-         * 
-         */
     );
 
     return apply_filters( 'kbso_social_sharing_theme', $dropdown );
@@ -394,7 +391,7 @@ function kbso_options_render_post_type_checkboxes( $args ) {
 /**
  * Sanitize and validate options input. Accepts an array, return a sanitized array.
  */
-function kbso_social_sharing_options_validate( $input ) {
+function kbso_social_sharing_options_validate( $input, $output ) {
     
     if ( isset( $input['social_sharing_label'] ) && ! empty( $input['social_sharing_label'] ) ) {
 	$output['social_sharing_label'] = sanitize_title( $input['social_sharing_label'] );
@@ -435,5 +432,7 @@ function kbso_social_sharing_options_validate( $input ) {
         $output['social_sharing_theme'] = $input['social_sharing_theme'];
     }
     
+    return $output;
+    
 }
-add_action( 'kbso_plugin_options_validation', 'kbso_social_sharing_options_validate' );
+add_filter( 'kbso_plugin_options_validation', 'kbso_social_sharing_options_validate', 10, 1 );

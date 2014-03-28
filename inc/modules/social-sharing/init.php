@@ -53,12 +53,12 @@ if ( is_admin() ) {
      */
     require_once( KBSO_PATH . 'inc/modules/social-sharing/menu.php' );
     
-    /*
-     * Include Options file.
-     */
-    require_once( KBSO_PATH . 'inc/modules/social-sharing/options.php' );
-    
 }
+
+/*
+ * Include Options file.
+ */
+require_once( KBSO_PATH . 'inc/modules/social-sharing/options.php' );
 
 /*
  * Include General file.
