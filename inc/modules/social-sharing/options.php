@@ -57,14 +57,14 @@ function kbso_social_sharing_options_init() {
      * Field - Share Links Content
      */
     add_settings_field(
-        'social_sharing_link_content', // Unique identifier for the field for this section
-        __('Button Content', 'kbso'), // Setting field label
-        'kbso_options_render_link_content', // Function that renders the settings field
+        'social_sharing_counts', // Unique identifier for the field for this section
+        __('Social Count', 'kbso'), // Setting field label
+        'kbso_options_render_switch', // Function that renders the settings field
         'kbso-sharing', // Menu slug
         'kbso_social_sharing', // Settings section.
         array( // Args to pass to render function
-            'name' => 'social_sharing_link_content',
-            'help_text' => __('Controls the content inside the Sharing buttons.', 'kbso')
+            'name' => 'social_sharing_counts',
+            'help_text' => __('Display of social counts.', 'kbso')
         ) 
     );
     
@@ -127,7 +127,7 @@ function kbso_social_sharing_option_defaults( $defaults ) {
         'social_sharing_label' => 'Share this:',
         'social_sharing_theme' => 'default',
         'social_sharing_position' => array( 'top', 'bottom' ),
-        'social_sharing_link_content' => array( 'icon', 'name', 'count' ),
+        'social_sharing_counts' => 'yes',
         'social_sharing_link_size' => 'medium',
         'social_sharing_post_types' => array( 'post' ),
     );
