@@ -4,11 +4,11 @@
  * Uses Ajax to update options.
  */
 
-jQuery(document).ready(function($) {
+jQuery(document).ready( function($) {
 
-    $(".kebo div.switch").click(function(e) {
+    $( '.kebo div.switch' ).click( function(e) {
 
-        var kslug = $(this).data('id');
+        var kslug = $(this).data( 'id' );
 
         var data = {
             action: 'kbso_feature_control_update',
@@ -16,17 +16,17 @@ jQuery(document).ready(function($) {
             nonce: keboFeatures.nonce
         };
 
-        if ($(this).children('input#x1').is(':checked')) {
+        if ( $(this).children( 'input#x1' ).is( ':checked' ) ) {
 
             // Update the Option with AJAX
-            $.post(ajaxurl, data, function(response) {
+            $.post(ajaxurl, data, function( response ) {
 
-                response = $.parseJSON(response);
+                response = $.parseJSON( response );
 
-                if ('true' === response.success && 'save' === response.action) {
+                if ( 'true' === response.success && 'save' === response.action ) {
 
-                    $('h2.nav-tab-wrapper').append('<a class="nav-tab" data-slug="' + kslug + '" href="' + keboFeatures.url + kslug + '" style="display: none;">Sharing</a>');
-                    $('h2.nav-tab-wrapper a[data-slug=' + kslug + ']').fadeIn(400);
+                    $( 'h2.nav-tab-wrapper' ).append( '<a class="nav-tab" data-slug="' + kslug + '" href="' + keboFeatures.url + kslug + '" style="display: none;">Sharing</a>' );
+                    $( 'h2.nav-tab-wrapper a[data-slug=' + kslug + ']' ).fadeIn(400);
 
                 }
 
@@ -37,13 +37,13 @@ jQuery(document).ready(function($) {
         } else {
 
             // Update the Option with AJAX
-            $.post(ajaxurl, data, function(response) {
+            $.post( ajaxurl, data, function( response ) {
 
-                response = $.parseJSON(response);
+                response = $.parseJSON( response );
 
-                if ('true' === response.success && 'save' === response.action) {
+                if ( 'true' === response.success && 'save' === response.action ) {
 
-                    $('h2.nav-tab-wrapper a[data-slug=' + kslug + ']').fadeOut(400, function() {
+                    $( 'h2.nav-tab-wrapper a[data-slug=' + kslug + ']' ).fadeOut( 400, function() {
                         $(this).remove();
                     });
 
