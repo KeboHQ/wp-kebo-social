@@ -10,18 +10,14 @@
     
     <a class="<?php echo esc_attr( 'klink ' . $name ); ?>" href="<?php echo esc_url( $href ); ?>" title="<?php echo esc_attr( sprintf( 'Share on %s', $label ) ); ?>" target="_blank">
         
-        <?php if ( in_array( 'icon', $link_content ) ) : ?>
-            <span class="kicon"><i class="<?php echo esc_attr( 'zocial ' . $name ); ?>"></i></span>
-        <?php endif; ?>
+        <span class="kicon"><i class="<?php echo esc_attr( 'zocial ' . $name ); ?>"></i></span>
         
-        <?php if ( in_array( 'name', $link_content ) ) : ?>
-            <span class="kname"><?php echo esc_html( $label ); ?></span>
-        <?php endif; ?>
+        <span class="kname"><?php echo esc_html( $label ); ?></span>
             
     </a>
     
-    <?php if ( in_array( 'count', $link_content ) && ( isset( $count ) && 0 != $count ) ) : ?>
-        <span class="kcount"><?php echo esc_html( kbso_social_share_count_display( $count ) ); ?></span>
+    <?php if ( 'yes' == $options['social_sharing_counts'] ) : ?>
+        <span class="kcount"><?php echo esc_html( kbso_social_share_count_display( absint( $count ) ) ); ?></span>
     <?php endif; ?>
     
     <?php do_action( 'kbso_after_sharelinks_link', $name, $label, $href, $post_type ); ?>
