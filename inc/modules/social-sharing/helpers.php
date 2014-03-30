@@ -90,9 +90,10 @@ function kbso_social_share_count_display( $count, $thousand = 'K', $million = 'M
     } else {
 
         $result = $count;
+        
     }
 
-    return apply_filters('kbso_social_sharing_count_display', $result, $count);
+    return apply_filters('kbso_social_sharing_count_display', absint( $result ), $count);
     
 }
 
