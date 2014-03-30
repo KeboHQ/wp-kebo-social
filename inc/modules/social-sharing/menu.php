@@ -96,7 +96,7 @@ function kbso_sharing_page_render() {
                 
                 <div class="links selected">
                     
-                    <?php echo kbso_social_sharing_services_render(); ?>
+                    <?php echo kbso_social_sharing_services_render( $preview = true ); ?>
                     
                 </div>
                 

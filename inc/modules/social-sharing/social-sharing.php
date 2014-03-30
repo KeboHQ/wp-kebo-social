@@ -200,11 +200,11 @@ function kbso_social_sharing_filter_services( $type = 'selected' ) {
     $selected = array();
     
     /*
-     * If admin, we are previewing, so return all items.
+     * If we are previewing return all items.
      * 
      * The preview will be controlled via javascript.
      */
-    if ( is_admin() ) {
+    if ( 'preview' == $type ) {
         
         return $all_services;
         
@@ -546,7 +546,7 @@ add_filter( 'kbso_social_sharing_prepare_link', 'kbso_social_sharing_twitter_hre
 /**
  * Renders the Social Share Buttons.
  */
-function kbso_social_sharing_services_render() {
+function kbso_social_sharing_services_render( $preview = false ) {
     
     global $post;
 
@@ -569,9 +569,17 @@ function kbso_social_sharing_services_render() {
     );
     
     /*
-     * Get the services selected by the user.
+     * Get the services selected by the user or all services for previews
      */
-    $selected = kbso_social_sharing_prepare_links();
+    if ( $preview ) {
+        
+        $selected = kbso_social_sharing_filter_services( 'preview' );
+        
+    } else {
+        
+        $selected = kbso_social_sharing_prepare_links();
+        
+    }
     
     /*
      * If we have no services, don't display.
