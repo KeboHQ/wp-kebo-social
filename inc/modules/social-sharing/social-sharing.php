@@ -200,6 +200,17 @@ function kbso_social_sharing_filter_services( $type = 'selected' ) {
     $selected = array();
     
     /*
+     * If admin, we are previewing, so return all items.
+     * 
+     * The preview will be controlled via javascript.
+     */
+    if ( is_admin() ) {
+        
+        return $all_services;
+        
+    }
+    
+    /*
      * Return services the user Selected
      */
     if ( 'selected' == $type ) {
