@@ -157,7 +157,7 @@ function kbso_sharing_page_render() {
                     
                 });
                 
-                // do AJAX config save
+                // Link Order
                 var korder = new Array;
                 
                 $( '#share-links-selected .sortable' ).delay( 500 ).each( function( index ) {
@@ -171,7 +171,7 @@ function kbso_sharing_page_render() {
                 
                 $( '.ksharelinks .klink' ).each( function() {
                     
-                    $(this).parent().css('display', 'none');
+                    $(this).parent().css( 'display', 'none' );
                     
                 });
                 
@@ -188,6 +188,7 @@ function kbso_sharing_page_render() {
                     
                 });
                 
+                // Share Text
                 $( 'input#social_sharing_label' ).keyup(function(e) {
                     
                     var ktext = $(this).val();
