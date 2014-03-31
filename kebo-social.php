@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Useful global constants
-define( 'KBSO_VERSION', '0.3.0' );
+define( 'KBSO_VERSION', '0.4.0' );
 define( 'KBSO_URL', plugin_dir_url(__FILE__) );
 define( 'KBSO_PATH', plugin_dir_path(__FILE__) );
 
