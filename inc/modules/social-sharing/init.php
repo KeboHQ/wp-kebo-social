@@ -8,6 +8,9 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
     die;
 }
 
+define( 'KBSO_POST_SHARING_URL', plugin_dir_url(__FILE__) );
+define( 'KBSO_POST_SHARING_PATH', plugin_dir_path(__FILE__) );
+
 if ( ! defined( KBSO_UPDATE_COUNTS ) ) {
     define( 'KBSO_UPDATE_COUNTS', 'true' );
 }
