@@ -29,10 +29,10 @@ add_filter( 'kbso_tab_pages', 'kbso_sharing_tab_page_add' );
 function kbso_sharing_page_render() {
     
     ?>
-        <?php settings_errors('kbso-sharing'); ?>
+        <?php settings_errors( 'kbso-sharing' ); ?>
         
-        <h3><?php esc_html_e('Share Links','kbso'); ?></h3>
-        <p><?php esc_html_e('Add sharing buttons to your website and allow visitors to share your content on social networks.', 'kbso'); ?></p>
+        <h3><?php esc_html_e( 'Share Links','kbso' ); ?></h3>
+        <p><?php esc_html_e( 'Add sharing buttons to your website and allow visitors to share your content on social networks.', 'kbso' ); ?></p>
         
         <div class="share-links-container">
 
@@ -40,9 +40,9 @@ function kbso_sharing_page_render() {
 
                 <div class="description">
                     
-                    <h3><?php esc_html_e('Available Services','kbso'); ?></h3>
+                    <h3><?php esc_html_e( 'Available Services','kbso' ); ?></h3>
                     
-                    <p><?php esc_html_e('Drag the services you would like to display on your site into the box below.', 'kbso'); ?></p>
+                    <p><?php esc_html_e( 'Drag the services you would like to display on your site into the box below.', 'kbso' ); ?></p>
                     
                 </div>
                 
@@ -64,9 +64,9 @@ function kbso_sharing_page_render() {
                 
                 <div class="description">
                     
-                    <h3><?php esc_html_e('Selected Services','kbso'); ?></h3>
+                    <h3><?php esc_html_e( 'Selected Services','kbso' ); ?></h3>
                     
-                    <p><?php esc_html_e('Services listed here will appear in the same order on your website.', 'kbso'); ?></p>
+                    <p><?php esc_html_e( 'Services listed here will appear in the same order on your website.', 'kbso' ); ?></p>
                     
                 </div>
                 
@@ -88,9 +88,9 @@ function kbso_sharing_page_render() {
                 
                 <div class="description">
                     
-                    <h3><?php esc_html_e('Preview','kbso'); ?></h3>
+                    <h3><?php esc_html_e( 'Preview','kbso' ); ?></h3>
                     
-                    <p><?php esc_html_e('This is how the links will look on your website.', 'kbso'); ?></p>
+                    <p><?php esc_html_e( 'This is how the links will look on your website.', 'kbso' ); ?></p>
                     
                 </div>
                 
