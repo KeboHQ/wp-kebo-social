@@ -146,7 +146,7 @@ function kbso_social_sharing_option_defaults( $defaults ) {
         'social_sharing_counts' => 'yes',
         'social_sharing_link_size' => 'medium',
         'social_sharing_post_types' => array( 'post' ),
-        'social_sharing_content_width' => 1000
+        'social_sharing_content_width' => 1100
     );
     
     $options = wp_parse_args( $defaults, $sharing );
