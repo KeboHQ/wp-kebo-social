@@ -697,18 +697,28 @@ function kbso_sharing_page_print_js() {
                         if ( 'true' === response.success && 'save' === response.action && window.console ) {
                             console.log( 'Kebo Social - Social Sharing order successfully saved.' );
                             
-                            $( '.ksharelinks ul' ).empty();
+                            $( '.ksharelinks .klink' ).each( function() {
+
+                                $(this).parent().css('display', 'none');
+
+                            });
+
+                            $.each( korder, function( index, item ) {
+
+                                $( '.ksharelinks .klink.' + item ).parent().css('display', 'inline-block');
+
+                            });
                             
-                            $( '#share-links-selected .sortable' ).delay( 500 ).each( function( index ) {
-
-                                var kservice = $(this).data( 'service' );
+                            var krevorder = korder.reverse();
+                            
+                            var kul = $('.ksharelinks ul');
+                            
+                            $.each( krevorder, function( index, item ) {
                                 
-                                var klabel = kservice.toLowerCase().replace(/\b[a-z]/g, function(letter) {
-                                    return letter.toUpperCase();
-                                });
-
-                                $( '.ksharelinks ul' ).append( '<li><a class="klink ' + kservice + '" href="#"><span class="kicon"><i class="zocial ' + kservice + '"></i></span><span class="kname">' + klabel + '</span></a></li>' );
-
+                                var ksort = $( '.ksharelinks .klink.' + item ).parent().detach();
+                                
+                                kul.prepend( ksort );
+                                
                             });
                             
                         }

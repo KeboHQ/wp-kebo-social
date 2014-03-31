@@ -117,7 +117,31 @@ function kbso_sharing_page_render() {
         <script type="text/javascript">
             jQuery(document).ready(function($) {
 
-                $( "select#social_sharing_theme" ).change(function() {
+                // do AJAX config save
+                var korder = new Array;
+
+                $( '#share-links-selected .sortable' ).delay( 500 ).each( function( index ) {
+
+                    var kservice = $(this).data( 'service' );
+
+                    // Add data to array
+                    korder.push( kservice );
+
+                });
+                
+                var krevorder = korder.reverse();
+                            
+                var kul = $('.ksharelinks ul');
+                            
+                $.each( krevorder, function( index, item ) {
+                                
+                    var ksort = $( '.ksharelinks .klink.' + item ).parent().detach();
+
+                    kul.prepend( ksort );
+                                
+                });
+
+                $( "select#social_sharing_theme" ).change( function() {
                     
                     var kclass = $(this).val();
                     
@@ -125,11 +149,50 @@ function kbso_sharing_page_render() {
                     
                 });
 
-                $( "select#social_sharing_link_size" ).change(function() {
+                $( "select#social_sharing_link_size" ).change( function() {
                     
                     var kclass = $(this).val();
                     
                     $( '.links.selected .ksharelinks' ).removeClass( 'xsmall small medium large xlarge' ).addClass( kclass );
+                    
+                });
+                
+                // do AJAX config save
+                var korder = new Array;
+                
+                $( '#share-links-selected .sortable' ).delay( 500 ).each( function( index ) {
+
+                    var kservice = $(this).data( 'service' );
+
+                    // Add data to array
+                    korder.push( kservice );
+
+                });
+                
+                $( '.ksharelinks .klink' ).each( function() {
+                    
+                    $(this).parent().css('display', 'none');
+                    
+                });
+                
+                $.each( korder, function( index, item ) {
+                        
+                    $( '.ksharelinks .klink.' + item ).parent().css( 'display', 'inline-block' );
+                        
+                });
+                
+                // Counts Switch
+                $( 'div.switch[data-id="counts"]' ).click( function(e) {
+                   
+                    $( '.ksharelinks li .kcount' ).toggle( 100 );
+                    
+                });
+                
+                $( 'input#social_sharing_label' ).keyup(function(e) {
+                    
+                    var ktext = $(this).val();
+                    
+                    $(".ksharelinks .kintro").text( ktext );       
                     
                 });
 
