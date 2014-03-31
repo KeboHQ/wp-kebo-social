@@ -436,4 +436,4 @@ function kbso_social_sharing_options_validate( $input, $output ) {
     return $output;
     
 }
-add_filter( 'kbso_plugin_options_validation', 'kbso_social_sharing_options_validate', 10, 1 );
+add_filter( 'kbso_plugin_options_validation', 'kbso_social_sharing_options_validate', 10, 2 );
