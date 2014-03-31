@@ -47,7 +47,10 @@ function kbso_social_sharing_status_widget_render() {
          * TODO: Test on blogs with extreme numbers of posts.
          */
         $results = $wpdb->get_results(
-            "SELECT * FROM $wpdb->postmeta WHERE meta_key = '_kbso_share_counts'"
+            $wpdb->prepare(
+                "SELECT * FROM $wpdb->postmeta WHERE meta_key = %s",
+                '_kbso_share_counts'
+            )
         );
         
         /**
