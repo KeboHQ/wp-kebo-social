@@ -34,7 +34,7 @@ function kbso_social_sharing_options_init() {
         'kbso_social_sharing', // Settings section.
         array( // Args to pass to render function
             'name' => 'social_sharing_label',
-            'help_text' => __('Text displayed before the Social Share buttons.', 'kbso')
+            'help_text' => __( 'Text displayed before the Social Share buttons.', 'kbso' )
         ) 
     );
     
@@ -49,12 +49,12 @@ function kbso_social_sharing_options_init() {
         'kbso_social_sharing', // Settings section.
         array( // Args to pass to render function
             'name' => 'social_sharing_theme',
-            'help_text' => __('Choose the Theme used to display the share buttons.', 'kbso')
+            'help_text' => __( 'Choose the Theme used to display the share buttons.', 'kbso' )
         ) 
     );
     
     /**
-     * Field - Share Links Content
+     * Field - Share Link Counts
      */
     add_settings_field(
         'social_sharing_counts', // Unique identifier for the field for this section
@@ -65,12 +65,12 @@ function kbso_social_sharing_options_init() {
         array( // Args to pass to render function
             'name' => 'social_sharing_counts',
             'id' => 'counts', // used to identify the switch in JS (optional)
-            'help_text' => __('Display of social counts.', 'kbso')
+            'help_text' => __( 'Display of social counts.', 'kbso' )
         ) 
     );
     
     /**
-     * Field - Share Links Content
+     * Field - Share Link Size
      */
     add_settings_field(
         'social_sharing_link_size', // Unique identifier for the field for this section
@@ -80,7 +80,7 @@ function kbso_social_sharing_options_init() {
         'kbso_social_sharing', // Settings section.
         array( // Args to pass to render function
             'name' => 'social_sharing_link_size',
-            'help_text' => __('Controls the size of the Sharing buttons.', 'kbso')
+            'help_text' => __( 'Controls the size of the Sharing buttons.', 'kbso' )
         ) 
     );
     
@@ -95,7 +95,7 @@ function kbso_social_sharing_options_init() {
         'kbso_social_sharing', // Settings section.
         array( // Args to pass to render function
             'name' => 'social_sharing_position',
-            'help_text' => __('Choose where on the page to show the Share Buttons.', 'kbso')
+            'help_text' => __( 'Choose where on the page to show the Share Buttons.', 'kbso' )
         ) 
     );
     
@@ -110,7 +110,22 @@ function kbso_social_sharing_options_init() {
         'kbso_social_sharing', // Settings section.
         array( // Args to pass to render function
             'name' => 'social_sharing_post_types',
-            'help_text' => __('Which Post Types to display Share buttons for.', 'kbso')
+            'help_text' => __( 'Which Post Types to display Share buttons for.', 'kbso' )
+        ) 
+    );
+    
+    /**
+     * Field - Social Sharing Content Width
+     */
+    add_settings_field(
+        'social_sharing_content_width', // Unique identifier for the field for this section
+        __('Max Content Width', 'kbso'), // Setting field label
+        'kbso_options_render_text_input', // Function that renders the settings field
+        'kbso-sharing', // Menu slug
+        'kbso_social_sharing', // Settings section.
+        array( // Args to pass to render function
+            'name' => 'social_sharing_content_width',
+            'help_text' => __( 'The maximum width of your website, in pixels.', 'kbso' )
         ) 
     );
     
@@ -131,6 +146,7 @@ function kbso_social_sharing_option_defaults( $defaults ) {
         'social_sharing_counts' => 'yes',
         'social_sharing_link_size' => 'medium',
         'social_sharing_post_types' => array( 'post' ),
+        'social_sharing_content_width' => 1000
     );
     
     $options = wp_parse_args( $defaults, $sharing );
@@ -395,7 +411,7 @@ function kbso_options_render_post_type_checkboxes( $args ) {
 function kbso_social_sharing_options_validate( $input, $output ) {
     
     if ( isset( $input['social_sharing_label'] ) && ! empty( $input['social_sharing_label'] ) ) {
-	$output['social_sharing_label'] = sanitize_title( $input['social_sharing_label'] );
+	$output['social_sharing_label'] = sanitize_text_field( $input['social_sharing_label'] );
     }
     
     if ( isset( $input['social_sharing_position'] ) ) {
@@ -412,6 +428,10 @@ function kbso_social_sharing_options_validate( $input, $output ) {
     
     if ( isset( $input['social_sharing_theme'] ) && array_key_exists( $input['social_sharing_theme'], kbso_options_theme_select_dropdown() ) ) {
         $output['social_sharing_theme'] = $input['social_sharing_theme'];
+    }
+    
+    if ( isset( $input['social_sharing_content_width'] ) && ! empty( $input['social_sharing_content_width'] ) ) {
+	$output['social_sharing_content_width'] = absint( $input['social_sharing_content_width'] );
     }
     
     return $output;
