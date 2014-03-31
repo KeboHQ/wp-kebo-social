@@ -49,7 +49,6 @@ function kbso_social_sharing_options_init() {
         'kbso_social_sharing', // Settings section.
         array( // Args to pass to render function
             'name' => 'social_sharing_theme',
-            'id' => 'theme', // used to identify the switch in JS (optional)
             'help_text' => __('Choose the Theme used to display the share buttons.', 'kbso')
         ) 
     );
@@ -65,6 +64,7 @@ function kbso_social_sharing_options_init() {
         'kbso_social_sharing', // Settings section.
         array( // Args to pass to render function
             'name' => 'social_sharing_counts',
+            'id' => 'counts', // used to identify the switch in JS (optional)
             'help_text' => __('Display of social counts.', 'kbso')
         ) 
     );
