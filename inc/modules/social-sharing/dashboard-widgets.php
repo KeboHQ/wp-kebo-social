@@ -73,27 +73,27 @@ function kbso_social_sharing_status_widget_render() {
     <div class="kbso-status">
         
         <div class="kfull" style="border: none;" title="Total Number of Social Shares">
-            <span class="kcount total" style="font-size: 18px; margin: 0;"><?php echo esc_html( $counts->total ); ?></span>
+            <span class="kcount total" style="font-size: 18px; margin: 0;"><?php echo esc_html( number_format( $counts->total ) ); ?></span>
             <span class="klabel" style="margin: 0;">Total Shares</span>
         </div>
         
         <div class="khalf">
-            <span class="kcount twitter"><?php echo esc_html( $counts->twitter ); ?></span>
+            <span class="kcount twitter"><?php echo esc_html( number_format( $counts->twitter ) ); ?></span>
             <span class="klabel">Twitter</span>
         </div>
         
         <div class="khalf kright">
-            <span class="kcount facebook"><?php echo esc_html( $counts->facebook ); ?></span>
+            <span class="kcount facebook"><?php echo esc_html( number_format( $counts->facebook ) ); ?></span>
             <span class="klabel">Facebook</span>
         </div>
         
         <div class="khalf">
-            <span class="kcount googleplus"><?php echo esc_html( $counts->googleplus ); ?></span>
+            <span class="kcount googleplus"><?php echo esc_html( number_format( $counts->googleplus ) ); ?></span>
             <span class="klabel">Google+</span>
         </div>
         
         <div class="khalf kright">
-            <span class="kcount linkedin"><?php echo esc_html( $counts->linkedin ); ?></span>
+            <span class="kcount linkedin"><?php echo esc_html( number_format( $counts->linkedin ) ); ?></span>
             <span class="klabel">LinkedIn</span>
         </div>
         
