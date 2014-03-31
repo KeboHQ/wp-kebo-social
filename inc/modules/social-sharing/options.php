@@ -398,31 +398,12 @@ function kbso_social_sharing_options_validate( $input, $output ) {
 	$output['social_sharing_label'] = sanitize_title( $input['social_sharing_label'] );
     }
     
-    if ( isset( $input['social_sharing_link_content'] ) && ! empty( $input['social_sharing_link_content'] ) ) {
-        
-        if ( in_array( 'icon', $input['social_sharing_link_content'] ) || in_array( 'name', $input['social_sharing_link_content'] ) ) {
-            
-            $output['social_sharing_link_content'] = $input['social_sharing_link_content'];
-            
-        } else {
-            
-            $input['social_sharing_link_content'][] = 'icon';
-            
-            $output['social_sharing_link_content'] = $input['social_sharing_link_content'];
-            
-            add_settings_error(
-                'kbso-options-sharelinks',
-                esc_attr( 'settings_updated' ),
-                __('Link Content - You must select at least one from icon and name.', 'kbso'),
-                'error'
-            );
-            
-        }
-        
-    }
-    
     if ( isset( $input['social_sharing_position'] ) ) {
         $output['social_sharing_position'] = esc_html( $input['social_sharing_position'] );
+    }
+    
+    if ( isset( $input['social_sharing_counts'] ) && array_key_exists( $input['social_sharing_counts'], kbso_options_radio_buttons() ) ) {
+        $output['social_sharing_counts'] = $input['social_sharing_counts'];
     }
     
     if ( isset( $input['social_sharing_post_types'] ) ) {
