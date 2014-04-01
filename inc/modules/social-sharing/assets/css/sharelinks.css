@@ -451,28 +451,28 @@
  * Include all Themes
  */
 /*
- * Import Default Theme
+ * Import Plain Theme
  */
 /**
- * Share Links - Default Theme
+ * Post Sharing - Plain Theme
  */
-.ksharelinks.default .kintro {
+.ksharelinks.plain .kintro {
   float: left;
   margin: 0 1em 0 0; }
 
-.ksharelinks.default ul {
+.ksharelinks.plain ul {
   margin: 0;
   padding: 0;
   list-style: none; }
 
-.ksharelinks.default ul li {
+.ksharelinks.plain ul li {
   float: left;
   margin: 0 1em 0.6em 0; }
 
-.ksharelinks.default ul li:last-of-type {
+.ksharelinks.plain ul li:last-of-type {
   margin: 0; }
 
-.ksharelinks.default .klink {
+.ksharelinks.plain .klink {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -487,145 +487,145 @@
   font-size: 14px;
   line-height: 1.42857;
   border-radius: 4px; }
-  .ksharelinks.default .klink .kicon {
+  .ksharelinks.plain .klink .kicon {
     font-size: 1em; }
-  .ksharelinks.default .klink:hover, .ksharelinks.default .klink:focus {
+  .ksharelinks.plain .klink:hover, .ksharelinks.plain .klink:focus {
     color: #fff;
     text-decoration: none; }
-  .ksharelinks.default .klink:active, .ksharelinks.default .klink.active {
+  .ksharelinks.plain .klink:active, .ksharelinks.plain .klink.active {
     outline: 0;
     background-image: none;
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  .ksharelinks.default .klink.disabled, .ksharelinks.default .klink[disabled], fieldset[disabled] .ksharelinks.default .klink {
+  .ksharelinks.plain .klink.disabled, .ksharelinks.plain .klink[disabled], fieldset[disabled] .ksharelinks.plain .klink {
     cursor: not-allowed;
     pointer-events: none;
     opacity: 0.65;
     box-shadow: none; }
 
-.ksharelinks.default .facebook {
+.ksharelinks.plain .facebook {
   color: white;
   background-color: #3b5998;
   border-color: #344e86; }
-  .ksharelinks.default .facebook:hover, .ksharelinks.default .facebook:focus, .ksharelinks.default .facebook:active, .ksharelinks.default .facebook.active {
+  .ksharelinks.plain .facebook:hover, .ksharelinks.plain .facebook:focus, .ksharelinks.plain .facebook:active, .ksharelinks.plain .facebook.active {
     color: white;
     background-color: #2d4373;
     border-color: #23345a; }
-  .ksharelinks.default .facebook:active, .ksharelinks.default .facebook.active {
+  .ksharelinks.plain .facebook:active, .ksharelinks.plain .facebook.active {
     background-image: none; }
 
-.ksharelinks.default .twitter {
+.ksharelinks.plain .twitter {
   color: white;
   background-color: #00aced;
   border-color: #0099d3; }
-  .ksharelinks.default .twitter:hover, .ksharelinks.default .twitter:focus, .ksharelinks.default .twitter:active, .ksharelinks.default .twitter.active {
+  .ksharelinks.plain .twitter:hover, .ksharelinks.plain .twitter:focus, .ksharelinks.plain .twitter:active, .ksharelinks.plain .twitter.active {
     color: white;
     background-color: #0087ba;
     border-color: #006d96; }
-  .ksharelinks.default .twitter:active, .ksharelinks.default .twitter.active {
+  .ksharelinks.plain .twitter:active, .ksharelinks.plain .twitter.active {
     background-image: none; }
 
-.ksharelinks.default .linkedin {
+.ksharelinks.plain .linkedin {
   color: white;
   background-color: #007bb6;
   border-color: #006a9d; }
-  .ksharelinks.default .linkedin:hover, .ksharelinks.default .linkedin:focus, .ksharelinks.default .linkedin:active, .ksharelinks.default .linkedin.active {
+  .ksharelinks.plain .linkedin:hover, .ksharelinks.plain .linkedin:focus, .ksharelinks.plain .linkedin:active, .ksharelinks.plain .linkedin.active {
     color: white;
     background-color: #005983;
     border-color: #00405f; }
-  .ksharelinks.default .linkedin:active, .ksharelinks.default .linkedin.active {
+  .ksharelinks.plain .linkedin:active, .ksharelinks.plain .linkedin.active {
     background-image: none; }
 
-.ksharelinks.default .pinterest {
+.ksharelinks.plain .pinterest {
   color: white;
   background-color: #cb2027;
   border-color: #b51d23; }
-  .ksharelinks.default .pinterest:hover, .ksharelinks.default .pinterest:focus, .ksharelinks.default .pinterest:active, .ksharelinks.default .pinterest.active {
+  .ksharelinks.plain .pinterest:hover, .ksharelinks.plain .pinterest:focus, .ksharelinks.plain .pinterest:active, .ksharelinks.plain .pinterest.active {
     color: white;
     background-color: #9f191f;
     border-color: #801419; }
-  .ksharelinks.default .pinterest:active, .ksharelinks.default .pinterest.active {
+  .ksharelinks.plain .pinterest:active, .ksharelinks.plain .pinterest.active {
     background-image: none; }
 
-.ksharelinks.default .googleplus {
+.ksharelinks.plain .googleplus {
   color: white;
   background-color: #dd4b39;
   border-color: #d73925; }
-  .ksharelinks.default .googleplus:hover, .ksharelinks.default .googleplus:focus, .ksharelinks.default .googleplus:active, .ksharelinks.default .googleplus.active {
+  .ksharelinks.plain .googleplus:hover, .ksharelinks.plain .googleplus:focus, .ksharelinks.plain .googleplus:active, .ksharelinks.plain .googleplus.active {
     color: white;
     background-color: #c23321;
     border-color: #a32b1c; }
-  .ksharelinks.default .googleplus:active, .ksharelinks.default .googleplus.active {
+  .ksharelinks.plain .googleplus:active, .ksharelinks.plain .googleplus.active {
     background-image: none; }
 
-.ksharelinks.default .digg {
+.ksharelinks.plain .digg {
   color: white;
   background-color: #164673;
   border-color: #12395e; }
-  .ksharelinks.default .digg:hover, .ksharelinks.default .digg:focus, .ksharelinks.default .digg:active, .ksharelinks.default .digg.active {
+  .ksharelinks.plain .digg:hover, .ksharelinks.plain .digg:focus, .ksharelinks.plain .digg:active, .ksharelinks.plain .digg.active {
     color: white;
     background-color: #0e2c48;
     border-color: #081a2a; }
-  .ksharelinks.default .digg:active, .ksharelinks.default .digg.active {
+  .ksharelinks.plain .digg:active, .ksharelinks.plain .digg.active {
     background-image: none; }
 
-.ksharelinks.default .tumblr {
+.ksharelinks.plain .tumblr {
   color: white;
   background-color: #2c4762;
   border-color: #243a50; }
-  .ksharelinks.default .tumblr:hover, .ksharelinks.default .tumblr:focus, .ksharelinks.default .tumblr:active, .ksharelinks.default .tumblr.active {
+  .ksharelinks.plain .tumblr:hover, .ksharelinks.plain .tumblr:focus, .ksharelinks.plain .tumblr:active, .ksharelinks.plain .tumblr.active {
     color: white;
     background-color: #1c2d3f;
     border-color: #111c26; }
-  .ksharelinks.default .tumblr:active, .ksharelinks.default .tumblr.active {
+  .ksharelinks.plain .tumblr:active, .ksharelinks.plain .tumblr.active {
     background-image: none; }
 
-.ksharelinks.default .reddit {
+.ksharelinks.plain .reddit {
   color: white;
   background-color: #75b0eb;
   border-color: #5fa3e8; }
-  .ksharelinks.default .reddit:hover, .ksharelinks.default .reddit:focus, .ksharelinks.default .reddit:active, .ksharelinks.default .reddit.active {
+  .ksharelinks.plain .reddit:hover, .ksharelinks.plain .reddit:focus, .ksharelinks.plain .reddit:active, .ksharelinks.plain .reddit.active {
     color: white;
     background-color: #4896e5;
     border-color: #2985e0; }
-  .ksharelinks.default .reddit:active, .ksharelinks.default .reddit.active {
+  .ksharelinks.plain .reddit:active, .ksharelinks.plain .reddit.active {
     background-image: none; }
 
-.ksharelinks.default .stumbleupon {
+.ksharelinks.plain .stumbleupon {
   color: white;
   background-color: #eb4924;
   border-color: #e13b15; }
-  .ksharelinks.default .stumbleupon:hover, .ksharelinks.default .stumbleupon:focus, .ksharelinks.default .stumbleupon:active, .ksharelinks.default .stumbleupon.active {
+  .ksharelinks.plain .stumbleupon:hover, .ksharelinks.plain .stumbleupon:focus, .ksharelinks.plain .stumbleupon:active, .ksharelinks.plain .stumbleupon.active {
     color: white;
     background-color: #ca3412;
     border-color: #a92c0f; }
-  .ksharelinks.default .stumbleupon:active, .ksharelinks.default .stumbleupon.active {
+  .ksharelinks.plain .stumbleupon:active, .ksharelinks.plain .stumbleupon.active {
     background-image: none; }
 
-.ksharelinks.default .delicious {
+.ksharelinks.plain .delicious {
   color: white;
   background-color: #0b79e5;
   border-color: #0a6ccd; }
-  .ksharelinks.default .delicious:hover, .ksharelinks.default .delicious:focus, .ksharelinks.default .delicious:active, .ksharelinks.default .delicious.active {
+  .ksharelinks.plain .delicious:hover, .ksharelinks.plain .delicious:focus, .ksharelinks.plain .delicious:active, .ksharelinks.plain .delicious.active {
     color: white;
     background-color: #095fb4;
     border-color: #074d92; }
-  .ksharelinks.default .delicious:active, .ksharelinks.default .delicious.active {
+  .ksharelinks.plain .delicious:active, .ksharelinks.plain .delicious.active {
     background-image: none; }
 
-.ksharelinks.default.xsmall .kintro {
+.ksharelinks.plain.xsmall .kintro {
   padding: 1px 0;
   line-height: 1.8; }
-.ksharelinks.default.xsmall .klink,
-.ksharelinks.default.xsmall .kcount {
+.ksharelinks.plain.xsmall .klink,
+.ksharelinks.plain.xsmall .kcount {
   padding: 1px 5px;
   font-size: 10px;
   line-height: 1.8;
   border-radius: 3px;
   min-width: 3em; }
-.ksharelinks.default.xsmall .kcount {
+.ksharelinks.plain.xsmall .kcount {
   position: relative;
   min-width: 0; }
-  .ksharelinks.default.xsmall .kcount:before {
+  .ksharelinks.plain.xsmall .kcount:before {
     border-color: rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset solid inset inset;
@@ -638,7 +638,7 @@
     left: -8px;
     width: 0;
     z-index: 99; }
-  .ksharelinks.default.xsmall .kcount:after {
+  .ksharelinks.plain.xsmall .kcount:after {
     border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset solid inset inset;
@@ -652,20 +652,20 @@
     width: 0;
     z-index: 98; }
 
-.ksharelinks.default.small .kintro {
+.ksharelinks.plain.small .kintro {
   padding: 5px 0;
   line-height: 1.5; }
-.ksharelinks.default.small .klink,
-.ksharelinks.default.small .kcount {
+.ksharelinks.plain.small .klink,
+.ksharelinks.plain.small .kcount {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
   min-width: 3em; }
-.ksharelinks.default.small .kcount {
+.ksharelinks.plain.small .kcount {
   position: relative;
   min-width: 0; }
-  .ksharelinks.default.small .kcount:before {
+  .ksharelinks.plain.small .kcount:before {
     border-color: rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset solid inset inset;
@@ -678,7 +678,7 @@
     left: -10px;
     width: 0;
     z-index: 99; }
-  .ksharelinks.default.small .kcount:after {
+  .ksharelinks.plain.small .kcount:after {
     border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset solid inset inset;
@@ -692,23 +692,23 @@
     width: 0;
     z-index: 98; }
 
-.ksharelinks.default.medium .kintro {
+.ksharelinks.plain.medium .kintro {
   padding: 6px 0;
   line-height: 1.42857; }
-.ksharelinks.default.medium .klink,
-.ksharelinks.default.medium .kcount {
+.ksharelinks.plain.medium .klink,
+.ksharelinks.plain.medium .kcount {
   padding: 6px 16px;
   font-size: 14px;
   line-height: 1.42857;
   border-radius: 4px;
   min-width: 3em; }
-  .ksharelinks.default.medium .klink .kicon,
-  .ksharelinks.default.medium .kcount .kicon {
+  .ksharelinks.plain.medium .klink .kicon,
+  .ksharelinks.plain.medium .kcount .kicon {
     font-size: 13px; }
-.ksharelinks.default.medium .kcount {
+.ksharelinks.plain.medium .kcount {
   position: relative;
   min-width: 0; }
-  .ksharelinks.default.medium .kcount:before {
+  .ksharelinks.plain.medium .kcount:before {
     border-color: rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset solid inset inset;
@@ -721,7 +721,7 @@
     left: -12px;
     width: 0;
     z-index: 99; }
-  .ksharelinks.default.medium .kcount:after {
+  .ksharelinks.plain.medium .kcount:after {
     border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset solid inset inset;
@@ -735,20 +735,20 @@
     width: 0;
     z-index: 98; }
 
-.ksharelinks.default.large .kintro {
+.ksharelinks.plain.large .kintro {
   padding: 10px 0;
   line-height: 1.33; }
-.ksharelinks.default.large .klink,
-.ksharelinks.default.large .kcount {
+.ksharelinks.plain.large .klink,
+.ksharelinks.plain.large .kcount {
   padding: 10px 16px;
   font-size: 16px;
   line-height: 1.33;
   border-radius: 6px;
   min-width: 3.4em; }
-.ksharelinks.default.large .kcount {
+.ksharelinks.plain.large .kcount {
   position: relative;
   min-width: 0; }
-  .ksharelinks.default.large .kcount:before {
+  .ksharelinks.plain.large .kcount:before {
     border-color: rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset solid inset inset;
@@ -761,7 +761,7 @@
     left: -14px;
     width: 0;
     z-index: 99; }
-  .ksharelinks.default.large .kcount:after {
+  .ksharelinks.plain.large .kcount:after {
     border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset solid inset inset;
@@ -775,20 +775,20 @@
     width: 0;
     z-index: 98; }
 
-.ksharelinks.default.xlarge .kintro {
+.ksharelinks.plain.xlarge .kintro {
   padding: 10px 16px;
   line-height: 1.33; }
-.ksharelinks.default.xlarge .klink,
-.ksharelinks.default.xlarge .kcount {
+.ksharelinks.plain.xlarge .klink,
+.ksharelinks.plain.xlarge .kcount {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 6px;
   min-width: 3.4em; }
-.ksharelinks.default.xlarge .kcount {
+.ksharelinks.plain.xlarge .kcount {
   position: relative;
   min-width: 0; }
-  .ksharelinks.default.xlarge .kcount:before {
+  .ksharelinks.plain.xlarge .kcount:before {
     border-color: rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset solid inset inset;
@@ -801,7 +801,7 @@
     left: -16px;
     width: 0;
     z-index: 99; }
-  .ksharelinks.default.xlarge .kcount:after {
+  .ksharelinks.plain.xlarge .kcount:after {
     border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset solid inset inset;
@@ -815,14 +815,14 @@
     width: 0;
     z-index: 98; }
 
-.ksharelinks.default .klink i {
+.ksharelinks.plain .klink i {
   font-family: zocial;
   background: none; }
 
-.ksharelinks.default .klink .kname {
+.ksharelinks.plain .klink .kname {
   margin-left: 0.6em; }
 
-.ksharelinks.default .kcount {
+.ksharelinks.plain .kcount {
   display: inline-block;
   font-weight: normal;
   text-align: center;
@@ -837,36 +837,36 @@
   min-width: none;
   margin: 0 0 0 0.4em; }
 
-.kfloating.default {
+.kfloating.plain {
   background: #f7f7f7;
   border-top: 1px solid #ddd; }
 
-.kfloating.default .ksharelinks.default li {
+.kfloating.plain .ksharelinks.plain li {
   margin: 0.6em 1em 0.6em 0;
   float: none; }
 
-.kfloating.default .ksharelinks.default li:last-of-type {
+.kfloating.plain .ksharelinks.plain li:last-of-type {
   margin-right: 0; }
 
-.kfloating.default .ksharelinks.default .klink {
+.kfloating.plain .ksharelinks.plain .klink {
   display: block; }
 
-.kfloating.default .ksharelinks.default .kcount {
+.kfloating.plain .ksharelinks.plain .kcount {
   display: none;
   margin: 0.7em 0 0 0; }
 
-.kfloating.default .ksharelinks.default .klink,
-.kfloating.default .ksharelinks.default .kcount {
+.kfloating.plain .ksharelinks.plain .klink,
+.kfloating.plain .ksharelinks.plain .kcount {
   padding: 6px 16px;
   font-size: 14px;
   line-height: 1.42857;
   border-radius: 4px;
   width: 3.4em; }
-.kfloating.default .ksharelinks.default .klink .kicon {
+.kfloating.plain .ksharelinks.plain .klink .kicon {
   font-size: 13px; }
-.kfloating.default .ksharelinks.default .kcount {
+.kfloating.plain .ksharelinks.plain .kcount {
   position: relative; }
-  .kfloating.default .ksharelinks.default .kcount:before {
+  .kfloating.plain .ksharelinks.plain .kcount:before {
     border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset inset solid inset;
@@ -879,7 +879,7 @@
     top: -12px;
     width: 0;
     z-index: 99; }
-  .kfloating.default .ksharelinks.default .kcount:after {
+  .kfloating.plain .ksharelinks.plain .kcount:after {
     border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0);
     border-image: none;
     border-style: inset inset solid inset;
@@ -897,11 +897,447 @@ body {
   margin-bottom: 50px !important; }
 
 /*
- * Import Plain Theme
- */
-/*
- * Import Flat Theme
- */
-/*
  * Import Gradient Theme
  */
+/**
+ * Share Links - Default Theme
+ */
+.ksharelinks.gradient .kintro {
+  float: left;
+  margin: 0 1em 0 0; }
+
+.ksharelinks.gradient ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.ksharelinks.gradient ul li {
+  float: left;
+  margin: 0 1em 0.6em 0; }
+
+.ksharelinks.gradient ul li:last-of-type {
+  margin: 0; }
+
+.ksharelinks.gradient .klink {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 6px 16px;
+  font-size: 14px;
+  line-height: 1.42857;
+  border-radius: 4px; }
+  .ksharelinks.gradient .klink .kicon {
+    font-size: 1em; }
+  .ksharelinks.gradient .klink:hover, .ksharelinks.gradient .klink:focus {
+    color: #fff;
+    text-decoration: none; }
+  .ksharelinks.gradient .klink:active, .ksharelinks.gradient .klink.active {
+    outline: 0;
+    background-image: none;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
+  .ksharelinks.gradient .klink.disabled, .ksharelinks.gradient .klink[disabled], fieldset[disabled] .ksharelinks.gradient .klink {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.65;
+    box-shadow: none; }
+
+.ksharelinks.gradient .facebook {
+  color: white;
+  background-color: #3b5998;
+  border-color: #344e86; }
+  .ksharelinks.gradient .facebook:hover, .ksharelinks.gradient .facebook:focus, .ksharelinks.gradient .facebook:active, .ksharelinks.gradient .facebook.active {
+    color: white;
+    background-color: #2d4373;
+    border-color: #23345a; }
+  .ksharelinks.gradient .facebook:active, .ksharelinks.gradient .facebook.active {
+    background-image: none; }
+
+.ksharelinks.gradient .twitter {
+  color: white;
+  background-color: #00aced;
+  border-color: #0099d3; }
+  .ksharelinks.gradient .twitter:hover, .ksharelinks.gradient .twitter:focus, .ksharelinks.gradient .twitter:active, .ksharelinks.gradient .twitter.active {
+    color: white;
+    background-color: #0087ba;
+    border-color: #006d96; }
+  .ksharelinks.gradient .twitter:active, .ksharelinks.gradient .twitter.active {
+    background-image: none; }
+
+.ksharelinks.gradient .linkedin {
+  color: white;
+  background-color: #007bb6;
+  border-color: #006a9d; }
+  .ksharelinks.gradient .linkedin:hover, .ksharelinks.gradient .linkedin:focus, .ksharelinks.gradient .linkedin:active, .ksharelinks.gradient .linkedin.active {
+    color: white;
+    background-color: #005983;
+    border-color: #00405f; }
+  .ksharelinks.gradient .linkedin:active, .ksharelinks.gradient .linkedin.active {
+    background-image: none; }
+
+.ksharelinks.gradient .pinterest {
+  color: white;
+  background-color: #cb2027;
+  border-color: #b51d23; }
+  .ksharelinks.gradient .pinterest:hover, .ksharelinks.gradient .pinterest:focus, .ksharelinks.gradient .pinterest:active, .ksharelinks.gradient .pinterest.active {
+    color: white;
+    background-color: #9f191f;
+    border-color: #801419; }
+  .ksharelinks.gradient .pinterest:active, .ksharelinks.gradient .pinterest.active {
+    background-image: none; }
+
+.ksharelinks.gradient .googleplus {
+  color: white;
+  background-color: #dd4b39;
+  border-color: #d73925; }
+  .ksharelinks.gradient .googleplus:hover, .ksharelinks.gradient .googleplus:focus, .ksharelinks.gradient .googleplus:active, .ksharelinks.gradient .googleplus.active {
+    color: white;
+    background-color: #c23321;
+    border-color: #a32b1c; }
+  .ksharelinks.gradient .googleplus:active, .ksharelinks.gradient .googleplus.active {
+    background-image: none; }
+
+.ksharelinks.gradient .digg {
+  color: white;
+  background-color: #164673;
+  border-color: #12395e; }
+  .ksharelinks.gradient .digg:hover, .ksharelinks.gradient .digg:focus, .ksharelinks.gradient .digg:active, .ksharelinks.gradient .digg.active {
+    color: white;
+    background-color: #0e2c48;
+    border-color: #081a2a; }
+  .ksharelinks.gradient .digg:active, .ksharelinks.gradient .digg.active {
+    background-image: none; }
+
+.ksharelinks.gradient .tumblr {
+  color: white;
+  background-color: #2c4762;
+  border-color: #243a50; }
+  .ksharelinks.gradient .tumblr:hover, .ksharelinks.gradient .tumblr:focus, .ksharelinks.gradient .tumblr:active, .ksharelinks.gradient .tumblr.active {
+    color: white;
+    background-color: #1c2d3f;
+    border-color: #111c26; }
+  .ksharelinks.gradient .tumblr:active, .ksharelinks.gradient .tumblr.active {
+    background-image: none; }
+
+.ksharelinks.gradient .reddit {
+  color: white;
+  background-color: #75b0eb;
+  border-color: #5fa3e8; }
+  .ksharelinks.gradient .reddit:hover, .ksharelinks.gradient .reddit:focus, .ksharelinks.gradient .reddit:active, .ksharelinks.gradient .reddit.active {
+    color: white;
+    background-color: #4896e5;
+    border-color: #2985e0; }
+  .ksharelinks.gradient .reddit:active, .ksharelinks.gradient .reddit.active {
+    background-image: none; }
+
+.ksharelinks.gradient .stumbleupon {
+  color: white;
+  background-color: #eb4924;
+  border-color: #e13b15; }
+  .ksharelinks.gradient .stumbleupon:hover, .ksharelinks.gradient .stumbleupon:focus, .ksharelinks.gradient .stumbleupon:active, .ksharelinks.gradient .stumbleupon.active {
+    color: white;
+    background-color: #ca3412;
+    border-color: #a92c0f; }
+  .ksharelinks.gradient .stumbleupon:active, .ksharelinks.gradient .stumbleupon.active {
+    background-image: none; }
+
+.ksharelinks.gradient .delicious {
+  color: white;
+  background-color: #0b79e5;
+  border-color: #0a6ccd; }
+  .ksharelinks.gradient .delicious:hover, .ksharelinks.gradient .delicious:focus, .ksharelinks.gradient .delicious:active, .ksharelinks.gradient .delicious.active {
+    color: white;
+    background-color: #095fb4;
+    border-color: #074d92; }
+  .ksharelinks.gradient .delicious:active, .ksharelinks.gradient .delicious.active {
+    background-image: none; }
+
+.ksharelinks.gradient.xsmall .kintro {
+  padding: 1px 0;
+  line-height: 1.8; }
+.ksharelinks.gradient.xsmall .klink,
+.ksharelinks.gradient.xsmall .kcount {
+  padding: 1px 5px;
+  font-size: 10px;
+  line-height: 1.8;
+  border-radius: 3px;
+  min-width: 3em; }
+.ksharelinks.gradient.xsmall .kcount {
+  position: relative;
+  min-width: 0; }
+  .ksharelinks.gradient.xsmall .kcount:before {
+    border-color: rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset solid inset inset;
+    border-width: 4px;
+    top: 6px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    left: -8px;
+    width: 0;
+    z-index: 99; }
+  .ksharelinks.gradient.xsmall .kcount:after {
+    border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset solid inset inset;
+    border-width: 5px;
+    top: 5px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    left: -10px;
+    width: 0;
+    z-index: 98; }
+
+.ksharelinks.gradient.small .kintro {
+  padding: 5px 0;
+  line-height: 1.5; }
+.ksharelinks.gradient.small .klink,
+.ksharelinks.gradient.small .kcount {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  min-width: 3em; }
+.ksharelinks.gradient.small .kcount {
+  position: relative;
+  min-width: 0; }
+  .ksharelinks.gradient.small .kcount:before {
+    border-color: rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset solid inset inset;
+    border-width: 5px;
+    top: 9px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    left: -10px;
+    width: 0;
+    z-index: 99; }
+  .ksharelinks.gradient.small .kcount:after {
+    border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset solid inset inset;
+    border-width: 6px;
+    top: 8px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    left: -12px;
+    width: 0;
+    z-index: 98; }
+
+.ksharelinks.gradient.medium .kintro {
+  padding: 6px 0;
+  line-height: 1.42857; }
+.ksharelinks.gradient.medium .klink,
+.ksharelinks.gradient.medium .kcount {
+  padding: 6px 16px;
+  font-size: 14px;
+  line-height: 1.42857;
+  border-radius: 4px;
+  min-width: 3em; }
+  .ksharelinks.gradient.medium .klink .kicon,
+  .ksharelinks.gradient.medium .kcount .kicon {
+    font-size: 13px; }
+.ksharelinks.gradient.medium .kcount {
+  position: relative;
+  min-width: 0; }
+  .ksharelinks.gradient.medium .kcount:before {
+    border-color: rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset solid inset inset;
+    border-width: 6px;
+    top: 10px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    left: -12px;
+    width: 0;
+    z-index: 99; }
+  .ksharelinks.gradient.medium .kcount:after {
+    border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset solid inset inset;
+    border-width: 7px;
+    top: 9px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    left: -14px;
+    width: 0;
+    z-index: 98; }
+
+.ksharelinks.gradient.large .kintro {
+  padding: 10px 0;
+  line-height: 1.33; }
+.ksharelinks.gradient.large .klink,
+.ksharelinks.gradient.large .kcount {
+  padding: 10px 16px;
+  font-size: 16px;
+  line-height: 1.33;
+  border-radius: 6px;
+  min-width: 3.4em; }
+.ksharelinks.gradient.large .kcount {
+  position: relative;
+  min-width: 0; }
+  .ksharelinks.gradient.large .kcount:before {
+    border-color: rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset solid inset inset;
+    border-width: 7px;
+    top: 14px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    left: -14px;
+    width: 0;
+    z-index: 99; }
+  .ksharelinks.gradient.large .kcount:after {
+    border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset solid inset inset;
+    border-width: 8px;
+    top: 13px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    left: -16px;
+    width: 0;
+    z-index: 98; }
+
+.ksharelinks.gradient.xlarge .kintro {
+  padding: 10px 16px;
+  line-height: 1.33; }
+.ksharelinks.gradient.xlarge .klink,
+.ksharelinks.gradient.xlarge .kcount {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+  min-width: 3.4em; }
+.ksharelinks.gradient.xlarge .kcount {
+  position: relative;
+  min-width: 0; }
+  .ksharelinks.gradient.xlarge .kcount:before {
+    border-color: rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset solid inset inset;
+    border-width: 8px;
+    top: 14px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    left: -16px;
+    width: 0;
+    z-index: 99; }
+  .ksharelinks.gradient.xlarge .kcount:after {
+    border-color: rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset solid inset inset;
+    border-width: 9px;
+    top: 13px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    left: -18px;
+    width: 0;
+    z-index: 98; }
+
+.ksharelinks.gradient .klink i {
+  font-family: zocial;
+  background: none; }
+
+.ksharelinks.gradient .klink .kname {
+  margin-left: 0.6em; }
+
+.ksharelinks.gradient .kcount {
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #777777;
+  background-color: white;
+  border-color: #cccccc;
+  min-width: none;
+  margin: 0 0 0 0.4em; }
+
+.kfloating.gradient {
+  background: #f7f7f7;
+  border-top: 1px solid #ddd; }
+
+.kfloating.gradient .ksharelinks.gradient li {
+  margin: 0.6em 1em 0.6em 0;
+  float: none; }
+
+.kfloating.gradient .ksharelinks.gradient li:last-of-type {
+  margin-right: 0; }
+
+.kfloating.gradient .ksharelinks.gradient .klink {
+  display: block; }
+
+.kfloating.gradient .ksharelinks.gradient .kcount {
+  display: none;
+  margin: 0.7em 0 0 0; }
+
+.kfloating.gradient .ksharelinks.gradient .klink,
+.kfloating.gradient .ksharelinks.gradient .kcount {
+  padding: 6px 16px;
+  font-size: 14px;
+  line-height: 1.42857;
+  border-radius: 4px;
+  width: 3.4em; }
+.kfloating.gradient .ksharelinks.gradient .klink .kicon {
+  font-size: 13px; }
+.kfloating.gradient .ksharelinks.gradient .kcount {
+  position: relative; }
+  .kfloating.gradient .ksharelinks.gradient .kcount:before {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset inset solid inset;
+    border-width: 6px;
+    left: 22px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    top: -12px;
+    width: 0;
+    z-index: 99; }
+  .kfloating.gradient .ksharelinks.gradient .kcount:after {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset inset solid inset;
+    border-width: 7px;
+    left: 21px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    top: -14px;
+    width: 0;
+    z-index: 98; }
+
+body {
+  margin-bottom: 50px !important; }

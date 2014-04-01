@@ -1,5 +1,5 @@
 /**
- * Share Links - Plain Theme
+ * Post Sharing - Plain Theme
  */
 .ksharelinks.plain {
         
@@ -32,7 +32,7 @@
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
-    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    background-image: none; // Reset unusual Firefox-on-Android plain style; see https://github.com/necolas/normalize.css/issues/214
     border: 1px solid transparent;
     white-space: nowrap;
     text-decoration: none;
@@ -128,7 +128,7 @@
     }
 }
 .kfloating .ksharelinks.plain.xsmall li .kcount {
-    @include top-box-arrow( #bbb, 5px, 16px, -10px );
+    //@include top-box-arrow( #bbb, 5px, 16px, -10px );
 }
 
 // Small
@@ -148,8 +148,8 @@
     }
 }
 .kfloating .ksharelinks.plain.small li .kcount {
-    @include top-box-arrow( #bbb, 6px, 22px, -12px );
-    width: 5em;
+    //@include top-box-arrow( #bbb, 6px, 22px, -12px );
+    //width: 5em;
 }
 
 // Medium
@@ -172,7 +172,7 @@
     }
 }
 .kfloating .ksharelinks.plain.medium li .kcount {
-    @include top-box-arrow( #bbb, 7px, 30px, -14px );
+    //@include top-box-arrow( #bbb, 7px, 30px, -14px );
 }
 
 // Large
@@ -192,7 +192,7 @@
     }
 }
 .kfloating .ksharelinks.plain.large li .kcount {
-    @include top-box-arrow( #bbb, 8px, 36px, -16px );
+    //@include top-box-arrow( #bbb, 8px, 36px, -16px );
 }
 
 // Extra Large
@@ -212,7 +212,7 @@
     }
 }
 .kfloating .ksharelinks.plain.xlarge .kcount {
-    @include top-box-arrow( #bbb, 9px, 38px, -18px );
+    //@include top-box-arrow( #bbb, 9px, 38px, -18px );
 }
 
 // Button Details
@@ -231,7 +231,7 @@
         font-weight: $btn-font-weight;
         text-align: center;
         vertical-align: middle;
-        background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+        background-image: none; // Reset unusual Firefox-on-Android plain style; see https://github.com/necolas/normalize.css/issues/214
         border: 1px solid transparent;
         white-space: nowrap;
         text-decoration: none;
@@ -242,15 +242,44 @@
 // Floating Bar
 // --------------------------------------------------
 
-.kfloating {
+.kfloating.plain {
+        background: #f7f7f7;
+        border-top: 1px solid #ddd;
 }
-.kfloating .ksharelinks.plain li {
-        margin: 0 0 1em 0;
+.kfloating.plain .ksharelinks.plain li {
+        margin: 0.6em 1em 0.6em 0;
+        float: none;
 }
-.kfloating .ksharelinks.plain .klink {
+.kfloating.plain .ksharelinks.plain li:last-of-type {
+        margin-right: 0;
+}
+.kfloating.plain .ksharelinks.plain .klink {
         display: block;
 }
-.kfloating .ksharelinks.plain .kcount {
-        display: block;
+.kfloating.plain .ksharelinks.plain .kcount {
+        display: none;
         margin: 0.7em 0 0 0;
+}
+.kfloating.plain .ksharelinks.plain {
+    
+    
+    .klink,
+    .kcount {
+        @include button-size( $padding-medium-vertical, $padding-medium-horizontal, $font-size-base, $line-height-base, $border-radius-base );
+        width: 3.4em;
+        
+        
+    }
+    .klink {
+        .kicon {
+            font-size: 13px;
+        }
+    }
+    .kcount {
+        @include top-box-arrow( #bbb, 7px, 22px, -14px );
+    }
+    
+}
+body {
+        margin-bottom: 50px !important;
 }

@@ -159,21 +159,11 @@ $xlarge: 18px;
  */
 
 /*
- * Import Default Theme
- */
-@import "themes/default";
-
-/*
  * Import Plain Theme
  */
-//@import "themes/plain";
-
-/*
- * Import Flat Theme
- */
-//@import "themes/flat";
+@import "themes/plain";
 
 /*
  * Import Gradient Theme
  */
-//@import "themes/gradient";
+@import "themes/gradient";
