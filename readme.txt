@@ -78,7 +78,7 @@ On top of this all the features share resources where appropriate, so that it sh
 = 0.4.0 =
 * Important: This is the first public release. There may still be some rough edges but these will be polished soon.
 * New Feature: Added a main Dashboard Widget showing the Status of your share counts.
-* Bug Fix: Share Links preview now correctly update on the page.
+* Bug Fix: Share Links now appear and update properly in the preview (apart from toggling counts).
 * Bug Fix: Now correctly encodes your post URL so there are spaces in the title when shared (props Clorith).
 * Note: Moved from a top level admin menu to a sub-menu under Settings, with internal tabs, to avoid cluttering user sites.
 * Note: Moved the feature activation from a page to a dashboard Widget, reducing the page count and making the dashboard more useful. Features now activate and de-activate live on the page.
@@ -95,3 +95,7 @@ On top of this all the features share resources where appropriate, so that it sh
 
 = 0.3.0 =
 * Important: This is the first public beta release.
+
+== Support Documentation ==
+
+Coming soon.
