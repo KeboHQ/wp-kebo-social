@@ -686,7 +686,7 @@ function kbso_post_sharing_services_render( $preview = false ) {
      */
     $classes[] = 'ksharelinks';
     $classes[] = $options['post_sharing_theme'];
-    $classes[] = $options['post_sharing_link_size'];
+    $classes[] = $options['post_sharing_size'];
     if ( is_rtl() ) {
         $classes[] = 'rtl';
     }
