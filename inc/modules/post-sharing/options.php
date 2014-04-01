@@ -370,7 +370,7 @@ function kbso_post_sharing_options_validate( $input, $output ) {
         $output['post_sharing_post_types'] = esc_html( $input['post_sharing_post_types'] );
     }
     
-    if ( isset( $input['post_sharing_theme'] ) && array_key_exists( $input['post_sharing_theme'], kbso_options_theme_select_dropdown() ) ) {
+    if ( isset( $input['post_sharing_theme'] ) && array_key_exists( $input['post_sharing_theme'], kbso_post_sharing_themes() ) ) {
         $output['post_sharing_theme'] = $input['post_sharing_theme'];
     }
     
