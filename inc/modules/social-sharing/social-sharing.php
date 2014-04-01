@@ -47,6 +47,26 @@ function kbso_social_sharing_enqueue_backend( $hook_suffix ) {
 add_action( 'admin_enqueue_scripts', 'kbso_social_sharing_enqueue_backend' );
 
 /**
+ * Enqueue frontend plugin scripts and styles.
+ */
+function kbso_social_sharing_enqueue_frontend() {
+        
+    /*
+     * Use minified files where available, unless SCRIPT_DEBUG is true
+     */
+    if ( 'false' == SCRIPT_DEBUG ) {
+            
+        wp_enqueue_style( 'kbso-sharelinks-min' );
+            
+    } else {
+            
+        wp_enqueue_style( 'kbso-sharelinks' );
+            
+    }
+        
+}
+
+/**
  * Compatibility with Theme $content_width
  */
 function kbso_social_sharing_responsive_compat() {
@@ -75,8 +95,8 @@ function kbso_social_sharing_responsive_compat() {
     <style type="text/css" media="screen">
         @media ( min-width: <?php echo absint( $max_site_width ) . 'px'; ?> ) {
 
-            .kfloating.plain,
-            .kfloating.gradient {
+            div.kfloating.plain,
+            div.kfloating.gradient {
                 background: #fff;
                 border: 1px solid #ddd;
                 border-left: none;
@@ -104,7 +124,7 @@ function kbso_social_sharing_responsive_compat() {
                 width: 4em;
             }
             .kfloating.plain .ksharelinks.plain .kcount,
-            .kfloating.gradient .ksharelinks.plain .gradient {
+            .kfloating.gradient .ksharelinks.gradient .kcount {
                 display: block;
                 margin: 0.7em 0 0 0;
                 width: 4em;
@@ -131,8 +151,6 @@ function kbso_social_sharing_content_insert( $content ) {
     if ( is_singular() && is_main_query() && in_array( $post->post_type, $options['social_sharing_post_types'] ) ) {
         
         // Go ahead and add share links
-        // TODO: Add proper file enqueuing
-        wp_enqueue_style( 'kbso-sharelinks-min' );
         add_action( 'wp_footer', 'kbso_social_sharing_frontend_js_print' );
         
         /**
