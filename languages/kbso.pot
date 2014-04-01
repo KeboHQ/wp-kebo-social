@@ -1,16 +1,374 @@
+# Copyright (C) 2014 Kebo Social
+# This file is distributed under the same license as the Kebo Social package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Kebo Social\n"
-"POT-Creation-Date: 2013-12-21 21:02+0000\n"
-"PO-Revision-Date: 2013-12-21 21:02+0000\n"
-"Last-Translator: Kebo <support@kebopowered.com>\n"
-"Language-Team: \n"
+"Project-Id-Version: Kebo Social 0.4.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/kebo-social\n"
+"POT-Creation-Date: 2014-04-01 23:21:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
-"_n_noop:1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
-"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: ..\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 
+#: inc/dashboard-widgets.php:20
+msgid "Welcome"
+msgstr ""
+
+#: inc/dashboard-widgets.php:28
+msgid "Hi %s, welcome to your Kebo Social dashboard."
+msgstr ""
+
+#: inc/dashboard-widgets.php:34
+msgid ""
+"Kebo Social aims to be the leading Social plugin for WordPress. Combining "
+"hassle-free interfaces and beautiful designs with features which benefit you."
+msgstr ""
+
+#: inc/dashboard-widgets.php:53 inc/options.php:30
+msgid "Feature Control"
+msgstr ""
+
+#: inc/dashboard-widgets.php:93
+msgid "Getting Started"
+msgstr ""
+
+#: inc/dashboard-widgets.php:101
+msgid ""
+"Kebo Social is just beginning its life as a WordPress plugin and will be "
+"under active development constantly."
+msgstr ""
+
+#: inc/dashboard-widgets.php:103
+msgid ""
+"You can add Social Share Links to your posts from <a href=\"%s\">here</a>."
+msgstr ""
+
+#: inc/dashboard-widgets.php:109
+msgid ""
+"These are specially designed to look beautiful, be responsive and include no "
+"tracking scripts."
+msgstr ""
+
+#: inc/dashboard-widgets.php:128
+msgid "About Kebo"
+msgstr ""
+
+#: inc/dashboard-widgets.php:136
+msgid ""
+"We create hassle-free WordPress plugins which allow you to get more from "
+"your websites."
+msgstr ""
+
+#: inc/dashboard-widgets.php:138
+msgid "We thrive on making advanced features accessible and user-friendly."
+msgstr ""
+
+#: inc/dashboard-widgets.php:144
+msgid "More from Kebo"
+msgstr ""
+
+#: inc/dashboard-widgets.php:148 inc/dashboard-widgets.php:150
+#: inc/dashboard-widgets.php:152 inc/dashboard-widgets.php:164
+#: inc/dashboard-widgets.php:166 inc/dashboard-widgets.php:168
+msgid "<a href=\"%s\" target=\"%s\">%s</a>"
+msgstr ""
+
+#: inc/dashboard-widgets.php:160
+msgid "Follow Us"
+msgstr ""
+
+#: inc/dashboard-widgets.php:191
+msgid "Coming Soon"
+msgstr ""
+
+#: inc/dashboard-widgets.php:199
+msgid ""
+"In the coming weeks we will be adding many more features. You can see what "
+"to expect next below:"
+msgstr ""
+
+#: inc/dashboard-widgets.php:208
+msgid "Feeds"
+msgstr ""
+
+#: inc/dashboard-widgets.php:210
+msgid "Display feeds from your Social accounts on your website."
+msgstr ""
+
+#: inc/dashboard-widgets.php:215
+msgid "Posting to Networks"
+msgstr ""
+
+#: inc/dashboard-widgets.php:217
+msgid "Share your new content across Social Services instantly."
+msgstr ""
+
+#: inc/dashboard-widgets.php:240
+msgid "Support"
+msgstr ""
+
+#: inc/dashboard-widgets.php:248
+msgid ""
+"We are actively supporting the plugin and the easiest way to reach us is on "
+"the plugins <a href=\"%s\" target=\"%s\">support forum</a>."
+msgstr ""
+
+#: inc/dashboard-widgets.php:250
+msgid ""
+"You may run into bugs but if you let us know we will deal with them straight "
+"away."
+msgstr ""
+
+#: inc/dashboard-widgets.php:256
+msgid ""
+"You can also find Support Documentation <a href=\"%s\" target=\"%s\">here</"
+"a>, and we have listed some of the most common below:"
+msgstr ""
+
+#: inc/dashboard-widgets.php:264
+msgid "<a href=\"%s\" target=\"%s\">Getting Started</a>"
+msgstr ""
+
+#: inc/dashboard-widgets.php:285
+msgid "Get Involved"
+msgstr ""
+
+#: inc/dashboard-widgets.php:293
+msgid ""
+"You can see the plugin source on <a href=\"%s\" target=\"%s\">Github</a>. We "
+"welcome involvement from the community and would love to see how we can "
+"improve the plugin."
+msgstr ""
+
+#: inc/dashboard-widgets.php:299
+msgid ""
+"We also welcome anyone willing to translate the plugin, and those interested "
+"can find the .pot file <a href=\"%s\" target=\"%s\">here</a>."
+msgstr ""
+
+#: inc/dashboard-widgets.php:301
+msgid ""
+"Before you get started, please be aware that the plugin will be growing "
+"quickly in the coming months so translations will need to be updated."
+msgstr ""
+
+#: inc/dashboard-widgets.php:307
+msgid ""
+"If you find any bugs please let me know using either the <a href=\"%s\" "
+"target=\"%s\">Support Forum</a> or Github <a href=\"%s\" target=\"%s"
+"\">Issues</a>."
+msgstr ""
+
+#: inc/helpers.php:20
+msgid "Click to toggle"
+msgstr ""
+
+#: inc/helpers.php:60
+msgid "Dashboard"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Kebo Social 0.4.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: inc/menu.php:20 inc/menu.php:21 inc/menu.php:148
+msgid "Kebo Social"
+msgstr ""
+
+#: inc/menu.php:142
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: inc/modules/post-sharing/dashboard-widgets.php:20
+msgid "Post Sharing Status"
+msgstr ""
+
+#: inc/modules/post-sharing/dashboard-widgets.php:78
+msgid "Total Number of Social Shares"
+msgstr ""
+
+#: inc/modules/post-sharing/dashboard-widgets.php:80
+msgid "Total Shares"
+msgstr ""
+
+#: inc/modules/post-sharing/dashboard-widgets.php:113
+msgid "Sorry, not enough data."
+msgstr ""
+
+#: inc/modules/post-sharing/menu.php:18
+msgid "Post Sharing"
+msgstr ""
+
+#: inc/modules/post-sharing/menu.php:34
+msgid "Share Links"
+msgstr ""
+
+#: inc/modules/post-sharing/menu.php:35
+msgid ""
+"Add sharing buttons to your website and allow visitors to share your content "
+"on social networks."
+msgstr ""
+
+#: inc/modules/post-sharing/menu.php:43
+msgid "Available Services"
+msgstr ""
+
+#: inc/modules/post-sharing/menu.php:45
+msgid ""
+"Drag the services you would like to display on your site into the box below."
+msgstr ""
+
+#: inc/modules/post-sharing/menu.php:67
+msgid "Selected Services"
+msgstr ""
+
+#: inc/modules/post-sharing/menu.php:69
+msgid "Services listed here will appear in the same order on your website."
+msgstr ""
+
+#: inc/modules/post-sharing/menu.php:91
+msgid "Preview"
+msgstr ""
+
+#: inc/modules/post-sharing/menu.php:93
+msgid "This is how the links will look on your website."
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:21 kebo-social.php:178
+msgid "Settings"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:31
+msgid "Share Label"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:37
+msgid "Text displayed before the Social Share buttons."
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:46
+msgid "Theme"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:52
+msgid "Choose the Theme used to display the share buttons."
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:61
+msgid "Social Count"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:68
+msgid "Display of social counts."
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:77
+msgid "Button Size"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:83
+msgid "Controls the size of the Sharing buttons."
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:92
+msgid "Position"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:98
+msgid "Choose where on the page to show the Share Buttons."
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:107
+msgid "Post Types"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:113
+msgid "Which Post Types to display Share buttons for."
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:122
+msgid "Max Content Width"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:128
+msgid "The maximum width of your website, in pixels."
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:167
+msgid "Plain"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:171
+msgid "Gradient"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:214
+msgid "Top"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:218
+msgid "Bottom"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:222
+msgid "Floating Bar"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:267
+msgid "Extra Small"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:271
+msgid "Small"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:275
+msgid "Medium"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:279
+msgid "Large"
+msgstr ""
+
+#: inc/modules/post-sharing/options.php:283
+msgid "Extra Large"
+msgstr ""
+
+#: inc/options.php:40
+msgid "Social Sharing"
+msgstr ""
+
+#: inc/options.php:47
+msgid "Turns the feature on or off."
+msgstr ""
+
+#: inc/options.php:99
+msgid "On"
+msgstr ""
+
+#: inc/options.php:103
+msgid "Off"
+msgstr ""
+
+#: kebo-social.php:61
+msgid ""
+"Kebo Social requires PHP 5.2 or higher, as does WordPress 3.2 and higher."
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://kebopowered.com/plugins/kebo-social/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Social integration done right. The best WordPress plugin to integrate Social "
+"Services into your website."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Kebo"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://kebopowered.com/"
+msgstr ""
