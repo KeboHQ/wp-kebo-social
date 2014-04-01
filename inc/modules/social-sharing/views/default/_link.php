@@ -16,7 +16,7 @@
             
     </a>
     
-    <?php if ( 'yes' == $options['social_sharing_counts'] ) : ?>
+    <?php if ( 'yes' == $options['social_sharing_counts'] && is_int( $count ) ) : ?>
         <span class="kcount"><?php echo esc_html( kbso_social_share_count_display( $count ) ); ?></span>
     <?php endif; ?>
     

@@ -26,7 +26,7 @@
          */
         foreach ( $links as $link ) {
             
-            $count = ( isset( $counts[ $link['name'] ] ) ) ? $counts[ $link['name'] ] : 0 ;
+            $count = ( isset( $counts[ $link['name'] ] ) ) ? $counts[ $link['name'] ] : null ;
             
             /**
              * Already contains: ???
