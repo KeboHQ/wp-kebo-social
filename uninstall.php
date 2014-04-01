@@ -38,8 +38,6 @@ if ( is_multisite() ) {
         // Delete the Options we registered.
         delete_option( 'kbso_plugin_options' );
         
-        delete_option( 'kbso_social_sharing_order' );
-        
         /*
          * Allow Modules to Uninstall
          */
