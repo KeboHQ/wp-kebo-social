@@ -47,6 +47,59 @@ function kbso_social_sharing_enqueue_backend( $hook_suffix ) {
 add_action( 'admin_enqueue_scripts', 'kbso_social_sharing_enqueue_backend' );
 
 /**
+ * Compatibility with Theme $content_width
+ */
+function kbso_social_sharing_content_width_compat() {
+    
+    //global $content_width;
+    
+    $options = kbso_get_plugin_options();
+    
+    if ( 'default' !== $options['social_sharing_theme'] ) {
+        return;
+    }
+    
+    $max_site_width = kbso_get_site_content_width();
+        
+    ?>
+    <style type="text/css" media="screen">
+        @media ( min-width: <?php echo absint( $max_site_width ) . 'px'; ?> ) {
+
+            .kfloating.default {
+                background: #fff;
+                border: 1px solid #ddd;
+                border-left: none;
+                top: 20%;
+                bottom: auto;
+                width: auto;
+                padding: 0.6em;
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+            .kfloating.default .ksharelinks.default li {
+                clear: both;
+                float: left;
+                margin: 0 0 0.6em 0;
+                width: 100%;
+            }
+            .kfloating.default .ksharelinks.default li:last-of-type {
+                margin: 0;
+            }
+            .kfloating.default .ksharelinks.default .klink {
+                display: block;
+            }
+            .kfloating.default .ksharelinks.default .kcount {
+                display: block;
+                margin: 0.7em 0 0 0;
+            }
+
+        }
+    </style>
+    <?php
+    
+}
+
+/**
  * Include Social Sharing Links on Frontend
  */
 function kbso_social_sharing_content_insert( $content ) {
@@ -86,6 +139,7 @@ function kbso_social_sharing_content_insert( $content ) {
         if ( in_array( 'floating', $options['social_sharing_position'] ) ) {
             
             add_action( 'wp_footer', 'kbso_social_sharing_floating_bar_render' );
+            add_action( 'wp_footer', 'kbso_social_sharing_content_width_compat' );
             
         }
         

@@ -151,3 +151,30 @@ function kbso_is_active_tab( $page ) {
     }
     
 }
+
+/**
+ * Get Theme Content Width
+ */
+function kbso_get_max_site_width() {
+    
+    global $content_width;
+    
+    /**
+     * Get Content Width if set by theme
+     */
+    if ( isset( $content_width ) ) {
+    
+        $max_site_width = $content_width;
+        
+    } else {
+        
+        $max_site_width = 1100;
+        
+    }
+    
+    /**
+     * Allow page content to be added via hooks.
+     */
+    return apply_filters( 'kbso_max_site_width', $max_site_width, $content_width );
+    
+}
