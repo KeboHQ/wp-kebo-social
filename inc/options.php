@@ -36,14 +36,14 @@ function kbso_plugin_options_init() {
      * Field - Activate Feature
      */
     add_settings_field(
-        'feature_control_sharing', // Unique identifier for the field for this section
+        'feature_control_post_sharing', // Unique identifier for the field for this section
         __('Social Sharing', 'kbso'), // Setting field label
         'kbso_options_render_switch', // Function that renders the settings field
         'kbso-settings', // Menu slug
         'kbso_core_feature_control', // Settings section.
         array( // Args to pass to render function
-            'name' => 'feature_control_sharing',
-            'id' => 'sharing', // used to identify the switch in JS (optional)
+            'name' => 'feature_control_post_sharing',
+            'id' => 'post-sharing', // used to identify the switch in JS (optional)
             'help_text' => __('Turns the feature on or off.', 'kbso')
         ) 
     );
@@ -71,7 +71,7 @@ function kbso_get_plugin_options() {
     $defaults = array(
         
         // Section - Core
-        'feature_control_sharing' => 'yes',
+        'feature_control_post_sharing' => 'yes',
         
     );
 
@@ -177,8 +177,8 @@ function kbso_plugin_options_validate( $input ) {
     
     $output = array();
     
-    if ( isset( $input['feature_control_sharing'] ) && array_key_exists( $input['feature_control_sharing'], kbso_options_radio_buttons() ) ) {
-        $output['feature_control_sharing'] = $input['feature_control_sharing'];
+    if ( isset( $input['feature_control_post_sharing'] ) && array_key_exists( $input['feature_control_post_sharing'], kbso_options_radio_buttons() ) ) {
+        $output['feature_control_post_sharing'] = $input['feature_control_post_sharing'];
     }
     
     /*
