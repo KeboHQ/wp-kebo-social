@@ -149,28 +149,6 @@
     
 }
 
-@mixin button-variant-gradient( $color, $background, $border ) {
-    
-    color: $color;
-    background-color: gradient-single( $background );
-    border-color: $border;
-
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      color: $color;
-      background-color: darken( $background, 10% );
-          border-color: darken( $border, 12% );
-    }
-
-    &:active,
-    &.active {
-      background-image: none;
-    }
-    
-}
-
 @mixin button-size( $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius ) {
     padding: $padding-vertical $padding-horizontal;
     font-size: $font-size;
