@@ -164,6 +164,8 @@ function kbso_enqueue_backend( $hook_suffix ) {
             wp_enqueue_style( 'kbso-admin' );
             
         }
+        
+        wp_enqueue_script( 'kbso-feature-control' );
             
     }
         

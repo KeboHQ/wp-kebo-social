@@ -6,7 +6,7 @@
 
 jQuery(document).ready( function($) {
 
-    $( '.kebo div.switch[data-id="post-sharing"]' ).click( function(e) {
+    $( 'div.switch[data-id="post_sharing"]' ).click( function(e) {
 
         var kslug = $(this).data( 'id' );
 
@@ -25,7 +25,7 @@ jQuery(document).ready( function($) {
 
                 if ( 'true' === response.success && 'save' === response.action ) {
 
-                    $( 'h2.nav-tab-wrapper' ).append( '<a class="nav-tab" data-slug="' + kslug + '" href="' + keboFeatures.url + kslug + '" style="display: none;">Sharing</a>' );
+                    $( 'h2.nav-tab-wrapper' ).append( '<a class="nav-tab" data-slug="' + kslug + '" href="' + keboFeatures.url + kslug + '" style="display: none;">Post Sharing</a>' );
                     $( 'h2.nav-tab-wrapper a[data-slug=' + kslug + ']' ).fadeIn(400);
 
                 }

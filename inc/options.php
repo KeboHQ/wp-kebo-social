@@ -43,7 +43,7 @@ function kbso_plugin_options_init() {
         'kbso_core_feature_control', // Settings section.
         array( // Args to pass to render function
             'name' => 'feature_control_post_sharing',
-            'id' => 'post-sharing', // used to identify the switch in JS (optional)
+            'id' => 'post_sharing', // used to identify the switch in JS (optional)
             'help_text' => __('Turns the feature on or off.', 'kbso')
         ) 
     );
