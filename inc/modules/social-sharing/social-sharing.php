@@ -95,8 +95,8 @@ function kbso_social_sharing_responsive_compat() {
     <style type="text/css" media="screen">
         @media ( min-width: <?php echo absint( $max_site_width ) . 'px'; ?> ) {
 
-            div.kfloating.plain,
-            div.kfloating.gradient {
+            .kfloating.plain,
+            .kfloating.gradient {
                 background: #fff;
                 border: 1px solid #ddd;
                 border-left: none;
