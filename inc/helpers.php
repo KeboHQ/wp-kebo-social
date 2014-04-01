@@ -151,22 +151,3 @@ function kbso_is_active_tab( $page ) {
     }
     
 }
-
-/**
- * Get Theme Content Width
- */
-function kbso_get_max_site_width() {
-    
-    $options = kbso_get_plugin_options();
-    
-    /**
-     * Get Content Width Option
-     */
-     $max_site_width = $options['social_sharing_site_width'];
-    
-    /**
-     * Allow page content to be added via hooks.
-     */
-    return apply_filters( 'kbso_max_site_width', $max_site_width );
-    
-}
