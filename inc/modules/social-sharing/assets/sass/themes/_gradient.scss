@@ -79,33 +79,83 @@
 
 .ksharelinks.gradient .facebook {
     @include button-variant( #fff, $facebook, darken( $facebook, 5% ) );
+    @include gradient-single( $facebook );
+    &:hover,
+    &:active {
+        background: darken( $facebook, 10% );
+    }
 }
 .ksharelinks.gradient .twitter {
     @include button-variant( #fff, $twitter, darken( $twitter, 5% ) );
+    @include gradient-single( $twitter );
+    &:hover,
+    &:active {
+        background: darken( $twitter, 10% );
+    }
 }
 .ksharelinks.gradient .linkedin {
     @include button-variant( #fff, $linkedin, darken( $linkedin, 5% ) );
+    @include gradient-single( $linkedin );
+    &:hover,
+    &:active {
+        background: darken( $linkedin, 10% );
+    }
 }
 .ksharelinks.gradient .pinterest {
     @include button-variant( #fff, $pinterest, darken( $pinterest, 5% ) );
+    @include gradient-single( $pinterest );
+    &:hover,
+    &:active {
+        background: darken( $pinterest, 10% );
+    }
 }
 .ksharelinks.gradient .googleplus {
     @include button-variant( #fff, $googleplus, darken( $googleplus, 5% ) );
+    @include gradient-single( $googleplus );
+    &:hover,
+    &:active {
+        background: darken( $googleplus, 10% );
+    }
 }
 .ksharelinks.gradient .digg {
     @include button-variant( #fff, $digg, darken( $digg, 5% ) );
+    @include gradient-single( $digg );
+    &:hover,
+    &:active {
+        background: darken( $digg, 10% );
+    }
 }
 .ksharelinks.gradient .tumblr {
     @include button-variant( #fff, $tumblr, darken( $tumblr, 5% ) );
+    @include gradient-single( $tumblr );
+    &:hover,
+    &:active {
+        background: darken( $tumblr, 10% );
+    }
 }
 .ksharelinks.gradient .reddit {
     @include button-variant( #fff, $reddit, darken( $reddit, 5% ) );
+    @include gradient-single( $reddit );
+    &:hover,
+    &:active {
+        background: darken( $reddit, 10% );
+    }
 }
 .ksharelinks.gradient .stumbleupon {
     @include button-variant( #fff, $stumbleupon, darken( $stumbleupon, 5% ) );
+    @include gradient-single( $stumbleupon );
+    &:hover,
+    &:active {
+        background: darken( $stumbleupon, 10% );
+    }
 }
 .ksharelinks.gradient .delicious {
     @include button-variant( #fff, $delicious, darken( $delicious, 5% ) );
+    @include gradient-single( $delicious );
+    &:hover,
+    &:active {
+        background: darken( $delicious, 10% );
+    }
 }
 
 // Button Sizes
@@ -127,9 +177,6 @@
         min-width: 0;
     }
 }
-.kfloating .ksharelinks.gradient.xsmall li .kcount {
-    //@include top-box-arrow( #bbb, 5px, 16px, -10px );
-}
 
 // Small
 .ksharelinks.gradient.small {
@@ -146,10 +193,6 @@
         @include left-box-arrow( #bbb, 6px, 9px, -12px );
         min-width: 0;
     }
-}
-.kfloating .ksharelinks.gradient.small li .kcount {
-    //@include top-box-arrow( #bbb, 6px, 22px, -12px );
-    //width: 5em;
 }
 
 // Medium
@@ -171,9 +214,6 @@
         min-width: 0;
     }
 }
-.kfloating .ksharelinks.gradient.medium li .kcount {
-    //@include top-box-arrow( #bbb, 7px, 30px, -14px );
-}
 
 // Large
 .ksharelinks.gradient.large {
@@ -190,9 +230,6 @@
         @include left-box-arrow( #bbb, 8px, 14px, -16px );
         min-width: 0;
     }
-}
-.kfloating .ksharelinks.gradient.large li .kcount {
-    //@include top-box-arrow( #bbb, 8px, 36px, -16px );
 }
 
 // Extra Large
@@ -211,9 +248,6 @@
         min-width: 0;
     }
 }
-.kfloating .ksharelinks.gradient.xlarge .kcount {
-    //@include top-box-arrow( #bbb, 9px, 38px, -18px );
-}
 
 // Button Details
 // --------------------------------------------------
@@ -222,9 +256,15 @@
         font-family: zocial;
         background: none;
 }
-
+.ksharelinks.gradient .klink {
+        box-shadow: 0px 1px 2px 0px rgba( 0, 0, 0, 0.2 );
+}
+.ksharelinks.gradient .klink .kicon {
+        text-shadow: 1px 1px 1px rgba( 0, 0, 0, 0.2 );
+}
 .ksharelinks.gradient .klink .kname {
         margin-left: 0.6em;
+        text-shadow: 1px 1px 1px rgba( 0, 0, 0, 0.2 );
 }
 .ksharelinks.gradient .kcount {
         display: inline-block;

@@ -127,9 +127,6 @@
         min-width: 0;
     }
 }
-.kfloating .ksharelinks.plain.xsmall li .kcount {
-    //@include top-box-arrow( #bbb, 5px, 16px, -10px );
-}
 
 // Small
 .ksharelinks.plain.small {
@@ -146,10 +143,6 @@
         @include left-box-arrow( #bbb, 6px, 9px, -12px );
         min-width: 0;
     }
-}
-.kfloating .ksharelinks.plain.small li .kcount {
-    //@include top-box-arrow( #bbb, 6px, 22px, -12px );
-    //width: 5em;
 }
 
 // Medium
@@ -171,9 +164,6 @@
         min-width: 0;
     }
 }
-.kfloating .ksharelinks.plain.medium li .kcount {
-    //@include top-box-arrow( #bbb, 7px, 30px, -14px );
-}
 
 // Large
 .ksharelinks.plain.large {
@@ -191,9 +181,6 @@
         min-width: 0;
     }
 }
-.kfloating .ksharelinks.plain.large li .kcount {
-    //@include top-box-arrow( #bbb, 8px, 36px, -16px );
-}
 
 // Extra Large
 .ksharelinks.plain.xlarge {
@@ -210,9 +197,6 @@
         @include left-box-arrow( #bbb, 9px, 14px, -18px );
         min-width: 0;
     }
-}
-.kfloating .ksharelinks.plain.xlarge .kcount {
-    //@include top-box-arrow( #bbb, 9px, 38px, -18px );
 }
 
 // Button Details
