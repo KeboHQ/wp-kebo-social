@@ -49,17 +49,27 @@ add_action( 'admin_enqueue_scripts', 'kbso_social_sharing_enqueue_backend' );
 /**
  * Compatibility with Theme $content_width
  */
-function kbso_social_sharing_content_width_compat() {
-    
-    //global $content_width;
+function kbso_social_sharing_responsive_compat() {
     
     $options = kbso_get_plugin_options();
     
-    if ( 'default' !== $options['social_sharing_theme'] ) {
+    /*
+     * Themes to make responsive
+     */
+    $themes = array(
+        'default',
+        'plain',
+        'gradient'
+    );
+    
+    /*
+     * Only use for relevant themes
+     */
+    if ( ! in_array( $options['social_sharing_theme'], $themes ) ) {
         return;
     }
     
-    $max_site_width = kbso_get_site_content_width();
+    $max_site_width = kbso_get_max_site_width();
         
     ?>
     <style type="text/css" media="screen">
@@ -87,10 +97,15 @@ function kbso_social_sharing_content_width_compat() {
             }
             .kfloating.default .ksharelinks.default .klink {
                 display: block;
+                width: 4em;
             }
             .kfloating.default .ksharelinks.default .kcount {
                 display: block;
                 margin: 0.7em 0 0 0;
+                width: 4em;
+            }
+            body {
+                margin-bottom: 0px !important;
             }
 
         }
@@ -139,7 +154,7 @@ function kbso_social_sharing_content_insert( $content ) {
         if ( in_array( 'floating', $options['social_sharing_position'] ) ) {
             
             add_action( 'wp_footer', 'kbso_social_sharing_floating_bar_render' );
-            add_action( 'wp_footer', 'kbso_social_sharing_content_width_compat' );
+            add_action( 'wp_footer', 'kbso_social_sharing_responsive_compat' );
             
         }
         
