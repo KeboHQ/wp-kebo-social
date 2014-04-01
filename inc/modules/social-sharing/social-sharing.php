@@ -75,7 +75,8 @@ function kbso_social_sharing_responsive_compat() {
     <style type="text/css" media="screen">
         @media ( min-width: <?php echo absint( $max_site_width ) . 'px'; ?> ) {
 
-            .kfloating.default {
+            .kfloating.plain,
+            .kfloating.gradient {
                 background: #fff;
                 border: 1px solid #ddd;
                 border-left: none;
@@ -86,20 +87,24 @@ function kbso_social_sharing_responsive_compat() {
                 border-top-right-radius: 3px;
                 border-bottom-right-radius: 3px;
             }
-            .kfloating.default .ksharelinks.default li {
+            .kfloating.plain .ksharelinks.plain li,
+            .kfloating.gradient .ksharelinks.gradient li {
                 clear: both;
                 float: left;
                 margin: 0 0 0.6em 0;
                 width: 100%;
             }
-            .kfloating.default .ksharelinks.default li:last-of-type {
+            .kfloating.plain .ksharelinks.plain li:last-of-type,
+            .kfloating.gradient .ksharelinks.gradient li:last-of-type {
                 margin: 0;
             }
-            .kfloating.default .ksharelinks.default .klink {
+            .kfloating.plain .ksharelinks.plain .klink,
+            .kfloating.gradient .ksharelinks.gradient .klink {
                 display: block;
                 width: 4em;
             }
-            .kfloating.default .ksharelinks.default .kcount {
+            .kfloating.plain .ksharelinks.plain .kcount,
+            .kfloating.gradient .ksharelinks.plain .gradient {
                 display: block;
                 margin: 0.7em 0 0 0;
                 width: 4em;
