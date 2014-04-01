@@ -2,12 +2,12 @@
   "name": "kebo-social",
   "title": "Kebo Social",
   "description": "Social integration done right. The best WordPress plugin to integrate Social Services into your website.",
-  "version": "0.4.1",
-  "homepage": "http://kebopowered.com/plugins/kebo-social/",
+  "version": "0.4.2",
+  "homepage": "https://kebopowered.com/plugins/kebo-social/",
   "author": {
     "name": "Kebo",
     "email": "support@kebopowered.com",
-    "url": "http://kebopowered.com/"
+    "url": "https://kebopowered.com/"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

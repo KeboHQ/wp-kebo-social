@@ -3,7 +3,7 @@ Contributors:      peterbooker
 Tags:              social, share, sharing, share links, twitter, facebook, google, linkedin, pinterest
 Requires at least: 3.5
 Tested up to:      3.8.1
-Stable tag:        0.4.1
+Stable tag:        0.4.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,9 @@ On top of this all the features share resources where appropriate, so that it sh
 3. The Post Share Links in action on the TwentyTwelve theme.
 
 == Changelog ==
+
+= 0.4.2 =
+* Bug Fix: Feature Control Form now updates live using AJAX.
 
 = 0.4.1 =
 * Bug Fix: Fixed the link size option name. The size option should work correctly now.
