@@ -152,7 +152,7 @@ function kbso_social_sharing_prepare_count_totals( $results ) {
  */
 function kbso_post_sharing_display_counts( $count, $option ) {
     
-    if ( 'yes' == $option && ( is_int( $count ) || is_admin() ) ) {
+    if ( ( 'yes' == $option || is_admin() ) && ( is_int( $count ) || is_admin() ) ) {
         
         return true;
         
