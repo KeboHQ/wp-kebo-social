@@ -134,16 +134,36 @@ function kbso_enqueue_backend( $hook_suffix ) {
     // Enqueue files for core dashboard page
     if ( 'index.php' == $hook_suffix ) {
             
-        wp_enqueue_style( 'kbso-admin' );
+        /*
+         * Use minified files where available, unless SCRIPT_DEBUG is true
+         */
+        if ( false == SCRIPT_DEBUG ) {
+            
+            wp_enqueue_style( 'kbso-admin-min' );
+            
+        } else {
+            
+            wp_enqueue_style( 'kbso-admin' );
+            
+        }
             
     }
     
     // Enqueue files for Kebo Social pages
     if ( 'settings_page_kebo-social' == $hook_suffix ) {
             
-        wp_enqueue_style( 'kbso-admin' );
-        
-        wp_enqueue_script( 'kbso-feature-control' );
+        /*
+         * Use minified files where available, unless SCRIPT_DEBUG is true
+         */
+        if ( false == SCRIPT_DEBUG ) {
+            
+            wp_enqueue_style( 'kbso-admin-min' );
+            
+        } else {
+            
+            wp_enqueue_style( 'kbso-admin' );
+            
+        }
             
     }
         
