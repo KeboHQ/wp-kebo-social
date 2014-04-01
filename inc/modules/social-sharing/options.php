@@ -118,13 +118,13 @@ function kbso_social_sharing_options_init() {
      * Field - Social Sharing Content Width
      */
     add_settings_field(
-        'social_sharing_content_width', // Unique identifier for the field for this section
+        'social_sharing_site_width', // Unique identifier for the field for this section
         __('Max Content Width', 'kbso'), // Setting field label
         'kbso_options_render_text_input', // Function that renders the settings field
         'kbso-sharing', // Menu slug
         'kbso_social_sharing', // Settings section.
         array( // Args to pass to render function
-            'name' => 'social_sharing_content_width',
+            'name' => 'social_sharing_site_width',
             'help_text' => __( 'The maximum width of your website, in pixels.', 'kbso' )
         ) 
     );
@@ -146,7 +146,7 @@ function kbso_social_sharing_option_defaults( $defaults ) {
         'social_sharing_counts' => 'yes',
         'social_sharing_link_size' => 'medium',
         'social_sharing_post_types' => array( 'post' ),
-        'social_sharing_content_width' => 1100
+        'social_sharing_site_width' => 1100
     );
     
     $options = wp_parse_args( $defaults, $sharing );
@@ -426,8 +426,8 @@ function kbso_social_sharing_options_validate( $input, $output ) {
         $output['social_sharing_theme'] = $input['social_sharing_theme'];
     }
     
-    if ( isset( $input['social_sharing_content_width'] ) && ! empty( $input['social_sharing_content_width'] ) ) {
-	$output['social_sharing_content_width'] = absint( $input['social_sharing_content_width'] );
+    if ( isset( $input['social_sharing_site_width'] ) && ! empty( $input['social_sharing_site_width'] ) ) {
+	$output['social_sharing_site_width'] = absint( $input['social_sharing_site_width'] );
     }
     
     return $output;
