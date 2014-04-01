@@ -9,8 +9,8 @@
 function kbso_post_sharing_register_files() {
 
     // Register Styles
-    wp_register_style( 'kbso-post-sharing', KBSO_URL . 'inc/modules/social-sharing/assets/css/sharelinks.css', array(), KBSO_VERSION, 'all' );
-    wp_register_style( 'kbso-post-sharing-min', KBSO_URL . 'inc/modules/social-sharing/assets/css/sharelinks.min.css', array(), KBSO_VERSION, 'all' );
+    wp_register_style( 'kbso-post-sharing', KBSO_URL . 'inc/modules/post-sharing/assets/css/sharelinks.css', array(), KBSO_VERSION, 'all' );
+    wp_register_style( 'kbso-post-sharing-min', KBSO_URL . 'inc/modules/post-sharing/assets/css/sharelinks.min.css', array(), KBSO_VERSION, 'all' );
         
 }
 add_action( 'wp_enqueue_scripts', 'kbso_post_sharing_register_files' );
@@ -738,7 +738,7 @@ add_filter( 'kbso_post_sharing_view_dir', 'kbso_post_sharing_standard_view_dir',
 /*
  * Social Sharing Admin Page JS
  */
-function kbso_sharing_page_print_js() {
+function kbso_post_sharing_page_print_js() {
     
     ?>
     <script type="text/javascript">
