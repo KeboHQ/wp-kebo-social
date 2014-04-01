@@ -3,7 +3,7 @@ Contributors:      peterbooker
 Tags:              social, share, sharing, share links, twitter, facebook, google, linkedin, pinterest
 Requires at least: 3.5
 Tested up to:      3.8.1
-Stable tag:        0.4.0
+Stable tag:        0.4.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,7 +25,7 @@ Moving forwards we will be add many more features to Kebo Social to help you to 
 * A range of beautifully styled themes to choose from.
 * Output the HTML only and style them yourself.
 * Add views yourself to customise the HTML output.
-* Add to any pubic Post Types.
+* Add to any public Post Types.
 * Multisite Ready.
 * Translation ready.
 
@@ -72,8 +72,15 @@ On top of this all the features share resources where appropriate, so that it sh
 
 == Screenshots ==
 
+1. This is the settings page for the Post Share Links, the user-friendly drag n drop interface is tablet and mobile friendly.
+2. As you change settings on the page, the preview is updated in real-time.
+3. The Post Share Links in action on the TwentyTwelve theme.
 
 == Changelog ==
+
+= 0.4.1 =
+* Bug Fix: Fixed the link size option name. The size option should work correctly now.
+* Note: Added screenshots to the wordpress.org page.
 
 = 0.4.0 =
 * Important: This is the first public release. There may still be some rough edges but these will be polished soon.
