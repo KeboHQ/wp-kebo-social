@@ -6,7 +6,7 @@
 
 jQuery(document).ready( function($) {
 
-    $( '.kebo div.switch[data-id="sharing"]' ).click( function(e) {
+    $( '.kebo div.switch[data-id="post-sharing"]' ).click( function(e) {
 
         var kslug = $(this).data( 'id' );
 
