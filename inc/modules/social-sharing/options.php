@@ -141,7 +141,7 @@ function kbso_social_sharing_option_defaults( $defaults ) {
     
     $sharing = array(
         'social_sharing_label' => 'Share this:',
-        'social_sharing_theme' => 'default',
+        'social_sharing_theme' => 'plain',
         'social_sharing_position' => array( 'top', 'bottom' ),
         'social_sharing_counts' => 'yes',
         'social_sharing_link_size' => 'medium',
@@ -162,13 +162,9 @@ add_filter( 'kbso_get_plugin_options', 'kbso_social_sharing_option_defaults' );
 function kbso_options_theme_select_dropdown() {
     
     $dropdown = array(
-        'default' => array(
-            'value' => 'default',
-            'label' => __('Default', 'kbso')
-        ),
-        'flat' => array(
-            'value' => 'flat',
-            'label' => __('Flat', 'kbso')
+        'plain' => array(
+            'value' => 'plain',
+            'label' => __('Plain', 'kbso')
         ),
         'gradient' => array(
             'value' => 'gradient',
