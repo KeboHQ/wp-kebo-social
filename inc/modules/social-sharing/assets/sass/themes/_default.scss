@@ -128,7 +128,7 @@
     }
 }
 .kfloating .ksharelinks.default.xsmall li .kcount {
-    @include top-box-arrow( #bbb, 5px, 16px, -10px );
+    //@include top-box-arrow( #bbb, 5px, 16px, -10px );
 }
 
 // Small
@@ -148,8 +148,8 @@
     }
 }
 .kfloating .ksharelinks.default.small li .kcount {
-    @include top-box-arrow( #bbb, 6px, 22px, -12px );
-    width: 5em;
+    //@include top-box-arrow( #bbb, 6px, 22px, -12px );
+    //width: 5em;
 }
 
 // Medium
@@ -172,7 +172,7 @@
     }
 }
 .kfloating .ksharelinks.default.medium li .kcount {
-    @include top-box-arrow( #bbb, 7px, 30px, -14px );
+    //@include top-box-arrow( #bbb, 7px, 30px, -14px );
 }
 
 // Large
@@ -192,7 +192,7 @@
     }
 }
 .kfloating .ksharelinks.default.large li .kcount {
-    @include top-box-arrow( #bbb, 8px, 36px, -16px );
+    //@include top-box-arrow( #bbb, 8px, 36px, -16px );
 }
 
 // Extra Large
@@ -212,7 +212,7 @@
     }
 }
 .kfloating .ksharelinks.default.xlarge .kcount {
-    @include top-box-arrow( #bbb, 9px, 38px, -18px );
+    //@include top-box-arrow( #bbb, 9px, 38px, -18px );
 }
 
 // Button Details
@@ -259,4 +259,27 @@
 .kfloating.default .ksharelinks.default .kcount {
         display: none;
         margin: 0.7em 0 0 0;
+}
+.kfloating.default .ksharelinks.default {
+    
+    
+    .klink,
+    .kcount {
+        @include button-size( $padding-medium-vertical, $padding-medium-horizontal, $font-size-base, $line-height-base, $border-radius-base );
+        width: 3.4em;
+        
+        
+    }
+    .klink {
+        .kicon {
+            font-size: 13px;
+        }
+    }
+    .kcount {
+        @include top-box-arrow( #bbb, 7px, 22px, -14px );
+    }
+    
+}
+body {
+        margin-bottom: 50px !important;
 }

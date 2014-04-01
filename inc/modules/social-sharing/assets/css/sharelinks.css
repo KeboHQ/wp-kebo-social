@@ -652,35 +652,6 @@
     width: 0;
     z-index: 98; }
 
-.kfloating .ksharelinks.default.xsmall li .kcount {
-  position: relative; }
-  .kfloating .ksharelinks.default.xsmall li .kcount:before {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0);
-    border-image: none;
-    border-style: inset inset solid inset;
-    border-width: 4px;
-    left: 16px;
-    content: "";
-    display: block;
-    height: 0;
-    position: absolute;
-    top: -8px;
-    width: 0;
-    z-index: 99; }
-  .kfloating .ksharelinks.default.xsmall li .kcount:after {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0);
-    border-image: none;
-    border-style: inset inset solid inset;
-    border-width: 5px;
-    left: 15px;
-    content: "";
-    display: block;
-    height: 0;
-    position: absolute;
-    top: -10px;
-    width: 0;
-    z-index: 98; }
-
 .ksharelinks.default.small .kintro {
   padding: 5px 0;
   line-height: 1.5; }
@@ -718,36 +689,6 @@
     height: 0;
     position: absolute;
     left: -12px;
-    width: 0;
-    z-index: 98; }
-
-.kfloating .ksharelinks.default.small li .kcount {
-  position: relative;
-  width: 5em; }
-  .kfloating .ksharelinks.default.small li .kcount:before {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0);
-    border-image: none;
-    border-style: inset inset solid inset;
-    border-width: 5px;
-    left: 22px;
-    content: "";
-    display: block;
-    height: 0;
-    position: absolute;
-    top: -10px;
-    width: 0;
-    z-index: 99; }
-  .kfloating .ksharelinks.default.small li .kcount:after {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0);
-    border-image: none;
-    border-style: inset inset solid inset;
-    border-width: 6px;
-    left: 21px;
-    content: "";
-    display: block;
-    height: 0;
-    position: absolute;
-    top: -12px;
     width: 0;
     z-index: 98; }
 
@@ -794,35 +735,6 @@
     width: 0;
     z-index: 98; }
 
-.kfloating .ksharelinks.default.medium li .kcount {
-  position: relative; }
-  .kfloating .ksharelinks.default.medium li .kcount:before {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0);
-    border-image: none;
-    border-style: inset inset solid inset;
-    border-width: 6px;
-    left: 30px;
-    content: "";
-    display: block;
-    height: 0;
-    position: absolute;
-    top: -12px;
-    width: 0;
-    z-index: 99; }
-  .kfloating .ksharelinks.default.medium li .kcount:after {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0);
-    border-image: none;
-    border-style: inset inset solid inset;
-    border-width: 7px;
-    left: 29px;
-    content: "";
-    display: block;
-    height: 0;
-    position: absolute;
-    top: -14px;
-    width: 0;
-    z-index: 98; }
-
 .ksharelinks.default.large .kintro {
   padding: 10px 0;
   line-height: 1.33; }
@@ -860,35 +772,6 @@
     height: 0;
     position: absolute;
     left: -16px;
-    width: 0;
-    z-index: 98; }
-
-.kfloating .ksharelinks.default.large li .kcount {
-  position: relative; }
-  .kfloating .ksharelinks.default.large li .kcount:before {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0);
-    border-image: none;
-    border-style: inset inset solid inset;
-    border-width: 7px;
-    left: 36px;
-    content: "";
-    display: block;
-    height: 0;
-    position: absolute;
-    top: -14px;
-    width: 0;
-    z-index: 99; }
-  .kfloating .ksharelinks.default.large li .kcount:after {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0);
-    border-image: none;
-    border-style: inset inset solid inset;
-    border-width: 8px;
-    left: 35px;
-    content: "";
-    display: block;
-    height: 0;
-    position: absolute;
-    top: -16px;
     width: 0;
     z-index: 98; }
 
@@ -932,35 +815,6 @@
     width: 0;
     z-index: 98; }
 
-.kfloating .ksharelinks.default.xlarge .kcount {
-  position: relative; }
-  .kfloating .ksharelinks.default.xlarge .kcount:before {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0);
-    border-image: none;
-    border-style: inset inset solid inset;
-    border-width: 8px;
-    left: 38px;
-    content: "";
-    display: block;
-    height: 0;
-    position: absolute;
-    top: -16px;
-    width: 0;
-    z-index: 99; }
-  .kfloating .ksharelinks.default.xlarge .kcount:after {
-    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0);
-    border-image: none;
-    border-style: inset inset solid inset;
-    border-width: 9px;
-    left: 37px;
-    content: "";
-    display: block;
-    height: 0;
-    position: absolute;
-    top: -18px;
-    width: 0;
-    z-index: 98; }
-
 .ksharelinks.default .klink i {
   font-family: zocial;
   background: none; }
@@ -1001,33 +855,47 @@
   display: none;
   margin: 0.7em 0 0 0; }
 
-@media (min-width: 1000px) {
-  .kfloating.default {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-left: none;
-    top: 20%;
-    bottom: auto;
-    width: auto;
-    padding: 0.6em;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px; }
-
-  .kfloating.default .ksharelinks.default li {
-    clear: both;
-    float: left;
-    margin: 0 0 0.6em 0;
-    width: 100%; }
-
-  .kfloating.default .ksharelinks.default li:last-of-type {
-    margin: 0; }
-
-  .kfloating.default .ksharelinks.default .klink {
-    display: block; }
-
-  .kfloating.default .ksharelinks.default .kcount {
+.kfloating.default .ksharelinks.default .klink,
+.kfloating.default .ksharelinks.default .kcount {
+  padding: 6px 16px;
+  font-size: 14px;
+  line-height: 1.42857;
+  border-radius: 4px;
+  width: 3.4em; }
+.kfloating.default .ksharelinks.default .klink .kicon {
+  font-size: 13px; }
+.kfloating.default .ksharelinks.default .kcount {
+  position: relative; }
+  .kfloating.default .ksharelinks.default .kcount:before {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) white rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset inset solid inset;
+    border-width: 6px;
+    left: 22px;
+    content: "";
     display: block;
-    margin: 0.7em 0 0 0; } }
+    height: 0;
+    position: absolute;
+    top: -12px;
+    width: 0;
+    z-index: 99; }
+  .kfloating.default .ksharelinks.default .kcount:after {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #bbbbbb rgba(0, 0, 0, 0);
+    border-image: none;
+    border-style: inset inset solid inset;
+    border-width: 7px;
+    left: 21px;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    top: -14px;
+    width: 0;
+    z-index: 98; }
+
+body {
+  margin-bottom: 50px !important; }
+
 /*
  * Import Plain Theme
  */
