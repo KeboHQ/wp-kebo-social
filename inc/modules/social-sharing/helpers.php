@@ -146,3 +146,20 @@ function kbso_social_sharing_prepare_count_totals( $results ) {
     return $counts;
     
 }
+
+/*
+ * Decides if we should display the Post Sharing counts or not.
+ */
+function kbso_post_sharing_display_counts( $count, $option ) {
+    
+    if ( 'yes' == $option && ( is_int( $count ) || is_admin() ) ) {
+        
+        return true;
+        
+    } else {
+        
+        return false;
+        
+    }
+    
+}
