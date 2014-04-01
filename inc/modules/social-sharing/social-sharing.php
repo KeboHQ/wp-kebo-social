@@ -106,6 +106,7 @@ function kbso_social_sharing_responsive_compat() {
                 padding: 0.6em;
                 border-top-right-radius: 3px;
                 border-bottom-right-radius: 3px;
+                z-index: 99999;
             }
             .kfloating.plain .ksharelinks.plain li,
             .kfloating.gradient .ksharelinks.gradient li {
