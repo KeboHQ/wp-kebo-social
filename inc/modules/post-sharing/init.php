@@ -49,46 +49,56 @@ function kbso_post_sharing_activate() {
 }
 add_action( 'wp', 'kbso_post_sharing_activate' );
 
+/*
+ * Only include on Admin
+ */
 if ( is_admin() ) {
     
     /*
      * Include Uninstall file.
      */
-    require_once( KBSO_PATH . 'inc/modules/post-sharing/dashboard-widgets.php' );
+    require_once( KBSO_POST_SHARING_PATH . 'dashboard-widgets.php' );
     
     /*
      * Include Sharing Menu file.
      */
-    require_once( KBSO_PATH . 'inc/modules/post-sharing/menu.php' );
+    require_once( KBSO_POST_SHARING_PATH . 'menu.php' );
+    
+}
+
+/*
+ * Only include on Ajax
+ */
+if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+    
+    /*
+     * Include AJAX file.
+     */
+    require_once( KBSO_POST_SHARING_PATH . 'ajax.php' );
     
 }
 
 /*
  * Include Options file.
  */
-require_once( KBSO_PATH . 'inc/modules/post-sharing/options.php' );
+require_once( KBSO_POST_SHARING_PATH . 'options.php' );
 
 /*
  * Include General file.
  */
-require_once( KBSO_PATH . 'inc/modules/post-sharing/social-sharing.php' );
+require_once( KBSO_POST_SHARING_PATH . 'social-sharing.php' );
 
 /*
  * Include Social Count Update file.
  */
-require_once( KBSO_PATH . 'inc/modules/post-sharing/update-counts.php' );
-
-/*
- * Include AJAX file.
- */
-require_once( KBSO_PATH . 'inc/modules/post-sharing/ajax.php' );
+require_once( KBSO_POST_SHARING_PATH . 'update-counts.php' );
 
 /*
  * Include Helper Functions file.
  */
-require_once( KBSO_PATH . 'inc/modules/post-sharing/helpers.php' );
+require_once( KBSO_POST_SHARING_PATH . 'helpers.php' );
 
 /*
  * Include Uninstall file.
  */
-require_once( KBSO_PATH . 'inc/modules/post-sharing/uninstall.php' );
+require_once( KBSO_POST_SHARING_PATH . 'uninstall.php' );
