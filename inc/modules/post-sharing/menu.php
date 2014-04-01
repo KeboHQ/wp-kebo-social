@@ -141,7 +141,7 @@ function kbso_post_sharing_page_render() {
                                 
                 });
 
-                $( "select#social_sharing_theme" ).change( function() {
+                $( "select#post_sharing_theme" ).change( function() {
                     
                     var kclass = $(this).val();
                     
@@ -149,7 +149,7 @@ function kbso_post_sharing_page_render() {
                     
                 });
 
-                $( "select#social_sharing_link_size" ).change( function() {
+                $( "select#post_sharing_size" ).change( function() {
                     
                     var kclass = $(this).val();
                     
