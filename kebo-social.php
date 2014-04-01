@@ -3,7 +3,7 @@
  * Plugin Name: Kebo Social
  * Plugin URI:  https://kebopowered.com/plugins/kebo-social/
  * Description: Social integration done right. The best WordPress plugin to integrate Social Services into your website.
- * Version:     0.4.0
+ * Version:     0.4.1
  * Author:      Kebo
  * Author URI:  https://kebopowered.com/
  * License:     GPLv2+
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Useful global constants
-define( 'KBSO_VERSION', '0.4.0' );
+define( 'KBSO_VERSION', '0.4.1' );
 define( 'KBSO_URL', plugin_dir_url(__FILE__) );
 define( 'KBSO_PATH', plugin_dir_path(__FILE__) );
 
