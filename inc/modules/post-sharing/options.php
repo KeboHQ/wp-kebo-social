@@ -73,7 +73,7 @@ function kbso_post_sharing_options_init() {
      * Field - Share Link Size
      */
     add_settings_field(
-        'social_post_sharing_size', // Unique identifier for the field for this section
+        'post_sharing_size', // Unique identifier for the field for this section
         __('Button Size', 'kbso'), // Setting field label
         'kbso_post_sharing_size_render', // Function that renders the settings field
         'kbso-post-sharing', // Menu slug
@@ -144,7 +144,7 @@ function kbso_post_sharing_option_defaults( $defaults ) {
         'post_sharing_theme' => 'plain',
         'post_sharing_position' => array( 'top', 'bottom' ),
         'post_sharing_counts' => 'yes',
-        'post_sharing_link_size' => 'medium',
+        'post_sharing_size' => 'medium',
         'post_sharing_post_types' => array( 'post' ),
         'post_sharing_site_width' => 1100
     );
