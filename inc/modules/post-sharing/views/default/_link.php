@@ -17,7 +17,7 @@
     </a>
     
     <?php if ( kbso_post_sharing_display_counts( $count, $options['post_sharing_counts'] ) ) : ?>
-        <span class="kcount"><?php echo esc_html( kbso_social_share_count_display( $count ) ); ?></span>
+        <span class="kcount"><?php echo esc_html( kbso_post_sharing_count_display( $count ) ); ?></span>
     <?php endif; ?>
     
     <?php do_action( 'kbso_after_post_sharing_link', $name, $label, $href, $post_type ); ?>
