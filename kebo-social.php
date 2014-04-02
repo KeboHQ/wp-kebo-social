@@ -60,10 +60,6 @@ if ( version_compare( PHP_VERSION, '5.2', '<' ) ) {
         deactivate_plugins(__FILE__);
         wp_die( __( 'Kebo Social requires PHP 5.2 or higher, as does WordPress 3.2 and higher.', 'kbso' ) );
         
-    } else {
-        
-        return;
-        
     }
     
 }
