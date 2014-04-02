@@ -161,7 +161,7 @@ add_filter( 'kbso_get_plugin_options', 'kbso_post_sharing_option_defaults' );
  */
 function kbso_post_sharing_themes() {
     
-    $dropdown = array(
+    $themes = array(
         'plain' => array(
             'value' => 'plain',
             'label' => __('Plain', 'kbso')
@@ -172,7 +172,7 @@ function kbso_post_sharing_themes() {
         ),
     );
 
-    return apply_filters( 'kbso_post_sharing_themes', $dropdown );
+    return apply_filters( 'kbso_post_sharing_themes', $themes );
     
 }
 
