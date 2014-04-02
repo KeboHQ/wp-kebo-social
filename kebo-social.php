@@ -175,6 +175,8 @@ add_action( 'admin_enqueue_scripts', 'kbso_enqueue_backend' );
 /**
  * Add a link to the plugin screen, to allow users to jump straight to the settings page.
  */
+$kbso_plugin_file = plugin_basename(__FILE__);
+
 function kbso_plugin_settings_link( $links ) {
     
     $links[] = '<a href="' . admin_url( 'options-general.php?page=kebo-social' ) . '">' . __( 'Settings', 'kbso' ) . '</a>';
@@ -182,4 +184,4 @@ function kbso_plugin_settings_link( $links ) {
     return $links;
     
 }
-add_filter( 'plugin_action_links_kebo-social/kebo-social.php', 'kbso_plugin_settings_link' );
+add_filter( 'plugin_action_links_'. $kbso_plugin_file, 'kbso_plugin_settings_link' );
