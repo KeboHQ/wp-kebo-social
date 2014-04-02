@@ -67,7 +67,7 @@ module.exports = function(grunt) {
                 files: {
                     'assets/css/admin.css': 'assets/sass/admin.scss',
                     'assets/css/widgets.css': 'assets/sass/widgets.scss',
-                    'inc/modules/post-sharing/assets/css/sharelinks.css': 'inc/modules/social-sharing/assets/sass/sharelinks.scss',
+                    'inc/modules/post-sharing/assets/css/sharelinks.css': 'inc/modules/post-sharing/assets/sass/sharelinks.scss',
                 }
             }
         },
@@ -119,6 +119,7 @@ module.exports = function(grunt) {
                     '**',
                     '!node_modules/**',
                     '!release/**',
+                    '!readme.md',
                     '!.git/**',
                     '!.sass-cache/**',
                     '!css/src/**',
