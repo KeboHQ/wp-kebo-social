@@ -83,7 +83,7 @@ module.exports = function(grunt) {
                 files: {
                     'assets/css/widgets.min.css': ['assets/css/widgets.css'],
                     'assets/css/admin.min.css': ['assets/css/admin.css'],
-                    'inc/modules/post-sharing/assets/css/sharelinks.min.css': ['inc/modules/social-sharing/assets/css/sharelinks.css']
+                    'inc/modules/post-sharing/assets/css/sharelinks.min.css': ['inc/modules/post-sharing/assets/css/sharelinks.css']
                 }
             }
         },
