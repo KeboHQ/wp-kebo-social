@@ -24,6 +24,7 @@
  */
 .ksharelinks {
         overflow: hidden;
+        margin-bottom: 20px;
 }
 .ksharelinks *:before,
 .ksharelinks *:after {
@@ -80,6 +81,7 @@
 }
 .kfloating .ksharelinks {
         padding: 0;
+        margin-bottom: 0;
 }
 .kfloating .kintro {
         display: none;

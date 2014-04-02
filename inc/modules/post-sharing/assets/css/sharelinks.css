@@ -377,7 +377,8 @@
  * General
  */
 .ksharelinks {
-  overflow: hidden; }
+  overflow: hidden;
+  margin-bottom: 20px; }
 
 .ksharelinks *:before,
 .ksharelinks *:after {
@@ -432,7 +433,8 @@
   z-index: 150; }
 
 .kfloating .ksharelinks {
-  padding: 0; }
+  padding: 0;
+  margin-bottom: 0; }
 
 .kfloating .kintro {
   display: none; }
