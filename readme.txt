@@ -1,33 +1,46 @@
 === Kebo Social ===
 Contributors:      peterbooker
-Tags:              social, share, sharing, share links, twitter, facebook, google, linkedin, pinterest
+Tags:              social, share, share buttons, sharing, social buttons, twitter, facebook, google, linkedin, pinterest
 Requires at least: 3.5
 Tested up to:      3.8.1
-Stable tag:        0.4.3
+Stable tag:        0.4.4
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
-Social sharing done right. The best WordPress plugin to integrate Social sharing into your website.
+Share Buttons done right. The best way to integrate Social Share Buttons into your website.
 
 == Description ==
 
-Kebo Social aims to be the best choice for integrating your website with Social services. Helping you to share your content with visitors and for them to share your content with friends.
+Kebo Social allows you to add Social Share Buttons onto your website the right way. Most other options come with severe downsides, including scripts which track your visitors, slowing down your site, ugly and mismatched designs, etc.
 
-Our Social Share Links look beautiful and don't include any nasty tracking scripts. Making them fast, efficient and stunning. Optionally, they can also track and display how many times your content has been shared on each service.
+We provide clean, clear and efficient Share Buttons to encourage your visitors to share your content, without damaging their experience in any way. You can also optionally track how many times your 
 
-Moving forwards we will be add many more features to Kebo Social to help you to drive more traffic to your website and engage more with your visitors.
+Moving forwards we will be adding many more features to Kebo Social to help you to drive more traffic to your website and engage more with your visitors.
 
 = Why use Kebo Social? =
 
-* Social Share Links - the right way. Consistent design, no tracking scripts.
-* Social Share Counts.
-* User-friendly drag and drop UI (Touch Compatible).
-* A range of beautifully styled themes to choose from.
-* Output the HTML only and style them yourself.
-* Add views yourself to customise the HTML output.
-* Add to any public Post Types.
-* Multisite Ready.
-* Translation ready.
+Social Media is now a significant and essential part of web strategy. It plays an ever more important role in SEO and is how many visitors choose to discuss your content.
+
+Encouraging users to engage with your content through Social Media will boost your search rankings and allow you to reach a much wider audience.
+
+Many Social Media plugins add content which does not match your website, scripts which track your visitors and/or make your pages load much slower. Kebo Social allows you to encourage visitors to engage with and share your content the right way.
+
+= Features =
+
+* **General**
+ * User-friendly UI (Touch compatible).
+ * Built for Performance.
+ * Translation Ready.
+ * Multi-Site Ready.
+ * Developer and Designer Friendly.
+
+* **Share Buttons**
+ * Responsive (floating bar).
+ * Retina Ready (uses font icons).
+ * Consistent and Clean Styles.
+ * Tracks Share Counts.
+ * No impact on Page Loads (single CSS file added).
+ * No Tracking Scripts or External Services.
 
 == Installation ==
 
@@ -44,7 +57,7 @@ Moving forwards we will be add many more features to Kebo Social to help you to 
 
 == Frequently Asked Questions ==
 
-= What are Social Share Links? =
+= What are Social Share Buttons? =
 
 They are links, usually above and below your post content, which make it easy for readers to share your content using their Social accounts.
 
@@ -74,12 +87,16 @@ On top of this all the features share resources where appropriate, so that it sh
 
 1. This is the settings page for the Post Share Links, the user-friendly drag n drop interface is tablet and mobile friendly.
 2. As you change settings on the page, the preview is updated in real-time.
-3. The Post Share Links in action on the TwentyTwelve theme.
+3. Our Share Buttons in action on the TwentyThirteen theme.
+4. The TwentyFourteen theme shows off our Share Buttons.
 
 == Changelog ==
 
+= 0.4.4 =
+* Bug Fix: Now properly hides Share Buttons on password protected posts.
+
 = 0.4.3 =
-* Bug Fix: Plugin now includes updates stylesheets (the build process was broken).
+* Bug Fix: Plugin now includes updated stylesheets (the build process was broken).
 * Bug Fix: Added a margin to the bottom of the share links to keep consistency with most themes content areas.
 
 = 0.4.2 =
@@ -105,11 +122,17 @@ On top of this all the features share resources where appropriate, so that it sh
 = 0.3.0 =
 * Important: This is the first public beta release.
 
-== Upgrade Notice ==
+== Translations ==
 
-= 0.3.0 =
-* Important: This is the first public beta release.
+* English
+* More coming soon.
 
-== Support Documentation ==
+*Note:* All my plugins are localized/ translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful.
 
-Coming soon.
+== Additional Info ==
+
+Social Media is such an important part of web strategy that I believe it deserves a plugin which treats it as such.
+
+== Credits ==
+
+* Coming Soon.
