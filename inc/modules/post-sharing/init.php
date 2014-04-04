@@ -39,7 +39,7 @@ function kbso_post_sharing_activate() {
      * Check we are in the right environment to be adding the post sharing links.
      * Feature On? Main Query? Single Post? Selected Post Type?
      */
-    if ( 'yes' == $options['feature_control_post_sharing'] && is_main_query() && is_singular() && in_array( $post->post_type, $options['post_sharing_post_types'] ) ) {
+    if ( 'yes' == $options['feature_control_post_sharing'] && is_main_query() && is_singular() && in_array( $post->post_type, $options['post_sharing_post_types'] ) && empty( $post->post_password ) ) {
     
         add_filter( 'the_content', 'kbso_post_sharing_content_insert', 95 );
         add_action( 'wp_enqueue_scripts', 'kbso_post_sharing_enqueue_frontend' );
