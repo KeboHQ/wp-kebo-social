@@ -213,54 +213,59 @@ function kbso_post_sharing_floating_bar_render() {
 function kbso_get_post_sharing_services() {
     
     $services = array(
+        'buffer' => array(
+            'name' => 'buffer',
+            'label' => __( 'Buffer', 'kbso' ),
+            'href' => '#'
+        ),
         'delicious' => array(
             'name' => 'delicious',
-            'label' => 'Delicious',
+            'label' => __( 'Delicious', 'kbso' ),
             'href' => '#'
         ),
         'digg' => array(
             'name' => 'digg',
-            'label' => 'Digg',
+            'label' => __( 'Digg', 'kbso' ),
             'href' => '#'
         ),
         'facebook' => array(
             'name' => 'facebook',
-            'label' => 'Facebook',
+            'label' => __( 'Facebook', 'kbso' ),
             'href' => '#'
         ),
         'googleplus' => array(
             'name' => 'googleplus',
-            'label' => 'Google+',
+            'label' => __( 'Google+', 'kbso' ),
             'href' => '#'
         ),
         'linkedin' => array(
             'name' => 'linkedin',
-            'label' => 'LinkedIn',
+            'label' => __( 'LinkedIn', 'kbso' ),
             'href' => '#'
         ),
         'pinterest' => array(
             'name' => 'pinterest',
-            'label' => 'Pinterest',
+            'label' => __( 'Pinterest', 'kbso' ),
             'href' => '#'
         ),
         'reddit' => array(
             'name' => 'reddit',
-            'label' => 'Reddit',
+            'label' => __( 'Reddit', 'kbso' ),
             'href' => '#'
         ),
         'stumbleupon' => array(
             'name' => 'stumbleupon',
-            'label' => 'Stumbleupon',
+            'label' => __( 'Stumbleupon', 'kbso' ),
             'href' => '#'
         ),
         'tumblr' => array(
             'name' => 'tumblr',
-            'label' => 'Tumblr',
+            'label' => __( 'Tumblr', 'kbso' ),
             'href' => '#'
         ),
         'twitter' => array(
             'name' => 'twitter',
-            'label' => 'Twitter',
+            'label' => __( 'Twitter', 'kbso' ),
             'href' => '#'
         ),
     );
@@ -403,6 +408,24 @@ function kbso_post_sharing_prepare_links() {
 }
 
 /*
+ * Social Sharing Buffer Link Setup
+ */
+function kbso_post_sharing_buffer_href( $services ) {
+    
+    global $post;
+    
+    if ( isset( $services['buffer'] ) ) {
+            
+        $services['buffer']['href'] = esc_url( 'http://bufferapp.com/add?&text=' . urlencode( get_the_title() ) . '&url=' . urlencode( get_permalink() ) . '' );
+            
+    }
+    
+    return $services;
+    
+}
+add_filter( 'kbso_post_sharing_prepare_link', 'kbso_post_sharing_buffer_href' );
+
+/*
  * Social Sharing Delicious Link Setup
  */
 function kbso_post_sharing_delicious_href( $services ) {
@@ -411,7 +434,7 @@ function kbso_post_sharing_delicious_href( $services ) {
     
     if ( isset( $services['delicious'] ) ) {
             
-        $services['delicious']['href'] = esc_url( 'https://delicious.com/save?v=5&noui&jump=close&url=' . get_permalink() . '&title=' . get_the_title() . '' );
+        $services['delicious']['href'] = esc_url( 'https://delicious.com/save?v=5&noui&jump=close&url=' . urlencode( get_permalink() ) . '&title=' . urlencode( get_the_title() ) . '' );
             
     }
     
@@ -429,7 +452,7 @@ function kbso_post_sharing_digg_href( $services ) {
     
     if ( isset( $services['digg'] ) ) {
             
-        $services['digg']['href'] = esc_url( 'http://digg.com/submit?url=' . get_permalink() . '&title=' . get_the_title() . '' );
+        $services['digg']['href'] = esc_url( 'http://digg.com/submit?url=' . urlencode( get_permalink() ) . '&title=' . urlencode( get_the_title() ) . '' );
             
     }
     
@@ -447,7 +470,7 @@ function kbso_post_sharing_facebook_href( $services ) {
     
     if ( isset( $services['facebook'] ) ) {
             
-        $services['facebook']['href'] = esc_url( 'http://www.facebook.com/sharer.php?u=' . urlencode( get_permalink() ) . '&t=' . urlencode( get_the_title() ) . '' );
+        $services['facebook']['href'] = esc_url( 'http://www.facebook.com/sharer.php?u=' . rawurlencode( get_permalink() ) . '&t=' . rawurlencode( get_the_title() ) . '' );
             
     }
     
@@ -465,7 +488,7 @@ function kbso_post_sharing_googleplus_href( $services ) {
     
     if ( isset( $services['googleplus'] ) ) {
             
-        $services['googleplus']['href'] = esc_url( 'https://plus.google.com/share?url=' . urlencode( get_permalink() ) . '' );
+        $services['googleplus']['href'] = esc_url( 'https://plus.google.com/share?url=' . rawurlencode( get_permalink() ) . '' );
             
     }
     
@@ -485,7 +508,7 @@ function kbso_post_sharing_linkedin_href( $services ) {
     
     if ( isset( $services['linkedin'] ) ) {
             
-        $services['linkedin']['href'] = esc_url( 'http://www.linkedin.com/shareArticle?mini=true&url=' . urlencode( get_permalink() ) . '&title=' . urlencode( get_the_title() ) . '&summary=' . urlencode( $summary ) . '&source=' . urlencode( get_bloginfo( 'name' ) ) . '' );
+        $services['linkedin']['href'] = esc_url( 'http://www.linkedin.com/shareArticle?mini=true&url=' . rawurlencode( get_permalink() ) . '&title=' . rawurlencode( get_the_title() ) . '&summary=' . urlencode( $summary ) . '&source=' . urlencode( get_bloginfo( 'name' ) ) . '' );
             
     }
     
@@ -541,7 +564,7 @@ function kbso_post_sharing_pinterest_href( $services ) {
 
                 $description = ( ! empty( $summary ) ) ? $summary : $featured_image['alt'] ;
 
-                $services['pinterest']['href'] = esc_url( 'http://pinterest.com/pin/create/button/?url=' . urlencode( get_permalink() ) . '&media=' . urlencode( $featured_src ) . '&description=' . urlencode( $description ) . '&is_video=false' );
+                $services['pinterest']['href'] = esc_url( 'http://pinterest.com/pin/create/button/?url=' . rawurlencode( get_permalink() ) . '&media=' . rawurlencode( $featured_src ) . '&description=' . rawurlencode( $description ) . '&is_video=false' );
             
             } else {
                 
@@ -571,7 +594,7 @@ function kbso_post_sharing_reddit_href( $services ) {
     
     if ( isset( $services['reddit'] ) ) {
             
-        $services['reddit']['href'] = esc_url( 'http://www.reddit.com/submit?title=' . urlencode( get_the_title() ) . '&url=' . urlencode( get_permalink() ) . '' );
+        $services['reddit']['href'] = esc_url( 'http://www.reddit.com/submit?title=' . rawurlencode( get_the_title() ) . '&url=' . rawurlencode( get_permalink() ) . '' );
             
     }
     
@@ -589,7 +612,7 @@ function kbso_post_sharing_stumbleupon_href( $services ) {
     
     if ( isset( $services['stumbleupon'] ) ) {
             
-        $services['stumbleupon']['href'] = esc_url( 'http://www.stumbleupon.com/submit?url=' . urlencode( get_permalink() ) . '&title=' . urlencode( get_the_title() ) . '' );
+        $services['stumbleupon']['href'] = esc_url( 'http://www.stumbleupon.com/submit?url=' . rawurlencode( get_permalink() ) . '&title=' . rawurlencode( get_the_title() ) . '' );
             
     }
     
@@ -609,7 +632,7 @@ function kbso_post_sharing_tumblr_href( $services ) {
     
     if ( isset( $services['tumblr'] ) ) {
             
-        $services['tumblr']['href'] = esc_url( 'https://www.tumblr.com/share/link?url=' . urlencode( get_permalink() ) . '&name=' . urlencode( get_the_title() ) . '&description=' . urlencode( $summary ) . '' );
+        $services['tumblr']['href'] = esc_url( 'https://www.tumblr.com/share/link?url=' . rawurlencode( get_permalink() ) . '&name=' . rawurlencode( get_the_title() ) . '&description=' . rawurlencode( $summary ) . '' );
             
     }
     
@@ -627,7 +650,7 @@ function kbso_post_sharing_twitter_href( $services ) {
     
     if ( isset( $services['twitter'] ) ) {
             
-        $services['twitter']['href'] = esc_url( 'http://twitter.com/share?text=' . urlencode( get_the_title() ) . '&url=' . urlencode( get_permalink() ) . '' );
+        $services['twitter']['href'] = esc_url( 'http://twitter.com/share?text=' . rawurlencode( get_the_title() ) . '&url=' . rawurlencode( get_permalink() ) . '' );
             
     }
     
