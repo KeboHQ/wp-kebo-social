@@ -77,6 +77,22 @@
 // Buttons Variations
 // --------------------------------------------------
 
+.ksharelinks.gradient .buffer {
+    @include button-variant( #fff, $buffer, darken( $buffer, 5% ) );
+    @include gradient-single( $buffer );
+    &:hover,
+    &:active {
+        background: darken( $buffer, 10% );
+    }
+}
+.ksharelinks.gradient .email {
+    @include button-variant( #fff, $email, darken( $email, 5% ) );
+    @include gradient-single( $email );
+    &:hover,
+    &:active {
+        background: darken( $email, 10% );
+    }
+}
 .ksharelinks.gradient .facebook {
     @include button-variant( #fff, $facebook, darken( $facebook, 5% ) );
     @include gradient-single( $facebook );

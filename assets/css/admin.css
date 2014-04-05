@@ -2001,114 +2001,6 @@ form.feature-control h3 {
   color: #000;
   opacity: 0.5; }
 
-.services-list {
-  margin-bottom: -10px; }
-
-.social-link {
-  background: #ccc;
-  color: #fff;
-  display: inline-block;
-  font-size: 16px;
-  font-weight: normal;
-  padding: 8px 16px 8px 14px;
-  margin: 0 10px 10px 0; }
-
-.social-link.twitter {
-  background: #00aced; }
-
-.social-link.twitter:active,
-.social-link.twitter:focus,
-.social-link.twitter:hover {
-  background: #0087ba; }
-
-.social-link.facebook {
-  background: #3b5998; }
-
-.social-link.facebook:active,
-.social-link.facebook:focus,
-.social-link.facebook:hover {
-  background: #2d4373; }
-
-.social-link.linkedin {
-  background: #007bb6; }
-
-.social-link.linkedin:active,
-.social-link.linkedin:focus,
-.social-link.linkedin:hover {
-  background: #005983; }
-
-.social-link.googleplus {
-  background: #dd4b39; }
-
-.social-link.googleplus:active,
-.social-link.googleplus:focus,
-.social-link.googleplus:hover {
-  background: #c23321; }
-
-.social-link.pinterest {
-  background: #cb2027; }
-
-.social-link.pinterest:active,
-.social-link.pinterest:focus,
-.social-link.pinterest:hover {
-  background: #9f191f; }
-
-.social-link.tumblr {
-  background: #2c4762; }
-
-.social-link.tumblr:active,
-.social-link.tumblr:focus,
-.social-link.tumblr:hover {
-  background: #1c2d3f; }
-
-.social-link.instagram {
-  background: #517fa4; }
-
-.social-link.instagram:active,
-.social-link.instagram:focus,
-.social-link.instagram:hover {
-  background: #406582; }
-
-.social-link.flickr {
-  background: #ff0084; }
-
-.social-link.flickr:active,
-.social-link.flickr:focus,
-.social-link.flickr:hover {
-  background: #cc006a; }
-
-.social-link.digg {
-  background: #164673; }
-
-.social-link.digg:active,
-.social-link.digg:focus,
-.social-link.digg:hover {
-  background: #0e2c48; }
-
-.social-link.stumbleupon {
-  background: #eb4924; }
-
-.social-link.stumbleupon:active,
-.social-link.stumbleupon:focus,
-.social-link.stumbleupon:hover {
-  background: #ca3412; }
-
-.social-link.delicious {
-  background: #0b79e5; }
-
-.social-link.delicious:active,
-.social-link.delicious:focus,
-.social-link.delicious:hover {
-  background: #095fb4; }
-
-.social-link.reddit {
-  background: #75b0eb; }
-
-.social-link.reddit:active,
-.social-link.reddit:focus,
-.social-link.reddit:hover {
-  background: #4896e5; }
-
 /*
  * Sharing Page
  */
@@ -2189,6 +2081,18 @@ form.feature-control h3 {
 .kebo.wrap li.share-link i {
   color: #fff;
   margin-right: 0.5em; }
+
+.kebo.wrap li.share-link.buffer {
+  background: #444444; }
+
+.kebo.wrap li.share-link.buffer:hover {
+  background: #2b2b2b; }
+
+.kebo.wrap li.share-link.email {
+  background: #bbbbbb; }
+
+.kebo.wrap li.share-link.email:hover {
+  background: #a2a2a2; }
 
 .kebo.wrap li.share-link.twitter {
   background: #00aced; }

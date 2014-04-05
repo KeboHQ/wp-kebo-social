@@ -77,6 +77,12 @@
 // Buttons Variations
 // --------------------------------------------------
 
+.ksharelinks.plain .email {
+    @include button-variant( #fff, $email, darken( $email, 5% ) );
+}
+.ksharelinks.plain .buffer {
+    @include button-variant( #fff, $buffer, darken( $buffer, 5% ) );
+}
 .ksharelinks.plain .facebook {
     @include button-variant( #fff, $facebook, darken( $facebook, 5% ) );
 }

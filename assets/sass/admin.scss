@@ -344,116 +344,6 @@ form.feature-control h3 {
         opacity: 0.5;
 }
 
-// Social Links
-.services-list {
-        margin-bottom: -10px;
-}
-.social-link {
-        background: #ccc;
-        color: #fff;
-        display: inline-block;
-        font-size: 16px;
-        font-weight: normal;
-        padding: 8px 16px 8px 14px;
-        margin: 0 10px 10px 0;
-}
-.social-link.twitter {
-        background: $twitter;
-}
-.social-link.twitter:active,
-.social-link.twitter:focus,
-.social-link.twitter:hover {
-        background: darken($twitter, 10%);
-}
-.social-link.facebook {
-        background: $facebook;
-}
-.social-link.facebook:active,
-.social-link.facebook:focus,
-.social-link.facebook:hover {
-        background: darken($facebook, 10%);
-}
-.social-link.linkedin {
-        background: $linkedin;
-}
-.social-link.linkedin:active,
-.social-link.linkedin:focus,
-.social-link.linkedin:hover {
-        background: darken($linkedin, 10%);
-}
-.social-link.googleplus {
-        background: $googleplus;
-}
-.social-link.googleplus:active,
-.social-link.googleplus:focus,
-.social-link.googleplus:hover {
-        background: darken($googleplus, 10%);
-}
-.social-link.pinterest {
-        background: $pinterest;
-}
-.social-link.pinterest:active,
-.social-link.pinterest:focus,
-.social-link.pinterest:hover {
-        background: darken($pinterest, 10%);
-}
-.social-link.tumblr {
-        background: $tumblr;
-}
-.social-link.tumblr:active,
-.social-link.tumblr:focus,
-.social-link.tumblr:hover {
-        background: darken($tumblr, 10%);
-}
-.social-link.instagram {
-        background: $instagram;
-}
-.social-link.instagram:active,
-.social-link.instagram:focus,
-.social-link.instagram:hover {
-        background: darken($instagram, 10%);
-}
-.social-link.flickr {
-        background: $flickr;
-}
-.social-link.flickr:active,
-.social-link.flickr:focus,
-.social-link.flickr:hover {
-        background: darken($flickr, 10%);
-}
-.social-link.digg {
-        background: $digg;
-}
-.social-link.digg:active,
-.social-link.digg:focus,
-.social-link.digg:hover {
-        background: darken($digg, 10%);
-}
-.social-link.stumbleupon {
-        background: $stumbleupon;
-}
-.social-link.stumbleupon:active,
-.social-link.stumbleupon:focus,
-.social-link.stumbleupon:hover {
-        background: darken($stumbleupon, 10%);
-}
-.social-link.delicious {
-        background: $delicious;
-}
-.social-link.delicious:active,
-.social-link.delicious:focus,
-.social-link.delicious:hover {
-        background: darken($delicious, 10%);
-}
-.social-link.reddit {
-        background: $reddit;
-}
-.social-link.reddit:active,
-.social-link.reddit:focus,
-.social-link.reddit:hover {
-        background: darken($reddit, 10%);
-}
-
 /*
  * Sharing Page
  */
@@ -543,6 +433,18 @@ form.feature-control h3 {
 .kebo.wrap li.share-link i {
         color: #fff;
         margin-right: 0.5em;
+}
+.kebo.wrap li.share-link.buffer {
+        background: $buffer;
+}
+.kebo.wrap li.share-link.buffer:hover {
+        background: darken( $buffer, 10% );
+}
+.kebo.wrap li.share-link.email {
+        background: $email;
+}
+.kebo.wrap li.share-link.email:hover {
+        background: darken( $email, 10% );
 }
 .kebo.wrap li.share-link.twitter {
         background: $twitter;

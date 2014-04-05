@@ -510,6 +510,28 @@
     opacity: 0.65;
     box-shadow: none; }
 
+.ksharelinks.plain .email {
+  color: white;
+  background-color: #bbbbbb;
+  border-color: #aeaeae; }
+  .ksharelinks.plain .email:hover, .ksharelinks.plain .email:focus, .ksharelinks.plain .email:active, .ksharelinks.plain .email.active {
+    color: white;
+    background-color: #a2a2a2;
+    border-color: #909090; }
+  .ksharelinks.plain .email:active, .ksharelinks.plain .email.active {
+    background-image: none; }
+
+.ksharelinks.plain .buffer {
+  color: white;
+  background-color: #444444;
+  border-color: #373737; }
+  .ksharelinks.plain .buffer:hover, .ksharelinks.plain .buffer:focus, .ksharelinks.plain .buffer:active, .ksharelinks.plain .buffer.active {
+    color: white;
+    background-color: #2b2b2b;
+    border-color: #191919; }
+  .ksharelinks.plain .buffer:active, .ksharelinks.plain .buffer.active {
+    background-image: none; }
+
 .ksharelinks.plain .facebook {
   color: white;
   background-color: #3b5998;
@@ -955,6 +977,64 @@ body {
     pointer-events: none;
     opacity: 0.65;
     box-shadow: none; }
+
+.ksharelinks.gradient .buffer {
+  color: white;
+  background-color: #444444;
+  border-color: #373737;
+  /* fallback/image non-cover color */
+  background-color: #444444;
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient(#444444, #2b2b2b);
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#444444), to(#2b2b2b));
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient(#444444, #2b2b2b);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(#444444, #2b2b2b);
+  /* IE10+ */
+  background: -ms-linear-gradient(top, #444444, #2b2b2b 100%);
+  /* W3C */
+  background: linear-gradient(top, #444444, #2b2b2b 100%);
+  /* IE 6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#FF444444', endColorstr='#FF2B2B2B'); }
+  .ksharelinks.gradient .buffer:hover, .ksharelinks.gradient .buffer:focus, .ksharelinks.gradient .buffer:active, .ksharelinks.gradient .buffer.active {
+    color: white;
+    background-color: #2b2b2b;
+    border-color: #191919; }
+  .ksharelinks.gradient .buffer:active, .ksharelinks.gradient .buffer.active {
+    background-image: none; }
+  .ksharelinks.gradient .buffer:hover, .ksharelinks.gradient .buffer:active {
+    background: #2b2b2b; }
+
+.ksharelinks.gradient .email {
+  color: white;
+  background-color: #bbbbbb;
+  border-color: #aeaeae;
+  /* fallback/image non-cover color */
+  background-color: #bbbbbb;
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient(#bbbbbb, #a2a2a2);
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bbbbbb), to(#a2a2a2));
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient(#bbbbbb, #a2a2a2);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(#bbbbbb, #a2a2a2);
+  /* IE10+ */
+  background: -ms-linear-gradient(top, #bbbbbb, #a2a2a2 100%);
+  /* W3C */
+  background: linear-gradient(top, #bbbbbb, #a2a2a2 100%);
+  /* IE 6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#FFBBBBBB', endColorstr='#FFA2A2A2'); }
+  .ksharelinks.gradient .email:hover, .ksharelinks.gradient .email:focus, .ksharelinks.gradient .email:active, .ksharelinks.gradient .email.active {
+    color: white;
+    background-color: #a2a2a2;
+    border-color: #909090; }
+  .ksharelinks.gradient .email:active, .ksharelinks.gradient .email.active {
+    background-image: none; }
+  .ksharelinks.gradient .email:hover, .ksharelinks.gradient .email:active {
+    background: #a2a2a2; }
 
 .ksharelinks.gradient .facebook {
   color: white;
