@@ -1,13 +1,13 @@
 === Kebo Social ===
 Contributors:      peterbooker
-Tags:              social, share, share buttons, sharing, social buttons, twitter, facebook, google, linkedin, pinterest
+Tags:              social, share, share buttons, sharing, social buttons, widget, twitter, facebook, google, linkedin, pinterest
 Requires at least: 3.5
-Tested up to:      3.8.1
-Stable tag:        0.4.4
+Tested up to:      3.9
+Stable tag:        0.4.5
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
-Share Buttons done right. The best way to integrate Social Share Buttons into your website.
+Share Buttons done right. Encourage visitors to share and discuss your content.
 
 == Description ==
 
@@ -26,21 +26,22 @@ Encouraging users to engage with your content through Social Media will boost yo
 Many Social Media plugins add content which does not match your website, scripts which track your visitors and/or make your pages load much slower. Kebo Social allows you to encourage visitors to engage with and share your content the right way.
 
 = Features =
-
-* **General**
- * User-friendly UI (Touch compatible).
- * Built for Performance.
- * Translation Ready.
- * Multi-Site Ready.
- * Developer and Designer Friendly.
-
-* **Share Buttons**
- * Responsive (floating bar).
- * Retina Ready (uses font icons).
- * Consistent and Clean Styles.
- * Tracks Share Counts.
- * No impact on Page Loads (single CSS file added).
- * No Tracking Scripts or External Services.
+ 
+**General**
+* User-friendly UI (Touch compatible).
+* Built for Performance.
+* Translation Ready.
+* Multi-Site Ready.
+* Developer and Designer Friendly.
+ 
+**Share Buttons**
+* Responsive (floating bar).
+* Retina Ready (uses font icons).
+* Consistent and Clean Styles.
+* Tracks Share Counts.
+* No reliance on JavaScript.
+* No impact on Page Loads (single CSS file added).
+* No Tracking Scripts, Calling Home or 3rd Party Service.
 
 == Installation ==
 
@@ -63,7 +64,7 @@ They are links, usually above and below your post content, which make it easy fo
 
 This generates more visitors to your website from social services and social markers are increasingly important for SEO.
 
-= What is special about these Share Links? =
+= What is special about these Share Buttons? =
 
 The share links provided by each Social Service have some major downsides. To begin with none of them are consistently styled which makes them look messy together. More importantly, each includes adds its own external javascript file to your website. This slows down the loading of your website and includes a tracking feature to trace what users of your site are looking at.
 
@@ -92,8 +93,13 @@ On top of this all the features share resources where appropriate, so that it sh
 
 == Changelog ==
 
+= 0.4.5 =
+* Bug Fix: Fixed a theme compatibility bug causing the share buttons to not be visible. (props Clorith)
+
 = 0.4.4 =
-* Bug Fix: Now properly hides Share Buttons on password protected posts.
+* New Feature: Added Buffer to Share Button Services (with Counts).
+* Bug Fix: Now properly hides Share Buttons on password protected posts. (props pixolin)
+* Note: An Email share button is in the works, coming soon.
 
 = 0.4.3 =
 * Bug Fix: Plugin now includes updated stylesheets (the build process was broken).
