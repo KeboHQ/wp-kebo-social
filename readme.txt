@@ -3,7 +3,7 @@ Contributors:      peterbooker
 Tags:              social, share, share buttons, sharing, social buttons, widget, twitter, facebook, google, linkedin, pinterest
 Requires at least: 3.5
 Tested up to:      3.9
-Stable tag:        0.4.5
+Stable tag:        0.4.6
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,7 @@ Many Social Media plugins add content which does not match your website, scripts
 = Features =
  
 **General**
+
 * User-friendly UI (Touch compatible).
 * Built for Performance.
 * Translation Ready.
@@ -35,6 +36,7 @@ Many Social Media plugins add content which does not match your website, scripts
 * Developer and Designer Friendly.
  
 **Share Buttons**
+
 * Responsive (floating bar).
 * Retina Ready (uses font icons).
 * Consistent and Clean Styles.
@@ -92,6 +94,9 @@ On top of this all the features share resources where appropriate, so that it sh
 4. The TwentyFourteen theme shows off our Share Buttons.
 
 == Changelog ==
+
+= 0.4.6 =
+* Bug Fix: Fixed a bug where encoded characters were seen in the share text. (props Clorith)
 
 = 0.4.5 =
 * Bug Fix: Fixed a theme compatibility bug causing the share buttons to not be visible. (props Clorith)
