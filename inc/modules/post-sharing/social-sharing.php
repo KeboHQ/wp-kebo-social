@@ -27,15 +27,15 @@ function kbso_post_sharing_enqueue_backend( $hook_suffix ) {
         /*
          * Use minified files where available, unless SCRIPT_DEBUG is true
          */
-        if ( false == SCRIPT_DEBUG ) {
-            
-            wp_enqueue_style( 'kbso-admin-min' );
-            wp_enqueue_style( 'kbso-post-sharing-min' );
-            
-        } else {
+        if ( true == SCRIPT_DEBUG ) {
             
             wp_enqueue_style( 'kbso-admin' );
             wp_enqueue_style( 'kbso-post-sharing' );
+            
+        } else {
+            
+            wp_enqueue_style( 'kbso-admin-min' );
+            wp_enqueue_style( 'kbso-post-sharing-min' );
             
         }
         
