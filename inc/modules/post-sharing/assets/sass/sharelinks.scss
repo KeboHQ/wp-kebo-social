@@ -23,12 +23,16 @@
  * General
  */
 .ksharelinks {
-        overflow: hidden;
         margin-bottom: 20px;
 }
 .ksharelinks *:before,
 .ksharelinks *:after {
         @include box-sizing();
+}
+.ksharelinks:after {
+        content: "";
+        display: table;
+        clear: both;
 }
 
 /*
