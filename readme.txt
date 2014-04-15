@@ -95,6 +95,7 @@ On top of this all the features share resources where appropriate, so that it sh
 
 = 0.4.5 =
 * Bug Fix: Fixed a theme compatibility bug causing the share buttons to not be visible. (props Clorith)
+* Note: Also added changes to the readme content.
 
 = 0.4.4 =
 * New Feature: Added Buffer to Share Button Services (with Counts).
