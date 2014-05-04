@@ -86,7 +86,7 @@ if ( ! class_exists( 'Kebo_Caching' ) ) {
              */
             if ( isset( $_POST['_kebo_cache'] ) ) {
                 
-                kbso_social_sharing_update_counts( self::$lock );
+                kbso_post_sharing_update_counts( self::$lock );
                 
                 // Incase functions using the hook forget to exit.
                 exit();
