@@ -13,15 +13,19 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
  *
  * This function is hooked into the 'wp_dashboard_setup' action below.
  */
-function kbso_post_sharing_add_status_widget() {
+if ( current_user_can( 'manage_options' ) ) {
+    
+    function kbso_post_sharing_add_status_widget() {
 
-	wp_add_dashboard_widget(
-            'kbso_post_sharing_status',
-            __( 'Post Sharing Status', 'kbso' ),
-            'kbso_post_sharing_status_widget_render'
-        );	
+            wp_add_dashboard_widget(
+                'kbso_post_sharing_status',
+                __( 'Post Sharing Overview', 'kbso' ),
+                'kbso_post_sharing_status_widget_render'
+            );	
+    }
+    add_action( 'wp_dashboard_setup', 'kbso_post_sharing_add_status_widget' );
+    
 }
-add_action( 'wp_dashboard_setup', 'kbso_post_sharing_add_status_widget' );
 
 /**
  * Social Sharing Dashboard Widget
@@ -33,9 +37,9 @@ function kbso_post_sharing_status_widget_render() {
     /*
      * Store Query Results in Transient to save processing
      * 
-     * expiry 5 mins
+     * Expiry 5 mins
      * 
-     * TODO: Make this refresh in the background so it never impacts 
+     * TODO: Make this refresh in the background so it never impacts pageload
      */
     if ( false === ( $counts = get_transient( 'kbso_post_sharing_status_widget' . get_current_blog_id() ) ) ) {
         
@@ -63,7 +67,9 @@ function kbso_post_sharing_status_widget_render() {
          */
         //$counts->expiry = time() + ( 5 * MINUTE_IN_SECONDS );
         
-        set_transient( 'kbso_post_sharing_status_widget' . get_current_blog_id(), $counts, 5 * MINUTE_IN_SECONDS );
+        $refresh = apply_filters( 'kbso_post_sharing_dashboard_widget_refresh', 5 * MINUTE_IN_SECONDS );
+        
+        set_transient( 'kbso_post_sharing_status_widget' . get_current_blog_id(), $counts, $refresh );
         
     }
     
