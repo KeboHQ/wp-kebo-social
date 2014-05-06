@@ -86,7 +86,7 @@ require_once( KBSO_POST_SHARING_PATH . 'options.php' );
 /*
  * Include General file.
  */
-require_once( KBSO_POST_SHARING_PATH . 'social-sharing.php' );
+require_once( KBSO_POST_SHARING_PATH . 'post-sharing.php' );
 
 /*
  * Include Social Count Update file.

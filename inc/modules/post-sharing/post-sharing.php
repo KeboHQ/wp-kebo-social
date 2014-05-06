@@ -876,6 +876,24 @@ function kbso_post_sharing_frontend_js_print() {
 
             });
             
+            var ksharebuttons = document.getElementsByName('a');
+            var klinks = document.getElementsByTagName('a');
+            
+            for ( var i=0,il = klinks.length; i < il; i++ ) {
+                klinks[i].onclick = kPopups;
+            }
+            
+            function kPopups() {
+                
+                // Prevent Click from Reloading page
+                e.preventDefault();
+
+                var khref = $(this).attr('href');
+                var khref = document.getElementById("myimage").getAttribute( 'href' )
+                window.open( khref, 'window', 'width=600, height=400, top=0, left=0');
+                
+            }
+            
         });
         
     </script>
