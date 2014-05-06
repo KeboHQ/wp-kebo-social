@@ -49,7 +49,7 @@ add_action( 'kebo_caching_capture_request', 'kbso_post_sharing_refresh_detect', 
  */
 function kbso_post_sharing_update_counts( $post_id ) {
     
-    $options = kbso_get_plugin_options();
+    //$options = kbso_get_plugin_options();
     
     $permalink = get_permalink( $post_id );
 
