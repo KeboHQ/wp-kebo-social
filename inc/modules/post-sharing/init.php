@@ -1,6 +1,6 @@
 <?php
 /* 
- * Init for the Social Sharing module.
+ * Init for the Post Sharing module.
  */
 
 if ( ! defined( 'KBSO_VERSION' ) ) {
@@ -63,6 +63,11 @@ if ( is_admin() ) {
      * Include Sharing Menu file.
      */
     require_once( KBSO_POST_SHARING_PATH . 'menu.php' );
+    
+    /*
+     * Include Post Meta file.
+     */
+    require_once( KBSO_POST_SHARING_PATH . 'meta.php' );
     
 }
 
