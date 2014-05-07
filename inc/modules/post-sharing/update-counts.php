@@ -197,6 +197,9 @@ function kbso_post_sharing_update_counts( $post_id ) {
 
         /*
          * Update Expiry Time
+         * 
+         * This should be variable and take into account the age of post.
+         * 
          */
         $counts['expiry'] = time() + ( 5 * MINUTE_IN_SECONDS );
 
