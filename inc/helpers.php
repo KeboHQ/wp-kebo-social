@@ -9,6 +9,89 @@ if ( ! defined( 'KBSO_VERSION' ) ) {
 }
 
 /**
+ * Get Plugin Capability
+ */
+function kbso_get_plugin_capability() {
+    
+    return apply_filters( 'kbso_get_plugin_capability', 'manage_posts' );
+    
+}
+
+/**
+ * Validate URLs
+ * 
+ * @param string $url
+ * @param boolean $strict
+ * @return string|boolean
+ */
+function kbso_validate_url( $url, $strict = false ) {
+    
+    // No URL to Validate
+    if ( ! isset( $url ) || empty( $url ) ) {
+        return false;
+    }
+    
+    // Check for scheme e.g. http://
+    $scheme = parse_url( $url, PHP_URL_SCHEME );
+    
+    // Add scheme if missing
+    if ( empty( $scheme ) ) {
+        $url = 'http://' . $url;
+    }
+    
+    // Check for a valid URL
+    if ( ! filter_var( $url, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED ) ) {
+        return false;
+    }
+    
+    // If no strict check, return valid URL
+    if ( true != $strict ) {
+        return $url;
+    }
+    
+    // Prepare HTTP Request Args
+    $args = array(
+        'timeout' => 5,
+        'sslverify' => false,
+    );
+    
+    $max_attempts = apply_filters( 'kbso_validate_url_attempts', 3 );
+    
+    $attempts = 0;
+    
+    $code = 0;
+    
+    /*
+     * Repeat until max attempts is reached or code is 200
+     */
+    while ( $attempts <= $max_attempts && 200 != $code ) {
+        
+        // Make GET HTTP Request
+        $response = wp_remote_get( $url, $args );
+
+        // Fetch the Response Code - Should be 200
+        $code = wp_remote_retrieve_response_code( $response );
+        
+        $attempts++;
+        
+    }
+    
+    /*
+     * Check the Response Code
+     */
+    if ( 200 == $code ) {
+        
+        return $url;
+        
+    } else {
+        
+        return false;
+        
+    }
+    
+}
+
+/**
  * Render Dashboard Widgets
  */
 function kbso_dashboard_widget_render( $title, $content, $sortable = false ) {
