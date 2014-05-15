@@ -75,23 +75,31 @@ function kbso_plugin_setup() {
     require_once( KBSO_PATH . 'inc/loader.php' );
     
 }
-add_action( 'plugins_loaded', 'kbso_plugin_setup', 15 );
+add_action( 'plugins_loaded', 'kbso_plugin_setup', 10 );
 
 /**
  * Register plugin scripts and styles.
  */
 function kbso_register_files() {
 
-    // Register Styles
-    wp_register_style( 'kbso-admin', KBSO_URL . 'assets/css/admin.css', array(), KBSO_VERSION, 'all' );
-    wp_register_style( 'kbso-admin-min', KBSO_URL . 'assets/css/admin.min.css', array(), KBSO_VERSION, 'all' );
+    if ( is_admin() ) {
         
-    // Register Scripts
-    wp_register_script( 'kbso-admin-js', KBSO_URL . 'assets/js/admin.js', array(), KBSO_VERSION, true );
+        // Register Styles
+        wp_register_style( 'kbso-admin', KBSO_URL . 'assets/css/admin.css', array(), KBSO_VERSION, 'all' );
+        wp_register_style( 'kbso-admin-min', KBSO_URL . 'assets/css/admin.min.css', array(), KBSO_VERSION, 'all' );
     
-    wp_register_script( 'kbso-feature-control', KBSO_URL . 'assets/js/feature-control.js', array( 'jquery' ), KBSO_VERSION, true );
+    }
     
-    wp_register_script( 'jquery-ui-touchpunch', KBSO_URL . 'assets/js/vendor/jquery.ui.touch-punch.min.js', array( 'jquery-ui-sortable' ), KBSO_VERSION, false );
+    if ( is_admin() ) {
+        
+        // Register Scripts
+        wp_register_script( 'kbso-admin-js', KBSO_URL . 'assets/js/admin.js', array(), KBSO_VERSION, true );
+
+        wp_register_script( 'kbso-feature-control', KBSO_URL . 'assets/js/feature-control.js', array( 'jquery' ), KBSO_VERSION, true );
+
+        wp_register_script( 'jquery-ui-touchpunch', KBSO_URL . 'assets/js/vendor/jquery.ui.touch-punch.min.js', array( 'jquery-ui-sortable' ), KBSO_VERSION, false );
+    
+    }
     
     wp_register_script( 'flot', KBSO_URL . 'assets/js/vendor/flot/jquery.flot.js', array( 'jquery' ), KBSO_VERSION, false );
     wp_register_script( 'flot-min', KBSO_URL . 'assets/js/vendor/flot/jquery.flot.min.js', array( 'jquery' ), KBSO_VERSION, false );
@@ -111,16 +119,6 @@ function kbso_register_files() {
 }
 add_action( 'wp_enqueue_scripts', 'kbso_register_files' );
 add_action( 'admin_enqueue_scripts', 'kbso_register_files' );
-    
-/**
- * Enqueue frontend plugin scripts and styles.
- */
-function kbso_enqueue_frontend() {
-
-    
-        
-}
-add_action( 'wp_enqueue_scripts', 'kbso_enqueue_frontend' );
     
 /**
  * Enqueue backend plugin scripts and styles.
@@ -181,3 +179,33 @@ function kbso_plugin_settings_link( $links ) {
     
 }
 add_filter( 'plugin_action_links_'. $kbso_plugin_file, 'kbso_plugin_settings_link' );
+
+/**
+ * 
+ */
+function kbso_plugin_update() {
+    
+    $version = get_option( 'kbso_version' );
+    
+    if ( ! is_admin() ) {
+        return;
+    }
+    
+    if ( isset( $_POST['_kebo_compat_test'] ) ) {
+        return;
+    }
+    
+    $compat = get_option( 'kebo_job_compat' );
+    
+    if ( ! isset( $version ) || KBSO_VERSION > $version || false === $compat ) {
+        
+        update_option( 'kbso_version', KBSO_VERSION );
+        
+        do_action( 'kbso_plugin_updating' );
+        
+        Kebo_Caching::spawn_compat_test();
+        
+    }
+    
+}
+add_action( 'plugins_loaded', 'kbso_plugin_update', 15 );
