@@ -706,6 +706,24 @@ function kbso_post_sharing_twitter_href( $services ) {
 }
 add_filter( 'kbso_post_sharing_prepare_link', 'kbso_post_sharing_twitter_href' );
 
+/*
+ * Social Sharing VKontakte Link Setup
+ */
+function kbso_post_sharing_vkontakte_href( $services ) {
+
+    global $post;
+
+    if ( isset( $services['vkontakte'] ) ) {
+
+        $services['vkontakte']['href'] = esc_url( 'http://vk.com/share.php?url=' . rawurlencode( get_permalink() ) . '' );
+
+    }
+
+    return $services;
+
+}
+add_filter( 'kbso_post_sharing_prepare_link', 'kbso_post_sharing_vkontakte_href' );
+
 /**
  * Renders the Social Share Buttons.
  */
