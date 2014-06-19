@@ -2,3 +2,5 @@ node_modules
 release
 .idea
 .sass-cache
+/vendor/
+composer.lock
