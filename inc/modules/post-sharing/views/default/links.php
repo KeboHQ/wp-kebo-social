@@ -34,6 +34,7 @@
             $buffer .= $view
                 ->set_view( '_link' )
                 ->set( 'name', $link['name'] )
+                ->set( 'icon_class', $link['icon_class'] )
                 ->set( 'label', $link['label'] )
                 ->set( 'href', $link['href'] )
                 ->set( 'count', $count )

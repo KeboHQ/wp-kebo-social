@@ -10,7 +10,7 @@
     
     <a class="<?php echo esc_attr( 'klink ' . $name ); ?>" href="<?php echo esc_url( $href ); ?>" title="<?php echo esc_attr( sprintf( 'Share on %s', $label ) ); ?>" target="_blank">
         
-        <span class="kicon"><i class="<?php echo esc_attr( 'zocial ' . $name ); ?>"></i></span>
+        <span class="kicon"><i class="<?php echo esc_attr( 'fa fa-' . $icon_class ); ?>"></i></span>
         
         <span class="kname"><?php echo esc_html( $label ); ?></span>
             
