@@ -238,6 +238,11 @@ function kbso_get_post_sharing_services() {
             'label' => __( 'Google+', 'kbso' ),
             'href' => '#'
         ),
+        'hackernews' => array(
+            'name' => 'hackernews',
+            'label' => __( 'Hacker News', 'kbso' ),
+            'href' => '#'
+        ),
         'linkedin' => array(
             'name' => 'linkedin',
             'label' => __( 'LinkedIn', 'kbso' ),
@@ -280,22 +285,52 @@ function kbso_get_post_sharing_services() {
 /**
  * Prepare Social Sharing Links
  */
-function kbso_post_sharing_filter_services( $type = 'selected' ) {
+function kbso_post_sharing_filter_services( $type = 'selected', $services = array() ) {
     
     /*
      * Get Social Services
      */
     $all_services = kbso_get_post_sharing_services();
+
+    /*
+     * Prepare array for selected services
+     */
+    $selected = array();
+
+    /*
+     * If services have been provided, pick these out
+     */
+    if ( ! empty( $services ) ) {
+
+        if ( is_array( $services ) ) {
+
+            /*
+             * Loop services and return selected.
+             */
+            foreach ( $services as $selection ) {
+
+                if ( isset( $all_services[ $selection ] ) ) {
+
+                    $selected[ $selection ] = $all_services[ $selection ];
+
+                }
+
+            }
+
+        } else {
+
+            return array();
+
+        }
+
+        return $selected;
+
+    }
     
     /*
      * Get the user selected services
      */
     $user_selected = get_option( 'kbso_post_sharing_order' );
-    
-    /*
-     * Prepare array for selected services
-     */
-    $selected = array();
     
     /*
      * If we are previewing return all items.
@@ -496,6 +531,24 @@ function kbso_post_sharing_googleplus_href( $services ) {
     
 }
 add_filter( 'kbso_post_sharing_prepare_link', 'kbso_post_sharing_googleplus_href' );
+
+/*
+ * Social Sharing Hacker News Link Setup
+ */
+function kbso_post_sharing_hackernews_href( $services ) {
+
+    global $post;
+
+    if ( isset( $services['hackernews'] ) ) {
+
+        $services['hackernews']['href'] = esc_url( 'https://news.ycombinator.com/submitlink?u=' . rawurlencode( get_permalink() ) . '&t=' . rawurlencode( html_entity_decode( get_the_title() ) ) . '' );
+
+    }
+
+    return $services;
+
+}
+add_filter( 'kbso_post_sharing_prepare_link', 'kbso_post_sharing_hackernews_href' );
 
 /*
  * Social Sharing LinkedIn Link Setup
