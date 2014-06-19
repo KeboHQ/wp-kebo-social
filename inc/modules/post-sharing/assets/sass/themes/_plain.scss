@@ -80,14 +80,14 @@
 .ksharelinks.plain .email {
     @include button-variant( #fff, $email, darken( $email, 5% ) );
 }
-.ksharelinks.plain .buffer {
-    @include button-variant( #fff, $buffer, darken( $buffer, 5% ) );
-}
 .ksharelinks.plain .facebook {
     @include button-variant( #fff, $facebook, darken( $facebook, 5% ) );
 }
 .ksharelinks.plain .twitter {
     @include button-variant( #fff, $twitter, darken( $twitter, 5% ) );
+}
+.ksharelinks.plain .hackernews {
+  @include button-variant( #fff, $hackernews, darken( $hackernews, 5% ) );
 }
 .ksharelinks.plain .linkedin {
     @include button-variant( #fff, $linkedin, darken( $linkedin, 5% ) );
@@ -112,6 +112,9 @@
 }
 .ksharelinks.plain .delicious {
     @include button-variant( #fff, $delicious, darken( $delicious, 5% ) );
+}
+.ksharelinks.plain .vkontakte {
+    @include button-variant( #fff, $vkontakte, darken( $vkontakte, 5% ) );
 }
 
 // Button Sizes
@@ -209,7 +212,8 @@
 // --------------------------------------------------
 
 .ksharelinks.plain .klink i {
-        font-family: zocial;
+        font-family: FontAwesome;
+        color: #fff;
         background: none;
 }
 

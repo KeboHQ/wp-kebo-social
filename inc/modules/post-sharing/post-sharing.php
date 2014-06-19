@@ -215,58 +215,75 @@ function kbso_get_post_sharing_services() {
     $services = array(
         'delicious' => array(
             'name' => 'delicious',
+            'icon_class' => 'delicious',
             'label' => __( 'Delicious', 'kbso' ),
             'href' => '#'
         ),
         'digg' => array(
             'name' => 'digg',
+            'icon_class' => 'digg',
             'label' => __( 'Digg', 'kbso' ),
             'href' => '#'
         ),
         'facebook' => array(
             'name' => 'facebook',
+            'icon_class' => 'facebook',
             'label' => __( 'Facebook', 'kbso' ),
             'href' => '#'
         ),
         'googleplus' => array(
             'name' => 'googleplus',
+            'icon_class' => 'google-plus',
             'label' => __( 'Google+', 'kbso' ),
             'href' => '#'
         ),
         'hackernews' => array(
             'name' => 'hackernews',
+            'icon_class' => 'yahoo',
             'label' => __( 'Hacker News', 'kbso' ),
             'href' => '#'
         ),
         'linkedin' => array(
             'name' => 'linkedin',
+            'icon_class' => 'linkedin',
             'label' => __( 'LinkedIn', 'kbso' ),
             'href' => '#'
         ),
         'pinterest' => array(
             'name' => 'pinterest',
+            'icon_class' => 'pinterest',
             'label' => __( 'Pinterest', 'kbso' ),
             'href' => '#'
         ),
         'reddit' => array(
             'name' => 'reddit',
+            'icon_class' => 'reddit',
             'label' => __( 'Reddit', 'kbso' ),
             'href' => '#'
         ),
         'stumbleupon' => array(
             'name' => 'stumbleupon',
+            'icon_class' => 'stumbleupon',
             'label' => __( 'Stumbleupon', 'kbso' ),
             'href' => '#'
         ),
         'tumblr' => array(
             'name' => 'tumblr',
+            'icon_class' => 'tumblr',
             'label' => __( 'Tumblr', 'kbso' ),
             'href' => '#'
         ),
         'twitter' => array(
             'name' => 'twitter',
+            'icon_class' => 'twitter',
             'label' => __( 'Twitter', 'kbso' ),
             'href' => '#'
+        ),
+        'vkontakte' => array(
+            'name' => 'vkontakte',
+            'icon_class' => 'vk',
+            'label' => __( 'VKontakte', 'kbso' ),
+            'href'=> '#'
         ),
     );
     

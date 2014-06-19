@@ -505,6 +505,12 @@ form.feature-control h3 {
 .kebo.wrap li.share-link.delicious:hover {
         background: darken( $delicious, 10% );
 }
+.kebo.wrap li.share-link.vkontakte {
+  background: $vkontakte;
+}
+.kebo.wrap li.share-link.vkontakte:hover {
+  background: darken( $vkontakte, 10% );
+}
 
 
 /*
