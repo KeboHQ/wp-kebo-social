@@ -9,8 +9,8 @@
 function kbso_post_sharing_register_files() {
 
     // Register Styles
-    wp_register_style( 'kbso-post-sharing', KBSO_POST_SHARING_URL . 'assets/css/sharelinks.css', array(), KBSO_VERSION, 'all' );
-    wp_register_style( 'kbso-post-sharing-min', KBSO_POST_SHARING_URL . 'assets/css/sharelinks.min.css', array(), KBSO_VERSION, 'all' );
+    wp_register_style( 'kbso-post-sharing', KBSO_URL . 'assets/css/sharelinks.css', array(), KBSO_VERSION, 'all' );
+    wp_register_style( 'kbso-post-sharing-min', KBSO_URL . 'assets/css/sharelinks.min.css', array(), KBSO_VERSION, 'all' );
         
 }
 add_action( 'wp_enqueue_scripts', 'kbso_post_sharing_register_files' );
