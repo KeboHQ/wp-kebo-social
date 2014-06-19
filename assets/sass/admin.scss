@@ -5,7 +5,6 @@
 /*
  * Import Modules
  */
-@import "fonts/zocial";
 @import "fonts/fontawesome";
 @import "misc/mixins";
 
@@ -434,17 +433,17 @@ form.feature-control h3 {
         color: #fff;
         margin-right: 0.5em;
 }
-.kebo.wrap li.share-link.buffer {
-        background: $buffer;
-}
-.kebo.wrap li.share-link.buffer:hover {
-        background: darken( $buffer, 10% );
-}
 .kebo.wrap li.share-link.email {
         background: $email;
 }
 .kebo.wrap li.share-link.email:hover {
         background: darken( $email, 10% );
+}
+.kebo.wrap li.share-link.hackernews {
+  background: $hackernews;
+}
+.kebo.wrap li.share-link.hackernews:hover {
+  background: darken( $hackernews, 10% );
 }
 .kebo.wrap li.share-link.twitter {
         background: $twitter;
