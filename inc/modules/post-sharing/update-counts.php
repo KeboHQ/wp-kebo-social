@@ -118,7 +118,7 @@ function kbso_post_sharing_update_counts( $post_id ) {
         /*
          * Update Google+ Share Count
          */
-        $googleplus = kbso_update_googleplus_count( $permalink );
+        $googleplus = absint( kbso_update_googleplus_count( $permalink ) );
         
         if ( is_int( $googleplus ) ) {
 
