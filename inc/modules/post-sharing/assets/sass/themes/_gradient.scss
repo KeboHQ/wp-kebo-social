@@ -77,12 +77,12 @@
 // Buttons Variations
 // --------------------------------------------------
 
-.ksharelinks.gradient .buffer {
-    @include button-variant( #fff, $buffer, darken( $buffer, 5% ) );
-    @include gradient-single( $buffer );
+.ksharelinks.gradient .hackernews {
+    @include button-variant( #fff, $hackernews, darken( $hackernews, 5% ) );
+    @include gradient-single( $hackernews );
     &:hover,
     &:active {
-        background: darken( $buffer, 10% );
+        background: darken( $hackernews, 10% );
     }
 }
 .ksharelinks.gradient .email {
@@ -171,6 +171,14 @@
     &:hover,
     &:active {
         background: darken( $delicious, 10% );
+    }
+}
+.ksharelinks.gradient .vkontakte {
+    @include button-variant( #fff, $vkontakte, darken( $vkontakte, 5% ) );
+    @include gradient-single( $vkontakte );
+    &:hover,
+    &:active {
+        background: darken( $vkontakte, 10% );
     }
 }
 
