@@ -525,17 +525,6 @@
   .ksharelinks.plain .email:active, .ksharelinks.plain .email.active {
     background-image: none; }
 
-.ksharelinks.plain .buffer {
-  color: white;
-  background-color: #444444;
-  border-color: #373737; }
-  .ksharelinks.plain .buffer:hover, .ksharelinks.plain .buffer:focus, .ksharelinks.plain .buffer:active, .ksharelinks.plain .buffer.active {
-    color: white;
-    background-color: #2b2b2b;
-    border-color: #191919; }
-  .ksharelinks.plain .buffer:active, .ksharelinks.plain .buffer.active {
-    background-image: none; }
-
 .ksharelinks.plain .facebook {
   color: white;
   background-color: #3b5998;
@@ -556,6 +545,17 @@
     background-color: #0087ba;
     border-color: #006d96; }
   .ksharelinks.plain .twitter:active, .ksharelinks.plain .twitter.active {
+    background-image: none; }
+
+.ksharelinks.plain .hackernews {
+  color: white;
+  background-color: #ff6600;
+  border-color: #e65c00; }
+  .ksharelinks.plain .hackernews:hover, .ksharelinks.plain .hackernews:focus, .ksharelinks.plain .hackernews:active, .ksharelinks.plain .hackernews.active {
+    color: white;
+    background-color: #cc5200;
+    border-color: #a84300; }
+  .ksharelinks.plain .hackernews:active, .ksharelinks.plain .hackernews.active {
     background-image: none; }
 
 .ksharelinks.plain .linkedin {
@@ -644,6 +644,17 @@
     background-color: #095fb4;
     border-color: #074d92; }
   .ksharelinks.plain .delicious:active, .ksharelinks.plain .delicious.active {
+    background-image: none; }
+
+.ksharelinks.plain .vkontakte {
+  color: white;
+  background-color: #2b587a;
+  border-color: #244a67; }
+  .ksharelinks.plain .vkontakte:hover, .ksharelinks.plain .vkontakte:focus, .ksharelinks.plain .vkontakte:active, .ksharelinks.plain .vkontakte.active {
+    color: white;
+    background-color: #1e3d54;
+    border-color: #142a3a; }
+  .ksharelinks.plain .vkontakte:active, .ksharelinks.plain .vkontakte.active {
     background-image: none; }
 
 .ksharelinks.plain.xsmall .kintro {
@@ -850,7 +861,8 @@
     z-index: 98; }
 
 .ksharelinks.plain .klink i {
-  font-family: zocial;
+  font-family: FontAwesome;
+  color: #fff;
   background: none; }
 
 .ksharelinks.plain .klink .kname {
@@ -982,34 +994,34 @@ body {
     opacity: 0.65;
     box-shadow: none; }
 
-.ksharelinks.gradient .buffer {
+.ksharelinks.gradient .hackernews {
   color: white;
-  background-color: #444444;
-  border-color: #373737;
+  background-color: #ff6600;
+  border-color: #e65c00;
   /* fallback/image non-cover color */
-  background-color: #444444;
+  background-color: #ff6600;
   /* Firefox 3.6+ */
-  background-image: -moz-linear-gradient(#444444, #2b2b2b);
+  background-image: -moz-linear-gradient(#ff6600, #cc5200);
   /* Safari 4+, Chrome 1+ */
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#444444), to(#2b2b2b));
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff6600), to(#cc5200));
   /* Safari 5.1+, Chrome 10+ */
-  background-image: -webkit-linear-gradient(#444444, #2b2b2b);
+  background-image: -webkit-linear-gradient(#ff6600, #cc5200);
   /* Opera 11.10+ */
-  background: -o-linear-gradient(#444444, #2b2b2b);
+  background: -o-linear-gradient(#ff6600, #cc5200);
   /* IE10+ */
-  background: -ms-linear-gradient(top, #444444, #2b2b2b 100%);
+  background: -ms-linear-gradient(top, #ff6600, #cc5200 100%);
   /* W3C */
-  background: linear-gradient(top, #444444, #2b2b2b 100%);
+  background: linear-gradient(top, #ff6600, #cc5200 100%);
   /* IE 6-9 */
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#FF444444', endColorstr='#FF2B2B2B'); }
-  .ksharelinks.gradient .buffer:hover, .ksharelinks.gradient .buffer:focus, .ksharelinks.gradient .buffer:active, .ksharelinks.gradient .buffer.active {
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#FFFF6600', endColorstr='#FFCC5200'); }
+  .ksharelinks.gradient .hackernews:hover, .ksharelinks.gradient .hackernews:focus, .ksharelinks.gradient .hackernews:active, .ksharelinks.gradient .hackernews.active {
     color: white;
-    background-color: #2b2b2b;
-    border-color: #191919; }
-  .ksharelinks.gradient .buffer:active, .ksharelinks.gradient .buffer.active {
+    background-color: #cc5200;
+    border-color: #a84300; }
+  .ksharelinks.gradient .hackernews:active, .ksharelinks.gradient .hackernews.active {
     background-image: none; }
-  .ksharelinks.gradient .buffer:hover, .ksharelinks.gradient .buffer:active {
-    background: #2b2b2b; }
+  .ksharelinks.gradient .hackernews:hover, .ksharelinks.gradient .hackernews:active {
+    background: #cc5200; }
 
 .ksharelinks.gradient .email {
   color: white;
@@ -1329,6 +1341,35 @@ body {
     background-image: none; }
   .ksharelinks.gradient .delicious:hover, .ksharelinks.gradient .delicious:active {
     background: #095fb4; }
+
+.ksharelinks.gradient .vkontakte {
+  color: white;
+  background-color: #2b587a;
+  border-color: #244a67;
+  /* fallback/image non-cover color */
+  background-color: #2b587a;
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient(#2b587a, #1e3d54);
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2b587a), to(#1e3d54));
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient(#2b587a, #1e3d54);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(#2b587a, #1e3d54);
+  /* IE10+ */
+  background: -ms-linear-gradient(top, #2b587a, #1e3d54 100%);
+  /* W3C */
+  background: linear-gradient(top, #2b587a, #1e3d54 100%);
+  /* IE 6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#FF2B587A', endColorstr='#FF1E3D54'); }
+  .ksharelinks.gradient .vkontakte:hover, .ksharelinks.gradient .vkontakte:focus, .ksharelinks.gradient .vkontakte:active, .ksharelinks.gradient .vkontakte.active {
+    color: white;
+    background-color: #1e3d54;
+    border-color: #142a3a; }
+  .ksharelinks.gradient .vkontakte:active, .ksharelinks.gradient .vkontakte.active {
+    background-image: none; }
+  .ksharelinks.gradient .vkontakte:hover, .ksharelinks.gradient .vkontakte:active {
+    background: #1e3d54; }
 
 .ksharelinks.gradient.xsmall .kintro {
   padding: 1px 0;
