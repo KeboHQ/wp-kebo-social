@@ -54,7 +54,7 @@ function kbso_post_sharing_services_admin( $type = 'selected' ) {
         foreach ( $services as $link ) {
             ?>
             <li class="<?php echo $link['name']; ?> share-link sortable" data-service="<?php echo $link['name']; ?>">
-                <a><i class="zocial <?php echo $link['name']; ?>"></i><span class="name"><?php echo $link['label']; ?></span></a>
+                <a><i class="fa fa-<?php echo $link['icon_class']; ?>"></i><span class="name"><?php echo $link['label']; ?></span></a>
             </li>
             <?php
         }
