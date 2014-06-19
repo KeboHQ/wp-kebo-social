@@ -213,11 +213,6 @@ function kbso_post_sharing_floating_bar_render() {
 function kbso_get_post_sharing_services() {
     
     $services = array(
-        'buffer' => array(
-            'name' => 'buffer',
-            'label' => __( 'Buffer', 'kbso' ),
-            'href' => '#'
-        ),
         'delicious' => array(
             'name' => 'delicious',
             'label' => __( 'Delicious', 'kbso' ),
@@ -441,24 +436,6 @@ function kbso_post_sharing_prepare_links() {
     return ( is_admin() ) ? $services : apply_filters( 'kbso_post_sharing_prepare_link', $services ) ;
     
 }
-
-/*
- * Social Sharing Buffer Link Setup
- */
-function kbso_post_sharing_buffer_href( $services ) {
-    
-    global $post;
-    
-    if ( isset( $services['buffer'] ) ) {
-            
-        $services['buffer']['href'] = esc_url( 'http://bufferapp.com/add?&text=' . urlencode( html_entity_decode( get_the_title() ) ) . '&url=' . urlencode( get_permalink() ) . '' );
-            
-    }
-    
-    return $services;
-    
-}
-add_filter( 'kbso_post_sharing_prepare_link', 'kbso_post_sharing_buffer_href' );
 
 /*
  * Social Sharing Delicious Link Setup
