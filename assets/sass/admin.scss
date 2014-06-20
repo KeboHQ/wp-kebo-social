@@ -91,7 +91,7 @@ h3.title {
 /*
  * Core Dashboard
  */
-#kbso_social_sharing_status .inside {
+#kbso_post_sharing_status .inside {
         padding: 0;
         margin: 0;
 }
@@ -140,27 +140,27 @@ h3.title {
         clear: both;
 }
 .kbso-status .kcount:before {
-        font-family: zocial;
-        font-size: 18px;
+        font-family: FontAwesome;
+        font-size: 20px;
         position: absolute;
         top: 17px;
         left: 10px;
 }
 .kbso-status .kcount.twitter:before {
         color: $twitter;
-        content: "T";
+        content: "\f099";
 }
 .kbso-status .kcount.facebook:before {
         color: $facebook;
-        content: "f";
+        content: "\f09a";
 }
 .kbso-status .kcount.linkedin:before {
         color: $linkedin;
-        content: "L";
+        content: "\f0e1";
 }
 .kbso-status .kcount.googleplus:before {
         color: $googleplus;
-        content: "+";
+        content: "\f0d5";
 }
 
 
