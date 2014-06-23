@@ -98,22 +98,6 @@ function kbso_post_sharing_update_counts( $post_id ) {
             $counts['total'] = kbso_update_count_total( $counts['total'], $counts['twitter'] );
             
         }
-        
-        /*
-         * Update Buffer Share Count
-         */
-        $buffer = kbso_update_buffer_count( $permalink );
-        
-        if ( is_int( $buffer ) ) {
-
-            $counts['buffer'] = kbso_update_count( $counts['buffer'], $buffer );
-            $counts['total'] = kbso_update_count_total( $counts['total'], $buffer );
-
-        } else {
-             
-            $counts['total'] = kbso_update_count_total( $counts['total'], $counts['buffer'] );
-            
-        }
 
         /*
          * Update Facebook Share Count
@@ -278,31 +262,6 @@ function kbso_update_twitter_count( $permalink ) {
     if ( $response ) {
         
         return $response['count'];
-        
-    } else {
-        
-        return false;
-        
-    }
-    
-}
-
-/*
- * Get the Twitter Share Count.
- */
-function kbso_update_buffer_count( $permalink ) {
-    
-    // Pre-Defined Social Count URL
-    $service_url = 'https://api.bufferapp.com/1/links/shares.json?url=' . $permalink;
-    
-    // Allow Override
-    $url = apply_filters( 'kbso_buffer_share_count_url', $service_url, $permalink );
-    
-    $response = kbso_post_sharing_count_request( $url );
-    
-    if ( $response ) {
-        
-        return $response['shares'];
         
     } else {
         
