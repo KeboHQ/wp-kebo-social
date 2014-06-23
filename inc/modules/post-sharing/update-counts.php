@@ -449,3 +449,25 @@ function kbso_update_delicious_count( $permalink ) {
     }
     
 }
+
+/**
+ * Reset all Social Counts
+ * Debug Tool
+ */
+function kbso_reset_social_counts() {
+
+    if ( isset( $_GET['_kebo_reset_counts'] ) && true === $_GET['_kebo_reset_counts'] ) {
+
+        global $wpdb;
+
+        $results = $wpdb->query(
+            $wpdb->prepare(
+                "DELETE FROM $wpdb->postmeta WHERE meta_key = %s",
+                '_kbso_post_sharing_counts'
+            )
+        );
+
+    }
+
+}
+add_action( 'admin_init', 'kbso_reset_social_counts' );
