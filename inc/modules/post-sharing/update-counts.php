@@ -14,17 +14,23 @@ function kbso_maybe_refresh_counts( $post_id ) {
      * If displaying share counts is turned on, we should update
      * This can be disabled by setting KBSO_UPDATE_COUNTS to false.
      */
-    if ( 'true' == KBSO_POST_SHARING_UPDATE_COUNTS ) {
+    //if ( 'true' == KBSO_POST_SHARING_UPDATE_COUNTS ) {
         
-        $caching = Kebo_Caching::get_instance();
+        $kebo_job = Kebo_Job::instance();
     
-        $caching->set_cache( 'kbso_post_sharing' );
+        $kebo_job->set_function( 'kbso_post_sharing' );
 
-        $caching->set_lock( $post_id );
+        global $post;
 
-        $caching->spawn_process();
+        $args = array(
+            'post_id' => $post->ID,
+        );
+
+        $kebo_job->set_args( $args );
+
+        $kebo_job->spawn_process();
         
-    }
+    //}
     
 }
 

@@ -19,7 +19,7 @@ if ( ! defined( KBSO_POST_SHARING_UPDATE_COUNTS ) ) {
  * Ensure the Kebo Caching class is running to detect requests
  * Uses Singleton Pattern to ensure only one instance is used.
  */
-Kebo_Job::get_instance();
+Kebo_Job::instance();
 
 /**
  * If the Share Links feature has been activated it, hook the feature in.
