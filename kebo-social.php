@@ -208,7 +208,7 @@ function kbso_plugin_update() {
 
 		do_action( 'kbso_plugin_updating' );
 
-		Kebo_Caching::spawn_compat_test();
+		Kebo_Job::spawn_compat_test();
 
 	}
 
