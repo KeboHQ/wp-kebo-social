@@ -458,16 +458,25 @@ function kbso_reset_social_counts() {
 
     if ( isset( $_GET['_kebo_reset_counts'] ) && true === $_GET['_kebo_reset_counts'] ) {
 
-        global $wpdb;
-
-        $results = $wpdb->query(
-            $wpdb->prepare(
-                "DELETE FROM $wpdb->postmeta WHERE meta_key = %s",
-                '_kbso_post_sharing_counts'
-            )
-        );
+        kbso_wipe_all_social_count_data();
 
     }
 
 }
 add_action( 'admin_init', 'kbso_reset_social_counts' );
+
+/**
+ * Wipe all Social Count Data
+ */
+function kbso_wipe_all_social_count_data() {
+
+    global $wpdb;
+
+    $results = $wpdb->query(
+        $wpdb->prepare(
+            "DELETE FROM $wpdb->postmeta WHERE meta_key = %s",
+            '_kbso_post_sharing_counts'
+        )
+    );
+
+}
