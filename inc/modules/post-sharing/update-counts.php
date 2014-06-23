@@ -59,13 +59,23 @@ function kbso_post_sharing_update_counts( $post_id ) {
     
     $permalink = get_permalink( $post_id );
 
+    $permalink = 'http://www.bbc.co.uk/';
+
     // TODO- check we have a valid ID/Permalink before proceeding
     
     $counts = get_post_meta( $post_id, '_kbso_post_sharing_counts', true );
     
     if ( empty ( $counts ) ) {
         
-        $counts = array();
+        $counts = array(
+            'delicious' => 0,
+            'facebook' => 0,
+            'googleplus' => 0,
+            'linkedin' => 0,
+            'pinterest' => 0,
+            'stumbleupon' => 0,
+            'twitter' => 0,
+        );
         
     }
     
