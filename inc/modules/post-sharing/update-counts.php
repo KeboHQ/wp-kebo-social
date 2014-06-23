@@ -15,16 +15,18 @@ function kbso_maybe_refresh_counts( $post_id ) {
      * This can be disabled by setting KBSO_UPDATE_COUNTS to false.
      */
     if ( 'true' == KBSO_POST_SHARING_UPDATE_COUNTS ) {
-        
-        $kebo_job = Kebo_Job::instance();
-    
-        $kebo_job->set_function( 'kbso_post_sharing' );
+
+        $name = 'kbso_share_count_update';
 
         global $post;
 
         $args = array(
             'post_id' => $post->ID,
         );
+
+        $kebo_job = Kebo_Job::instance();
+
+        $kebo_job->set_name( $name );
 
         $kebo_job->set_args( $args );
 
@@ -456,7 +458,7 @@ function kbso_update_delicious_count( $permalink ) {
  */
 function kbso_reset_social_counts() {
 
-    if ( isset( $_GET['_kebo_reset_counts'] ) && true === $_GET['_kebo_reset_counts'] ) {
+    if ( isset( $_GET['_kebo_reset_counts'] ) ) {
 
         kbso_wipe_all_social_count_data();
 
@@ -478,5 +480,7 @@ function kbso_wipe_all_social_count_data() {
             '_kbso_post_sharing_counts'
         )
     );
+
+    delete_transient( 'kbso_post_sharing_status_widget' . get_current_blog_id() );
 
 }

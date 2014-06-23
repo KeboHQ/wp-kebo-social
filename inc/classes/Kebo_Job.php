@@ -52,24 +52,24 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
         public $lock;
 
         /**
-         * Get the Function Name
+         * Get the Job Name
          *
          * @return string
          */
-        public function get_function() {
+        public function get_name() {
 
-            return $this->function;
+            return $this->name;
 
         }
 
         /**
-         * Set the Function Name
+         * Set the Job Name
          *
-         * @param $function
+         * @param string $name
          */
-        public function set_function( $function ) {
+        public function set_name( $name ) {
 
-            $this->function = $function;
+            $this->name = $name;
 
         }
 
@@ -177,35 +177,25 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
          */
         public function watcher() {
 
-            if ( ! isset( $_POST['_kebo_function_name'] ) ) {
+            if ( ! isset( $_GET['kebo_job_request'] ) ) {
                 return;
             }
 
             /**
              * Validate for Lowercase Alphanumeric characters e.g. a-z,0-9,_,-.
              */
-            $this->function = sanitize_key( $_POST['_kebo_job_name'], false );
-            $this->args = sanitize_key( $_POST['_kebo_job_args'], false );
+            $this->name = sanitize_key( $_POST['kebo_job_name'], false );
+            $this->args = $_POST['kebo_job_args'];
             
             /**
              * Allow plugins/themes to hook into this and perform their own cache updates.
              */
-            do_action( 'kebo_job_capture_request', $this->function_name, $this->$args );
-            
-            /**
-             * Test Refresh Script
-             */
-            if ( isset( $_POST['_kebo_job_name'] ) ) {
+            //do_action( 'kebo_job_capture_request', $this->name, $this->$args );
                 
-                kbso_post_sharing_update_counts( $this->args->post_id );
+            kbso_post_sharing_update_counts( $this->args['post_id'] );
                 
-                // Incase functions using the hook forget to exit.
-                exit();
-            
-            }
-
-            // Call Requested Function with provided Args
-            call_user_func_array( $this->function_name, $this->args );
+            // Incase functions using the hook forget to exit.
+            exit();
             
         } // end watcher
         
@@ -221,9 +211,9 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
             $server_url = home_url( '/?kebo_job_request' );
             
             $args = array( 
-                'body' => array( 
-                    '_kebo_job_name' => $this->function,
-                    '_kebo_job_args' => $this->args,
+                'body' => array(
+                    'kebo_job_name' => $this->name,
+                    'kebo_job_args' => $this->args,
                 ),
                 'timeout' => 0.01,
                 'blocking' => false,
