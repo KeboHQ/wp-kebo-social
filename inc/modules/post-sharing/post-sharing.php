@@ -801,6 +801,8 @@ function kbso_post_sharing_services_render( $preview = false ) {
         ->retrieve();
     
     unset( $view );
+
+    kbso_post_sharing_update_counts( $post->ID );
     
     return $links;
     

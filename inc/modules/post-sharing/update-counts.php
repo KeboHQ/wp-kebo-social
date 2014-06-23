@@ -214,6 +214,10 @@ function kbso_post_sharing_update_counts( $post_id ) {
             add_post_meta( $post_id, '_kbso_post_sharing_counts', $counts, true );
 
         }
+
+        echo '<pre>';
+        print_r( $counts );
+        echo '</pre>';
     
     }
     
