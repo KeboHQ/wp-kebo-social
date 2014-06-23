@@ -35,7 +35,7 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
          *
          * @var string
          */
-        public $function_name;
+        public $function;
 
         /**
          * Args for Function
@@ -50,6 +50,50 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
          * @var string
          */
         public $lock;
+
+        /**
+         * Get the Function Name
+         *
+         * @return string
+         */
+        public function get_function() {
+
+            return $this->function;
+
+        }
+
+        /**
+         * Set the Function Name
+         *
+         * @param $function
+         */
+        public function set_function( $function ) {
+
+            $this->function = $function;
+
+        }
+
+        /**
+         * Get the Function Arguments
+         *
+         * @return array
+         */
+        public function get_args() {
+
+            return $this->args;
+
+        }
+
+        /**
+         * Set the Function Arguments
+         *
+         * @param $args
+         */
+        public function set_args( $args ) {
+
+            $this->args = (array) $args;
+
+        }
         
         /**
          * Make Compatibility Request
@@ -132,24 +176,28 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
          * Check for Kebo Caching requests
          */
         public function watcher() {
-            
+
+            if ( ! isset( $_POST['_kebo_function_name'] ) ) {
+                return;
+            }
+
             /**
              * Validate for Lowercase Alphanumeric characters e.g. a-z,0-9,_,-.
              */
-            $this->function_name = sanitize_key( $_POST['_kebo_function_name'], false );
-            $this->lock = sanitize_key( $_POST['_kebo_lock'], false );
+            $this->function = sanitize_key( $_POST['_kebo_job_name'], false );
+            $this->args = sanitize_key( $_POST['_kebo_job_args'], false );
             
             /**
              * Allow plugins/themes to hook into this and perform their own cache updates.
              */
-            do_action( 'kebo_job_capture_request', $this->function_name, $this->$lock );
+            do_action( 'kebo_job_capture_request', $this->function_name, $this->$args );
             
-            /*
+            /**
              * Test Refresh Script
              */
-            if ( isset( $_POST['_kebo_function_name'] ) ) {
+            if ( isset( $_POST['_kebo_job_name'] ) ) {
                 
-                kbso_post_sharing_update_counts( $this->lock );
+                kbso_post_sharing_update_counts( $this->args->post_id );
                 
                 // Incase functions using the hook forget to exit.
                 exit();
@@ -165,13 +213,17 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
          * Make another request to process our caching update.
          */
         public function spawn_process() {
-            
+
+            if ( false === $this->check_lock() ) {
+                //return;
+            }
+
             $server_url = home_url( '/?kebo_job_request' );
             
             $args = array( 
                 'body' => array( 
-                    '_kebo_function_name' => $this->function_name,
-                    '_kebo_lock' => $this->lock
+                    '_kebo_job_name' => $this->function,
+                    '_kebo_job_args' => $this->args,
                 ),
                 'timeout' => 0.01,
                 'blocking' => false,
@@ -183,6 +235,8 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
         } // end spawn_process
 
         private function get_lock() {
+
+            $lock = false;
 
             if ( wp_using_ext_object_cache() ) {
 
@@ -211,7 +265,7 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
             /*
              * Check if we are already updating.
              */
-            if ( get_transient( 'kebo_doing_job' ) ) {
+            if ( $this->get_lock() ) {
                 return false;
             }
 
@@ -233,7 +287,7 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
             /*
              * Only one thread will have the same hash as is stored in the transient now, all others can die.
              */
-            if ( get_transient( 'kebo_doing_job' ) && ( get_transient( 'kebo_doing_job' ) != $hash ) ) {
+            if ( $this->get_lock() && $this->get_lock() != $hash ) {
                 return false;
             }
 
