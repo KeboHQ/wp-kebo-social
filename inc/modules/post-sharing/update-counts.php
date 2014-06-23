@@ -61,7 +61,7 @@ function kbso_post_sharing_update_counts( $post_id ) {
     
     $permalink = get_permalink( $post_id );
 
-    $permalink = 'http://www.bbc.co.uk/';
+    //$permalink = 'http://www.bbc.co.uk/';
 
     // TODO- check we have a valid ID/Permalink before proceeding
     
