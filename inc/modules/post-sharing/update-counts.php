@@ -14,7 +14,7 @@ function kbso_maybe_refresh_counts( $post_id ) {
      * If displaying share counts is turned on, we should update
      * This can be disabled by setting KBSO_UPDATE_COUNTS to false.
      */
-    //if ( 'true' == KBSO_POST_SHARING_UPDATE_COUNTS ) {
+    if ( 'true' == KBSO_POST_SHARING_UPDATE_COUNTS ) {
         
         $kebo_job = Kebo_Job::instance();
     
@@ -30,7 +30,7 @@ function kbso_maybe_refresh_counts( $post_id ) {
 
         $kebo_job->spawn_process();
         
-    //}
+    }
     
 }
 
@@ -214,10 +214,6 @@ function kbso_post_sharing_update_counts( $post_id ) {
             add_post_meta( $post_id, '_kbso_post_sharing_counts', $counts, true );
 
         }
-
-        echo '<pre>';
-        print_r( $counts );
-        echo '</pre>';
     
     }
     
