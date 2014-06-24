@@ -16,6 +16,12 @@ function kbso_maybe_refresh_counts( $post_id ) {
      */
     if ( 'true' == KBSO_POST_SHARING_UPDATE_COUNTS ) {
 
+        $counts = get_post_meta( $post_id, '_kbso_post_sharing_counts', true );
+
+        if ( ! isset( $counts['expiry'] ) || time() < $counts['expiry'] ) {
+            return;
+        }
+
         $name = 'kbso_share_count_update';
 
         $args = array(
