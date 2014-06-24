@@ -179,11 +179,10 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
              */
             self::$name = sanitize_key( $_POST['kebo_job_name'], false );
             self::$args = $_POST['kebo_job_args'];
-
-            //kbso_post_sharing_update_counts( self::$args['post_id'] );
             
             /**
              * Allow plugins/themes to hook into this and perform their own Job updates.
+             * Use this to check for your own jobs and processing accordingly.
              */
             do_action( 'kebo_job_capture_request', self::$name, self::$args );
 
