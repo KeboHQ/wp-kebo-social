@@ -18,7 +18,7 @@ function kbso_maybe_refresh_counts( $post_id ) {
 
         $counts = get_post_meta( $post_id, '_kbso_post_sharing_counts', true );
 
-        if ( ! isset( $counts['expiry'] ) || time() < $counts['expiry'] ) {
+        if ( isset( $counts['expiry'] ) && time() < $counts['expiry'] ) {
             return;
         }
 
