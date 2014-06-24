@@ -19,7 +19,7 @@ if ( current_user_can( 'manage_options' ) ) {
 
             wp_add_dashboard_widget(
                 'kbso_post_sharing_status',
-                __( 'Post Sharing Overview', 'kbso' ),
+                __( 'Social Sharing Overview', 'kbso' ),
                 'kbso_post_sharing_status_widget_render'
             );	
     }
@@ -120,7 +120,7 @@ function kbso_post_sharing_status_widget_render() {
                         }
                     },
                     grid: {
-                        hoverable: true,
+                        hoverable: false,
                         clickable: false
                     },
                     legend: {
