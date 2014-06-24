@@ -8,7 +8,7 @@
  */
 function kbso_maybe_refresh_counts( $post_id ) {
     
-    $options = kbso_get_plugin_options();
+    //$options = kbso_get_plugin_options();
     
     /*
      * If displaying share counts is turned on, we should update
@@ -18,10 +18,8 @@ function kbso_maybe_refresh_counts( $post_id ) {
 
         $name = 'kbso_share_count_update';
 
-        global $post;
-
         $args = array(
-            'post_id' => $post->ID,
+            'post_id' => $post_id,
         );
 
         $kebo_job = Kebo_Job::instance();
@@ -60,8 +58,6 @@ function kbso_post_sharing_update_counts( $post_id ) {
     //$options = kbso_get_plugin_options();
     
     $permalink = get_permalink( $post_id );
-
-    //$permalink = 'http://www.bbc.co.uk/';
 
     // TODO- check we have a valid ID/Permalink before proceeding
     
@@ -458,7 +454,7 @@ function kbso_update_delicious_count( $permalink ) {
  */
 function kbso_reset_social_counts() {
 
-    if ( isset( $_GET['_kebo_reset_counts'] ) ) {
+    if ( isset( $_GET['kebo_reset_counts'] ) ) {
 
         kbso_wipe_all_social_count_data();
 
@@ -484,3 +480,16 @@ function kbso_wipe_all_social_count_data() {
     delete_transient( 'kbso_post_sharing_status_widget' . get_current_blog_id() );
 
 }
+
+function kbso_post_sharing_count_update_job( $name, $args ) {
+
+    if ( 'kbso_share_count_update' == $name ) {
+
+        kbso_post_sharing_update_counts( $args['post_id'] );
+
+        exit();
+
+    }
+
+}
+add_action( 'kebo_job_capture_request', 'kbso_post_sharing_count_update_job', 2, 10 );

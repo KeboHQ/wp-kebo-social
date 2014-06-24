@@ -35,21 +35,14 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
          *
          * @var string
          */
-        public $function;
+        public static $name;
 
         /**
          * Args for Function
          *
          * @var array
          */
-        public $args = array();
-
-        /**
-         * The cache lock ID.
-         *
-         * @var string
-         */
-        public $lock;
+        public static $args = array();
 
         /**
          * Get the Job Name
@@ -58,7 +51,7 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
          */
         public function get_name() {
 
-            return $this->name;
+            return self::$name;
 
         }
 
@@ -69,7 +62,7 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
          */
         public function set_name( $name ) {
 
-            $this->name = $name;
+            self::$name = $name;
 
         }
 
@@ -80,7 +73,7 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
          */
         public function get_args() {
 
-            return $this->args;
+            return self::$args;
 
         }
 
@@ -91,7 +84,7 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
          */
         public function set_args( $args ) {
 
-            $this->args = (array) $args;
+            self::$args = (array) $args;
 
         }
         
@@ -184,15 +177,16 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
             /**
              * Validate for Lowercase Alphanumeric characters e.g. a-z,0-9,_,-.
              */
-            $this->name = sanitize_key( $_POST['kebo_job_name'], false );
-            $this->args = $_POST['kebo_job_args'];
+            self::$name = sanitize_key( $_POST['kebo_job_name'], false );
+            self::$args = $_POST['kebo_job_args'];
+
+            //kbso_post_sharing_update_counts( self::$args['post_id'] );
             
             /**
-             * Allow plugins/themes to hook into this and perform their own cache updates.
+             * Allow plugins/themes to hook into this and perform their own Job updates.
              */
-            //do_action( 'kebo_job_capture_request', $this->name, $this->$args );
-                
-            kbso_post_sharing_update_counts( $this->args['post_id'] );
+            do_action( 'kebo_job_capture_request', self::$name, self::$args );
+
                 
             // Incase functions using the hook forget to exit.
             exit();
@@ -205,15 +199,15 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
         public function spawn_process() {
 
             if ( false === $this->check_lock() ) {
-                //return;
+                return;
             }
 
             $server_url = home_url( '/?kebo_job_request' );
             
             $args = array( 
                 'body' => array(
-                    'kebo_job_name' => $this->name,
-                    'kebo_job_args' => $this->args,
+                    'kebo_job_name' => self::$name,
+                    'kebo_job_args' => self::$args,
                 ),
                 'timeout' => 0.01,
                 'blocking' => false,
@@ -224,24 +218,49 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
             
         } // end spawn_process
 
+        /**
+         *
+         *
+         * @return bool|mixed $lock
+         */
         private function get_lock() {
 
             $lock = false;
 
+            // Skip local cache and force refetch of kebo_doing_job transient in case
+            // another processs updated the cache
             if ( wp_using_ext_object_cache() ) {
 
-                // Skip local cache and force refetch of doing_cron transient in case
-                // another processs updated the cache
                 $lock = wp_cache_get( 'kebo_doing_job', 'transient', true );
 
             } else {
 
                 global $wpdb;
 
-                $row = $wpdb->get_row( $wpdb->prepare( "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1", '_transient_kebo_doing_job' ) );
+                $timeout = $wpdb->get_row(
+                    $wpdb->prepare(
+                        "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1",
+                        '_transient_timeout_kebo_doing_job'
+                    )
+                );
 
-                if ( is_object( $row ) ) {
-                    $lock = $row->option_value;
+                if ( time() < $timeout->option_value ) {
+
+                    $value = $wpdb->get_row(
+                        $wpdb->prepare(
+                            "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1",
+                            '_transient_kebo_doing_job'
+                        )
+                    );
+
+                    if ( is_object( $value ) ) {
+                        $lock = $value->option_value;
+                    }
+
+                } else {
+
+                    $lock = false;
+
                 }
 
             }
@@ -272,7 +291,7 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
             /*
              * Sleep so that other threads at the same point can set the hash
              */
-            usleep( 250000 ); // Sleep for 1/4th of a second
+            usleep( 200000 ); // Sleep for 1/5th of a second
 
             /*
              * Only one thread will have the same hash as is stored in the transient now, all others can die.
