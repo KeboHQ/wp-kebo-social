@@ -129,7 +129,7 @@ function kbso_post_sharing_status_widget_render() {
                 });
 
                 function labelFormatter( label, series ) {
-                    return "<div style='font-size: 10pt; font-weight: bold; text-align: center; padding :2px; color: white;'>"    + label + "<br/>" + Number( series.data[0][1] ).toLocaleString('en') + "</div>";
+                    return "<div style='font-size: 10pt; font-weight: bold; text-align: center; color: #fff;'>"    + label + "<br/>" + Number( series.data[0][1] ).toLocaleString('en') + "</div>";
                 }
 
             });
