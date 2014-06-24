@@ -81,7 +81,7 @@ function kbso_post_sharing_status_widget_render() {
 
     <div class="kbso-status">
 
-        <div id="shares-chart" style="width: 100%; min-height: 300px;"></div>
+        <div id="shares-chart" style="width: 100%; height: 300px;"></div>
 
         <br class="clear">
 
