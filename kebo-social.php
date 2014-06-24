@@ -144,6 +144,10 @@ function kbso_enqueue_backend( $hook_suffix ) {
 
 		}
 
+        wp_enqueue_script( 'flot-min' );
+        wp_enqueue_script( 'flot-pie-min' );
+        wp_enqueue_script( 'flot-resize-min' );
+
 	}
 
 	// Enqueue files for Kebo Social pages

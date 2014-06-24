@@ -80,35 +80,65 @@ function kbso_post_sharing_status_widget_render() {
     ?>
 
     <div class="kbso-status">
-        
-        <div class="kfull" style="border: none;" title="<?php esc_attr_e( 'Total Number of Social Shares', 'kbso' ); ?>">
-            <span class="kcount total" style="font-size: 18px; margin: 0;"><?php echo esc_html( number_format( $counts->total ) ); ?></span>
-            <span class="klabel" style="margin: 0;"><?php esc_html_e( 'Total Shares', 'kbso' ); ?></span>
-        </div>
-        
-        <div class="khalf">
-            <span class="kcount twitter"><?php echo esc_html( number_format( $counts->twitter ) ); ?></span>
-            <span class="klabel">Twitter</span>
-        </div>
-        
-        <div class="khalf kright">
-            <span class="kcount facebook"><?php echo esc_html( number_format( $counts->facebook ) ); ?></span>
-            <span class="klabel">Facebook</span>
-        </div>
-        
-        <div class="khalf">
-            <span class="kcount googleplus"><?php echo esc_html( number_format( $counts->googleplus ) ); ?></span>
-            <span class="klabel">Google+</span>
-        </div>
-        
-        <div class="khalf kright">
-            <span class="kcount linkedin"><?php echo esc_html( number_format( $counts->linkedin ) ); ?></span>
-            <span class="klabel">LinkedIn</span>
-        </div>
-        
+
+        <div id="shares-chart" style="width: 100%; min-height: 300px;"></div>
+
         <br class="clear">
-        
+
     </div>
+
+        <script type="text/javascript">
+
+            jQuery( document ).ready(function() {
+
+                var data = [
+                    { label: "Facebook",  data: "<?php echo esc_html( $counts->facebook ); ?>", color: '#3b5998' },
+                    { label: "Google+",  data: "<?php echo esc_html( $counts->googleplus ); ?>", color: '#dd4b39' },
+                    { label: "LinkedIn",  data: "<?php echo esc_html( $counts->linkedin ); ?>", color: '#007bb6' },
+                    { label: "Twitter",  data: "<?php echo esc_html( $counts->twitter ); ?>", color: '#00aced' }
+                ];
+
+                var sharesChart = jQuery("#shares-chart");
+
+                jQuery.plot( sharesChart, data, {
+                    series: {
+                        pie: {
+                            innerRadius: 0.4,
+                            show: true,
+                            combine: {
+                                color: '#999',
+                                threshold: 0.1,
+                                label: 'Other'
+                            },
+                            radius: 1,
+                            label: {
+                                show: true,
+                                radius: 2/3,
+                                formatter: labelFormatter,
+                                threshold: 0.1
+                            }
+                        }
+                    },
+                    grid: {
+                        hoverable: true,
+                        clickable: false
+                    },
+                    legend: {
+                        show: false
+                    }
+                });
+
+                sharesChart.resize( function () {
+
+                });
+
+                function labelFormatter( label, series ) {
+                    return "<div style='font-size: 10pt; font-weight: bold; text-align: center; padding :2px; color: white;'>"    + label + "<br/>" + Number( series.data[0][1] ).toLocaleString('en') + "</div>";
+                }
+
+            });
+
+        </script>
 
     <?php
     else :
