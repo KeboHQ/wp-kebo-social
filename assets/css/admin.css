@@ -1658,6 +1658,9 @@ h3.title {
 /*
  * Core Dashboard
  */
+#kbso_post_sharing_status .inside {
+  padding-bottom: 0; }
+
 .kbso-status *,
 .kbso-status *:before,
 .kbso-status *:after {
