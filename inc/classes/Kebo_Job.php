@@ -197,25 +197,70 @@ if ( ! class_exists( 'Kebo_Job' ) ) {
          */
         public function spawn_process() {
 
+            /**
+             * Make sure we only update in a single request
+             */
             if ( false === $this->check_lock() ) {
                 return;
             }
 
-            $server_url = home_url( '/?kebo_job_request' );
+            /**
+             * Check which method to use to process the job.
+             */
+            if ( $this->get_compat() ) {
+
+                // Makes an HTTP API Request
+                $this->http_request();
+
+            } else {
+
+                // Redirects the viewer and updates in this thread.
+                $this->http_redirect();
+
+                do_action( 'kebo_job_capture_request', self::$name, self::$args );
+
+                exit();
+
+            }
+
             
-            $args = array( 
+        } // end spawn_process
+
+        /**
+         * Make an WP HTTP API Request
+         */
+        private function http_request() {
+
+            $server_url = home_url( '/?kebo_job_request' );
+
+            $args = array(
                 'body' => array(
                     'kebo_job_name' => self::$name,
                     'kebo_job_args' => self::$args,
                 ),
                 'timeout' => 0.01,
                 'blocking' => false,
-                'sslverify' => apply_filters( 'https_ssl_verify', true )
+                'sslverify' => apply_filters( 'https_local_ssl_verify', true )
             );
-            
+
             wp_remote_post( $server_url, $args );
-            
-        } // end spawn_process
+
+        }
+
+        /**
+         * Redirect user to new request
+         */
+        private function http_redirect() {
+
+            ob_start();
+            wp_redirect( add_query_arg( 'kebo_job_redirect', 'true', wp_unslash( $_SERVER['REQUEST_URI'] ) ) );
+            echo ' ';
+
+            // flush any buffers and send the headers
+            while ( @ob_end_flush() );
+            flush();
+
+        }
 
         /**
          *

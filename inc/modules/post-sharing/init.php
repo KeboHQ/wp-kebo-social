@@ -45,6 +45,9 @@ function kbso_post_sharing_activate() {
         add_action( 'wp_enqueue_scripts', 'kbso_post_sharing_enqueue_frontend' );
     
     }
+
+    // Decide if we need to refresh counts
+    kbso_maybe_refresh_counts( $post->ID );
     
 }
 add_action( 'wp', 'kbso_post_sharing_activate' );

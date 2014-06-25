@@ -181,9 +181,8 @@ function kbso_post_sharing_content_insert( $content ) {
             add_action( 'wp_footer', 'kbso_post_sharing_responsive_compat' );
             
         }
-        
-        // Decide if we need to refresh counts
-        kbso_maybe_refresh_counts( $post->ID );
+
+        update_option( 'kebo_job_compat', true );
         
     }
     
@@ -783,7 +782,7 @@ function kbso_post_sharing_services_render( $preview = false ) {
      * Get Share Counts
      */
     $counts = get_post_meta( $post->ID, '_kbso_post_sharing_counts', true );
-    
+
     /*
      * Build HTML output
      */
