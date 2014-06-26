@@ -202,7 +202,7 @@ function kbso_post_sharing_floating_bar_render() {
         $options['post_sharing_theme'],
     );
     
-    echo '<div class="' . implode( ' ', $classes ) . '">' . kbso_post_sharing_services_render() . '</div>';
+    echo '<div class="' . esc_attr( implode( ' ', $classes ) ) . '">' . kbso_post_sharing_services_render() . '</div>';
     
 }
 
@@ -368,7 +368,7 @@ function kbso_post_sharing_filter_services( $type = 'selected', $services = arra
 
                 if ( isset( $all_services[ $selection ] ) ) {
 
-                    $selected[ $selection ] = $all_services[ $selection ]; 
+                    $selected[ $selection ] = $all_services[ $selection ];
 
                 }
 
